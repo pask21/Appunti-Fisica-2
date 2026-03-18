@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.30)  18 MAR 2026 17:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.30)  18 MAR 2026 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1552,7 +1552,7 @@ chapter 8.
 ]
 
 [53]
-Underfull \hbox (badness 10000) in paragraph at lines 2418--2422
+Underfull \hbox (badness 10000) in paragraph at lines 2419--2423
 
  []
 
@@ -1586,7 +1586,7 @@ chapter A.
 ]
 chapter B.
 
-Overfull \hbox (48.00012pt too wide) in paragraph at lines 2633--2708
+Overfull \hbox (48.00012pt too wide) in paragraph at lines 2634--2709
  [][] 
  []
 
@@ -1606,28 +1606,28 @@ chapter C.
 chapter D.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2722.
+(hyperref)                removing `math shift' on input line 2723.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\begingroup' on input line 2722.
+(hyperref)                removing `\begingroup' on input line 2723.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\endgroup' on input line 2722.
+(hyperref)                removing `\endgroup' on input line 2723.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@@over' on input line 2722.
+(hyperref)                removing `\@@over' on input line 2723.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2722.
+(hyperref)                removing `math shift' on input line 2723.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <20.74> on input line 2722.
+(Font)              <20.74> on input line 2723.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 2722.
+(Font)              <14.4> on input line 2723.
 
 
 [62
@@ -1669,7 +1669,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  113i,23n,376p,11037b,2815s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on build/appunti_fisica2.pdf (69 pages, 742033 bytes).
+Output written on build/appunti_fisica2.pdf (69 pages, 742054 bytes).
 PDF statistics:
  1636 PDF objects out of 1728 (max. 8388607)
  1487 compressed objects within 15 object streams

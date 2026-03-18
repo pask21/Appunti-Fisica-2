@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber build/appunti_fisica2"] 0 "build/appunti_fisica2.bcf" "build/appunti_fisica2.bbl" "build/appunti_fisica2" 1773852690.88169 0
+["biber build/appunti_fisica2"] 0 "build/appunti_fisica2.bcf" "build/appunti_fisica2.bbl" "build/appunti_fisica2" 1773853567.87951 0
   "bibliografia.bib" 0 -1 0 ""
   "build/appunti_fisica2.bcf" 0 -1 0 "pdflatex"
   (generated)
   "build/appunti_fisica2.bbl"
   "build/appunti_fisica2.blg"
   (rewritten before read)
-["pdflatex"] 1773852686.41211 "/Users/cosimo/Desktop/vs_projects/TeX/Appunti Fisica 2/appunti_fisica2.tex" "build/appunti_fisica2.pdf" "appunti_fisica2" 1773852690.88194 0
-  "/Users/cosimo/Desktop/vs_projects/TeX/Appunti Fisica 2/appunti_fisica2.tex" 1773852686.30575 168355 d3f1f7241dd38783a17ab58045b405d7 ""
+["pdflatex"] 1773853563.45821 "/Users/cosimo/Desktop/vs_projects/TeX/Appunti Fisica 2/appunti_fisica2.tex" "build/appunti_fisica2.pdf" "appunti_fisica2" 1773853567.87973 0
+  "/Users/cosimo/Desktop/vs_projects/TeX/Appunti Fisica 2/appunti_fisica2.tex" 1773853558.86763 168367 7fe6ae049508ce3ac3ea0736c21735e3 ""
   "/Users/cosimo/Desktop/vs_projects/TeX/preambolo/preambolo.tex" 1773790287.35679 4916 01eb220d346e3d63e75c51a039f8c0dd ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -374,12 +374,12 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1764514851 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1764514797 3345744 e34cecb4fcf49121025008b5033e4bfc ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "appunti_fisica2.tex" 1773852686.30575 168355 d3f1f7241dd38783a17ab58045b405d7 ""
-  "build/appunti_fisica2.aux" 1773852690.68036 51597 96326f5f8cdf5184b863f86283830560 "pdflatex"
+  "appunti_fisica2.tex" 1773853558.86763 168367 7fe6ae049508ce3ac3ea0736c21735e3 ""
+  "build/appunti_fisica2.aux" 1773853567.68384 51597 7c6f8532849761d368e850456c89659b "pdflatex"
   "build/appunti_fisica2.bbl" 0 -1 0 "biber build/appunti_fisica2"
-  "build/appunti_fisica2.out" 1773852688.08536 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "build/appunti_fisica2.run.xml" 1773852690.6903 2384 8c3039eadaeab6e877a4642a8156526e "pdflatex"
-  "build/appunti_fisica2.toc" 1773852690.69034 8372 765821f48363341e734cc31ac52e0d50 "pdflatex"
+  "build/appunti_fisica2.out" 1773853565.05066 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "build/appunti_fisica2.run.xml" 1773853567.69396 2384 8c3039eadaeab6e877a4642a8156526e "pdflatex"
+  "build/appunti_fisica2.toc" 1773853567.69402 8372 765821f48363341e734cc31ac52e0d50 "pdflatex"
   "build/figure/cavità.tex" 1771445542.6351 2201 311b2c6effe9cdabc6cb577a3591c12e ""
   "build/figure/cavità_parallelepipedo.tex" 1771690789.49534 2542 da6aa9223fca75feb23e33fbcaadd138 ""
   "build/figure/cavità_parallelepipedo_campi.tex" 1771691099.99321 1954 1020dc7daf2a016886fa6f7b477946f0 ""
