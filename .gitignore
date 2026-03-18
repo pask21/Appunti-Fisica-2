@@ -1,5 +1,11 @@
 # Build LaTeX
-build/
+build/*
+
+# tiene il pdf
+!build/appunti_fisica2.pdf
+
+# tiene le immagini
+!build/figure
 
 # File temporanei
 *.aux
