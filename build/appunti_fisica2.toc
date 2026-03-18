@@ -1,0 +1,96 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{\numberline {1}Equazione di Laplace}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Coordinate cartesiane}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Caso bidimensionale}{2}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}Coordinate sferiche}{2}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Armoniche sferiche}{3}{subsection.1.2.1}%
+\contentsline {chapter}{\numberline {2}Esercizi dell'elettrostatica}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Distribuzione di carica}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Cilindro con carica}{6}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Dielettrici}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}aaaa}{8}{section.3.1}%
+\contentsline {section}{\numberline {3.2}b}{8}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Magnetostatica}{10}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Interazione fra correnti}{10}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Campo di un filo}{11}{subsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1.1}Campo di un filo infinito}{11}{subsubsection.4.1.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1.2}Filo di raggio a}{11}{subsubsection.4.1.1.2}%
+\contentsline {section}{\numberline {4.2}Equazioni di Maxwell per il campo magnetico}{11}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Potenziale vettore}{13}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Possibili scelte di Gauge}{14}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}Espansione in multipolo del campo magnetico}{14}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Dipolo magnetico}{16}{subsection.4.4.1}%
+\contentsline {section}{\numberline {4.5}Potenziale scalare magnetico}{16}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Energia del dipolo magnetico}{17}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Forza magnetica}{17}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Magnetismo nella materia}{19}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Magnetizzazione}{19}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Permeabilità e suscettibilità magnetica}{19}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Leggi di Curie}{20}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3}Correnti amperiane}{20}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Mezzi omogenei e isotropi}{22}{subsection.5.3.1}%
+\contentsline {section}{\numberline {5.4}Interfaccia fra materiali magnetici}{22}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Elettromagneti}{22}{subsection.5.4.1}%
+\contentsline {chapter}{\numberline {6}Esercizi della magnetostatica}{23}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Sfera carica rotante}{23}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Cilindri con correnti opposte}{24}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Elettrodinamica}{25}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Rotore del campo elettrico}{25}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Induzione elettromagnetica}{26}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Autoinduttanza di un solenoide}{27}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Circuito RL}{27}{subsection.7.2.2}%
+\contentsline {section}{\numberline {7.3}Rotore del campo magnetico}{27}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Corrente di spostamento nel condesatore piano}{28}{subsection.7.3.1}%
+\contentsline {section}{\numberline {7.4}Campi lentamente variabili}{28}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Corda elastica e onde meccaniche}{30}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Onde elettromagnetiche}{30}{section.7.6}%
+\contentsline {subsection}{\numberline {7.6.1}Gradi di libertà}{32}{subsection.7.6.1}%
+\contentsline {subsection}{\numberline {7.6.2}Polarizzazione}{32}{subsection.7.6.2}%
+\contentsline {subsection}{\numberline {7.6.3}Somma di onde progressive e regressive}{33}{subsection.7.6.3}%
+\contentsline {section}{\numberline {7.7}Teorema di Poynting}{33}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}Vettore di Poynting per il filo}{36}{subsection.7.7.1}%
+\contentsline {section}{\numberline {7.8}Cavità elettromagnetiche o radiofrequenza (RF)}{36}{section.7.8}%
+\contentsline {subsection}{\numberline {7.8.1}Cavità in coordinate cartesiane}{38}{subsection.7.8.1}%
+\contentsline {subsection}{\numberline {7.8.2}Effetto pelle}{39}{subsection.7.8.2}%
+\contentsline {section}{\numberline {7.9}Pacchetti d'onda}{40}{section.7.9}%
+\contentsline {subsection}{\numberline {7.9.1}Trasformata di Fourier}{40}{subsection.7.9.1}%
+\contentsline {subsection}{\numberline {7.9.2}Trasformata di un oscillatore forzato}{41}{subsection.7.9.2}%
+\contentsline {subsection}{\numberline {7.9.3}Trasformata dell'equazione delle onde}{41}{subsection.7.9.3}%
+\contentsline {subsection}{\numberline {7.9.4}Trasformata di un pacchetto d'onda}{42}{subsection.7.9.4}%
+\contentsline {section}{\numberline {7.10}Guide d'onda}{42}{section.7.10}%
+\contentsline {section}{\numberline {7.11}Soluzione equazioni di Maxwell in presenza di sorgenti}{43}{section.7.11}%
+\contentsline {section}{\numberline {7.12}Elettrodinamica raw del 23 febbraio}{46}{section.7.12}%
+\contentsline {subsection}{\numberline {7.12.1}Guida rettangolare}{48}{subsection.7.12.1}%
+\contentsline {section}{\numberline {7.13}Fisica 2 del 2 marzo}{49}{section.7.13}%
+\contentsline {section}{\numberline {7.14}Irraggiamento}{50}{section.7.14}%
+\contentsline {chapter}{\numberline {8}Esercizi elettrodinamica}{52}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Circuiti}{52}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Circuito con ramo mobile}{52}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Circuito L-C infinito}{52}{subsection.8.1.2}%
+\contentsline {section}{\numberline {8.2}Cavità cilindrica}{53}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Piano di corrente}{54}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Dipoli oscillanti in fase}{55}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Elettromagnetismo in forma covariante}{56}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Raw}{57}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Campo generato da una carica in moto}{57}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Flusso del campo}{57}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Campo di un solenoide}{57}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Campo di un toroide}{57}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Piano di corrente}{57}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}Discontinuità del campo magnetico attraverso una distr superfificiale di corrente}{57}{subsection.10.2.4}%
+\contentsline {section}{\numberline {10.3}Circuiti -- 12 febbraio}{57}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}RLC}{57}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}RLC forzato}{58}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}Impedenze complesse}{58}{subsection.10.3.3}%
+\contentsline {subsection}{\numberline {10.3.4}Trasformatore}{58}{subsection.10.3.4}%
+\contentsline {chapter}{\numberline {A}Identità vettoriali}{59}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Opearzioni generiche}{59}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Operatori differenziali}{59}{section.Alph1.2}%
+\contentsline {chapter}{\numberline {B}Operatori differenziali in vari sistemi di coordinate}{60}{appendix.Alph2}%
+\contentsline {chapter}{\numberline {C}Decomposizione di Helmholtz}{61}{appendix.Alph3}%
+\contentsline {chapter}{\numberline {D}Sviluppo di $ \frac {1}{\mathbf { |r-r'| }}$}{62}{appendix.Alph4}%
+\contentsline {subsection}{\numberline {D.0.1}Alcuni termini}{63}{subsection.Alph4.0.1}%
+\contentsline {chapter}{\numberline {E}Pseudo-vettori}{64}{appendix.Alph5}%
+\contentsline {chapter}{\numberline {F}Richiami di relatività}{65}{appendix.Alph6}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
