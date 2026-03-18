@@ -147,7 +147,8 @@ dove vale che
 \end{equation}
 mentre l'ortogonalità è normalizzata, integrando sull'angolo solido
 \begin{equation}
-  \int_{4\pi}  \,d\Omega \,Y_{l,m} Y_{l',m'}^*  = \int_0^{2\pi} \,d\varphi \int_0^{\pi} \sin\theta  \,d\theta \, Y_{l,m} Y_{l',m'}^* = \delta_{ll'} \delta_{mm'} 
+  \int_{4\pi}  \,d\Omega \,Y_{l,m} Y_{l',m'}^*  = \int_0^{2\pi} \,d\varphi \int_0^{\pi} \sin\theta  \,d\theta \, Y_{l,m} Y_{l',m'}^* 
+  = \delta_{ll'} \delta_{mm'} 
 \end{equation}
 
 \[
@@ -2284,16 +2285,36 @@ ottenere il termine di dipolo elettrico $ \v{p} $. Sfruttiamo l'identità vettor
 \begin{align}
   \nabla' \cdot \left( x' \, \v{J}_\omega(\v{r'}) \right) &= \vers{x}' \cdot \v{J}_\omega(\v{r'}) + x' \nabla'\!\cdot\!\mathbf{ J }_\omega(\v{r'}) 
   \\
-  &= J_{\omega,x'} - x' \der{\rho(\v{r'})}{t} = J_{\omega,x} + x' i\omega \rho(\v{r'})
+  &= J_{\omega,x'} - x' \der{\rho_\omega(\v{r'})}{t} = J_{\omega,x} + x' i\omega \rho_\omega(\v{r'})
 \end{align}
 dove nell'ultimo passaggio la $ J_{\omega,x} $ è diventata $ J_{\omega,x'} $, questo perché nell'integrale è valutata nel punto $ \v{r'} $ quindi la 
 direzione è sempre la stessa, a questo possiamo subito notare che il termine $ \nabla' \cdot \left( x' \, \v{J}_\omega(\v{r'}) \right) $ può essere 
 traformato in un integrale di superficie per il teorema della divergenza ed è quindi nullo per l'ipotesi di sorgenti localizzate dato che la superficie 
 va all'infinito. Rimane soltanto il termine con $ \rho(\v{r'}) $
 \begin{align}
-  A_{\omega,x} = \frac{\mu_0}{4\pi} \frac{e^{ikR}}{R} \int i\omega x'\rho(\v{r'}) \,d^3r' = \frac{\mu_0 \, i \omega}{4\pi} 
+  A_{\omega,x}(\v{r}) &= -\frac{\mu_0}{4\pi} \frac{e^{ikR}}{R} \int i\omega x'\rho_\omega(\v{r'}) \,d^3r' 
+  = -\frac{\mu_0 \, i \omega}{4\pi} \frac{e^{ikR}}{R} p_{\omega, x}
+  \\
+  \implies \v{A}_{\omega}(\v{r}) &= -\frac{\mu_0 \, i \omega}{4\pi} \frac{e^{ikR}}{R} \v{p}_{\omega}
 \end{align}
-e quindi
+Per trovare i campi dobbiamo farne il rotore, ma il dipolo $ \v{p}_\omega $ non dipende dalle coordinate e a grandi distanze il termine dominante è la 
+derivata rispetto a $ R $ della fase cioè $ \der{}{R} \left( e^{ikR} \right) $ perché l'altro termine va come $ 1/R^2 $. Quindi applicando il rotore 
+otteniamo
+\begin{align}
+  \v{B}_\omega(\v{r}) = \nabla\!\times\!\mathbf{ A }_\omega(\v{r}) &= - \frac{\mu_0\, i\omega}{4\pi} \,e^{ikR} i \v{k} \times \v{p}_\omega
+  \\
+  &= \frac{\mu_0\,\omega}{4\pi} \, \frac{e^{ikR}}{R}\, \v{k} \times \v{p}_\omega
+\end{align}
+dove abbiamo riscritto $ \v{k} = k \vers{u} $ come la direzione di propagazione dell'onda, così da tenere conto direttamente nel prodotto vettore la 
+dipendenza dall'angolo compreso ($ \sin\theta $). Torniamo al campo reale dipendente dal tempo moltiplicando per $ e^{-i\omega t} $
+\begin{align}
+  \v{B}(\v{r},t) = \frac{\mu_0\,\omega \,k}{4\pi} \, \frac{e^{i(kR - \omega t)}}{R} \, \vers{u} \times \v{p}_\omega
+\end{align}
+ed otteniamo il campo elettrico
+\begin{align}
+  \v{E}(\v{r},t) = \frac{i}{\omega} \nabla\!\times\!\mathbf{ B } = \frac{i}{\omega} \, i\v{k} \times \v{B} 
+  = -\frac{\mu_0\, k^2}{4\pi} \frac{e^{i(kR - \omega t)}}{R} \vers{u} \times \vers{u} \times \v{p}_\omega
+\end{align}
 
 \chapter{Esercizi elettrodinamica}
 \section{Circuiti}
