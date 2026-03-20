@@ -2301,20 +2301,75 @@ Per trovare i campi dobbiamo farne il rotore, ma il dipolo $ \v{p}_\omega $ non 
 derivata rispetto a $ R $ della fase cioè $ \der{}{R} \left( e^{ikR} \right) $ perché l'altro termine va come $ 1/R^2 $. Quindi applicando il rotore 
 otteniamo
 \begin{align}
-  \v{B}_\omega(\v{r}) = \nabla\!\times\!\mathbf{ A }_\omega(\v{r}) &= - \frac{\mu_0\, i\omega}{4\pi} \,e^{ikR} i \v{k} \times \v{p}_\omega
+  \v{B}_\omega(\v{r}) = \nabla\!\times\!\mathbf{ A }_\omega(\v{r}) &= - \frac{\mu_0\, i\omega}{4\pi} \,\frac{e^{ikR}}{R} i \v{k} \times \v{p}_\omega
   \\
   &= \frac{\mu_0\,\omega}{4\pi} \, \frac{e^{ikR}}{R}\, \v{k} \times \v{p}_\omega
 \end{align}
 dove abbiamo riscritto $ \v{k} = k \vers{u} $ come la direzione di propagazione dell'onda, così da tenere conto direttamente nel prodotto vettore la 
-dipendenza dall'angolo compreso ($ \sin\theta $). Torniamo al campo reale dipendente dal tempo moltiplicando per $ e^{-i\omega t} $
+dipendenza dall'angolo compreso ($ \sin\theta $). Otteniamo ora il campo elettrico
 \begin{align}
-  \v{B}(\v{r},t) = \frac{\mu_0\,\omega \,k}{4\pi} \, \frac{e^{i(kR - \omega t)}}{R} \, \vers{u} \times \v{p}_\omega
+  \v{E}_\omega(\v{r}) &= \frac{i\,c^2}{\omega} \nabla\!\times\!\mathbf{ B }_\omega = \frac{i\,c^2}{\omega} \, i\v{k} \times \v{B}_\omega 
+  = -\frac{k^2}{4\pi \eps_0} \frac{e^{ikR}}{R} \vers{u} \times (\vers{u} \times \v{p}_\omega)
+  \\
+  &= \frac{k^2}{4\pi \eps_0} \frac{e^{ikR}}{R} (\vers{u} \times \v{p}_\omega) \times \vers{u}
 \end{align}
-ed otteniamo il campo elettrico
+I campi che abbiamo ottenuto sono trovati nel dominio delle frequenze, per tornare al dominio del tempo occorre fare l'anti-trasformata del campo nel 
+dominio delle frequenze $ \v{B}_\omega(\v{r}) $, cioè
 \begin{align}
-  \v{E}(\v{r},t) = \frac{i}{\omega} \nabla\!\times\!\mathbf{ B } = \frac{i}{\omega} \, i\v{k} \times \v{B} 
-  = -\frac{\mu_0\, k^2}{4\pi} \frac{e^{i(kR - \omega t)}}{R} \vers{u} \times \vers{u} \times \v{p}_\omega
+  \v{B}(\v{r},t) &= \mathcal{F}^{-1} \left[ \v{B}_\omega(\v{r}) \right] 
+  = \frac{\mu_0}{4\pi c \, R} \mathcal{F}^{-1} \left[ {\omega^2} e^{i\frac{\omega}{c} R} \vers{u} \times \v{p}_\omega \right]
+  \\
+  &= \frac{\mu_0}{4\pi c } \, \frac{\ddot{\v{p}}_{(t - \frac{R}{c})} \times \vers{u} }{R} 
 \end{align}
+dove abbiamo invertito il prodotto vettore per cambiare segno e abbiamo usato il teorema del ritardo causale (\textit{time shifting}) relativo alla 
+trasformata di Fourier che ci ha permetto di trasformare l'esponenziale complesso nel dominio delle frequenze in una tralazione temporale nel dominio 
+del tempo. Facciamo la stessa cosa per il campo elettrico
+\begin{align}
+  \v{E}(\v{r},t) &= \mathcal{F}^{-1} \left[ \v{E}_\omega(\v{r}) \right]
+  = \frac{1}{4\pi c^2\,R} \mathcal{F}^{-1} \left[ {\omega^2} e^{i\frac{\omega}{c} R} (\vers{u} \times \v{p}_\omega) \times \vers{u} \right]
+  \\
+  &= \frac{1}{4\pi \eps_0 c^2} \frac{( \ddot{\v{p}}_{(t - \frac{R}{c})} \times \vers{u} ) \times \vers{u}}{R} 
+\end{align}
+Adesso che abbiamo ottenuto entrambi i campi possiamo trovare il vettore di Poynting $ \v{S} $ e la media temporale calcolata sul periodo del suo modulo che 
+costituisce una grandezza di ampio interesse chiamata \textit{intensità}:
+\begin{align} 
+  I = \langle |\v{S}| \rangle_T.
+\end{align}
+Troviamo quindi $ \v{S} $, per svolgere questo prodotto vettore di cinque termini osserviamo che se chiamiamo $ \v{a} = \ddot{\v{p}}(t_r) \times \vers{u} $ 
+si può applicare la regola {bac-cab}:
+\begin{align}
+  \v{S} &= \frac{1}{\mu_0} \v{E} \times \v{B} = \frac{1}{8\pi^2 \eps_0 \, c^3\,R^2} (\v{a}\times \vers{u}) \times \v{a} 
+  = \frac{1}{8\pi^2 \eps_0 \, c^3\,R^2}\,a^2 \vers{u}
+  \\
+  &= \frac{\eps_0 k_0^2}{c^3} \, \frac{\sin^2\theta}{R^2} \;\lvert \ddot{\v{p}}(t_r) \rvert^2 \vers{u}
+\end{align}
+dove abbiamo sostituito $ k_0 = \frac{1}{4\pi \eps_0} $ (che nel sistema $ cgs $ vale $ 1 $). Notiamo che il vettore di Poynting è diretto verso il punto 
+di osservazione e la sua distribuzione angolare varia con $ \sin^2\theta $ con $ \theta $ angolo polare, questo ci dice che il suo modulo è minimo per 
+$ \theta = 0,\pi $ quindi sull'asse $ z $, mentre è massimo per $ \theta = \pi/2 $. Per trovare l'intensità ricordiamo che la sorgente è varia nel tempo 
+come $ e^{-i\omega t} $ che è quindi un $ \cos\left( \omega(t - R/c) \right) $ calcolato al tempo ritardato, la derivata seconda elevata al quadrato 
+ci porta porta un fattore $ \omega^4 $, rimane l'integrale sul periodo del $ \cos^2 $ che ci porta un fattore $ 1/2 $, dunque abbiamo che
+\begin{align}
+  I = \frac{\eps_0 k_0^2}{c^3} \, \frac{\sin^2\theta}{R^2} \frac{\omega^4}{2} \;\lvert \v{p}_0 \rvert^2.
+\end{align}
+Un dettaglio interessante è che il vettore di Poynting, e di conseguenza l'intensità, decrescono come $ 1/R^2 $, il loro integrale su una superficie è 
+quindi costante ed è proprio ciò che ci aspettavamo di ottenere, che significa che osservare l'intesità emessa non dipende dalla distanza a cui lo facciamo, 
+a patto di osservare su tutto l'angolo solido. Infatti la dipendenza dell'intensità dall'angolo solido è costante:
+\begin{align}
+  {dI} = R^2 \langle \v{S} \cdot \vers{n} \rangle , {d\Omega}
+  = \frac{\eps_0 k_0^2}{c^3} \, {\sin^2\theta} \frac{\omega^4}{2} \;\lvert \v{p}_0 \rvert^2 \,{d\Omega}
+\end{align}
+A questo punto è facile ottenere la potenza totale irraggiata che è il flusso del vettore di Poynting
+\begin{align}
+  W &= \int |\v{S}| R^2 \,d\Omega = \frac{2\pi\eps_0 k_0^2}{c^3} \, \lvert \ddot{\v{p}}_0 \rvert^2 \int_0^\pi sin^2\theta \cdot \sin \theta \,d\theta 
+  \\
+  &= \frac{8\pi\eps_0 k_0^2}{3\,c^3}\, \lvert \ddot{\v{p}}_0 \rvert^2 = \frac{1}{6\pi \eps_0 \,c^3}\,\lvert \ddot{\v{p}}_0 \rvert^2 
+\end{align}
+che mediandola su un periodo si ha
+\begin{align}
+  \langle W \rangle = \frac{2 k_0\, \langle \lvert \ddot{\v{p}}_0 \rvert^2 \rangle}{3\,c^3} =
+  \langle W \rangle = \frac{k_0\, \omega^4 \lvert {\v{p}}_0 \rvert^2 }{3\,c^3}  
+\end{align}
+e questa potenza è detta potenza di \textit{Larmor}.
 
 \chapter{Esercizi elettrodinamica}
 \section{Circuiti}

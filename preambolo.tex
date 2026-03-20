@@ -1,4 +1,4 @@
-\documentclass[11pt,oneside]{scrbook} % KOMA: pulito e flessibile
+\documentclass[11pt,oneside]{scrbook} 
 
 % ---------- LINGUA & CODIFICA ----------
 \usepackage[italian]{babel}
@@ -6,18 +6,17 @@
 \usepackage[utf8]{inputenc}
 
 % ---------- TIPOGRAFIA CONSIGLIATA ----------
-\usepackage{lmodern}     % font semplice e diffuso
-\usepackage{microtype}   % micro-tipografia, migliore resa
+\usepackage{lmodern}     
+\usepackage{microtype}   
 
 % ---------- GEOMETRIA PAGINA ----------
-% Scegli *una* delle due geometrie qui sotto.
-% (1) Impostazioni consigliate per A4 (Italia) con ampio margine esterno:
+% Impostazioni consigliate per A4 (Italia):
 \usepackage[
   a4paper,
   top=24mm,
   bottom=28mm,
   inner=24mm,   % margine interno (verso rilegatura)
-  outer=30mm,   % margine esterno: ampio per le note a margine
+  outer=30mm,   % margine esterno 
   heightrounded
 ]{geometry}
 \setlength{\headheight}{17pt} % evita sovrapposizioni con l'header
@@ -28,16 +27,6 @@
 \ihead{\leftmark}
 \ofoot*{\pagemark}
 \automark{chapter}
-
-% (2) Se vuoi replicare il formato del PDF caricato (US Letter 8.5x11"):
-% \usepackage[
-%   letterpaper,
-%   top=25mm,
-%   bottom=30mm,
-%   inner=30mm,
-%   outer=55mm,
-%   heightrounded
-% ]{geometry}
 
 % ---------- STRUMENTI DI STRUTTURA ----------
 \setcounter{secnumdepth}{3}
@@ -81,7 +70,7 @@
 
 \usepackage{tikz}
 \usetikzlibrary{intersections}
-\usepackage{pgfplots} % grafici, creato in tikZ
+\usepackage{pgfplots} % grafici
 \pgfplotsset{compat = 1.18}
 \usetikzlibrary{
 arrows.meta,
