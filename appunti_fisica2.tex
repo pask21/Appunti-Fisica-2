@@ -2371,6 +2371,76 @@ che mediandola su un periodo si ha
 \end{align}
 e questa potenza è detta potenza di \textit{Larmor}.
 
+\subsection{Irraggiamento nell'atomo di idrogeno}
+Applichiamo quello che abbiamo appena ricavato sulla teoria dell'irraggiamento all'atomo di idrogeno nel modello planetario (modello di Rutherford), 
+cioè con il protone carico positivo al centro e l'elettrone che lo orbita, e supponiamo che ci sia una onda elettromagnetica incidente.
+
+Le forze agenti sull'elettrone sono la forza di Lorenz $ \v{F}_L = q \left( \v{E} + \v{v} \times \v{B} \right) $ dovuta all'onda che incide su $ e^- $, 
+la forza di Coulomb $ \v{F}_C $ dovuta al protone di carica opposta e una forza che possiamo esprimere come un attrito dinamico dovuto all'irraggiamento 
+dell'elettrone stesso. Il motivo per cui imponiamo che l'irraggiamento dell'elettrone si manifesti come una forza dissipativa è che irraggiando perde 
+energia, quindi è del tutto plausibile che sia simile ad un attrito, inoltre se non inserissimo questo termine dovremmo farlo uscire dai campi 
+elettromagnetici totali e quindi affrontare il problema della \textit{self force}. Questo problema è notoriamente complicato sia classicamente che andando 
+ad avanzare teorie più sofisticate che tentano di spiegare cosa sia effettivamente l'elettrone, quindi imporre questa forma è più che conveniente. 
+Scriviamo quindi le equazioni del moto
+\begin{align}
+  m_e \ddot{\v{r}} = -e\left( \v{E} + \v{v} \times \v{B} \right) - m_e \omega_0^2 \v{r} - m_e \gamma \dot{\v{r}}
+\end{align}
+dove abbiamo già espresso la forza di Coulomb in forma di piccole oscillazioni attorno alla posizione di equilibrio. Per velocità non relativistiche 
+possiamo trascurare la forza magnetica dato che rispetto alla forza elettrica ha un fattore $ v/c $. Considerando un campo elettrico con una dipendenza del 
+tipo $ \v{E} = E_0 e^{-i\omega t} \vers{z} $ abbiamo che il sistema è un oscillatore armonico forzato cioè
+\begin{align}
+  \ddot{z} + \gamma \dot{z} + \omega_0^2 z = - \frac{eE_0}{m_e} e^{-i\omega t}.
+\end{align}
+Questa equazione ha come soluzione omogenea quella dell'oscillatore smorzato con tempo caratteristico $ \uptau = 2/\gamma $, che rappresenta il tempo 
+transitorio iniziale. Per $ t \gg \uptau $ rimane soltanto la soluzione particolare che supponiamo essere della forma della forzante:
+\begin{align}
+  \left[ \der[2]{}{t} + \gamma \der{}{t} + \omega_0^2 \right] \left( z_0 e^{-i\omega t} \right) 
+  &= \left( -\omega^2 z_0 -i \omega \gamma z_0 + \omega_0^2 z_0 \right) e^{-i\omega t} \overset{!}{=} - \frac{eE_0}{m_e} e^{-i\omega t}
+  \\
+  \implies z_0 &= \frac{{eE_0}/{m_e}}{\omega^2 -\omega_0^2 + i\omega \gamma}
+\end{align}
+e quindi la forma completa è
+\begin{align}
+  z_{p}(t) &= \frac{{eE_0}/{m_e}}{\omega^2 -\omega_0^2 + i\omega \gamma} \,e^{-i\omega t}.
+\end{align}
+Da questa forma si nota chiaramente il fenomeno della risonanza dato che per $ \omega = \omega_0 $ c'è un massimo nel modulo dell'ampiezza $ |z_0| $ e 
+soprattutto abbiamo che $ z_p $ è in \textit{quadratura} con la forzante, infatti abbiamo che $ z_p \propto \sin(\omega t) $, risulta quindi sfasata di 
+$ \pi/2 $ rispetto ad $ E_z $ che quando andiamo a vedere la potenza $ W = F \cdot \v \propto \cos^2 (\omega t) $. Risulta quindi che la potenza assorbita 
+dall'elettrone alla frequenza di risonanza è massima. Notiamo che il termine dissipativo dovuto all'irraggiamento svolge un ruolo fondamentale che 
+legittimizza ancora di più la sua presenza: impedisce al denominatore di divergere, il che avrebbe portato a dire che l'elettrone assorbe energia infinita 
+che è chiaramente assurdo. D'ora in poi consideriamo il caso $ \gamma = 0 $, per trovare la potenza irraggiata usiamo la relazione appena ricavata della 
+potenza di Larmor
+\begin{align}
+  \langle W \rangle = \frac{k_0 \,\omega ^4 |\v{p}_0|^2}{3\, c^3} &= \frac{k_0 \,\omega ^4 |e\,\ddot{\v{z}}_p|^2}{3\, c^3} 
+  = \frac{k_0 \, e^4 E_0^2}{3\,c^3\,m_e^2} \frac{\omega^4}{(\omega^2 -\omega_0^2)^2}
+  \\
+  &= \frac{k_0 \, e^4 E_0^2}{3\,c^3\,m_e^2} \, F(\omega)
+\end{align}
+e definiamo una grandezza chiamata \textit{sezione d'urto}, che ha le dimensioni di una superficie, nel modo seguente:
+\begin{align}
+  \sigma = \frac{\langle W \rangle}{I}
+\end{align}
+e siccome l'intensità di un onda piana incidente è 
+\begin{align}
+  I = \langle |\v{S}| \rangle = \eps_0 c^2\langle \frac{ E_0^2}{c} \cos^2(\omega t) \rangle = \frac{\eps_0 \, c \,E_0^2}{2}
+\end{align}
+quindi la sezione d'urto vale
+\begin{align}
+  \sigma = \frac{2 \, k_0 \, e^4}{3\,\eps_0\,c^4 \,m_e^2}\, F(\omega) = \frac{8\pi}{3} \left( \frac{k_0\,e^2}{m_e^2\,c^2} \right)^2 F(\omega) 
+  \eqcolon \frac{8\pi}{3}\, R_e^2 \,F(\omega)
+\end{align}
+dove abbiamo definito il raggio classico dell'elettrone $ R_e \coloneq \frac{k_0\,e^2}{m_e\,c^2} $ che si ottiene eguagliando l'energia a riposo 
+con l'energia coulombiana. Analizziamo la sezione d'urto nei due limiti: 
+\begin{align}
+  \left.1\right)\qquad &\omega \gg \omega_0 \implies F(\omega) \simeq 1
+  \\
+  \left.2\right)\qquad &\omega \ll \omega_0 \implies F(\omega) \simeq \left( \frac{\omega}{\omega_0} \right)^4.
+\end{align}
+Il primo caso è chiamato \textit{scattering Thomson} o scattering di elettrone libero, questo perché il moto di rivoluzione è "invisibile" rispetto alla 
+frequenza con cui l'onda elettromagnetica incide. Il secondo caso è detto \textit{scattering Rayleigh} è interessante per le interazioni luce-materia, 
+dato che l'onda incidente non ha abbastanza energia per alterare la struttura atomica. Lo scattering Rayleigh è il motivo per il quale il cielo appare di 
+colore blu.
+
 \chapter{Esercizi elettrodinamica}
 \section{Circuiti}
 \subsection{Circuito con ramo mobile}
