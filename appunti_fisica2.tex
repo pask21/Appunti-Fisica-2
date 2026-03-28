@@ -324,6 +324,8 @@ questo lungo l'asse $ z $, quindi in generale vale
   V(r,\theta) = \frac{Q}{12} \left( h^2 - 3a^2 \right) \frac{1}{r^3} \frac{3\cos^2\theta - 1}{2}
 \end{equation}
 
+\begin{comment}
+
 \chapter{Dielettrici}
 \textbf{BOZZA}
 \section{aaaa}
@@ -366,6 +368,9 @@ polarizzazione. Da notare che se all'interno della superficie $S$ non ci sono ca
 lo stesso ponendo 0 alla carica che non è presente. Per quanto riguarda la seconda di Maxwell, $\mathbf{E}$ rimane sempre un campo conservativo 
 (perché è esprimibile come somma del campo precedente e del campo $\mathbf{E_\text{int}}$ come discusso sopra, entrambi conservativi perché generati 
 da distribuzioni di cariche) e dunque la sua circuitazione lungo una linea chiusa è nulla. 
+
+
+\end{comment}
 
 \chapter{Magnetostatica}
 Da un punto di vista storico, il magnetismo era un fenomeno che consisteva in una attrazione e repulsione in punti diversi fra alcuni materiali 
@@ -1638,7 +1643,11 @@ quindi basta scegliere una frequenza tale che il diametro del condensatore sia u
 \end{align}
 quindi prendendo una qualsiasiasi $ \omega_n $ avremo che il campo elettrico sarà nullo sul bordo, come mostrato in figura 
 \ref{figure:_condensatore_piano_cavità} dove abbiamo preso 
-$ n = 1 $ ottenendo quindi $ \lambda = 2 R $.
+$ n = 1 $ ottenendo quindi $ \lambda = 2 R $. Il ragionamento che abbiamo appena fatto parte dall'assunzione che le soluzioni siano effettivamente delle 
+sinusoidi, il che non è vero per il condensatore cilindrico. Infatti le soluzioni esatte di questo modello sono le funzioni di Bessel e per vederlo si 
+rimanda all'esercizio \ref{section:_esercizio_cavità_cilindrica}. Benché esistano alcuni limiti in cui le funzioni di Bessel diventano delle funzioni 
+trigonometriche, il ragionamento appena fatto è utile solo ai fini motivazionali di chiudere la cavità e sapere che per alcune condizioni il campo 
+elettrico tangenziale è nullo sul bordo.
 
 \input{build/figure/condensatore_piano_cavità.tex}
 
@@ -1654,7 +1663,7 @@ Calcoliamo la circuitazione dei campi su un circuito amperiano $ \gamma $ al bor
 \begin{align}
   E_z(\text{metallo}) - E_z(\text{cavità}) = 0 &\qquad E_\rho(\text{metallo}) - E_\rho(\text{cavità}) = \frac{\sigma}{\eps_0}
   \\
-  B_z(\text{metallo}) - B_z(\text{cavità}) = \mu_0 K &\qquad E_\rho(\text{metallo}) - E_\rho(\text{cavità}) = 0
+  B_z(\text{metallo}) - B_z(\text{cavità}) = \mu_0 K &\qquad B_\rho(\text{metallo}) - B_\rho(\text{cavità}) = 0
 \end{align}
 Queste sono le condizioni al bordo che dovremo imporre in seguito. Supponiamo di avere una onda monocromatica 
 $ f(t) \sim \exp \left\{ -i \omega t \right\} $, l'equazione da risolvere la troviamo facendo il rotore del rotore del campo elettrico:
@@ -1713,7 +1722,7 @@ vogliamo verificare che può essere una soluzione del nostro problema e per qual
 \end{align}
 dunque una condizione affinché sia soluzione è che
 \begin{align}
-  \left[ \left( \frac{n_1\pi}{a} \right)^2 + \left( \frac{n_2\pi}{b} \right)^2 + \left( \frac{n_3\pi}{c} \right)^2 \right] = \omega^2 \label{condizione_1}
+  \left[ \left( \frac{n_1\pi}{a} \right)^2 + \left( \frac{n_2\pi}{b} \right)^2 + \left( \frac{n_3\pi}{c} \right)^2 \right] = \frac{\omega^2}{c^2} \label{condizione_1}
 \end{align}
 Applichiamo adesso la condizione di divergenza nulla:
 \begin{align}
@@ -1747,7 +1756,7 @@ di cui una rappresentazione dei profili si può osservare in figura \ref{figure:
 \input{build/figure/cavità_parallelepipedo_campi.tex}
 
 \subsection{Effetto pelle}
-Fin ora abbiamo supposto che la cavità sia ideale e qche quindi il campo elettrico ai bordi sia nullo, tuttavia quello che si verifica nella realtà è che il 
+Fin ora abbiamo supposto che la cavità sia ideale e che quindi il campo elettrico ai bordi sia nullo, tuttavia quello che si verifica nella realtà è che il 
 campo ai bordi è molto piccolo ed entrando nel metallo decresce esponenzialmente. Questo succede perché il campo diverso da zero nel bordo di metallo della 
 cavità induce una densità di corrente secondo la legge di Ohm microscopica:
 \begin{align}
@@ -1775,7 +1784,9 @@ essere solo parallelo alla cavità. Per ottenere il campo reale troviamo prima $
 \end{align}
 in questo modo possiamo definire una lunghezza caratteristica $ \delta $ chiamata \textit{spessore pelle}
 \begin{align}
-  \delta = \frac{1}{\text{Re}(\chi)} = \sqrt{\frac{2}{\omega \mu_0 \sigma}}
+  \text{SI} \qquad \delta &= \frac{1}{\text{Re}(\chi)} = \sqrt{\frac{2}{\omega \mu_0 \sigma}}
+  \\
+  \text{cgs} \qquad \delta &= \frac{c}{\sqrt{2\pi \omega \sigma}}
 \end{align}
 ed il campo risultà così
 \begin{align}
@@ -1789,7 +1800,7 @@ metaallo:
 \end{align}
 ed è detto \textit{fattore di qualità}. Per gli scopi di confinamento di campi elettromagnetici si impiegano materiali con $ Q \gg 1 $. Il concetto di 
 fattore di qualità è molto più generale che per le sole onde elettromagnetiche, infatti fa parte dei parametri per descrivere gli smorzarmenti di segnali, 
-che siano onde meccanicaniche o di altra natura.
+che siano onde meccaniche o di altra natura.
 %% AGGIUNGERE CALCOLO DI LUNGHEZZA PELLE PER ALCUNI MATERIALI
 
 \section{Pacchetti d'onda}
@@ -1904,7 +1915,7 @@ velocità di fase delle onde che lo compongono. Tali mezzi sono detti \textit{di
 
 \section{Guide d'onda}
 I casi visti precedentemente riguardavano volumi limitati con alcune simmetrie (cilindrica, rettangolare), passiamo ora a considerare dei volumi che si 
-estendono in modo (quasi) illimitato lungo una direzione. Tali oggetti si dico \textit{guide d'onda} poiché vedremo che sono in grado di trasmettere 
+estendono in modo (quasi) illimitato lungo una direzione. Tali oggetti si dicono \textit{guide d'onda} poiché vedremo che sono in grado di trasmettere 
 segnali elettromagnetici.
 
 Consideriamo un tubo di sezione rettangolare illimitato su $ z $ come in figura \ref{figure:_guida_rettangolare}, dato che non ci sono sorgenti 
@@ -1933,13 +1944,58 @@ $ \chi^2 = \frac{\omega^2}{c^2} - k^2 $ si ha
 \begin{align}
   - \nabla_{xy}^2 F(x,y) = \chi^2 F(x,y)
 \end{align}
+Con la definizione che abbiamo dato di $ \chi^2 $ abbiamo che la relazione di dispersione rappresenta una iperbole nel piano $ (\omega/c , k) $ dato che
+\begin{align}
+  \frac{\omega}{c} = \sqrt{k^2 + \chi^2}
+\end{align}
+con asintoto la cosiddetta \textit{linea luce} $ \frac{\omega}{c} = k $, come possiamo vedere nel grafico \ref{figure:_linea_luce}. È chiamata linea luce 
+perché corrisponde alla situazione di onda piana nel vuoto, quindi senza vincoli traversali ed è interessante notare che per $ k \to \infty $ si ha che 
+ogni relazione di dispersione tende a quella del vuoto, questo è come se la guida "non si accorgesse" dei bordi, dato che con un passo d'onda molto grande 
+la sua evoluzione spaziale è "rallentata". \input{build/figure/linea_luce.tex}
 
+Scriviamo le equazioni di Maxwell applicate al caso della guida senza sorgenti:
+\begin{align}
+  &\nabla \times \v{E} = -\der{\v{B}}{t} = i\omega \v{B} \qquad &\nabla \cdot \v{E} = 0
+  \\
+  &\nabla \times \v{B} = \frac{1}{c^2} \der{\v{E}}{t} = -\frac{i \omega}{c^2} \v{E} \qquad &\nabla \cdot \v{B} = 0
+\end{align}
+che esplicidandole direttamente diventano
+\begin{align}
+  i\omega B_x &= \partial_y E_z - \partial_z E_y  &{-\frac{i \omega}{c^2} E_x = \partial_y B_z - \partial_z B_y}
+  \\
+  i\omega B_y &= \partial_z E_x - \partial_x E_z  &{-\frac{i \omega}{c^2} E_y = \partial_z B_x - \partial_x B_z}
+  \\
+  i\omega B_z &= \partial_x E_y - \partial_y E_x  &{-\frac{i \omega}{c^2} E_z = \partial_x B_y - \partial_y B_x}
+\end{align}
+Adesso che abbiamo esplicitato i due rotori possiamo classificare le varie soluzioni secondo i modi TEM, TE, TM, che stanno per 
+\textit{trasversal electro-magnetic}. Ognuno di questi modi consiste nell'imporre il campo associato trasversale rispetto alla direzione di propagazione, 
+che in questo caso è $ z $. Il modo TEM impone che 
+\begin{align}
+  E_z = B_z = 0
+\end{align}
+quindi le equazioni che otteniamo sono
+\begin{align}
+  i\omega B_x &= - ik E_y & -\frac{i \omega}{c^2} E_x &= - ik B_y
+  \\
+  i\omega B_y &= ik E_x &  -\frac{i \omega}{c^2} E_y &= ik B_x 
+  \\
+  0 &= \partial_x E_y - \partial_y E_x & 0 &= \partial_x B_y - \partial_y B_x
+\end{align}
+dove abbiamo svolto le derivate lungo $ z $ delle varie componenti. Dalle equazioni notiamo che i campi rispettano le relazioni
+\begin{align}
+  \left( \nabla \times \v{E} \right)_z = 0 \qquad \v{B} = \frac{1}{c} \vers{z} \times \v{E}
+\end{align}
+cioè i campi rispettano le condizioni dell'elettrostatica, e con il fatto che il campo elettrico è conservativo abbiamo da risolvere l'equazione di 
+Laplace per il potenziale $ \nabla^2 V = 0 $, con le condizioni al bordo del conduttore cioè $ V(x,y)|_{\text{bordo}} = V_0 $, ma una soluzione è proprio 
+il potenziale costante in ogni punto, che per il teorema di unicità è unica. Ma se il potenziale è costante i campi sono di conseguenza banali, dunque 
+concludiamo che in queste condizioni il modo TEM è solo il modo banale. Il ragionamento appena fatto vale pero nel caso in cui il dominio sia 
+semplicemente connesso, infatti nel caso del cavo coassiale il dominio non è connesso e infatti esiste il modo TEM come soluzione.
 
-
-Per quanto riguarda la potenza stiamo passando da una equazione differenziale nel tempo ad una che è nello spazio: 
+% POTENZA
+{Per quanto riguarda la potenza stiamo passando da una equazione differenziale nel tempo ad una che è nello spazio: 
 scriviamo il bilancio energetico come potenza entrante meno la potenza uscente: potenza entrante (il vettore di 
 Poynting mediato sul tempo e integrato sulla superficie) che sarà proporzionale a $ \Delta z $ portiamo sotto e 
-passiamo a $ dz $.
+passiamo a $ dz $.}
 
 
 \section{Soluzione equazioni di Maxwell in presenza di sorgenti} \label{section:_soluzione_Maxwell_con_sorgenti}
@@ -2301,14 +2357,14 @@ Per trovare i campi dobbiamo farne il rotore, ma il dipolo $ \v{p}_\omega $ non 
 derivata rispetto a $ R $ della fase cioè $ \der{}{R} \left( e^{ikR} \right) $ perché l'altro termine va come $ 1/R^2 $. Quindi applicando il rotore 
 otteniamo
 \begin{align}
-  \v{B}_\omega(\v{r}) = \nabla\!\times\!\mathbf{ A }_\omega(\v{r}) &= - \frac{\mu_0\, i\omega}{4\pi} \,\frac{e^{ikR}}{R} i \v{k} \times \v{p}_\omega
+  \v{B}_\omega(\v{r}) = \nabla\!\times\!\mathbf{ A }_\omega(\v{r}) &\simeq - \frac{\mu_0\, i\omega}{4\pi} \,\frac{e^{ikR}}{R} i \v{k} \times \v{p}_\omega
   \\
   &= \frac{\mu_0\,\omega}{4\pi} \, \frac{e^{ikR}}{R}\, \v{k} \times \v{p}_\omega
 \end{align}
 dove abbiamo riscritto $ \v{k} = k \vers{u} $ come la direzione di propagazione dell'onda, così da tenere conto direttamente nel prodotto vettore la 
 dipendenza dall'angolo compreso ($ \sin\theta $). Otteniamo ora il campo elettrico
 \begin{align}
-  \v{E}_\omega(\v{r}) &= \frac{i\,c^2}{\omega} \nabla\!\times\!\mathbf{ B }_\omega = \frac{i\,c^2}{\omega} \, i\v{k} \times \v{B}_\omega 
+  \v{E}_\omega(\v{r}) &= \frac{i\,c^2}{\omega} \nabla\!\times\!\mathbf{ B }_\omega \simeq \frac{i\,c^2}{\omega} \, i\v{k} \times \v{B}_\omega 
   = -\frac{k^2}{4\pi \eps_0} \frac{e^{ikR}}{R} \vers{u} \times (\vers{u} \times \v{p}_\omega)
   \\
   &= \frac{k^2}{4\pi \eps_0} \frac{e^{ikR}}{R} (\vers{u} \times \v{p}_\omega) \times \vers{u}
@@ -2355,7 +2411,7 @@ Un dettaglio interessante è che il vettore di Poynting, e di conseguenza l'inte
 quindi costante ed è proprio ciò che ci aspettavamo di ottenere, che significa che osservare l'intesità emessa non dipende dalla distanza a cui lo facciamo, 
 a patto di osservare su tutto l'angolo solido. Infatti la dipendenza dell'intensità dall'angolo solido è costante:
 \begin{align}
-  {dI} = R^2 \langle \v{S} \cdot \vers{n} \rangle , {d\Omega}
+  {dI} = R^2 \langle \v{S} \cdot \vers{n} \rangle {d\Omega}
   = \frac{\eps_0 k_0^2}{c^3} \, {\sin^2\theta} \frac{\omega^4}{2} \;\lvert \v{p}_0 \rvert^2 \,{d\Omega}
 \end{align}
 A questo punto è facile ottenere la potenza totale irraggiata che è il flusso del vettore di Poynting
@@ -2500,7 +2556,7 @@ significa che è possibile trasmettere segnali in modo consistente. In questo ca
   v = \frac{\omega}{k} = \omega_0a
 \end{align}
 
-\section{Cavità cilindrica}
+\section{Cavità cilindrica} \label{section:_esercizio_cavità_cilindrica}
 Vogliamo trovare le soluzioni alle equazioni di Maxwell in una cavità cilindirca limitata. 
 
 Supponiamo i campi abbiano una dipendenza del tipo
@@ -2643,7 +2699,35 @@ ed è immediato il potenziale vettore
 \end{align}
 e questi sono detti potenziali di Liénard-Wiechert. Calcoliamo i potenziali nel caso del moto rettilineo uniforme lungo $ x $:
 
+Vogliamo scrivere tramite il quadripotenziale le equazioni di Maxwell in forma tensoriale. Per farlo dobbiamo trovare un tensore a due indici che sia 
+gauge-invariante e le sue componenti siano i campi. Il candidato più semplice è 
+\begin{align}
+  F^{\mu \nu} = \partial^\mu A^\nu
+\end{align}
+ma questo oggetto ha 16 componenti e non è gauge-invariante perché
+\begin{align}
+  F^{\mu \nu} = \partial^\mu \left( A'^\nu + \partial^\nu(c\,\psi) \right) 
+  = \partial^\mu A'^\nu + \partial^\mu\partial^\nu(c\,\psi) \neq \partial^\mu A'^\nu = F'^{\mu \nu}
+\end{align}
 
+\begin{align}
+  \v{E} = -\nabla V - \der{\v{A}}{t} 
+  \\
+  \v{B} = \nabla\!\times\!\mathbf{ A } = 
+\end{align}
+
+
+\section{Invarianti elettromagnetici}
+Dato che abbiamo trovato dei quadrivettori che possono esprimere i campi elettromagnetici sappiamo la norma è Lorentz-invariante, 
+
+\begin{align}
+  F_{\mu \nu} F^{\mu \nu} = 
+\end{align}
+
+
+
+
+\begin{comment}
 
 \chapter{Raw}
 Definire il flusso di B attraverso una superficie e far veder che il flusso concatenato a una curva è = al flusso per una superficie qualsiasi.
@@ -2726,11 +2810,14 @@ in generale $ |M| < \sqrt{L_1 L_2} $.
 $\mathcal{E}$
 
 
+
+
+\end{comment}
+
 % -----------------------------------------------------------------------------------------------------------------
 % --------------------------------------------------- APPENDICE ---------------------------------------------------
 % -----------------------------------------------------------------------------------------------------------------
 \appendix
-
 
 \chapter{Identità vettoriali}
 
