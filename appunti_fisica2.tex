@@ -16,6 +16,135 @@
 
 % ---------- INIZIO DOCUMENTO ----------
 
+\chapter{Elettrostatica}
+Questo capitolo è stato aggiunto a posteriori rispetto alla trattazione degli appunti soltanto per completezza e ripasso, è da considerare dunque una bozza 
+volutamente incompleta e rapida. Tuttavia credo che tornare sugli argomenti base una volta essersi addentrati nella materia sia utile per comprendere le 
+nozioni più profonde che all'inizio non vengono adeguatamente indagate.
+
+È noto che oggetti carichi elettricamente esercitano delle forze fra loro, determinate dalla carica, dal segno, dalla distanza. Sperimentalmente sappiamo 
+che la loro interazione è descritta dalla cosiddetta \textit{forza di Coulomb}. Siano due cariche $ q_1, q_2 $ con posizioni $ \v{r_1}, \v{r_2} $, allora 
+la forza che la carica $ q_2 $ esercita sulla carica $ q_1 $ è 
+\begin{align}
+  \v{F}_{1,2} = k_e \frac{q_1 \, q_2 \, \left( \v{r}_1 - \v{r}_2 \right)}{|\v{r}_1 - \v{r}_2|^3}.
+\end{align}
+Analizziamo questa espressione: la costante $ k_e $ vale 
+\begin{align}
+  &\text{SI} \qquad k_e = \frac{1}{4\pi\eps_0}
+  \\
+  &\text{cgs} \qquad k_e = 1
+\end{align}
+dove SI indica il Sistema internazionale di unità di misura, mentre cgs indica il sistema Centimetro-Grammo-Secondo, anche detto sistema Gaussiano. La 
+forza è inoltre antisimmetrica per le due cariche, infatti si osserva facilmente che 
+\begin{align}
+  \v{F}_{2,1} = - \v{F}_{1,2}
+\end{align}
+Notiamo la dipendenza quadratica al denominatore della distanza fra le due cariche, esattamente come la forza di attrazione gravitazionale, ma che a 
+differenza di quest'ultima possiamo avere anche delle forze repulsive dovute alla possibilità di avere segni delle cariche discordi, cosa che nella forza 
+gravitazionale non è possibile.
+
+\section{Campo elettrostatico}
+Abbiamo discusso la forza di Coulomb nel caso di due cariche, proviamo quindi ad aggiungerne una terza ed otteniamo che per il principio di 
+sovrapposizione la forza risultante sulla carica $ q_1 $ è data dalla somma dei due contributi:
+\begin{align}
+  \v{F}_{1, 2\,3} = k_e \frac{q_1 \, q_2 \, \left( \v{r}_1 - \v{r}_2 \right)}{|\v{r}_1 - \v{r}_2|^3} + 
+  k_e \frac{q_1 \, q_3 \, \left( \v{r}_1 - \v{r}_3 \right)}{|\v{r}_1 - \v{r}_3|^3}
+\end{align}
+Generalizziamo considerando un sistema di $ q,q_1,\dots,q_N $ cariche, la forza esercitata sulla carica $ q $ dalle altre è
+\begin{align}
+  \v{F}_q = k_e \, q\, \sum_{i = 1}^N  \frac{q_i \, \left( \v{r}_1 - \v{r}_i \right)}{|\v{r}_1 - \v{r}_i|^3}.
+\end{align}
+Definiamo campo elettrico $ \v{E(r)} $ il rapporto
+\begin{align}
+  \v{E(r)} \coloneq \frac{\v{F}_q}{q}
+\end{align}
+la cui generalizzazione ad un sistema continuo di cariche si basa sul sostituire la carica i-esima con una densità di carica moltiplicata per un volume 
+infinitesimo $ q_i \mapsto \rho(\v{r}) \,d^3r' $ ed integrare sullo spazio (dove la densità di carica è non nulla):
+\begin{align}
+  \v{E(r)} = k_e\, \int \frac{\rho(\v{r'}) \, \left( \v{r}_1 - \v{r'} \right)}{|\v{r}_1 - \v{r'}|^3} \,d^3r'
+\end{align}
+Nella gravitazione classica il campo gravitazionale viene considerato come uno ``artificio'' matematico costruito a partire dalla forza ed il motivo 
+di questa considerazione è dovuto principalmente a due ragioni: la prima è storica, lo sviluppo della teoria gravitazionale da parte di Newton precede 
+la maggior parte dei lavori che hanno costruito la teoria elettromagnetica non disponendo quindi degli strumenti matematici necessari; la seconda è 
+dovuta all'intensità della forza infatti $ k_e \sim 10^9 $ mentre $ G_N \sim 10^{-11} $, dunque fare misure che riguardano il campo risulta difficile senza 
+degli strumenti sofisticati. Il punto del discorso è che l'elettrodinamica è la prima teoria considerabile come \textit{teoria di campo}, dove questo 
+termine è dilagato ampiamente nella fisica più avanzata ma a noi basta sapere che è considerata tale perché i campi sono delle entità fisiche tanto quanto 
+lo sono le forze e le cariche, ed il campo elettrico in particolare è considerato il mediatore dell'interazione fra cariche.
+
+\section{Teorema di Gauss}
+Dopo aver introdotto il campo elettrostatico vogliamo calcolarne il flusso attraverso una superficie chiusa che racchiude le cariche, per farlo sfrutteremo 
+il teorema della divergenza:
+\begin{align}
+  \Phi(\v{E}(\v{r}))_S = \oint_S \v{E} \cdot \,d\v{S} = \int_V \nabla\!\cdot\!\mathbf{ E } \,dV
+\end{align}
+adesso dobbiamo trovare la divergenza del campo elettrostatico e per farlo sfruttiamo il risultato noto che 
+\begin{align}
+  \nabla \cdot \left( \frac{\v{r' - r''}}{|\v{r'-r''}|^3} \right) = 4\pi \delta(\v{r' - r''})
+\end{align}
+dove $ \delta(\v{x}) $ è la delta di Dirac. In questo modo abbiamo
+\begin{align}
+  \nabla\!\cdot\!\mathbf{ E } &= 4\pi k_e  \, \rho(\v{r'}) = \frac{\rho(\v{r'})}{\eps_0} 
+  \\
+  \implies \Phi(\v{E(r)}) &= \int_V \frac{\rho(\v{r'})}{\eps_0} \,dV = \frac{Q_{\text{int}}}{\eps_0}
+\end{align}
+dove $ Q_{\text{int}} $ è la carica interna al volume $ V $. Il risultato che abbiamo ottenuto è noto come teorema di Gauss ed è un risultato utile al fine di 
+svolgere integrali lunghi con alta probabilità di errore. Noi abbiamo mostrato come l'espressione sperimentale della forza di Coulomb implica il  teorema 
+di Gauss, ma può essere dimostrato vale anche il viceversa, ovvero che assumento il teorema allora l'unica forza possibile è l'espressione di Coulomb.
+
+\section{Potenziale elettrostatico}
+Definendo il campo elettrico abbiamo visto che questo dipende dalla distanza fra le cariche ed il punto di osservazione, che è indipendente dal tempo e 
+che è centrale, queste caratteristiche sono sufficienti per dire che è conservativo, dato che il lavoro lungo una linea chiusa $ \gamma $ è nullo. Questo 
+implica l'esistenza di una funzione potenziale che indicheremo con $ V(\v{r}) $ \footnote{In alcuni testi è indicato con $ \phi(\v{r}) $ o $ \Phi(\v{r}) $}:
+\begin{align}
+  \oint_\gamma \v{E} \cdot d\v{l} = 0 \iff \exists\,V:\;\v{E(r)} = - \nabla V(\v{r})
+\end{align}
+Per ottenere una espressione per il potenziale consideriamo l'integrale curvilineo del campo (che è un integrale solo radiale) cioè
+\begin{align}
+  V(\v{r}_B) - V(\v{r}_A) = - \int_{\v{r}_A}^{\v{r}_B} \v{E} \cdot d\v{l} = - \int_{r_A}^{r_B} \v{E} \cdot \vers{r} \,dr
+\end{align}
+Nel caso del campo elettrostatico di una distribuzione di carica abbiamo che dalla definizione di potenziale riconosciamo una primitiva della funzione 
+$ \frac{|\v{r - r'}|}{|\v{r - r'}|^3} = - \nabla \left( \frac{1}{|\v{r - r'}|} \right) $, così il potenziale diventa
+\begin{align} \label{eq:_potenziale_elettrostatico}
+  V(\v{r}) = k_e \int \frac{\rho(\v{r'})}{|r - r'|} \,d^3r'
+\end{align}
+il potenziale è chiaramente definito a meno di una costante ed in questo caso abbiamo posto $ V(\v{r} \to \infty) = 0 $.
+Nel definire il potenziale abbiamo trovato due importanti relazioni del campo elettrostatico cioè
+\begin{align}
+  &\oint_S \v{E} \cdot d\v{S} = \frac{Q_{\text{int}}}{\eps_0}
+  \\
+  &\oint_\gamma \v{E} \cdot d\v{l} = 0
+\end{align}
+che sono note come equzioni di Maxwell dell'elettrostatica in forma globale. Possiamo esprimerle in forma locale tramite il teorema della divergenza e il 
+teorema del rotore:
+\begin{align}
+  &\nabla \cdot \v{E}(\v{r}) = \frac{\rho(\v{r})}{\eps_0}
+  \\
+  &\nabla \times \v{E} = 0 
+\end{align}
+
+\section{Equazione di Poisson}
+Dalla definizione di potenziale come la funzione scalare il cui gradiente (cambiato di segno) è il campo, possiamo applicare l'operatore divergenza dato che 
+la prima equazione di Maxwell mette in relazione la divergenza del campo con la densità di carica, quindi
+\begin{align}
+  \nabla \cdot \nabla V(\v{r}) = - \nabla \cdot \v{E(r)} = -\frac{\rho(\v{r})}{\eps_0}
+\end{align}
+e l'operatore ``divergenza di gradiente'' è chiamato \textit{operatore di Laplace}, anche detto \textit{laplaciano}, che indicheremo con il simbolo 
+$ \nabla^2 $. In questi termini la relazione appena ricavata diventa 
+\begin{align}
+  \nabla^2 V(\v{r}) = -\frac{\rho(\v{r})}{\eps_0}
+\end{align}
+che è nota come \textit{equazione di Poisson}. La corrispettiva omogenea dell'equazione di Laplace è detta \textit{equazione di Poisson}:
+\begin{align}
+  \nabla^2V(\v{r}) = 0
+\end{align}
+Entrambe queste due equazioni sono delle cosiddette PDE (partial differential equation), cioè delle equazioni alle derivate parziali lineari del secondo 
+ordine, la cui soluzione è tutt'altro che banale. L'equazione di Poisson è la diretta applicazione della matematica alle equazioni di Maxwell, ma 
+il motivo per cui abbiamo introdotto anche l'equazione di Laplace è perché nel caso di una distribuzione di carica (indipendente dal tempo) abbiamo già 
+una espressione del potenziale trovata in equazione \eqref{eq:_potenziale_elettrostatico}, che consiste in una soluzione particolare. Quindi se troviamo 
+una soluzione all'equazione omogenea possiamo scrivere la soluzione all'equazione di Poisson come somma della particolare e della soluzione omogenea, il 
+che ci permette di trovare il campo elettrico applicando semplicemente il gradiente (meno dispendioso di fare un integrale di volume). Tuttavia risolvere 
+l'equazione di Laplace non è sempre semplice e dipende molto dalle simmetrie del problema, infatti troveremo dei modi di scrivere le soluzioni ogni volta 
+diversi in base al sistema di coordinate che scegliamo di impiegare per risolvere il problema.
+
 
 \chapter{Equazione di Laplace}
 Dall'elettrostatica sappiamo che il campo elettrico in forma locale deve soddisfare
