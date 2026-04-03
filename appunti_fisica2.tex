@@ -90,6 +90,27 @@ dove $ Q_{\text{int}} $ è la carica interna al volume $ V $. Il risultato che a
 svolgere integrali lunghi con alta probabilità di errore. Noi abbiamo mostrato come l'espressione sperimentale della forza di Coulomb implica il  teorema 
 di Gauss, ma può essere dimostrato vale anche il viceversa, ovvero che assumento il teorema allora l'unica forza possibile è l'espressione di Coulomb.
 
+Per quanto rigurda il flusso attraverso una superficie qualsiasi non necessariamente chiusa sfruttiamo la definizione di angolo solido:
+\begin{align}
+  d\Omega \coloneq \frac{dA}{R^2} = \sin\theta \,d\theta\, d\varphi
+\end{align}
+cioè l'angolo solido corrispondente ad una superficie infinitesima circolare $ dA $ è il differenziale d'area diviso per il raggio al quadrato dal centro, 
+per una superficie generica dato che sono infinitesime basta moltiplicare per il $ \cos\theta $. Tramite questa definizione possiamo trovare l'elemento 
+infinitesimo di flusso su una superficie infinitesima come
+\begin{align}
+  &d\Phi = \v{E}\cdot \vers{n} dA = E \, \cos\theta \, dA = E\, R^2 \,d\Omega
+  \\
+  &\implies \Phi_S(\v{E}) = \int_\Omega E \, R^2 \,d\Omega
+\end{align}
+L'intero angolo solido vale $ 4\pi $ quindi quando facciamo il flusso su una supeficie chiusa del campo di una carica otteniamo
+\begin{align}
+  \Phi_S(\v{E}) = \oint_\Omega \frac{q}{4\pi \eps_0} \,d\Omega = \frac{q}{\eps_0}
+\end{align}
+e per la linearità dell'integrale con un sistema di cariche abbiamo che il flusso del campo elettrico totale su una superficie chiusa è la somma degli 
+integrali sugli angoli solidi visti da ogni carica, i quali sono nulli nel caso la carica sia esterna alla superficie, dunque è immediato ottenere il 
+teorema di Gauss.
+
+
 \section{Potenziale elettrostatico}
 Definendo il campo elettrico abbiamo visto che questo dipende dalla distanza fra le cariche ed il punto di osservazione, che è indipendente dal tempo e 
 che è centrale, queste caratteristiche sono sufficienti per dire che è conservativo, dato che il lavoro lungo una linea chiusa $ \gamma $ è nullo. Questo 
@@ -2804,6 +2825,7 @@ vettore polare (cioè un vettore \enquote{vero}).
 Fin ora abbiamo sempre assunto che i portatori di carica avessero delle velocità non relativistiche, adesso considereremo il caso più generale possibile 
 in cui la velocità può essere un qualunque valore compreso fra $ 0 $ e $ c $.
 % ##########
+\section{Potenziali di Liénard-Wiechert}
 Vogliamo inizialmente trovare i campi generati da una carica in moto, partiamo scrivendo i potenziali ritardati
 \begin{align}
   V(\mathbf{ x },t) = \frac{1}{4\pi\eps} \int \frac{\rho(\mathbf{ x }', t - \frac{|\mathbf{ x-x' }|}{c})}{|\mathbf{ x-x' }|}\,d^3x'
@@ -2828,32 +2850,178 @@ ed è immediato il potenziale vettore
 \end{align}
 e questi sono detti potenziali di Liénard-Wiechert. Calcoliamo i potenziali nel caso del moto rettilineo uniforme lungo $ x $:
 
-Vogliamo scrivere tramite il quadripotenziale le equazioni di Maxwell in forma tensoriale. Per farlo dobbiamo trovare un tensore a due indici che sia 
+\section{Quadricorrente}
+Per arrivare a costruire le equazioni di Maxwell nella cosiddetta \textit{formulazione covariante} è necessario applicare il formalismo dei quadrivettori 
+agli oggetti dell'elettrodinamica come le sorgenti e i potenziali.
+
+Partiamo dal fatto che la carica elettrica deve essere necessariamente un invariante di Lorentz, altrimenti si dovrebbe osservare che oggetti carichi 
+modificano le loro proprietà elettriche in base alla velocità a cui si muovono, cosa che non osserviamo. Consideriamo quindi la densità di carica 
+$ \rho(\v{x}) $, per sapere come trasforma notiamo che essendo una carica diviso un volume sappiamo che i volumi si contraggono nella direzione del boost 
+quindi nel sistema di riferimento $ O' $ che si muove a velocità costante $ V $ rispetto ad $ O $ si ha che la densità di carica vale
+\begin{align}
+  \rho'(\v{x}) = \gamma \, \rho(\v{x})
+\end{align}
+Quella che abbiamo espresso non è la legge di trasformazione completa, dato che può esistere una densità di corrente che in un certo sistema di riferimento 
+diventa una densità di carica. La relazione fra $ \v{J}(\v{x}, t) $ e $ \rho(\v{x}, t) $ è
+\begin{align}
+  \v{J'}(\v{x}, t) = \rho'(\v{x}, t) \, \v{v}(\v{x},t) = \gamma \, \rho(\v{x}, t) \, \v{v}(\v{x},t)
+\end{align}
+quindi è facile notare che $ c\cdot \rho $ e $ \v{J} $ sono proporzionali alle componenti della quadrivelocità $ u^\mu $. Questo ci suggerisce che moltiplicando 
+per $ c $ la densità di carica possiamo costruire un quadrivettore con le dimensioni di una corrente che chiameremo \textit{quadricorrente} $ J^\mu $:
+\begin{align}
+  J^\mu \coloneq \rho(x) \, u^\mu (x) = \left( c \rho , \v{J}\right)
+\end{align}
+dove $ x $ è il quadrivettore posizione. Sfruttiamo subito la quadricorrente per verificare l'equazione di continuità con questo nuovo formalismo: dobbiamo 
+calcolare la quadridivergenza $ \partial_mu J^\mu $ cioè
+\begin{align}
+  \partial_\mu J^\mu  = \left( \frac{1}{c} \der{}{t}, \nabla \right) \cdot J = \der{\rho}{t} + \nabla \cdot \v{J} = 0
+\end{align}
+
+
+\section{Formulazione covariante delle equazioni di Maxwell}
+Vogliamo prima di tutto dimostrare che anche i potenziali $ V $ e $ \v{A} $ formano un quadrivettore, e questo si poò fare prendendo l'equazione delle 
+onde per i potenziali che abbiamo visto che rispettano nella gauge di Lorenz:
+\begin{align}
+  \begin{cases}
+    -\nabla^2V + \frac{1}{c^2} \der[2]{V}{t} = \frac{\rho}{\eps_0} \\
+    -\nabla^2\mathbf{ A } + \frac{1}{c^2} \der[2]{\mathbf{ A }}{t} = \mu_0\mathbf{ J }
+  \end{cases}
+  \implies \Box A^\mu = \frac{J^\mu}{\eps_0 c}
+\end{align}
+dove $ A^\mu $ rappresenta il quadripotenziale definito come 
+\begin{align}
+  A^\mu \coloneq \left( \frac{V}{c}, \v{A} \right)
+\end{align}
+Abbiamo tutti gli strumenti per scrivere le equazioni di Maxwell in forma tensoriale. Per farlo dobbiamo trovare un tensore a due indici che sia 
 gauge-invariante e le sue componenti siano i campi. Il candidato più semplice è 
 \begin{align}
-  F^{\mu \nu} = \partial^\mu A^\nu
+  T^{\mu \nu} = \partial^\mu A^\nu
 \end{align}
 ma questo oggetto ha 16 componenti e non è gauge-invariante perché
 \begin{align}
-  F^{\mu \nu} = \partial^\mu \left( A'^\nu + \partial^\nu(c\,\psi) \right) 
-  = \partial^\mu A'^\nu + \partial^\mu\partial^\nu(c\,\psi) \neq \partial^\mu A'^\nu = F'^{\mu \nu}
+  T^{\mu \nu} = \partial^\mu \left( A'^\nu + \partial^\nu(c\,\psi) \right) 
+  = \partial^\mu A'^\nu + \partial^\mu\partial^\nu(c\,\psi) \neq \partial^\mu A'^\nu = T'^{\mu \nu}
 \end{align}
-
+Proviamo allora con il cosiddetto \textit{tensore di Faraday} $ F^{\mu \nu} $ definito come
 \begin{align}
-  \v{E} = -\nabla V - \der{\v{A}}{t} 
-  \\
-  \v{B} = \nabla\!\times\!\mathbf{ A } = 
+  F^{\mu \nu} = \partial^\mu A^\nu - \partial^\nu A^\mu
 \end{align}
-
+Notiamo che è antisimmetrico, il che ci dice che ha $ 6 $ componenti indipendenti ed è facile verificare che è gauge-invariante. La forma esplicita del 
+tensore di Faraday è 
+\begin{align}
+  F^{\mu \nu} =
+  \begin{pmatrix}
+    0 & -E_x & -E_y & -E_z \\
+    E_x & 0 & -c B_z & c B_y \\
+    E_y & c B_z & 0 & -c B_x \\
+    E_z & -c B_y & c B_x & 0 
+  \end{pmatrix}
+\end{align}
+che abbiamo calcolato mediante le solite relazioni
+\begin{align}
+  \v{E} &= -\nabla V - \der{\v{A}}{t} 
+  \\
+  \v{B} &= \nabla\!\times\!\mathbf{ A }
+\end{align}
+Dal tensore di Faraday derivano le equazioni non omogenee di Maxwell che si possono scrivere nella forma compatta
+\begin{align}
+  \partial_\mu F^{\mu \nu} = \mu_0 J^\nu
+\end{align}
+che si possono verificare applicando rapidamente il quadrigradiente e sommando sulle componenti. Per quanto riguarda le equazioni omogenee cerchiamo un 
+tensore che in analogia al primo sia antisimmetrico e che ci esprima
+\begin{align}
+  &\nabla \cdot \v{B} = \partial_x B_x + \partial_y B_y + \partial_z B_z = 0
+  \\
+  &\left( \nabla \times \v{E} \right)_i = \eps_{i j k} \partial_j E_k = - \partial_t B_i
+\end{align}
+Per trovarlo notiamo che le equazioni sono praticamente le stesse che esprime il tensore di Faraday ma con i campi scambiati, quindi come la prima colonna 
+$ F^{\mu 0} $ ci dà la divergenza del campo elettrico, imponiamo che il tensore che cerchiamo $ \tilde{F}^{\mu \nu} $ sia del tipo
+\begin{align}
+  \tilde{F}^{\mu \nu} = 
+  \begin{pmatrix}
+    0 & -c B_x & -cB_y & -cB_z \\
+    c B_x & 0 & \ast & \ast \\
+    c B_y & \ast & 0 & \ast \\
+    c B_z & \ast & \ast & 0 
+  \end{pmatrix}
+\end{align}
+dove abbiamo imposto l'antissimetria. In questo modo applicando $ \partial_\mu \tilde{F}^{\mu 0} $ otteniamo la divergenza del campo magnetico che 
+imponendola a $ 0 $ ci porta all'equazione
+\begin{align}
+  \partial_\mu \tilde{F}^{\mu \nu} = 0
+\end{align}
+dalla quale è effettivamente possibile ottenere anche quella per il rotore di $ \v{E} $ semplicemente aggiungendo al posto degli asterischi le 
+componenti giuste del campo elettrico, che risulta essere
+\begin{align}
+  \tilde{F}^{\mu \nu} = 
+  \begin{pmatrix}
+    0 & -c B_x & -cB_y & -cB_z \\
+    c B_x & 0 & -E_z & E_y \\
+    c B_y & E_z & 0 & -E_x \\
+    c B_z & -E_y & E_x & 0 
+  \end{pmatrix}
+\end{align}
+noto come \textit{tensore di campo duale}. Notiamo che è possibile ottenere il tensore duale da quello di Faraday tramite il tensore completamente 
+antissimetrico cioè il tensore di Levi-Civita a $ 4 $ indici $ \eps^{\mu \nu \rho \sigma} $ come
+\begin{align}
+  \tilde{F}^{\mu \nu} = \frac{1}{2} \eps^{\mu \nu \rho \sigma} F_{\rho \sigma}
+\end{align}
+dove è necessario abbassare gli indici di $ F^{\mu \nu} $ con la metrica
+\begin{align}
+  F_{\mu \nu} = g_{\mu \alpha} g_{\nu \beta} F^{\alpha \beta}
+\end{align}
+ed il fattore $ 1/2 $ è dovuto all'antisimetria. In questo modo le equazioni di Maxwell nel formalismo covariante sono espresse dalle relazioni compatte:
+\begin{align}
+  &\partial_\mu F^{\mu \nu} = \mu_0 J^\nu
+  \\
+  &\partial_\mu \tilde{F}^{\mu \nu} = 0
+\end{align}
+In questa forma si nota chiaramente la simmetria dei campi nelle equazioni di Maxwell, che sarebbe completa se esistesse la carica magnetica introducendo 
+così una quadricorrente magnetica che farebbe da termine noto alla seconda equazione.
 
 \section{Invarianti elettromagnetici}
-Dato che abbiamo trovato dei quadrivettori che possono esprimere i campi elettromagnetici sappiamo la norma è Lorentz-invariante, 
-
+Vogliamo trovare delle quantità costruite a partire dai tensori elettromagnetici che siano invarianti per trasformazioni di Lorentz. Un modo per farlo è 
+prendere lo scalare associato ad un tensore: possiamo fare i calcoli espliciti oppure prendendo la traccia del prodotto fra le due matrici
 \begin{align}
-  F_{\mu \nu} F^{\mu \nu} = 
+  F^{\mu \nu} F_{\mu \nu} &= \text{tr} \left[  
+  \begin{pmatrix}
+    0 & -E_x & -E_y & -E_z \\
+    E_x & 0 & -c B_z & c B_y \\
+    E_y & c B_z & 0 & -c B_x \\
+    E_z & -c B_y & c B_x & 0 
+  \end{pmatrix}
+  \begin{pmatrix}
+    0 & E_x & E_y & E_z \\
+    -E_x & 0 & -c B_z & c B_y \\
+    -E_y & c B_z & 0 & -c B_x \\
+    -E_z & -c B_y & c B_x & 0 
+  \end{pmatrix}
+  \right]
+  \\
+  &= 2 \left( \v{E}^2 - c^2\v{B}^2 \right)
 \end{align}
-
-
+Questo primo invariante elettroagnetico contiente già molte informazioni: il segno ci dice che se in un sistema di riferimento abbiamo 
+$ \v{E}^2 > \v{B}^2 $ ($ < $) allora questo è vero in ogni sistema di riferimento. 
+Il secondo invariante lo troviamo tramite il prodotto
+\begin{align}
+  F^{\mu \nu} \tilde{F}_{\mu \nu} &= \text{tr} \left[  
+  \begin{pmatrix}
+    0 & -E_x & -E_y & -E_z \\
+    E_x & 0 & -c B_z & c B_y \\
+    E_y & c B_z & 0 & -c B_x \\
+    E_z & -c B_y & c B_x & 0 
+  \end{pmatrix}
+  \begin{pmatrix}
+    0 & c B_x & cB_y & cB_z \\
+    -c B_x & 0 & -E_z & E_y \\
+    -c B_y & E_z & 0 & -E_x \\
+    -c B_z & -E_y & E_x & 0 
+  \end{pmatrix}
+  \right]
+  \\
+  &= 4 c^2 \, \v{E} \cdot \v{B}
+\end{align}
+il quale ci dice che se i campi sono ortogonali in un sistema di riferimento allora lo sono in tutti.
 
 
 \begin{comment}
@@ -3142,7 +3310,7 @@ A differenza dei vettori "veri" che trasformano normalmente
 \begin{equation}
   \mathbf{ V' } = T\mathbf{ V } \implies \; V'_i = T_{i j}V_j
 \end{equation}
-dove nell'ultima relazione è implicita la sommatoria sul'indice ripetuto, gli pseudovettori trasformano le loro componenti in base segno della 
+dove nell'ultima relazione è implicita la sommatoria sull'indice ripetuto, gli pseudovettori trasformano le loro componenti in base segno della 
 trasformazione applicata:
 \begin{equation}
   \mathbf{ A' } = \det \!T \left( T\mathbf{ A } \right) \implies \; A'_i = \det\!T \, T_{i j} A_j
@@ -3152,9 +3320,41 @@ ad esempio se il sistema è pari sotto lo scambio di una coordinata (come $ x \t
 
 \chapter{Richiami di relatività}
 
+\section{Covarianza e controvarianza}
+Non tutti gli oggetti matematici trasformano allo stesso modo; per convincerci di ciò consideriamo un vettore $ \v{v} $ scritto in una base 
+$ \v{e}_1, \v{e}_2 $:
+\begin{align}
+  \v{v} = v^1\v{e}_1 + v^2 \v{e}_2
+\end{align}
+e supponiamo di fare un riscalamento dei vettori di base nel seguente modo: $ \v{e}_1 \mapsto \v{e'}_1 = 2\v{e}_1, \v{e}_2 \mapsto \v{e'}_2 = 5\v{e}_2  $. 
+Dato che abbiamo aumentato i vettori di base allora il vettore $ \v{v'} = \left. \v{v} \right|_{\{ \v{e'}_1, \v{e'}_2\}} $ deve trasformate le sue 
+componenti affinche rimanga lo stesso vettore
+\begin{align}
+  &\v{v'} = v'^1 \v{e'}_1 + v'^2 \v{e'}_2 = v^1\v{e}_1 + v^2 \v{e}_2
+  \\
+  &\implies v'^1 = \frac{v^1}{2} \quad v'^2 = \frac{v^2}{5}
+\end{align}
+È facile osservare che il vettore trasforma in modo inverso rispetto a come trasformano gli elementi della base. Il vettore trasforma secondo l'espressione 
+\begin{align} \label{eq:_trasformazione_controvariante}
+  {v'}^i = \sum_j \der{{v'}^i}{{v^j}} \, v^j = \sum_j J_{i j} \, v^j
+\end{align}
+dove $ J_{i j} $ è lo jacobiano della trasformazione, mentre la base $ \{ e_i \} $ trasforma nel modo inverso cioè
+\begin{align} \label{eq:_trasformazione_covariante}
+  {e'}_i = \sum_j \der{x^i}{{x'}^j} \, e_i = \sum_j {J^{-1}}^t_{i j} \, e_j
+\end{align}
+Definiamo \textit{controvariante} gli oggetti che trasformano come in \eqref{eq:_trasformazione_controvariante} ed indicheremo le sue componenti con un 
+indice in alto. Definiamo allo stesso modo \textit{covariante} gli oggetti che trasformano come in \eqref{eq:_trasformazione_covariante} ed indicheremo le 
+componenti con un indice in basso. Vediamo come trasforma il gradiente di una funzione scalare:
+\begin{align}
+  \nabla'_i f = \der{f}{{x'}^i} = \der{x^j}{{x'}^i} \der{f}{x^j} = \left( J^-1 \right)^t_{i j} \nabla_j f
+\end{align}
 
-
-Possiamo definire la quadrivelocità $ u^\mu $ come
+\section{Quadrivettori}
+Il quadrivettore posizione è definito come
+\begin{align}
+  x^\mu = (ct, \v{x}) = (ct, x, y, z)
+\end{align}
+definiamo la quadrivelocità $ u^\mu $ come
 \begin{align}
   u^\mu = \frac{dx^\mu}{d\uptau} = (\gamma c, \gamma \mathbf{ v })
 \end{align}
@@ -3162,7 +3362,7 @@ e moltiplicando per la massa a riposo otteniamo il quadrimpulso $ p^\mu $
 \begin{align}
   p^\mu = m_0 u^\mu = (m_0 \gamma c, m_0 \gamma \mathbf{ v })
 \end{align}
-I quadrivettori hanno la norma invariante pertrasformazioni di Lorentz, ma la norma non è quella euclidea ma quella di Lorenz:
+I quadrivettori hanno la norma invariante per trasformazioni di Lorentz, ma la norma non è quella euclidea ma quella di Lorenz:
 \begin{align}
   \Lambda = 
   \begin{pmatrix}
@@ -3174,35 +3374,16 @@ I quadrivettori hanno la norma invariante pertrasformazioni di Lorentz, ma la no
 \end{align}
 Definiamo ora il quadrigradiente di uno scalare come 
 \begin{align}
-  \partial^\mu \phi = a^\mu = \left( \frac{1}{c} \der{}{t}, - \nabla  \right) \phi
+  \partial_\mu \phi = a_\mu = \left( \frac{1}{c} \der{}{t}, \nabla  \right) \phi
 \end{align}
 allo stesso modo troviamo la quadridivergenza di un quadrivettore
 \begin{align}
-  \partial_\mu b^\mu = \frac{1}{c} \der{b_0}{t} - ( - \nabla \cdot \mathbf{ b }) = \frac{1}{c} \der{b_0}{t} + \nabla \cdot \mathbf{ b }
+  \partial_\mu b^\mu = \frac{1}{c} \der{b^0}{t} + \nabla \cdot \mathbf{ b } = \frac{1}{c} \der{b^0}{t} + \nabla \cdot \mathbf{ b }
 \end{align}
-Il d'alambertiano applicato ai quadrivettori diventa
+Possiamo notare come effettivamente il quadrigradiente e la quadridivergenza siano rappresentati dallo stesso simbolo in questa notazione, l'unica 
+differenza rimane chiaramente l'oggetto a cui si applicano. Il d'alambertiano applicato ai quadrivettori diventa
 \begin{align}
-  \Box = \partial^\mu \partial_\mu = \left( \frac{1}{c},  - \nabla  \right)\left( \frac{1}{c},  - \nabla  \right) = \frac{1}{c^2} \der[2]{}{t} - \nabla^2
-\end{align}
-Definiamo ora la generalizzazione delle sorgenti con i quadrivettori, ovvero la quadricorrente
-\begin{align}
-  J^\mu = \left( c\rho, \mathbf{ J } \right) 
-\end{align}
-che unisce i due tipi di sorgenti in una unica entità. Calcoliamone la quadridivergenza
-\begin{align}
-  \partial^\mu J_\mu = \frac{1}{c} \der{(c\rho)}{t} + \nabla\!\cdot\!\mathbf{ J } = 0
-\end{align}
-per l'equazione di continuità. Unifichiamo anche i potenziali ottenendo il quadripotenziale 
-\begin{align}
-  A^\mu = \left( V, c \mathbf{ A } \right)
-\end{align}
-in questo modo possiamo riscrivere l'equazione delle onde non omogenea che i potenziali rispettano:
-\begin{align}
-  \begin{cases}
-    -\nabla^2V + \frac{1}{c^2} \der[2]{V}{t} = \frac{\rho}{\eps_0} \\
-    -\nabla^2\mathbf{ A } + \frac{1}{c^2} \der[2]{\mathbf{ A }}{t} = \mu_0\mathbf{ J }
-  \end{cases}
-  \implies \Box A^\mu = \frac{J^\mu}{\eps_0 c}
+  \Box \coloneq \frac{1}{c^2} \der[2]{}{t} - \der[2]{}{x} - \der[2]{}{y} - \der[2]{}{z} = g^{\mu \nu} \partial_\mu \partial_\nu = \partial^\mu \partial_\mu
 \end{align}
 
 \end{document}
