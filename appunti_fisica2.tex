@@ -2609,6 +2609,7 @@ e quindi la forma completa è
 \begin{align}
   z_{p}(t) &= \frac{{eE_0}/{m_e}}{\omega^2 -\omega_0^2 + i\omega \gamma} \,e^{-i\omega t}.
 \end{align}
+Ricordiamo che usiamo la notazione in cui $ e^- = \SI{-1.6e-19}{\C} $ mentre $ e = |e^-| $. 
 Da questa forma si nota chiaramente il fenomeno della risonanza dato che per $ \omega = \omega_0 $ c'è un massimo nel modulo dell'ampiezza $ |z_0| $ e 
 soprattutto abbiamo che $ z_p $ è in \textit{quadratura} con la forzante, infatti abbiamo che $ z_p \propto \sin(\omega t) $, risulta quindi sfasata di 
 $ \pi/2 $ rispetto ad $ E_z $ che quando andiamo a vedere la potenza $ W = F \cdot \v \propto \cos^2 (\omega t) $. Risulta quindi che la potenza assorbita 
@@ -2645,7 +2646,7 @@ con l'energia coulombiana. Analizziamo la sezione d'urto nei due limiti:
 Il primo caso è chiamato \textit{scattering Thomson} o scattering di elettrone libero, questo perché il moto di rivoluzione è "invisibile" rispetto alla 
 frequenza con cui l'onda elettromagnetica incide. Il secondo caso è detto \textit{scattering Rayleigh} è interessante per le interazioni luce-materia, 
 dato che l'onda incidente non ha abbastanza energia per alterare la struttura atomica. Lo scattering Rayleigh è il motivo per il quale il cielo appare di 
-colore blu.
+colore blu. A
 
 \chapter{Esercizi elettrodinamica}
 \section{Circuiti}
@@ -2890,7 +2891,7 @@ onde per i potenziali che abbiamo visto che rispettano nella gauge di Lorenz:
 \end{align}
 dove $ A^\mu $ rappresenta il quadripotenziale definito come 
 \begin{align}
-  A^\mu \coloneq \left( \frac{V}{c}, \v{A} \right)
+  A^\mu \coloneq \left( V, c \v{A} \right)
 \end{align}
 Abbiamo tutti gli strumenti per scrivere le equazioni di Maxwell in forma tensoriale. Per farlo dobbiamo trovare un tensore a due indici che sia 
 gauge-invariante e le sue componenti siano i campi. Il candidato più semplice è 
@@ -2972,7 +2973,7 @@ dove è necessario abbassare gli indici di $ F^{\mu \nu} $ con la metrica
 \end{align}
 ed il fattore $ 1/2 $ è dovuto all'antisimetria. In questo modo le equazioni di Maxwell nel formalismo covariante sono espresse dalle relazioni compatte:
 \begin{align}
-  &\partial_\mu F^{\mu \nu} = \mu_0 J^\nu
+  &\partial_\mu F^{\mu \nu} = \frac{1}{\eps_0 c} J^\nu
   \\
   &\partial_\mu \tilde{F}^{\mu \nu} = 0
 \end{align}
@@ -3023,6 +3024,20 @@ Il secondo invariante lo troviamo tramite il prodotto
 \end{align}
 il quale ci dice che se i campi sono ortogonali in un sistema di riferimento allora lo sono in tutti.
 
+\section{Trasformazioni di Lorentz dei campi}
+Dato che abbiamo scritto in maniera compatta il campo elettomagnetico con i tensori elettromagnetici sfruttiamo le leggi di trasformazione dei tensori per 
+ottenere come cambiano i campi cambiando sistema di riferimento inerziale. Un tensore a due indici trasforma come
+\begin{align}
+  F'^{\mu \nu} = \Lambda^\mu_\rho \, \Lambda^\nu_\sigma \, F^{\rho \sigma} = \left( \Lambda \, F \, \Lambda^T \right)_{\mu \nu}
+\end{align}
+quindi per trovare i campi trasformati basta confrontare basta svolvere questo prodotto. Indicando con $ \parallel $ e $ \perp $ le componenti parallele e 
+perpendicolari alla direzione del boost otteniamo 
+\begin{align}
+  &{E'_\parallel = E_\parallel} \qquad {\v{E'}_\perp = \gamma \left( \v{E}_\perp + \v{V} \times \v{B} \right)}
+  \\
+  &{B'_\parallel = B_\parallel} \qquad {\v{B'}_\perp = \gamma \left( \v{B}_\perp - \frac{\v{V}}{c^2} \times \v{E} \right)}
+\end{align}
+dove $ \v{V} $ è la velocità del boost cioè la velocità di $ O' $ rispetto ad $ O $.
 
 \begin{comment}
 
