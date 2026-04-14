@@ -153,7 +153,7 @@ $ \nabla^2 $. In questi termini la relazione appena ricavata diventa
 \begin{align}
   \nabla^2 V(\v{r}) = -\frac{\rho(\v{r})}{\eps_0}
 \end{align}
-che è nota come \textit{equazione di Poisson}. La corrispettiva omogenea dell'equazione di Laplace è detta \textit{equazione di Poisson}:
+che è nota come \textit{equazione di Poisson}. La corrispettiva omogenea dell'equazione di Poisson è detta \textit{equazione di Laplace}:
 \begin{align}
   \nabla^2V(\v{r}) = 0
 \end{align}
@@ -166,6 +166,260 @@ che ci permette di trovare il campo elettrico applicando semplicemente il gradie
 l'equazione di Laplace non è sempre semplice e dipende molto dalle simmetrie del problema, infatti troveremo dei modi di scrivere le soluzioni ogni volta 
 diversi in base al sistema di coordinate che scegliamo di impiegare per risolvere il problema.
 
+\section{Energia elettrostatica}
+Dalla conservatività del campo elettrico abbiamo potuto definire un potenziale elettrostatico, adesso vogliamo sfruttare ciò per definire una energia 
+associata alla forza elettrostatica.
+
+Il lavoro per portare una carica $ q $ dall'`ìnfinito'' ad un punto $ \v{R} $ è dato da
+\begin{align}
+  W_q = \int_{+\infty}^\v{R} \v{F} \,d\v{l} = q \int_{+\infty}^\v{R} \v{E}\cdot \vers{r} \,dr = q \left( V(+\infty) - V(\v{R}) \right)
+\end{align}
+se vediamo il potenziale come se generato da una distribuzione discreta di $ N $ cariche otteniamo che il lavoro sulla carica $ q $ è 
+\begin{align}
+  W_q = \frac{q}{4\pi \eps_0} \sum_{i= 1}^N \frac{q_i}{|\v{r_i - r}|}
+\end{align}
+Interpretiamo questo lavoro come l'energia potenziale della carica $ q $; calcoliamo l'energia potenziale di tutto il sistema di $ N $ cariche, cioè 
+considerando la mutua interazione di ognuna:
+\begin{align}
+  U = \frac{1}{4\pi\eps_0} \sum_{i} U_i = \frac{1}{4\pi\eps_0} \sum_{j > i} \frac{q_i\, q_j}{|\v{r_i - r_j}|} 
+  = \frac{1}{4\pi\eps_0} \cdot \frac{1}{2} \sum_{j \neq i} \frac{q_i\, q_j}{|\v{r_i - r_j}|}
+\end{align}
+dove abbiamo sfruttato la simmetria dell'interazione fra le singole cariche. Il passaggio al continuo è diretto ed è
+\begin{align}
+  U = \frac{1}{8\pi\eps_0} \int \int \frac{\rho(\v{x}) \rho(\v{x'})}{|\v{x - x'}|} \,d^3x \,d^3x'
+\end{align}
+e notiamo che un integrale può essere espresso come il potenziale elettrostatico di una distribuzione di cariche quindi otteniamo
+\begin{align}
+  U = \frac{1}{2} \int \rho(\v{x}) V(\v{x}) \,d^3x
+\end{align}
+Da questa forma possiamo sfruttare l'equazione di Poisson appena ottenuta per eliminare la $ \rho(\v{x}) $ dall'integrale:
+\begin{align}
+  U = -\frac{\eps_0}{2} \int V\, \nabla^2V \,d^3x = -\frac{\eps_0}{2} \int \nabla \cdot (V \nabla V) - |\nabla V|^2 \,d^3x 
+  \\
+  = -\frac{\eps_0}{2} \left( \oint_S V\nabla V \,d^2x -\int |\v{E}|^2 \,d^3x \right) = \frac{\eps_0}{2} \int |\v{E}|^2 \,d^3x
+\end{align}
+dove abbiamo integrato per parti e sfruttato l'identità vettoriale
+\begin{align}
+  V \nabla^2V = \nabla \cdot (V \nabla V) - |\nabla V|^2
+\end{align}
+Nella forma che abbiamo ottunuto riconosciamo una densità di energia elettrostatica $ u_e = \frac{\eps_0}{2} |\v{E}|^2 $ e quindi
+\begin{align}
+  U = \int u_e \,d^3x
+\end{align}
+dove l'integrale è svolto stavolta in tutto lo spazio essendo limitato al campo elettrostatico e non più alla distribuzione di carica $ \rho(x) $.
+Il problema è che in questa forma l'energia potenziale $ U $ contiene sia l'energia di mutua interazione che l'auto-energia (\textit{self energy}), 
+la quale per cariche puntiformi chiaramente diverge. Nella distribuzione discreta avevamo risolto questo problema semplicemente non contando i contributi 
+in cui $ i = j $, ma adesso per ottenere la consueta forma dell'energia elettrostatica occorre fare una distinzione: 
+$ U = U_{\textit{self}} + U_{\text{int}} $. Sarà per ora nostra accortezza eleiminare accuratamente i termini di self energy.
+
+\section{Teorema della media per le funzioni armoniche}
+Introduciamo ora un risultato che ci sarà utile in seguito che è noto come il teorema del valor medio per le funzioni armoniche. 
+
+Una funzione $ f :\Omega \subseteq \mathbb{R}^n \to \mathbb{R} $ differenziale fino al secondo ordine, cioè $ f \in C^2(\Omega) $, si dice armonica 
+in $ \Omega $ se:
+\begin{align}
+  \nabla^2f = 0
+\end{align}
+Il teorema afferma che se $ f \in C^2(S) $ è armonica, dove $ S $ è una superficie sferica (o un volume), allora la sua media su $ S $ è uguale al valore 
+nel centro, cioè
+\begin{align}
+  \left. \nabla^2 f \right|_S = 0 \implies \langle f \rangle_S = f(c)
+\end{align}
+Questo risultato è particolarmente importante per il caso dei conduttori: per definizione in un conduttore all'equilibrio il campo elettrico è ortogonale 
+alla superficie, questo perché se non lo fosse le cariche si sposterebbero ottenendo una nuova configurazione di equilibrio. Il potenziale sulla superficie 
+è quindi costante, ma allora applicando il teorema della media abbiamo che il potenziale è costante anche all'interno del conduttore, che ci porta dire che 
+il campo elettrico all'interno è nullo. In realtà si potrebbe obiettare che non possiamo applicare il teorema della media a meno che il conduttore non sia 
+una sfera, tuttavia questo si può aggirare tramite una forma locale del teorema nota come \textit{principio del massimo}. Tale principio dice che se $ f $ 
+è una funzione armonica in $ \Omega $ allora questa ammette massimi e minimi solo sul bordo $ \partial\Omega $, altrimenti è costante. Applicandolo ad 
+ogni punto del conduttore si mostra che il potenziale deve essere costante in ogni punto.
+
+\section{Formulazione del potenziale tramite funzione di Green}
+Nell'ultima sezione abbiamo introdotto i conduttori e le loro proprietà principali, fra cui il potenziale elettrostatico costante sul bordo. Descrivere da 
+un punto di vista matematico questi sistemi è particolarmente complicato se si vuole considerare come si redistribuiscono le cariche libere all'interno del 
+conduttore in modo da soddisfare le condizioni al bordo. Tuttavia possiamo sfruttare dei risultati matematici noti come \textit{identità di Green} che 
+permettono di scrivere il potenziale in termini di una certa funzione di Green $ G $.
+
+
+\subsection{Identità di Green}
+
+Siano $f$ e $g$ due funzioni scalari sufficientemente regolari definite su un dominio
+$\Omega \subseteq \mathbb{R}^3$ con bordo $\partial\Omega$.
+Partendo dall'identità vettoriale
+\begin{equation}
+    \nabla \cdot (f \nabla g) = f \nabla^2 g + \nabla f \cdot \nabla g,
+\end{equation}
+e integrando su $\Omega$ con il teorema della divergenza, si ottiene la
+\emph{prima identità di Green}:
+\begin{equation}\label{eq:green1}
+    \int_\Omega \left( f \nabla^2 g + \nabla f \cdot \nabla g \right) d^3x
+    = \oint_{\partial\Omega} f \, \frac{\partial g}{\partial n} \, dS,
+\end{equation}
+dove $\partial/\partial n = \hat{\v{n}} \cdot \nabla$ indica la derivata lungo la
+normale uscente a $\partial\Omega$.
+Sottraendo la~\eqref{eq:green1} scritta con $f$ e $g$ scambiati, si ottiene la
+\emph{seconda identità di Green}:
+\begin{equation}\label{eq:green2}
+    \int_\Omega \left( f \nabla^2 g - g \nabla^2 f \right) d^3x
+    = \oint_{\partial\Omega} \left( f \, \frac{\partial g}{\partial n}
+      - g \, \frac{\partial f}{\partial n} \right) dS.
+\end{equation}
+Questa identità è il punto di partenza per la costruzione della soluzione formale
+del problema di Poisson.
+
+\subsection{Definizione della funzione di Green}
+
+Si consideri il problema di Poisson con condizioni al contorno su $\Omega$:
+\begin{equation}\label{eq:poisson}
+    \nabla^2 V(\v{x}) = -\frac{\rho(\v{x})}{\varepsilon_0}, \qquad
+    \v{x} \in \Omega.
+\end{equation}
+La \emph{funzione di Green} $G(\v{x}, \v{x}')$ del dominio $\Omega$ è la soluzione del
+problema ausiliario
+\begin{equation}\label{eq:green_def}
+    \nabla^2 G(\v{x}, \v{x}') = \delta^{(3)}(\v{x} - \v{x}'), \qquad \v{x} \in \Omega,
+\end{equation}
+con opportune condizioni al contorno su $\partial\Omega$ (specificate nelle
+sottosezioni successive). Fisicamente, $G(\v{x},\v{x}')$ rappresenta il potenziale
+(a meno di $\varepsilon_0$) generato da una carica puntiforme unitaria posta in
+$\v{x}'$, in presenza del dominio $\Omega$.
+
+La soluzione fondamentale dell'equazione di Laplace in $\mathbb{R}^3$,
+\begin{equation}
+    \phi(\v{x}, \v{x}') = -\frac{1}{4\pi |\v{x} - \v{x}'|},
+\end{equation}
+soddisfa già la~\eqref{eq:green_def} su tutto $\mathbb{R}^3$, ma non rispetta in
+generale le condizioni al contorno del dominio $\Omega$.
+Si decompone quindi $G$ come
+\begin{equation}
+    G(\v{x}, \v{x}') = -\frac{1}{4\pi|\v{x}-\v{x}'|} + H(\v{x}, \v{x}'),
+\end{equation}
+dove $H$ è una funzione regolare (armonica) in $\Omega$, scelta in modo che la
+condizione al contorno su $G$ sia soddisfatta.
+
+\subsection{Derivazione della formula integrale per il potenziale}
+
+Si applica la seconda identità di Green~\eqref{eq:green2} con $f = V(\v{x})$ e
+$g = G(\v{x}, \v{x}')$, trattando $\v{x}'$ come parametro:
+\begin{equation}
+    \int_\Omega \!\left( V(\v{x})\, \nabla^2 G(\v{x},\v{x}') - G(\v{x},\v{x}')\,
+    \nabla^2 V(\v{x}) \right) d^3x
+    = \oint_{\partial\Omega} \!\left( V \, \frac{\partial G}{\partial n}
+    - G \, \frac{\partial V}{\partial n} \right) dS.
+\end{equation}
+Sostituendo le equazioni~\eqref{eq:poisson} e~\eqref{eq:green_def}:
+\begin{equation}
+    \int_\Omega V(\v{x})\, \delta^{(3)}(\v{x}-\v{x}')\, d^3x
+    + \frac{1}{\varepsilon_0}\int_\Omega G(\v{x},\v{x}')\, \rho(\v{x})\, d^3x
+    = \oint_{\partial\Omega} \left( V \, \frac{\partial G}{\partial n}
+    - G \, \frac{\partial V}{\partial n} \right) dS.
+\end{equation}
+La delta di Dirac seleziona $V(\v{x}')$. Scambiando infine i nomi
+$\v{x} \leftrightarrow \v{x}'$ si ottiene la \emph{formula integrale generale}
+per il potenziale:
+\begin{equation}\label{eq:V_green}
+    \boxed{
+    V(\v{x}) = \frac{1}{\varepsilon_0}\int_\Omega G(\v{x},\v{x}')\,\rho(\v{x}')\,d^3x'
+    - \oint_{\partial\Omega} \left( V(\v{x}')\, \frac{\partial G}{\partial n'}(\v{x},\v{x}')
+    - G(\v{x},\v{x}')\, \frac{\partial V}{\partial n'}(\v{x}') \right) dS'
+    }
+\end{equation}
+I due contributi hanno interpretazione distinta: il primo termine è il potenziale
+generato dalla distribuzione di carica $\rho$ nell'interno del dominio; il secondo
+termine codifica l'effetto delle condizioni al contorno su $\partial\Omega$.
+
+\subsection{Il problema della sovradeterminazione e le condizioni al contorno}
+
+La formula~\eqref{eq:V_green} contiene, sull'integrale di superficie, sia il valore
+di $V$ che quello di $\partial V / \partial n$ su $\partial\Omega$.
+Specificare \emph{entrambe} le quantità costituisce un problema \emph{sovradeterminato}:
+l'equazione di Poisson è una PDE del second'ordine, e per garantire esistenza e
+unicità della soluzione è sufficiente assegnare \emph{una sola} condizione su
+ciascuna porzione del bordo.
+Imporre entrambe le condizioni è in generale incompatibile con la soluzione
+dell'equazione, oppure — circolarmente — richiede di conoscere già la soluzione per
+ricavare la derivata normale, vanificando l'utilità della formula stessa.
+
+La scelta della condizione al contorno opportuna definisce due problemi classici:
+
+\begin{itemize}
+    \item \textbf{Condizioni di Dirichlet.} Si assegna il valore del potenziale sulla
+    superficie:
+    \begin{equation}
+        V(\v{x})\big|_{\partial\Omega} = V_0(\v{x}'), \qquad \v{x}' \in \partial\Omega.
+    \end{equation}
+    È il caso fisico dei conduttori a potenziale fissato.
+    Si elimina il termine con $\partial V/\partial n'$ dalla~\eqref{eq:V_green}
+    imponendo $G(\v{x},\v{x}')\big|_{\v{x}' \in \partial\Omega} = 0$,
+    così il secondo termine dell'integrale di superficie si annulla e la formula
+    si semplifica in:
+    \begin{equation}
+        V(\v{x}) = \frac{1}{\varepsilon_0}\int_\Omega G(\v{x},\v{x}')\,\rho(\v{x}')\,d^3x'
+        - \oint_{\partial\Omega} V_0(\v{x}')\, \frac{\partial G}{\partial n'}(\v{x},\v{x}')\, dS'.
+    \end{equation}
+
+    \item \textbf{Condizioni di Neumann.} Si assegna la derivata normale del potenziale
+    sulla superficie:
+    \begin{equation}
+        \frac{\partial V}{\partial n}\bigg|_{\partial\Omega} = \Phi(\v{x}'),
+        \qquad \v{x}' \in \partial\Omega,
+    \end{equation}
+    che fisicamente equivale ad assegnare la componente normale del campo elettrico
+    (e quindi la densità di carica superficiale $\sigma = -\varepsilon_0\,\partial V/\partial n$).
+    In questo caso si sceglie $G$ tale che
+    $\partial G/\partial n'\big|_{\partial\Omega} = \text{cost}$
+    (il valore costante è fissato da una condizione di compatibilità globale),
+    e il termine con $V_0$ scompare dall'integrale di superficie.
+\end{itemize}
+
+\subsection{Unicità della soluzione}
+
+\subsubsection{Enunciato e significato fisico}
+
+Il problema di Poisson con condizioni al contorno di Dirichlet \emph{o} di Neumann
+ammette una soluzione \emph{unica} (a meno di una costante additiva nel caso di
+Neumann). L'unicità ha un ruolo fondamentale in elettrostatica: garantisce che il
+metodo delle immagini, il metodo delle serie di Fourier o qualunque altra tecnica
+che individui \emph{una} soluzione compatibile con le condizioni al contorno fornisca
+automaticamente \emph{la} soluzione del problema, senza bisogno di verificare che
+non ne esistano altre.
+
+\subsubsection{Dimostrazione}
+
+Supponiamo che $V_1$ e $V_2$ siano due soluzioni del problema di Poisson con le
+stesse condizioni al contorno (di Dirichlet o di Neumann). Definiamo la differenza
+\begin{equation}
+    u(\v{x}) = V_1(\v{x}) - V_2(\v{x}).
+\end{equation}
+Per linearità dell'equazione di Poisson, $u$ soddisfa l'equazione di Laplace
+\begin{equation}
+    \nabla^2 u = 0 \qquad \text{in } \Omega,
+\end{equation}
+con condizioni al contorno omogenee:
+\begin{align}
+    u\big|_{\partial\Omega} &= 0 \qquad \text{(Dirichlet)}, \\
+    \frac{\partial u}{\partial n}\bigg|_{\partial\Omega} &= 0 \qquad \text{(Neumann)}.
+\end{align}
+Applichiamo la prima identità di Green~\eqref{eq:green1} con $f = g = u$:
+\begin{equation}
+    \int_\Omega \left( u\, \nabla^2 u + |\nabla u|^2 \right) d^3x
+    = \oint_{\partial\Omega} u\, \frac{\partial u}{\partial n}\, dS.
+\end{equation}
+Poiché $\nabla^2 u = 0$, il primo termine dell'integrale di volume scompare.
+Il termine di superficie è nullo in entrambi i casi:
+nel caso di Dirichlet perché $u = 0$ su $\partial\Omega$;
+nel caso di Neumann perché $\partial u / \partial n = 0$ su $\partial\Omega$.
+Rimane quindi:
+\begin{equation}
+    \int_\Omega |\nabla u|^2 \, d^3x = 0.
+\end{equation}
+Poiché l'integrando $|\nabla u|^2 \geq 0$ è continuo, l'unica possibilità è
+\begin{equation}
+    \nabla u = \v{0} \quad \text{in tutto } \Omega,
+\end{equation}
+ovvero $u$ è costante in $\Omega$. Nel caso di Dirichlet la condizione $u|_{\partial\Omega}=0$
+fissa la costante a zero, dunque $V_1 = V_2$ ovunque. Nel caso di Neumann la costante
+rimane arbitraria, il che è fisicamente atteso: il campo $\v{E} = -\nabla V$ è determinato
+in modo unico, ma il potenziale è definito a meno di una costante additiva globale.
 
 \chapter{Equazione di Laplace}
 Dall'elettrostatica sappiamo che il campo elettrico in forma locale deve soddisfare
@@ -538,11 +792,13 @@ quella carica deve essere per forza uscita dal volume, quindi la $ \nabla \mathb
 
 \section{Interazione fra correnti}
 Nel 1820 Ørsted scopre che fili percorsi da corrente interagiscono con degli aghi magnetici facendoli ruotare.
-Poco dopo Ampère osserva che le correnti interagiscono fra loro e si verifica una forza che è proporzionale alle correnti e inversamente proporzionale alla distanza:
+Poco dopo Ampère osserva che le correnti interagiscono fra loro e si verifica una forza che è proporzionale alle correnti e inversamente proporzionale 
+alla distanza:
 \[\frac{\Delta F}{\Delta L} = k\frac{i_1 i_2}{d}\]
 dove la forza è attrattiva se le correnti scorrono nello stesso verso, altrimenti repulsiva.
-La costante di proporzionalià vale $ k = 2\times10^\text{-7} $ e non fu misuratà da Ampère ma soltanto in epoca moderna dopo che Maxwell introdusse il concetto di permeabilità magnetica $ \mu $.
-Fu deciso $ k = \frac{\mu_0}{2\pi}  $ in modo tale da ridefinire 1 Ampère come la corrente che scorrendo in 2 fili alla distanza di 1 metro produce una forza di $ 2\times10^\text{-7} $ Newton (2019).
+La costante di proporzionalià vale $ k = 2\times10^\text{-7} $ e non fu misurata da Ampère ma soltanto in epoca moderna dopo che Maxwell introdusse il 
+concetto di permeabilità magnetica $ \mu $. Fu deciso $ k = \frac{\mu_0}{2\pi}  $ in modo tale da ridefinire 1 Ampère come la corrente che scorrendo in 2 
+fili alla distanza di 1 metro produce una forza di $ 2\times10^\text{-7} $ Newton (2019).
 \\
 Ampère e Laplace arrivano ad una espressione del campo magnetico generato da un filo percorso da corrente:
 \begin{equation} \label{eq:B_integrale_di_dB}
@@ -567,16 +823,18 @@ intengrando si ottiene
 
 
 \subsection{Campo di un filo}
-Consideriamo un filo di lunghezza $ l = 2a $ nel quale scorre una corrente stazionaria $ i $ (da un punto di vista della magnetostatica non è chiaro 
+Consideriamo un filo di lunghezza $ l = 2a $ nel quale scorre una corrente stazionaria $ I $ (da un punto di vista della magnetostatica non è chiaro 
 perché non sarebbe verificata l'equazione di continuità \eqref{eq:continuità}), vogliamo trovare il campo lungo il piano mediano del filo.
 Siccome $ \mathbf{ B } $ è uno pseudovettore e c'è simmetria dispari rispetto al piano $ xy $, il campo ha solo componente $ B_{\varphi} $.\\
 Utiliziamo la \eqref{eq:dB} integrandola fra gli estremi del filo:
 \begin{align}
   & d\mathbf{ s } \times \mathbf{ u }_r = dz \sin \theta \, \mathbf{ u }_{\varphi}   \quad \sin\theta = \frac{R}{r} = \frac{R}{\sqrt{R^2 + z^2}}\\
   & d\theta \cos\theta = - R \frac{z}{\left( R^2 + z^2 \right)^{\frac{3}{2}}} dz \quad \text{ma}\quad \cos\theta =  \frac{z}{r} \\
-  & \text{quindi} \quad dz = -\frac{r^2}{R} d\theta \implies \mathbf{ B } =  \frac{\mu_0}{4\pi} \int_{\theta_1}^{\pi-\theta_1} \frac{-\sin\theta}{R} \,d\theta \; \mathbf{ u }_{\varphi} \\
-  & = \frac{2\mu_0}{4\pi R} \int_{\frac{\pi}{2}}^{\pi-\theta_1} \left( -\sin\theta \right) \,d\theta = \frac{\mu_0}{2\pi R} \cos \left( \pi -\theta_1 \right) 
-  = \frac{\mu_0}{2\pi R} \frac{a}{\sqrt{R^2 + a^2}} \label{eq:campo_filo_lunghezza_a}
+  & \text{quindi} \quad dz = -\frac{r^2}{R} d\theta \implies \mathbf{ B } 
+  =  \frac{\mu_0 I}{4\pi} \int_{\theta_1}^{\pi-\theta_1} \frac{-\sin\theta}{R} \,d\theta \; \mathbf{ u }_{\varphi} \\
+  & = \frac{2\mu_0 I}{4\pi R} \int_{\frac{\pi}{2}}^{\pi-\theta_1} \left( -\sin\theta \right) \,d\theta 
+  = \frac{\mu_0 I}{2\pi R} \cos \left( \pi -\theta_1 \right) 
+  = \frac{\mu_0 I}{2\pi R} \frac{a}{\sqrt{R^2 + a^2}} \label{eq:campo_filo_lunghezza_a}
 \end{align}
 
 
@@ -639,23 +897,18 @@ così la \eqref{B_Laplace} si riscrive come
 
 dove nell'ultima uguaglianza abbiamo sfruttato la \eqref{rot_proprietà} notando che il rotore è fatto rispetto 
 alle coordinate $ \mathbf{ x } $ e non rispetto alle $ \mathbf{ x' } $, ma $ \mathbf{ J(x') } $ è funzione delle coordinate primate (stiamo integrando sulle correnti nel volume).
-Quindi il suo rotore è 0.\\
-Da qui segue la prima equazione di Maxwell:
-
+Quindi il suo rotore è 0. Da qui segue la prima equazione di Maxwell:
 \begin{align}
   \nabla\cdot\mathbf{ B } &= 0 \quad \text{dato che} \quad \nabla\cdot \left( \mathbf{ \mathbf{\nabla}\times\mathbf{ a } } \right) = 0 \quad \forall a
 \end{align}
-
 Per quanto riguarda la seconda, mostriamo che
 \begin{equation}
   \mathbf{\nabla}\times\mathbf{ B } = \mu_0 \mathbf{ J(x) }
 \end{equation}
 sfruttando la riscrittura di prima
-
 \begin{align}
   \mathbf{\nabla}\times\mathbf{ B } = \frac{\mu_0}{4\pi} \nabla \times \nabla \times \left( \int \frac{\mathbf{ J(x) } }{|\mathbf{ x-x' }|} \,d^3x' \right)
 \end{align}
-
 per il rotore di rotore vale l'identità
 \begin{equation}
   \nabla \times  \left(\nabla \times \mathbf{ A } \right) = \nabla\left( \nabla\cdot \mathbf{ A } \right) - \nabla^2 \mathbf{ A } \quad \forall \mathbf{ A } \in C^2
@@ -665,51 +918,35 @@ dove l'ultimo Laplaciano è componente per componenete cioè
    \left( \nabla^2 \mathbf{ A } \right) _i = \, \nabla^2 A_i \quad \text{Laplaciano vettoriale}
 \end{equation}
 calcoliamo prima $ \nabla\cdot \mathbf{ A(x) } $:
-
 \begin{align}
   \nabla \cdot \mathbf{ A(x) } = \nabla \cdot \left(\frac{\mu_0}{4\pi} \int \frac{\mathbf{ J(x') }}{\mathbf{ |x-x'| }} \, d^3x' \right) 
   = \frac{\mu_0}{4\pi} \int \mathbf{ J(x') } \left( \nabla \frac{1}{\mathbf{ |x-x'| }} \right) \,d^3x'
 \end{align}
-
 $ \mathbf{ J } $ esce dal gradiente perché è rispetto alle coordinate non primate.
-
-
 \begin{align}
   &= \frac{\mu_0}{4\pi} \int \mathbf{ J(x') } \left( -\nabla' \frac{1}{\mathbf{ |x-x'| }} \right) \,d^3x' 
   = \frac{\mu_0}{4\pi} \int \frac{\left( \nabla' \cdot \mathbf{ J(x') } \right)}{\mathbf{ |x-x'| }} - \nabla' \cdot \left( \frac{\mathbf{ J(x') }}{\mathbf{ |x-x'| }} \right) \,d^3x'\\
   &= 0 - \frac{\mu_0}{4\pi} \oint_S \frac{\mathbf{ J(x') }}{\mathbf{ |x-x'| }} \,d\mathbf{ S } = 0 \quad \text{per la localizzazione delle sorgenti mandando S a infinito}
 \end{align}
-
 nel primo termine abbiamo anche usato l'equazione di continuità \eqref{eq:continuità}.
 Quindi rimane solo il termine col laplaciano:
-
-
 \begin{align}
   \left( \mathbf{\nabla}\times\mathbf{ B } \right)_i &= -\nabla^2\mathbf{ A(x) }_i = \frac{\mu_0}{4\pi} \int J_i(\mathbf{ x' }) \left( -\nabla^2 \frac{1}{\mathbf{ |x-x'| }} \right) \,d^3x'\\
    &= \frac{\mu_0}{4\pi} \int J_i \mathbf{ (x') } \; 4\pi \delta \left( \mathbf{ x-x' } \right) \,d^3x' = \mu_0 J_i (\mathbf{ x })
 \end{align}
-
 otteniamo quindi
-
 \begin{align}
   \mathbf{\nabla}\times\mathbf{ B } = \mu_0 \mathbf{ J(x) }
 \end{align}
-
 Per ottenere la forma globale possiamo integrare su una superficie $ S $ ed applicare il teorema del rotore:
-
 \begin{align}
   \mu_0 \int_S \mathbf{ J } \cdot \,d\mathbf{ S } = \int_S \mathbf{\nabla}\times\mathbf{ B } \,d\mathbf{ S } = \oint_{\partial S} \mathbf{ B } \cdot \, d\mathbf{ l }
 \end{align}
-
 Abbiamo ottenuto che la circuitazione del campo magnetico lungo una linea chiusa $ \partial S $ è il flusso di $ \mathbf{ J } $ attraverso la 
 superficie $ S $, cioè la corrente concantenata alla linea:
 \begin{equation} \label{eq:circuitazione_B=i_concatenata}
   \oint_{\partial S} \mathbf{ B } \cdot \, d\mathbf{ l } = \mu_0 i_{\text{conc}}
 \end{equation}
-
-
-
-
 
 
 
