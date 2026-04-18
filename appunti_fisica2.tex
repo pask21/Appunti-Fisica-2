@@ -850,7 +850,8 @@ L'integrale sul filo:
 \end{align}
 Notiamo che lo stesso risultato si ottiene facendo il limite del filo di lunghezza $ l = 2a $ per $ a \to \infty $ nella \eqref{eq:campo_filo_lunghezza_a}:
 \begin{align}
-  &\frac{\mu_0}{2\pi R} \frac{a}{\sqrt{R^2 + a^2}} = \frac{\mu_0}{2\pi R} \frac{1}{\sqrt{1 + \left( \frac{R}{a} \right) ^2 }} = \frac{\mu_0}{2\pi R} \left( 1 - \frac{1}{2} \left( \frac{R}{a} \right) ^2 + ... \right)
+  &\frac{\mu_0 I}{2\pi R} \frac{a}{\sqrt{R^2 + a^2}} = \frac{\mu_0 I}{2\pi R} \frac{1}{\sqrt{1 + \left( \frac{R}{a} \right) ^2 }} 
+  = \frac{\mu_0 I}{2\pi R} \left( 1 - \frac{1}{2} \left( \frac{R}{a} \right) ^2 + ... \right)
 \end{align}
 
 
@@ -3362,6 +3363,185 @@ $\mathcal{E}$
 
 
 \end{comment}
+
+
+\chapter{Elettromagnetismo nella materia}
+In questo capitolo studieremo come i campi elettromagnetici interagiscono con la meteria e come è possibile modellizzarli. Le equazioni di Maxwell 
+che abbiamo ricavato, insieme alla forza di Lorenz, costituiscono una teoria esatta per descrivere i campi elettromagnetici. L'aggetivo esatto è da 
+intendersi nel senso che non è una teoria ricavata da una qualche approssimazione di una teoria più completa, come ad esempio la meccanica Newtoniana che 
+è il limite di bassa velocità della relatività ristretta. Trattare fenomeni elettromagnetici con questa teoria è relativamente semplice quando il numero di 
+cariche interagenti è piccolo, ma nella materia abbiamo un numero di atomi dell'ordine di $ N \sim 10^{24} $ per centrimetro cubo. Quindi oltre che 
+straordinariamente difficile, è addirittura inutile conoscere in modo esatto tutti gli effetti elettromagnetici in un oggetto macroscopico, dato che è 
+possibile ottenere le informazioni a cui siamo interessati da delle grandezze studiabili dal punto di vista macroscopico, come le funzioni di stato.
+
+\section{Equazioni di Maxwell nella materia}
+Quello che faremo è costruire una nuova teoria elettromagnetica valida in un certo regime di lunghezze che chiameremo \textit{scala mesoscopica}: ovvero una 
+scala che ci permette di non considerare la natura discreta degli reticoli atomici (e soprattutto gli effetti quantistici), ma comunque abbastanza piccola 
+rispetto alle scale di variazione spaziale dei campi in modo da essere comunque considerata infinitesima. Per dare dei riferimenti, la scala mesoscopica 
+che applicheremo è abbastanza lontana dal raggio di Bohr $ a \sim \SI{e-10}{m} $ e dalla lunghezza d'onda $ \lambda \sim \SI{100}{nm} = \SI{e-7}{m}$ 
+dei campi:
+\begin{align}
+  a \ll R \ll \lambda \tag*{[scala mesoscopica]}
+\end{align}
+Sfrutteremo la scala mesoscopica per introdurre un approccio comune quando si vuole passare ad una trattazione su scala maggiore di una qualche teoria 
+microscopica, ovvero quello della teoria di campo medio: sostituiremo i campi microscopici $ \v{E}, \v{B} $ (rispettivamente campo elettrico e magnetico) 
+con le loro medie in scala mesoscopica $ \langle \v{E} \rangle, \langle \v{B} \rangle $. La media che useremo è 
+\begin{align}
+  \langle \v{F}(\v{r},t) \rangle = \frac{1}{\Omega} \int_\Omega \v{F}(\v{r + r'}, t) \, \mu(\v{r'})\,d^3r'
+\end{align}
+dove $ \Omega $ è l'intorno mesoscopico e $ \mu(\v{r'}) $ è un peso che possiamo aggiungere. La cosa importante è che la media commuta con le derivate, 
+possiamo quindi applicarla subito alle equazioni di Maxwell:
+\begin{align}
+  &\nabla \cdot \langle \v{B} \rangle = 0
+  \\
+  &\nabla \times \langle \v{E} \rangle = - \der{\langle \v{B} \rangle}{t}
+  \\
+  &\nabla \cdot \langle \v{E} \rangle = \frac{\langle \rho \rangle}{\eps_0}
+  \\
+  &\nabla \times \langle \v{B} \rangle = \mu_0 \langle \v{J} \rangle + \frac{1}{c^2} \der{\langle \v{E} \rangle}{t}
+\end{align}
+Per quanto riguarda le sorgenti dobbiamo distinguere fra i contributi esterni, i quali inseriti da noi ne conosciamo necessariamente una media 
+mesoscopica, e quelli microscopici, quindi
+\begin{align}
+  \langle \rho \rangle &= \rho_{\text{ext}} + \langle \rho_{\text{risposta}} \rangle
+  \\
+  \langle \v{J} \rangle &= \v{J}_{\text{ext}} + \langle \v{J}_{\text{risposta}} \rangle
+\end{align}
+vogliamo quindi modellizzare questa risposta tramite l'approssimazione di dipolo. Dato che il termine di dipolo del potenziale si scrive come 
+$ V_d = k_e \frac{\v{d} \cdot \v{r}}{r^3} $, possiamo scrivere il potenziale dividendo i termini esterni e di risposta come 
+\begin{align}
+  V(\v{r}) \simeq k_e \int d^3r'\left[ \frac{\rho_{\text{ext}}(\v{R'} )}{|\v{r - r'}|} + \frac{\v{P}(\v{r'}) \cdot (\v{r - r'})}{|\v{r-r'}|^3} \right]
+\end{align}
+dove abbiamo introdotto $ \v{P} $ che è detto  \textit{vettore di polarizzazione} e nella nostra trattazione corrisponde ad una media dei dipoli in un certo 
+punto del materiale:
+\begin{align}
+  \v{P}(\v{r}) = \langle \frac{\v{d}_{\text{indotti}}( \v{r})}{\uptau} \rangle
+\end{align}
+A questo punto applichiamo la solita identità vettoriale
+\begin{align}
+  \int d^3r'\; \v{P}(\v{r'}) \cdot \nabla' \left( \frac{1}{|\v{r-r'}|} \right) 
+  = \int d^3r'\left[ \nabla' \cdot \left( \frac{\v{P}(\v{r'})}{|\v{r-r'}|} \right) - \frac{\nabla' \cdot \v{P}(\v{r'})}{|\v{r - r'}|} \right]
+\end{align}
+ed il primo termine è nullo applicando il teorema della divergenza e per l'ipotesi di sorgenti localizzate. Dunque il potenziale diventa
+\begin{align}
+  V(\v{r}) \simeq k_e \int d^3r' \;\frac{1}{\v{|r - r'|}} \left[ \rho_{\text{ext}} - \nabla' \cdot \v{P}(\v{r'}) \right] 
+  = k_e \int d^3r' \;\frac{1}{\v{|r - r'|}} \left[ \rho_{\text{ext}} - \rho_{\text{pol}}(\v{r'}) \right] 
+\end{align}
+dove abbiamo introdotto la \textit{densità di carica di polarizzazione} $ \rho_{\text{pol}} $ definita come 
+\begin{align}
+  \rho_{\text{pol}}(\v{r}) \coloneq - \nabla \cdot \v{P}(\v{r})
+\end{align}
+Tramite $ \rho_{\text{pol}} $ l'equazione per la divergenza del campo elettrico si riscrive
+\begin{align}
+  &\nabla \cdot \langle \v{E} \rangle = \frac{\rho_{\text{ext}}}{\eps_0} + \frac{\rho_{\text{pol}}}{\eps_0} 
+  = \frac{\rho_{\text{ext}}}{\eps_0} - \nabla \cdot \frac{\v{P}}{\eps_0}
+  \\
+  &\implies \nabla \cdot \left[ \langle \v{E} \rangle + \frac{\v{P}}{\eps_0}  \right] = \frac{\rho_{\text{ext}}}{\eps_0}
+\end{align}
+e definiamo il \textit{vettore di induzione elettrica} $ \v{D} $ come
+\begin{align}
+  \v{D} \coloneq \eps_0 \langle \v{E} \rangle + \v{P} \implies \nabla \cdot \v{D} = \rho_{\text{ext}}
+\end{align}
+Sfruttiamo lo stesso ragionamendo con il potenziale vettore ed il dipolo magnetico per arrivare ad ottenere una nuova equazione anche per le correnti: dato
+che $ \v{A}_\v{m} = k_m \frac{\v{m}\times \v{r}}{r^3} $ scriviamo il potenziale vettore totale come
+\begin{align}
+  \v{A}(\v{r}) \simeq k_m \int d^3r' \left[ \frac{\v{J}_{\text{ext}}(\v{r'})}{\v{|r -r'|}} 
+  + \frac{ \v{M} \times \left( \v{r - r'} \right)}{\v{|r - r'|}^3} \right]
+\end{align}
+dove analogamente a $ \v{P} $ abbiamo introdotto il \textit{vettore di magnetizzazione} $ \v{M} $ definito come la media dei dipoli magnetici in un certo 
+volume
+\begin{align}
+  \v{M}(\v{r}) \coloneq \langle \frac{\v{m}_{\text{indotti}}(\v{r})}{\uptau} \rangle
+\end{align}
+Sviluppiamo il termine contenente $ \v{M} $ con l'identità vettoriale del rotore ed otteniamo
+\begin{align}
+  \int d^3r'\; \v{M}(\v{r'}) \times \nabla' \left( \frac{1}{\v{|r - r'|}} \right)
+  = \int d^3 r' \left[ \frac{\nabla'\!\times\!\mathbf{ M }(\v{r'})}{\v{|r - r'|}} - \nabla'\!\times\!\left( \mathbf{ \frac{M(r')}{|r - r'|} }\right)\right]
+\end{align}
+adesso il secondo termine di questo integrale è una divergenza dunque si annulla per la localizzazione delle sorgenti, e per mostrarlo basti vedere che
+\begin{align}
+  \eps_{i j k} \partial_j M_k = \partial_j \eps_{i j k} M_k = \partial_j \eps_{j k i} M_i = \partial_j a_j
+\end{align}
+che è appunto una divergenza, dunque possiamo trasformarlo in un integrale di superficie. Il potenziale vettore assume la forma
+\begin{align}
+  \v{A}(\v{r}) \simeq k_m \int d^3r' \frac{1}{\v{|r - r'|}} \left[ \v{J}_{\text{ext}}(\v{r'}) + \nabla'\!\times\!\mathbf{ \v{M}(r') } \right] 
+  = k_m \int d^3r' \frac{1}{\v{|r - r'|}} \left[ \v{J}_{\text{ext}}(\v{r'}) + \v{J}_{\text{pol}}(\v{r'}) \right] 
+\end{align}
+dove $ \v{J}_{\text{pol}} $ è la \textit{corrente di polarizzazione}. L'equazione magnetostatica per il rotore di $ \v{B} $ diventa
+\begin{align}
+  &\nabla \times \langle \v{B} \rangle = \mu_0 \v{J}_{\text{ext}} + \mu_0 \v{J}_{\text{pol}} = \mu_0 \v{J}_{\text{ext}} + \mu_0 \nabla \times \v{M}
+  \\
+  &\implies \nabla \times \left[ \langle \v{B} - \mu_0 \v{M} \rangle \right] = \mu_0 \v{J}_{\text{ext}}
+\end{align}
+e definiamo il \textit{vettore di induzione magnetica} $ \v{H} $ come
+\begin{align}
+  \v{H} \coloneq \frac{\v{B}}{\mu_0} - \v{M}
+  \implies \nabla \times \v{H} = \v{J}_{\text{ext}}
+\end{align}
+Le equazioni di Maxwell mesoscopiche statiche che abbiamo ottenuto sono quindi:
+\begin{align}
+  &\nabla \cdot \v{D} = \rho_{\text{ext}}
+  \\
+  &\nabla \cdot \langle \v{B} \rangle = 0
+  \\
+  &\nabla \times \langle \v{E} \rangle = 0
+  \\
+  &\nabla \times \v{H} = \v{J}_{\text{ext}}
+\end{align}
+
+Nel caso dinamico dobbiamo prima ridefinire la corrente di polarizzazione $ \v{J}_{\text{pol}} $ perché dato che il vettore di polarizzazione $ \v{P} $ è 
+legato alle cariche dalle relazioni 
+\begin{align}
+  \rho_{\text{pol}} &= - \nabla \cdot \v{P}
+  \\
+  \sigma_{\text{pol}} &= \v{P} \cdot \vers{n}
+\end{align}
+allora è chiaro che una variazione temporale $ \partial_t \v{P} $ deve essere legata in qualche modo alla corrente di polarizzazione, cosa che nel caso 
+statico era nulla. Per farlo sfrutteremo l'equazione di continuità con il dettaglio che sorgenti esterne e sorgenti di risposta devono rispettare 
+indipendentemente la loro equazione di continuità:
+\begin{align}
+  \der{\rho_{\text{ext}}}{t} + \nabla \cdot \v{J}_{\text{ext}} &= 0
+  \\
+  \der{\rho_{\text{pol}}}{t} + \nabla \cdot \v{J}_{\text{pol}} &= 0
+\end{align}
+che sono una semplice conseguenza del fatto che le equazioni di Maxwell valgono indipendentemente per le due sorgenti. Dalla seconda otteniamo
+\begin{align}
+  \der{(-\nabla\!\cdot\!\mathbf{ P })}{t} + \nabla\!\cdot\!\mathbf{ J }_{\text{pol}} = 0 
+  \implies \v{J}_{\text{pol}} = \der{\v{P}}{t} \;\left( + \;\nabla\!\times\!\mathbf{ M } \right)
+\end{align}
+quindi abbiamo trovato che alla corrente di polarizzazione trovata prima dobbiare aggiungere il termine dovuto a $ \partial_t\v{P} $:
+\begin{align}
+  \v{J}_{\text{pol}} = \nabla \times \v{M} + \partial_t \v{P}
+\end{align}
+Possiamo quindi riscrivere l'equazione per il rotore di $ \v{H} $ con i termini aggiuntivi
+\begin{align}
+  \nabla \times \v{H} = \v{J}_{\text{ext}} + \der{\v{P}}{t} + \eps_0 \der{\langle \v{E} \rangle}{t} = \v{J}_{\text{ext}} + \der{\v{D}}{t}
+\end{align}
+e quindi le equazioni di Maxwell dinamiche in scala mesoscopica diventano
+\begin{align}
+  &\nabla \cdot \v{D} = \rho_{\text{ext}}
+  \\
+  &\nabla \cdot \langle \v{B} \rangle = 0
+  \\
+  &\nabla \times \langle \v{E} \rangle = - \der{\v{B}}{t}
+  \\
+  &\nabla \times \v{H} = \v{J}_{\text{ext}} + \der{\v{D}}{t}
+\end{align}
+Le equazioni così ottenute sono ben diverse dalle equazioni microscopiche, tanto per cominciare non sono complete, dato che non abbiamo abbastanza relazioni 
+per identificare 4 campi, ed inoltre le relazioni che legano i campi di induzione rispetto a quelli microscopici, cioè $ \v{D}(\v{E,B}), \v{H}(\v{E,B}) $ 
+sono in generale molto complicate. Dalle equazioni otteniamo però le seguenti leggi di conservazione in assenza di sorgenti esterne:
+\begin{align*}
+  D_\perp, B_\perp, E_\parallel, H_\parallel \qquad \text{si conservano.}
+\end{align*}
+Al fine di semplificare la trattazione nel seguito faremo un serie di approssimazioni, la prima consiste nel richieder la linearità della dipendenza dei 
+campi di induzione in funzione dei campi microscopici, che è una approssimazione molto forte. La seconda riguarda la separazione della risposta cioè 
+richiedere che $ \v{D} = \v{D}(\v{E}) $ e che $ \v{H} = \v{H}(\v{B}) $, che in realtà è una cosa piuttosto comune nei mezzi. Adesso per trattare i vari casi 
+necessitiamo soltanto delle \textit{equazioni costitutive}, cioè le effettive relazioni che ci permettono di determinare i campi indotti. In generale 
+la polarizzazione in funzione del campo elettrico prende la forma di un integrale 
+\begin{align}
+  P_i (\v{r},t) = \int d^3r' \int dt' g_{i j}(\v{r, r'}, t) E_j (\v{r'}, t')
+\end{align}
+
 
 % -----------------------------------------------------------------------------------------------------------------
 % --------------------------------------------------- APPENDICE ---------------------------------------------------
