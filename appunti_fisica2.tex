@@ -3539,8 +3539,33 @@ richiedere che $ \v{D} = \v{D}(\v{E}) $ e che $ \v{H} = \v{H}(\v{B}) $, che in r
 necessitiamo soltanto delle \textit{equazioni costitutive}, cioè le effettive relazioni che ci permettono di determinare i campi indotti. In generale 
 la polarizzazione in funzione del campo elettrico prende la forma di un integrale 
 \begin{align}
-  P_i (\v{r},t) = \int d^3r' \int dt' g_{i j}(\v{r, r'}, t) E_j (\v{r'}, t')
+  P_i (\v{r},t) = \eps_0 \int d^3r' \int dt' \chi_{i j}(\v{r, r'}, t, t') E_j (\v{r'}, t')
 \end{align}
+ed in questa forma chiediamo che rispetti l'ipotesi di stazionarietà, cioè che dipenda dalla differenza $ t - t' $ e non in modo indipendente dal tempo, e 
+l'ipotesi di mezzo omogeneo che consiste nel richiedere che la dipendenza solo da $ \v{r - r'} $. Abbiamo richiesto quindi l'invarianza traslazionale sia 
+nel tempo che nello spazio e l'integrale prende la forma
+\begin{align}
+  P_i (\v{r},t) = \eps_0 \int d^3r' \int dt' \chi_{i j}(\v{r - r'}, t - t') E_j (\v{r'}, t')
+\end{align}
+e a questo punto richiediamo anche altre due ipotesi cioè la località spaziale e temporale, la quale ci dice che la risposta del mezzo è legata a un punto 
+preciso e ad un istante, cosa che chiaramente non è vera ma è utile per dare una prima approssimazione del mezzo, che ci porta ad un semplice coefficiente
+\begin{align}
+  \chi_{i j}(\v{r - r'}, t- t') &= \chi \; \delta( \v{r - r'}) \, \delta(t - t')
+  \\
+  \implies P_i (\v{r},t) &= \eps_0 \chi_{i j} E_j (\v{r}, t)
+\end{align}
+ma finora $ \chi_{i j} $ è ancora un tensore, che può portare a dei risultati come la polarizzazione orientata in modo diverso rispetto al campo elettrico, 
+quindi per ottenere il risultato più semplice in assoluto richiediamo che $ \chi_{i j} = \chi_e \, \delta_{ij} $ quindi si ottiene
+\begin{align}
+  \v{P}(\v{r}, t) = \eps_0 \chi_e \,\v{E}(\v{r}, t)
+\end{align}
+dove $ \chi_e $ è detta \textit{suscettività elettrica}, ed è una grandezza adimensionale. Il vettore di induzione elettrica diventa
+\begin{align}
+  \v{D} = \v{P} + \eps_0 \v{E} = \eps_0 (1 + \chi_e) \v{E} \eqcolon \eps \v{E}
+\end{align}
+dove abbiamo definito la \textit{costante dielettrica del mezzo} $ \eps $. Abbiamo inoltre omesso la notazione con il campo medio $ \langle \v{E} \rangle $ 
+al fine di snellire la notazione, dunque da ora in poi supperremo sempre questa cosa, specificando invece quando si intende il campo microscopico.
+
 
 
 % -----------------------------------------------------------------------------------------------------------------
