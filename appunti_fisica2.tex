@@ -2676,16 +2676,6 @@ Quanto vale la pressione sulle pareti della guida? Fisica o tensore di Maxwell.
 Sfera pulsante, E costante fuori dal raggio massimo, B sempre nullo a causa della simmetria sferica, quindi niente onde E-M, e niente irraggiamento di 
 monopolo. $ \der{B}{t} $ associata a una j quando il piano passa, delta
 
-\section{Fisica 2 del 2 marzo}
-Dopo aver sviluppato in multipolo i campi prendiamo i campi di dipolo:
-\begin{align}
-  \mathbf{ B }_1 = 
-\end{align}
-Vogliamo studiare l'irraggiamento: prendiamo il vettore di poynting $ \mathbf{ S } $:
-\begin{align}
-  a
-\end{align}
-Intensità, intesità media.
 
 \section{Irraggiamento}
 \input{build/figure/irraggiamento.tex}
@@ -3566,6 +3556,156 @@ dove $ \chi_e $ è detta \textit{suscettività elettrica}, ed è una grandezza a
 dove abbiamo definito la \textit{costante dielettrica del mezzo} $ \eps $. Abbiamo inoltre omesso la notazione con il campo medio $ \langle \v{E} \rangle $ 
 al fine di snellire la notazione, dunque da ora in poi supperremo sempre questa cosa, specificando invece quando si intende il campo microscopico.
 
+Per trovare gli effetti di un campo macroscopico su un punto (atomo) dobbiamo considerare anche gli effetti che la polarizzazione degli altri atomi produce 
+sul punto considerato: il campo nel punto verrà indicato con $ \v{E}_{\text{locale}} $, e considerando una sfera mesoscopica di raggio $ R $ si ha 
+\begin{align}
+  \v{E}_{\text{loc}} = \v{E} - \v{E}_P + \v{E}_{\text{micro}}
+\end{align}
+dove $ \v{E}_{\text{P}} $ è il campo dovuto alla polarizzazione della sfera, $ \v{E}_{\text{micro}} $ è quello dovuto ai dipoli vicini. È facile vedere che 
+il contributo dei dipoli vicini si annulla per simmetria, mentre il campo di una sfera polarizzata uniformemente è
+\begin{align}
+  \v{E}_P = - \frac{ \v{P}}{3\eps_0}
+\end{align}
+ed il motivo perché consideriamo la sfera con polarizzazione uniforme viene dal risolvere il problema della sfera in campo elettrico uniforme. Quindi 
+abbiamo che 
+\begin{align}
+  \v{E}_{\text{loc}} = \v{E} + \frac{ \v{P}}{3\eps_0}
+\end{align}
+che ci permette di trovare il dipolo 
+\begin{align}
+  \v{d} = \alpha \v{E}_{\text{loc}}
+\end{align}
+dove $ \alpha $ è la \textit{polarizzabilità atomica} (supponiamo che segua questa relazione lineare). La polarizzazione diventa, con $ n $ la densità di 
+elettroni,
+\begin{align}
+  \v{P} = n \alpha \v{E}_{\text{loc}} = n\alpha (\v{E} + \frac{ \v{P}}{3\eps_0}) \implies \v{P} = \frac{n \alpha}{1 - \frac{n\alpha}{3 \eps_0} } \v{E} 
+  \eqcolon \eps_0 \chi \v{E}
+\end{align}
+Confrontiamo la relazione appena ottenuta con 
+\begin{align}
+  \v{P} = \eps_0 (\eps_r - 1)\v{E}
+\end{align}
+ed otteniamo che la costante dielettrica relativa rispetta la relazione
+\begin{align}
+  \eps_r - 1 = \frac{n \alpha}{\eps_0 \left( 1 - \frac{n\alpha}{3 \eps_0} \right)} \implies \frac{\eps_r - 1}{\eps_r + 2} = \frac{n\alpha}{3\eps_0}
+  \tag*{[Clausius-Mossotti]}
+\end{align}
+nota come \textit{relazione di Clausius-Mossotti}. Questa relazione ci dà una modo operativo per trovare la relazione costitutiva, dovendo soltanto 
+trovare $ n $ (relativamente facile) e $ \alpha $, che come vedremo nella sezione \ref{section:_Drude-Lorentz} richiederà un modello per descrivere 
+la risposta atomica.
+
+\section{Interazione luce-materia}
+Nei paragrafi precedenti abbiamo visto come poter descrire i campi elettromagnetici su scala mesoscopica, e facendo varie ipotesi semplificative sulla natura 
+della relazione costitutiva che lega $ \v{P} $ ed $ \v{E} $. Adesso vogliamo capire cosa succede se i campi variano rapidamente nella nostra zona di 
+interesse.
+
+Nella relazione 
+\begin{align} \label{eq:_integrale_di_convoluzione}
+  \v{P}(\v{r}, t) = \int_{-\infty}^{+\infty} g( t-t') \v{E}(\v{r}, t') \, dt'
+\end{align}
+non possiamo più imporre che $ g( t - t') = \delta( t - t') $ e quindi che la risposta sia istantanea, perché i campi variano molto rapidamente. Dobbiamo 
+quindi sistemare questo integrale, pur mantenendo il principio di causalità, cioè che la risposta può dipendere soltanto dal campo ad un tempo 
+$ \v{E}( t > t') $, e possiamo farlo imponendo che
+\begin{align}
+  g( t < t') = 0.
+\end{align}
+Adesso è conveniente passare in trasformata di Fourier, ed i motivi sono due: in generale il campo $ \v{E} $ nel dominio del tempo può essere molto 
+complicato, passando in trasformata lavoriamo con le sue componenti monocromatiche per poi ricomporre il campo facendo un integrale; il secondo motivo è 
+che riconosciamo che l'integrale in \eqref{eq:_integrale_di_convoluzione} è detto un integrale di convoluzione, e la trasformata di Fourier ha la proprietà 
+di trasformare integrali di convoluzione in prodotti. Ci aspettiamo di ottenere un risultato del tipo 
+\begin{align}
+  \v{P}_\omega(\v{r}) = g_\omega \v{E}_\omega(\v{r})
+\end{align}
+
+\section{Modello di Drude-Lorentz} \label{section:_Drude-Lorentz}
+Al fine di poter descrivere le interazioni fra la radiazione elettromagnetica con vari tipi di materia, abbiamo bisogno della relazione fra polarizzazione 
+indotta e campo elettrico, cioè la $ g_\omega $ vista precedentemente, che possiamo ricavare dall'esperimento in modo empirico, oppure attraverso una 
+modellizzazione dei costituenti della materia, ed in particolare degli elettroni.
+
+Il modello di Drude-Lorentz considera l'elettrone come una particella sottoposta a 3 tipi di forze: una di richiamo, una dissipativa ed una forzante che per 
+noi sarà la forza di Coulomb dovuta al campo elettrico di una onda (piana) incidente. 
+Questo si realizza in una equazione del moto per una particella di carica $ q $ e massa $ m $ in una equazione del moto del tipo
+\begin{align}
+  m \ddot{\v{x}} = - \omega_0^2 \v{x} - \gamma m \dot{\v{x}} + q \v{E}(\v{r}, t)
+\end{align}
+Per una onda piana abbiamo $ \v{E}(\v{r} = 0 , t) = E_0 \vers{z} e^{-i\omega t} $ che abbiamo ipotizzato lungo $ z $ (cosa che non cambia la trattazione, 
+a regime la direzione delle oscillazioni sarà la stessa del campo elettrico), supponiamo una soluzione dello stesso tipo cioè $ \v{z} = z_0 e^{-i\omega t} $ 
+e si ottiene che 
+\begin{align}
+  z_0 = \frac{ qE_0 / m}{\omega_0^2 - \omega^2 - i \gamma \omega} 
+\end{align}
+quindi il dipolo risultante sarà
+\begin{align}
+  \v{d} = d_0 \vers{z} e^{-i\omega t} = q z_0 \vers{z} e^{-i \omega t}
+  \\
+  \implies \v{P}(\v{r} , t) = \frac{n \eps_0 q^2 /m}{\omega_0^2 - \omega^2 - i \gamma \omega} \v{E}(\v{r} , t)
+\end{align}
+dove $ n $ è il numero di cariche $ q $ in un volumetto (densità volumetrica di elettroni). È possibile notare che eravamo partiti dal calcolare le 
+oscillazioni nell'origine e finiti ottenendo una dipendenza spaziale della polarizzazione, ma questo può essere giustificato dicendo che quello che abbiamo 
+ottenuto è in realtà la trasformata di Fourier $ \v{P}_\omega $, cosa che avremmo potuto fare all stesso modo aggiungendo $ \v{P}_{k,\omega} $, ma $ \v{r} $ 
+non svolge alcun ruolo nel nostro modello se non quello di selezionare l'atomo che consideriamo. Inoltre per l'ipotesi di isotropia la risposta deve essere 
+uguale in ogni punto quindi è normale che la polarizzazione eriditi la dipendenza spaziale del campo elettrico. Il nostro $ \chi(\omega) $ è quindi
+\begin{align}
+  \chi(\omega) = \frac{n q^2 /m}{\omega_0^2 - \omega^2 - i \gamma \omega}
+\end{align}
+Definiamo la \textit{frequenza di plasma} $ \omega_p $ come
+\begin{align}
+  \omega^2_p \coloneq \frac{n q^2}{\eps_0 m} \implies \v{P}(\v{r}, t) = \eps_0 \chi(\omega )\v{E}(\v{r}, t)
+\end{align}
+e quindi la $ \eps(\omega) $ definita come 
+\begin{align}
+  \eps(\omega) = 1 + \frac{g_\omega}{\eps_0} = 1 + \frac{\omega_p^2}{\omega_0^2 - \omega^2 - i \gamma \omega}
+\end{align}
+Essendo complesso la dividiamo in parte reale e parte immaginaria, che rappresentano rispettivamente il termine dispersivo e il termine dissipativo:
+\begin{align}
+  \eps_R &= 1 + \frac{\omega_p^2 (\omega_0^2 - \omega^2) }{(\omega_0^2 - \omega^2)^2 + \gamma^2 \omega^2}  \tag*{dispersivo}
+  \\
+  \eps_I &= \frac{\omega_p^2 \gamma \omega }{(\omega_0^2 - \omega^2)^2 + \gamma^2 \omega^2} \tag*{dissipativo}
+\end{align}
+
+Il $ \chi(\omega) $ che abbiamo appena trovato grazie a Drude-Lorentz è esattamente il coefficiente (dipendente dalla frequenza $\omega$) che ci dà la 
+proporzionalità fra il campo elettrico e la polarizzazione indotta, dunque è l'$\alpha$ che ci serviva nella relazione di Clausius-Mossotti.
+
+\section{Zone di frequenza} % da cambiare il titolo
+Nella sezione precedente abbiamo ricavato che la costante dielettrica nel modello Drude-Lorentz ha parte reale e parte immaginaria, ognuna relatica 
+ad un fenomeno fisico diverso, dispersione e assorbimento, con grafici:
+% grafico dispersione e assorbimento
+Possiamo distingere il dominio delle frequenze in tre zone dette I, II, III.
+
+\textbf{Zona I}. In questa zona trascuriamo sia l'assorbimento, sia la dipendenza dalla frequenza di $ \eps(\omega) = \eps $, cioè è il limite per 
+$ \omega \ll \omega_0 $. Questa zona non presenta differenze con l'elettrodinamica nel vuoto, se non per la relazione di dispersione dovuto al fatto che 
+l'equazione di d'Alambert che si ottiene è
+\begin{align}
+  \nabla^2 \v{E} - \frac{\mu \eps}{c^2} \der[2]{\v{E}}{t} = 0
+\end{align}
+dunque abbiamo che il numero d'onda $ k $ vale
+\begin{align}
+  k = \sqrt{\mu \eps} \,\frac{\omega}{c}
+\end{align}
+e definiamo l'indice di rifrazione $ n $ come:
+\begin{align}
+  n \coloneq \sqrt{\mu \eps} \implies k = \frac{n \omega}{c}
+\end{align}
+La velocità di fase e la velocità di gruppo coincidono essendo una relazione di dispersione lineare, ma a differenza del vuoto sono soppresse del fattore 
+$ n $:
+\begin{align}
+  v_f = \frac{\omega}{k} = \frac{c}{n}
+\end{align}
+
+\textbf{Zona II}. In questa zona torniamo a considerare la dipendenza dalla frequenza ma trascuriamo sempre l'assorbimento, quindi 
+$ \eps(\omega) = \eps_R(\omega) $, partiamo dalla relazione di dispersione :
+\begin{align}
+  k = \frac{\omega}{c} \sqrt{\eps(\omega)} \simeq \frac{\omega}{c} \sqrt{1 + \frac{\omega_P^2}{\omega_0^2 - \omega^2 }} \coloneq \frac{\omega}{c} n(\omega)
+\end{align}
+e quindi la velocità di fase è
+\begin{align}
+  v_f = \frac{c}{n(\omega)} = \frac{c}{\sqrt{1 + \frac{\omega_P^2}{\omega_0^2 - \omega^2 }}}
+\end{align}
+In generale per i nostri scopi vale la relazione per l'indice di rifrazione, considerando $ \mu_r = 1 $,
+\begin{align}
+  n(\omega) \simeq \sqrt{\eps_r (\omega)} = \sqrt{\eps(\omega)}
+\end{align}
+ribadendo la notazione ambigua di $ \eps $ che rappresenta la costante dielettrica \textbf{relativa}, abbandonando la notazione $ \eps \neq \eps_0 \eps_r $.
 
 
 % -----------------------------------------------------------------------------------------------------------------
@@ -3595,7 +3735,8 @@ Triplo prodotto:
   &\nabla \times \mathbf{ (\nabla \times \mathbf{ A }) } = \nabla (\nabla \cdot \mathbf{ A }) - \nabla ^2 \mathbf{ A }
 \end{align}
 \begin{align}
-  [\nabla  \cdot \left( \mathbf{ A \times B } \right)]_i &= \partial_i \left( \mathbf{ A \times B } \right)_i = \partial_i \left( \eps_{i j k} A_j B_k \right) = \eps_{i j k} \partial_i (A_j B_k) 
+  [\nabla  \cdot \left( \mathbf{ A \times B } \right)]_i &= \partial_i \left( \mathbf{ A \times B } \right)_i = \partial_i \left( \eps_{i j k} A_j B_k \right) 
+  = \eps_{i j k} \partial_i (A_j B_k) 
   \\
   &= \eps_{i j k} \left( B_k \partial_i A_j + A_j \partial_i B_k\right) = B_k \, \eps_{k i j} \, \partial_i A_j - A_j \, \eps_{j i k} \, \partial_i B_k 
   \\
