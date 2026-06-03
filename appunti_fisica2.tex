@@ -3267,96 +3267,51 @@ perpendicolari alla direzione del boost otteniamo
 \end{align}
 dove $ \v{V} $ è la velocità del boost cioè la velocità di $ O' $ rispetto ad $ O $.
 
-\begin{comment}
+\section{Effetto Doppler-Fizeau}
+Abbiamo visto come i campi trasformano fra i sistemi di riferimento, che è però una relazione locale cioè non ci fornisce ancora informazioni su come 
+cambia una soluzione delle equazioni di Maxwell. Sempre per Fourier ci conviene lavorare con le onde piane, vogliamo quindi capire come cambiano i 
+suoi parametri $ \omega, \v{k} $ in un sistema di riferimento in moto rispetto alla sorgente dell'onda.
 
-\chapter{Raw}
-Definire il flusso di B attraverso una superficie e far veder che il flusso concatenato a una curva è = al flusso per una superficie qualsiasi.
-
-\section{Campo generato da una carica in moto}
-
-\section{Flusso del campo}
-
-
-
-\subsection{Campo di un solenoide}
-per mostrare che il campo esterno è zero si può usare il metodo Jackson cioè mostrare che
-il campo dentro è esatamente la somma del campo dentro più il campo fuori, questo implica che il campo fuori è inevitabilmente 0.
-Altra argomentazione è che mandando un circuito all'infinito, per B-S il campo decresce come  quindi la circuitazione è uguale solo al' campo interno
-
-
-\subsection{Campo di un toroide}
-compatto cioè che i fili sono attaccati uno all'altro, se sono spaziati ci sarà una distorsione.\\
-Raggi $ a_1, \; a_2 $, la simmetria è dispari invertendo sul piano x-y, quindi B ha solo componente lungo $ \varphi $.\\
-$ c_1, c_2, c_3 $, circonferenze: interna al primo raggio, interna al toroide, esterna al secondo raggio.
-se faccio una circuitazione lungo :
-
+Le relazioni che legano i campi ai relativi trasformati abbiamo detto che sono locali, quindi il campo trasformato dipende dal campo nel sistema di 
+riferimento della sorgente (che chiameremo $ O $) nel corrispondente evento, ed è anche una relazione lineare. Queste caratteristiche ci dicono che 
+se una soluzione è di tipo oscillante in un sistema, deve necessariamente esserlo anche nell'altro, e dato che assume periodicamente gli stessi 
+valori in un certo sottoinsieme di eventi dello spazio-tempo, allora quegli eventi devono avere lo stesso valore anche in $ O' $. Dunque la soluzione 
+trasformata deve avere la stessa fase della soluzione originale a meno di una costante arbitraria che scegliamo $ 0 $. Quindi le due fasi rispettano
 \begin{align}
-  & c_1 \implies 2\pi r = B_{\varphi} = \mu_0 i_{\text{conc}} = 0\\
-  & c_2 \implies B_{\varphi} = \frac{\mu_0 i_{\text{conc}}}{2\pi r}\\
-  & c_3 \implies B_{\varphi} = 0\\
+  \omega' t' - \v{k'} \cdot \v{x'} = \omega t - \v{k} \cdot \v{x}
+\end{align}
+riscriviamo adesso questa relazione con il quadrivettore posizione $ x = (c t, \v{x}) $ e un certo $ k \coloneq (\omega/c, \v{k}) $ ed otteniamo
+\begin{align}
+  k^t g x = k'^t g x'= k'^t g \Lambda x \; \forall x \implies k'^tg \Lambda = k^t g 
+  \implies (g\Lambda)^t k' = \Lambda^t g k' =  g k  \\ \implies k' = g {(\Lambda^t)}^{-1} g k = \Lambda k
+\end{align}
+dove abbiamo usato che $ g^{-1} = g $ e $ gg {(\Lambda^t)}^{-1} g = \Lambda $. Dunque $ k $ deve trasformare come un quadrivettore, e la fase diventa 
+$ \phi = k_\mu x^\mu $. Grazie a ciò possiamo trovare la frequenza e il vettore d'onda trasformati:
+\begin{align}
+  \begin{cases}
+    \omega' = \gamma\left( \omega - \vec{\beta} \cdot c \v{k} \right)
+    \\
+    \v{k}' = \gamma \left( \v{k} - \vec{\beta} \frac{\omega}{c} \right)
+  \end{cases}
+\end{align}
+e se vale la relazione di dispersione del vuoto per onda piana $ |\v{k}| = \frac{\omega}{c} $ si ha
+\begin{align}
+  \omega' = \omega \gamma \left( 1 - \vec{\beta} \cdot \vers{n} \right)
+\end{align}
+dove $ \vers{n} $ è la direzione di propagazione dell'onda. Dalla relazione ottenuta per la frequenza possiamo dividere fra il caso in cui 
+$ \vec{\beta} \parallel  \vers{n} $ che è detto \textit{effetto Doppler longitudinale} dove si ha
+\begin{align}
+  \omega = \omega \gamma \left( 1 - \beta \right) = \omega \sqrt{\frac{1 - \beta}{1 + \beta}}
+\end{align}
+ed il caso in cui $ \vec{\beta} \cdot \vers{n} = \beta \cos\theta $ (che per $ \theta = \pi/2 $ è detto \textit{effetto Doppler trasversale}) e vale
+\begin{align}
+  \omega' = \omega \gamma (1 - \beta \cos\theta ) \; \overset{\theta = \frac{\pi}{2}}{\longrightarrow}\; \omega' = \gamma \omega
 \end{align}
 
-quindi $ B_{\varphi} $ è 0 fino ad $ a_1 $, decresce come $ \frac{1}{r} $ fino ad $ a_2 $ e poi di nuovo 0
-
-\subsection{Piano di corrente}
-
-\subsection{Discontinuità del campo magnetico attraverso una distr superfificiale di corrente}
-presa una superficie avente corrente superficiale $ \mathbf{ K } $, posso scomporre il campo in un punto 
-
-\section{Circuiti -- 12 febbraio}
-
-\subsection{RLC }
-
-
-Circuito RLC, lo risolviamo e troviamo l'equazione differenziale:
-\begin{equation}
-  \frac{d^2 i}{dt^2} + \frac{R}{L} \frac{di}{dt} + \frac{1}{LC} i = 0
-\end{equation}
-la risolviamo e troviamo il polinomio caratteristico
-\begin{align}
-  \lambda^2 + 2\gamma \lambda + \omega_0^2 = 0 \implies \lambda_{\pm} = - \gamma \pm \sqrt{\gamma^2 - \omega_0 ^2 }
-\end{align}
-definiamo $ \omega \coloneqq \sqrt{\gamma^2 - \omega_0^2} $
-
-\subsection{RLC forzato}
-Stesso circuito di prima ma con un generatore (segnale generico $ f(t) $).
-Caso in cui $ f(t) = \varepsilon_0 \cos(\omega t + \phi) $, 
-\begin{align}
-  \varepsilon_0 \cos(\omega t + \phi) = \frac{1}{C} \int I \,dt + RI + L \frac{dI}{dt}
-\end{align}
-
-l'equazione che si ottiene è quella di prima con un termine noto:
-\begin{align}
-  \frac{d^2 i}{dt^2} + \frac{R}{L} \frac{di}{dt} + \frac{1}{LC} i = -\frac{\omega \varepsilon_0}{L} \sin(\omega t + \phi)
-\end{align}
-La soluzione dell'omogenea l'abbiamo trovata prima quindi ci serve solo una particolare: proviamo con 
-$ I = I_0\cos(\omega t) $, la mettiamo nell'equazione e troviamo
-\begin{align}
-  - \omega^2 I_0 \cos(\omega t) - \frac{R}{L} \omega I_0 \sin(\omega t) + \frac{I_0}{LC} \cos(\omega t) = -\frac{\omega \varepsilon_0}{L} \sin(\omega t + \phi)
-\end{align}
-sviluppiamo il termine noto e dividiamo i termini in base al seno e al coseno
-\begin{align}
-  &-\omega^2I_0 + \frac{I_0}{LC} = \frac{\omega \varepsilon_0 }{L} \cos(\phi)
-  \\
-  &
-\end{align}
-
-\subsection{Impedenze complesse}
-
-\subsection{Trasformatore}
-Il flusso del campo magnetico è solo interno al mezzo (si calcola la circuitazione).
-$ L_1 = \mu \frac{N_1^2}{d} \Sigma $, $ L_2 = \mu \frac{N_2^2}{d} \Sigma $ $ M = \mu \frac{N_1 N_2}{d} \Sigma = \sqrt{L_1 L_2}$
-in generale $ |M| < \sqrt{L_1 L_2} $.
-$\mathcal{E}$
-
-
-
-
-\end{comment}
 
 
 \chapter{Elettromagnetismo nella materia}
-In questo capitolo studieremo come i campi elettromagnetici interagiscono con la meteria e come è possibile modellizzarli. Le equazioni di Maxwell 
+In questo capitolo studieremo come i campi elettromagnetici interagiscono con la materia e come è possibile modellizzarli. Le equazioni di Maxwell 
 che abbiamo ricavato, insieme alla forza di Lorenz, costituiscono una teoria esatta per descrivere i campi elettromagnetici. L'aggetivo esatto è da 
 intendersi nel senso che non è una teoria ricavata da una qualche approssimazione di una teoria più completa, come ad esempio la meccanica Newtoniana che 
 è il limite di bassa velocità della relatività ristretta. Trattare fenomeni elettromagnetici con questa teoria è relativamente semplice quando il numero di 
@@ -3594,6 +3549,9 @@ nota come \textit{relazione di Clausius-Mossotti}. Questa relazione ci dà una m
 trovare $ n $ (relativamente facile) e $ \alpha $, che come vedremo nella sezione \ref{section:_Drude-Lorentz} richiederà un modello per descrivere 
 la risposta atomica.
 
+\subsection{Atomo di Thomson}
+
+
 \section{Interazione luce-materia}
 Nei paragrafi precedenti abbiamo visto come poter descrire i campi elettromagnetici su scala mesoscopica, e facendo varie ipotesi semplificative sulla natura 
 della relazione costitutiva che lega $ \v{P} $ ed $ \v{E} $. Adesso vogliamo capire cosa succede se i campi variano rapidamente nella nostra zona di 
@@ -3707,6 +3665,18 @@ In generale per i nostri scopi vale la relazione per l'indice di rifrazione, con
 \end{align}
 ribadendo la notazione ambigua di $ \eps $ che rappresenta la costante dielettrica \textbf{relativa}, abbandonando la notazione $ \eps \neq \eps_0 \eps_r $.
 
+\textbf{Zona III}.
+
+\section{Onde incidenti}
+Vogliamo studiare come si comportano i mezzi quando facciamo incidere un onda all'interfaccia, il più semplice setup sperimentale è quello realizzato in 
+figura \ref{figure:_onda_incidente}. \input{figure/onda_incidente.tex} 
+Consideriamo il mezzo "vuoto" come un mezzo semplice, cioè non assorbente, inoltre lavoriamo come sempre con onda piana incidente indicando con $ \v{k}_i $ 
+il suo vettore d'onda e con $ \theta_i $ il suo angolo di incidenza rispetto alla normale. Definiamo il piano di incidenza come il piano generato dai vettori 
+$ \v{k}_i, \vers{n} $, cioè lo span del vettore d'onda incidente e del versore normale alla superficie.
+
+Facendo incidere una onda piana sul mezzo si generano due onde, questo perché devono essere rispettate le condizioni di raccordo all'interfaccia, cioè 
+devono conservarsi le componenti $ E_\parallel, \mu_0 H_\parallel = B_\parallel $. Siccome devono essere verificate a tutti i tempi, ricaviamo subito che 
+la frequenza $ \omega $ dell'onda incidente deve essere la stessa dell'onda riflessa e trasmessa.
 
 % -----------------------------------------------------------------------------------------------------------------
 % --------------------------------------------------- APPENDICE ---------------------------------------------------
