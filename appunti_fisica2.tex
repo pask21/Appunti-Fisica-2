@@ -3670,13 +3670,79 @@ ribadendo la notazione ambigua di $ \eps $ che rappresenta la costante dielettri
 \section{Onde incidenti}
 Vogliamo studiare come si comportano i mezzi quando facciamo incidere un onda all'interfaccia, il più semplice setup sperimentale è quello realizzato in 
 figura \ref{figure:_onda_incidente}. \input{figure/onda_incidente.tex} 
-Consideriamo il mezzo "vuoto" come un mezzo semplice, cioè non assorbente, inoltre lavoriamo come sempre con onda piana incidente indicando con $ \v{k}_i $ 
-il suo vettore d'onda e con $ \theta_i $ il suo angolo di incidenza rispetto alla normale. Definiamo il piano di incidenza come il piano generato dai vettori 
-$ \v{k}_i, \vers{n} $, cioè lo span del vettore d'onda incidente e del versore normale alla superficie.
+Consideriamo il mezzo "vuoto" come un mezzo semplice, cioè non assorbente, mentre il mezzo di trasmissione lo consideriamo non magnetico quindi con 
+$\mu=\mu_0 $ inoltre lavoriamo come sempre con onda piana incidente indicando con $ \v{k}_i $ il suo vettore d'onda e con $ \theta_i $ il suo angolo 
+di incidenza rispetto alla normale. Definiamo il piano di incidenza come il piano generato dai vettori $ \v{k}_i, \vers{n} $, cioè lo span del vettore 
+d'onda incidente e del versore normale alla superficie.
 
 Facendo incidere una onda piana sul mezzo si generano due onde, questo perché devono essere rispettate le condizioni di raccordo all'interfaccia, cioè 
 devono conservarsi le componenti $ E_\parallel, \mu_0 H_\parallel = B_\parallel $. Siccome devono essere verificate a tutti i tempi, ricaviamo subito che 
-la frequenza $ \omega $ dell'onda incidente deve essere la stessa dell'onda riflessa e trasmessa.
+la frequenza $ \omega $ dell'onda incidente deve essere la stessa dell'onda riflessa e trasmessa. Per l'invarianza traslazionale sulle $ y $ abbiamo che 
+anche $ k_{y} $ si conserva dunque è $ 0 $ per ogni onda. Se nell'onda trasmessa è presente la componente immaginaria del vettore d'onda, ci aspettiamo 
+che sia solamente lungo $ z $ cioè $ \v{k}_I = k_I \vers{z} $, questo perché ci aspettiamo che l'onda si attenui man mano che procede all'interno del mezzo.
+Anche la componente $ k_x $ deve conservarsi per l'invarianza traslazionale quindi $ k_{ix} = k_{rx} = k_{tx} $, adesso abbiamo abbastanza informazioni per 
+imporre la relazione di dispersione che è 
+\begin{align}
+  \v{k} \cdot \v{k} = \tilde{\eps}\, \frac{\omega^2}{c^2}
+\end{align}
+ed abbiamo quindi per l'onda riflessa che 
+\begin{align}
+  k_x^2 + k_{iz}^2 = \eps_a \frac{\omega^2}{c^2} = k_x^2 + k_{rz}^2  \implies k_{rz} = \pm k_{iz}
+\end{align}
+ed il segno che dobbiamo scegliere è il $ - $ poiché deve andare nel verso opposto (delle $ z $) dell'onda incidente, quindi $ k_{rz} = -k_{iz} $.
+Per l'onda trasmessa abbiamo
+\begin{align}
+  k_x^2 + k_{tz}^2 = \tilde{\eps}_b \frac{\omega^2}{c^2} \implies k_{tz} = \pm \sqrt{\tilde{\eps}_b \frac{\omega^2}{c^2} - k_x^2} \in \mathbb{C}
+\end{align}
+e qui invece scegliamo il segno $ + $ perché vogliamo che allontanandosi decada, quindi $ k_{tz} = \sqrt{\tilde{\eps}_b \frac{\omega^2}{c^2} - k_x^2} $.
+
+\textbf{Caso di mezzo trasparente} ($ \eps_b \in \mathbb{R} $): l'onda trasmessa è omogenea nel suo mezzo quindi definiamo un angolo $ \theta_t $ ed 
+imponiamo la conservazione di $ k_x $:
+\begin{align}
+  k_{ix} = k_{tx} \implies n_a \frac{\omega}{c} \sin\theta_i &= n_b \frac{\omega}{c} \sin\theta_t 
+  \\
+  \implies n_a \sin\theta_i &= n_b \sin\theta_t \tag*{[Legge di Snell]}
+\end{align}
+dove abbiamo ottenuto la nota legge di Snell-Cartesio. Sostituiamo in $ k_{tz} $ e abbiamo
+\begin{align}
+  k_{tz} = \sqrt{{\eps}_b \frac{\omega^2}{c^2} - \eps_a \frac{\omega^2}{c^2}\sin^2\theta_i}= \frac{\omega}{c}\sqrt{{\eps}_b - \eps_a\sin^2\theta_i } 
+\end{align}
+ed in questa forma notiamo che se $ n_a > n_b $, per $ \sin\theta_i > \frac{n_b}{n_a} $ abbiamo che $ k_{tz} \in \mathbb{C} $ puramente immaginario, dunque 
+si verifica un fenomeno detto \textit{riflessione totale interna}, dove anche se non è presente alcun processo dissipativo l'onda trasmessa è soppressa 
+esponenzialmente.
+
+Abbiamo caratterizzato tutti i gradi di libertà cinematici, per ottenere le ampiezze delle onde abbiamo come gradi di libertà l'ampiezza dell'onda incidente 
+e la polarizzazione, che diremo essere: TE quando $ \v{E}_i $ è $ \perp $ al piano di incidenza; TM quando $ \v{B}_i $ è $ \perp $ al piano di incidenza. 
+Il motivo per cui dividiamo in onde TE e TM è perché ogni onda è possibile scriverla come somma di questi due modi (sono una base delle polarizzazioni), 
+e soprattutto perché le onde risultanti mantengono la polarizzazione di partenza, e questo non è vero in generale perché mandando un'onda che è una somma 
+delle due polarizzazioni, benché inizialmente lineare, le onde risultanti otterranno in generale una polarizzazione ellittica.
+
+\textbf{Polarizzazione TE}: $ \v{E} = E_y \vers{y} $, le condizioni di raccordo sono che $ E_\parallel,B_\parallel $ devono essere continue, è opportuno 
+scriverci $ B_\parallel $ in funzione di $ \v{E} $:
+\begin{align}
+  i\omega \v{B} &= \nabla \times \v{E} = \partial_x E_y \vers{z} - \partial_z E_y \vers{x} = i k_x E_y \vers{z} - ik_z E_y \vers{x}
+  \\
+  &\implies B_x = \frac{k_z}{\omega} E_y \quad B_z = -\frac{k_x}{\omega} E_y
+\end{align}
+l'onda incidente è della forma
+\begin{align}
+  E_{iy} = E_i \, \underline{e^{ik_x x}}\, e^{ik_z z}\, \underline{e^{-i\omega t} }
+\end{align}
+dove i termini sottolineati sono già conservati, mentre per il termine che dipende da $ z $ lo valutiamo all'interfaccia quindi in $ z = 0 $. 
+Imponiamo le leggi di conservazione che abbiamo trovato:
+\begin{align}
+  \begin{cases}
+    E_i + E_r = E_t  \\
+    B_i + B_r = B_t \implies k_{iz} (E_i - E_r) = k_{tz} E_t
+  \end{cases}
+\end{align}
+risolvendo otteniamo 
+\begin{align}
+  E_t = \frac{2k_{iz}}{k_iz + k_tz}\, E_i
+  \\
+  E_r = \frac{k_{iz} - k_{tz}}{k_{iz} + k_{tz}}\, E_i
+\end{align}
+che sono detti \textit{coefficienti di Fresnel}.
 
 % -----------------------------------------------------------------------------------------------------------------
 % --------------------------------------------------- APPENDICE ---------------------------------------------------
