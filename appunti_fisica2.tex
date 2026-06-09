@@ -1,15 +1,12 @@
 \def \titolo {Appunti di Fisica 2}
 \input{preambolo.tex}
 
-
 \begin{document}
 \frontmatter
 \maketitle
-
 \tableofcontents
 \cleardoublepage
 \markboth{}{}
-
 \mainmatter
 
 % \chapter*{Prefazione}
@@ -3345,17 +3342,17 @@ possiamo quindi applicarla subito alle equazioni di Maxwell:
   \\
   &\nabla \times \langle \v{B} \rangle = \mu_0 \langle \v{J} \rangle + \frac{1}{c^2} \der{\langle \v{E} \rangle}{t}
 \end{align}
-Per quanto riguarda le sorgenti dobbiamo distinguere fra i contributi esterni, i quali inseriti da noi ne conosciamo necessariamente una media 
+Per quanto riguarda le sorgenti dobbiamo distinguere fra i contributi esterni, i quali sono inseriti da noi dunque ne conosciamo necessariamente una media 
 mesoscopica, e quelli microscopici, quindi
 \begin{align}
   \langle \rho \rangle &= \rho_{\text{ext}} + \langle \rho_{\text{risposta}} \rangle
   \\
   \langle \v{J} \rangle &= \v{J}_{\text{ext}} + \langle \v{J}_{\text{risposta}} \rangle
 \end{align}
-vogliamo quindi modellizzare questa risposta tramite l'approssimazione di dipolo. Dato che il termine di dipolo del potenziale si scrive come 
+e vogliamo quindi modellizzare questa risposta tramite l'approssimazione di dipolo. Dato che il termine di dipolo del potenziale si scrive come 
 $ V_d = k_e \frac{\v{d} \cdot \v{r}}{r^3} $, possiamo scrivere il potenziale dividendo i termini esterni e di risposta come 
 \begin{align}
-  V(\v{r}) \simeq k_e \int d^3r'\left[ \frac{\rho_{\text{ext}}(\v{R'} )}{|\v{r - r'}|} + \frac{\v{P}(\v{r'}) \cdot (\v{r - r'})}{|\v{r-r'}|^3} \right]
+  V(\v{r}) \simeq k_e \int d^3r'\left[ \frac{\rho_{\text{ext}}(\v{r'} )}{|\v{r - r'}|} + \frac{\v{P}(\v{r'}) \cdot (\v{r - r'})}{|\v{r-r'}|^3} \right]
 \end{align}
 dove abbiamo introdotto $ \v{P} $ che è detto  \textit{vettore di polarizzazione} e nella nostra trattazione corrisponde ad una media dei dipoli in un certo 
 punto del materiale:
@@ -3509,7 +3506,9 @@ dove $ \chi_e $ è detta \textit{suscettività elettrica}, ed è una grandezza a
   \v{D} = \v{P} + \eps_0 \v{E} = \eps_0 (1 + \chi_e) \v{E} \eqcolon \eps \v{E}
 \end{align}
 dove abbiamo definito la \textit{costante dielettrica del mezzo} $ \eps $. Abbiamo inoltre omesso la notazione con il campo medio $ \langle \v{E} \rangle $ 
-al fine di snellire la notazione, dunque da ora in poi supperremo sempre questa cosa, specificando invece quando si intende il campo microscopico.
+al fine di snellire la notazione, dunque da ora in poi supponeremo sempre questa cosa, specificando invece quando si intende il campo microscopico.
+Sempre riguardo la notazione, useremo i pedici $ 1,2 $ per indicare rispettivamente la parte reale e immaginaria di una quantità complessa, ad esempio 
+$ \eps = \eps_1 + \eps_2 $, e quando è necessario precisare che una certa grandezza è complessa la indicheremo con una tilde: $ \tilde{\eps} $.
 
 Per trovare gli effetti di un campo macroscopico su un punto (atomo) dobbiamo considerare anche gli effetti che la polarizzazione degli altri atomi produce 
 sul punto considerato: il campo nel punto verrà indicato con $ \v{E}_{\text{locale}} $, e considerando una sfera mesoscopica di raggio $ R $ si ha 
@@ -3616,10 +3615,12 @@ e quindi la $ \eps(\omega) $ definita come
 \end{align}
 Essendo complesso la dividiamo in parte reale e parte immaginaria, che rappresentano rispettivamente il termine dispersivo e il termine dissipativo:
 \begin{align}
-  \eps_R &= 1 + \frac{\omega_p^2 (\omega_0^2 - \omega^2) }{(\omega_0^2 - \omega^2)^2 + \gamma^2 \omega^2}  \tag*{dispersivo}
+  \eps_1 &= 1 + \frac{\omega_p^2 (\omega_0^2 - \omega^2) }{(\omega_0^2 - \omega^2)^2 + \gamma^2 \omega^2}  \tag*{dispersivo}
   \\
-  \eps_I &= \frac{\omega_p^2 \gamma \omega }{(\omega_0^2 - \omega^2)^2 + \gamma^2 \omega^2} \tag*{dissipativo}
+  \eps_2 &= \frac{\omega_p^2 \gamma \omega }{(\omega_0^2 - \omega^2)^2 + \gamma^2 \omega^2} \tag*{dissipativo}
 \end{align}
+
+\input{build/figure/grafico_dispersione_dissipazione.tex}
 
 Il $ \chi(\omega) $ che abbiamo appena trovato grazie a Drude-Lorentz è esattamente il coefficiente (dipendente dalla frequenza $\omega$) che ci dà la 
 proporzionalità fra il campo elettrico e la polarizzazione indotta, dunque è l'$\alpha$ che ci serviva nella relazione di Clausius-Mossotti.
@@ -3630,7 +3631,7 @@ ad un fenomeno fisico diverso, dispersione e assorbimento, con grafici:
 % grafico dispersione e assorbimento
 Possiamo distingere il dominio delle frequenze in tre zone dette I, II, III.
 
-\textbf{Zona I}. In questa zona trascuriamo sia l'assorbimento, sia la dipendenza dalla frequenza di $ \eps(\omega) = \eps $, cioè è il limite per 
+\textbf{Zona I}. In questa zona trascuriamo sia l'assorbimento, sia la dipendenza dalla frequenza di $ \eps(\omega) = \eps \in \R  $, cioè è il limite per 
 $ \omega \ll \omega_0 $. Questa zona non presenta differenze con l'elettrodinamica nel vuoto, se non per la relazione di dispersione dovuto al fatto che 
 l'equazione di d'Alambert che si ottiene è
 \begin{align}
@@ -3650,8 +3651,9 @@ $ n $:
   v_f = \frac{\omega}{k} = \frac{c}{n}
 \end{align}
 
+
 \textbf{Zona II}. In questa zona torniamo a considerare la dipendenza dalla frequenza ma trascuriamo sempre l'assorbimento, quindi 
-$ \eps(\omega) = \eps_R(\omega) $, partiamo dalla relazione di dispersione :
+$ \eps(\omega) = \eps_1(\omega) \in \R $, partiamo dalla relazione di dispersione :
 \begin{align}
   k = \frac{\omega}{c} \sqrt{\eps(\omega)} \simeq \frac{\omega}{c} \sqrt{1 + \frac{\omega_P^2}{\omega_0^2 - \omega^2 }} \coloneq \frac{\omega}{c} n(\omega)
 \end{align}
@@ -3665,12 +3667,32 @@ In generale per i nostri scopi vale la relazione per l'indice di rifrazione, con
 \end{align}
 ribadendo la notazione ambigua di $ \eps $ che rappresenta la costante dielettrica \textbf{relativa}, abbandonando la notazione $ \eps \neq \eps_0 \eps_r $.
 
-\textbf{Zona III}.
+AMBIGUITÀ NELLA NOTAZIONE FRA SOPRA E SOTTO. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Zona III}: mezzo assorbente e dispersivo. In questa zona la costante dielettrica è in generale complessa: 
+$ \eps(\omega) = \eps_1(\omega) + i \eps_2(\omega) $, tuttavia consideriamo sempre mezzi non magnetici, dunque 
+$ \mu(\omega) = \mu_0 $ e $ \v{B} = \mu_0 \v{H} $. Dalla definizione il vettore di induzione elettrica vale 
+$ \v{D}(\omega) = \tilde{\eps}(\omega) \v{E}(\omega) $ e quindi usiamo le equazioni di Maxwell per ricavare la relazione di dispersione:
+\begin{align}
+  \nabla \times \nabla \times \v{E} = \nabla \times \left( i\omega \v{B} \right) = i\omega \mu_0 \nabla \times \v{H} 
+  &= \omega^2 \mu_0 \tilde{\eps}(\omega) \v{E}
+  \\
+  \implies \nabla^2 \v{E} + \omega^2 \mu_0 \tilde{\eps}(\omega) \v{E} &= 0
+\end{align}
+considerando un andamento dei campi del tipo $ f(\v{r},t) \sim e^{i(\v{k \cdot r} - \omega t)}$ dalla precedente equazione otteniamo
+\begin{align}
+  i \v{k} \cdot (i \v{k}) \v{E} + \omega^2 \mu_0 \tilde{\eps}(\omega) \v{E} = 0 \implies \v{k \cdot k} = \omega^2 \mu_0 \tilde{\eps}(\omega) 
+  = \frac{\omega^2}{c^2} \tilde{\eps}_r(\omega)
+\end{align}
+che è la relazione di dispersione che cercavamo. Da questa osserviamo che $ \v{k} $ deve essere necessariamente complesso e lo indicheremo come
+$ \v{k} = \v{k}_1 + i\v{k}_2 $ e quindi l'andamento dei campi può essere riscritto nella forma 
+$ f(\v{r},t) \sim e^{i(\v{k_1 \cdot r} - \omega t)}\cdot e^{-\v{k}_2} \cdot \v{r} $
+
 
 \section{Onde incidenti}
 Vogliamo studiare come si comportano i mezzi quando facciamo incidere un onda all'interfaccia, il più semplice setup sperimentale è quello realizzato in 
 figura \ref{figure:_onda_incidente}. \input{figure/onda_incidente.tex} 
-Consideriamo il mezzo "vuoto" come un mezzo semplice, cioè non assorbente, mentre il mezzo di trasmissione lo consideriamo non magnetico quindi con 
+Consideriamo il "mezzo a" come un mezzo semplice, cioè non assorbente, mentre il mezzo di trasmissione "mezzo b" lo consideriamo non magnetico quindi con 
 $\mu=\mu_0 $ inoltre lavoriamo come sempre con onda piana incidente indicando con $ \v{k}_i $ il suo vettore d'onda e con $ \theta_i $ il suo angolo 
 di incidenza rispetto alla normale. Definiamo il piano di incidenza come il piano generato dai vettori $ \v{k}_i, \vers{n} $, cioè lo span del vettore 
 d'onda incidente e del versore normale alla superficie.
@@ -3689,7 +3711,8 @@ ed abbiamo quindi per l'onda riflessa che
 \begin{align}
   k_x^2 + k_{iz}^2 = \eps_a \frac{\omega^2}{c^2} = k_x^2 + k_{rz}^2  \implies k_{rz} = \pm k_{iz}
 \end{align}
-ed il segno che dobbiamo scegliere è il $ - $ poiché deve andare nel verso opposto (delle $ z $) dell'onda incidente, quindi $ k_{rz} = -k_{iz} $.
+ed il segno che dobbiamo scegliere è il $ - $ poiché deve andare nel verso opposto (delle $ z $) dell'onda incidente, quindi $ k_{rz} = -k_{iz} $. 
+Da questa informazione ricaviamo che l'angolo dell'onda riflessa è lo stesso dell'onda incidente: $ \theta_i = \theta_r $.
 Per l'onda trasmessa abbiamo
 \begin{align}
   k_x^2 + k_{tz}^2 = \tilde{\eps}_b \frac{\omega^2}{c^2} \implies k_{tz} = \pm \sqrt{\tilde{\eps}_b \frac{\omega^2}{c^2} - k_x^2} \in \mathbb{C}
@@ -3722,7 +3745,7 @@ scriverci $ B_\parallel $ in funzione di $ \v{E} $:
 \begin{align}
   i\omega \v{B} &= \nabla \times \v{E} = \partial_x E_y \vers{z} - \partial_z E_y \vers{x} = i k_x E_y \vers{z} - ik_z E_y \vers{x}
   \\
-  &\implies B_x = \frac{k_z}{\omega} E_y \quad B_z = -\frac{k_x}{\omega} E_y
+  &\implies \v{B} = \frac{k_z}{\omega} E \vers{x} - \frac{k_x}{\omega} E \vers{z}
 \end{align}
 l'onda incidente è della forma
 \begin{align}
@@ -3738,11 +3761,82 @@ Imponiamo le leggi di conservazione che abbiamo trovato:
 \end{align}
 risolvendo otteniamo 
 \begin{align}
-  E_t = \frac{2k_{iz}}{k_iz + k_tz}\, E_i
-  \\
   E_r = \frac{k_{iz} - k_{tz}}{k_{iz} + k_{tz}}\, E_i
+  \\
+  E_t = \frac{2k_{iz}}{k_{iz} + k_{tz}}\, E_i
 \end{align}
-che sono detti \textit{coefficienti di Fresnel}.
+che sono detti \textit{coefficienti di Fresnel}. Li riscriviamo in termini degli indici di rifrazione e degli angoli delle onde:
+\begin{align}
+  E_r = \frac{n_a \cos\theta_i - n_b \cos\theta_t}{n_a \cos\theta_i + n_b \cos\theta_t}\, E_i \eqcolon r_s \,E_i
+  \\
+  E_t = \frac{2 n_a \cos \theta_i}{n_a \cos\theta_i + n_b \cos\theta_t}\, E_i \eqcolon t_s \,E_i
+\end{align}
+
+\textbf{Polarizzazione TM}: $ \v{B} = B_y \vers{y} $, ci scriviamo $ \v{E} $ in funzione di $ \v{B} $:
+\begin{align}
+  -i \frac{\omega \, n^2}{c^2} \v{E} &= \nabla \times \v{B} = \partial_x B_y \vers{z} - \partial_z B_y \vers{x}
+  \\
+  \implies \v{E} &= \frac{c^2}{\omega \, n^2} \left( k_z B \vers{x} - k_x B \vers{z} \right) \quad \textnormal{con} \quad E = \frac{c}{n} B
+\end{align}
+ed imponiamo le stesse condizioni di raccordo
+\begin{align}
+  \begin{cases}
+    E_{i\parallel} + E_{r\parallel} = E_{t\parallel} \implies \frac{k_{iz}}{n^2_a} \left( B_i - B_r \right) = \frac{k_{tz}}{n^2_b} B_t
+    \\
+    B_i + B_r = B_t 
+  \end{cases}
+\end{align}
+che risolvendo ci porta a 
+\begin{align}
+  B_r = \frac{n_b \cos\theta_i - n_a \cos \theta_t }{n_b \cos\theta_i + n_a \cos \theta_t}\, B_i
+  \\
+  B_t = \frac{2 n_b \cos\theta_i}{n_b \cos\theta_i + n_a \cos \theta_t}\, B_i
+\end{align}
+dove abbiamo sfruttato la relazione $ k_{jz} = k_j \cos\theta_j = n_j \frac{\omega}{c} \cos \theta_j  $. Per ricavare il campo elettrico usiamo la relazione 
+fra $ E $ e $ B $ ricavata sopra ottenendo: 
+\begin{align}
+  E_r = \frac{n_b \cos\theta_i - n_a \cos \theta_t }{n_b \cos\theta_i + n_a \cos \theta_t}\, E_i \eqcolon r_p \, E_i
+  \\
+  E_t = \frac{2 n_a \cos\theta_i}{n_b \cos\theta_i + n_a \cos \theta_t}\, E_i \eqcolon t_p \,E_i
+\end{align}
+Di seguito riportiamo i 4 coefficienti che abbiamo trovato,
+\begin{align}
+  {r_s = \frac{n_a \cos\theta_i - n_b \cos\theta_t}{n_a \cos\theta_i + n_b \cos\theta_t}} 
+  \quad &{t_s = \frac{2 n_a \cos \theta_i}{n_a \cos\theta_i + n_b \cos\theta_t}}
+  \\
+  {r_p = \frac{n_b \cos\theta_i - n_a \cos \theta_t }{n_b \cos\theta_i + n_a \cos \theta_t}} 
+  \quad &{t_p = \frac{2 n_a \cos\theta_i}{n_b \cos\theta_i + n_a \cos \theta_t}}
+\end{align}
+I coefficienti di Fresnel sono definiti come rapporti fra le intensità dei campi elettrici, per ottenere i rispettivi campi magnetici è opportuno usare la 
+relazione $ E = \frac{c}{n} B $ nel relativo mezzo.
+
+\subsection{Incidenza normale}
+Consideriamo adesso il caso in cui $ \theta_i = 0 $, cioè l'onda incidente è ortogonale alla superficie. In questa situazione abbiamo che 
+$ \v{k}_i = k_{iz} \vers{z} $ e dalla relazione di dispersione vale $ k_{iz} = \sqrt{\eps_a} \frac{\omega}{c} = n_a \frac{\omega}{c} $, e 
+$ k_t = \frac{\omega}{c} \sqrt{\tilde{\eps}_b} = \frac{\omega}{c} \tilde{n}_b $. I coefficenti di Fresnel diventano
+\begin{align}
+  E_t = \frac{2n_a}{n_a + \tilde{n}_b}\, E_i
+  \\
+  E_r = \frac{n_a - \tilde{n}_b}{n_a + \tilde{n}_b}\, E_i
+\end{align}
+L'intensità di onda onda piana in un mezzo abbiamo visto essere
+\begin{align}
+  I = \langle |\v{S}| \rangle = \frac{n_R}{2 \mu_0} E^2
+\end{align}
+e da questa quantità definiamo due coefficienti detti \textit{coefficiente di riflessione} $ R $ (\textit{riflettanza}) e 
+\textit{coefficiente di trasmissione} $ T $ (\textit{trasmittanza}):
+\begin{align}
+  R \coloneq \frac{I_r}{I_i} \quad T \coloneq \frac{I_t}{I_i}.
+\end{align}
+A questo punto utilizziamo le relazioni di Fresnel per scrivere i due coefficienti in funzione degli indici di rifrazione:
+\begin{align}
+  R &= \left| \frac{E_r}{E_i} \right|^2 = |r|^2 = \frac{|n_a - \tilde{n}_b|^2}{|n_a + \tilde{n}_b|^2}
+  \\
+  T &= \frac{n_{bR}}{n_a} \left| \frac{E_t}{E_i} \right|^2 = \frac{n_{bR}}{n_a} |t|^2 = \frac{n_{bR}}{n_a} \frac{(2n_a)^2}{|n_a + \tilde{n}_b|^2} 
+  = \frac{4 n_a n_{bR}}{|n_a + \tilde{n}_b|^2}
+\end{align}
+È interessante notare che la somma dei due coefficienti è $ R + T = 1 $, dato che il mezzo è non assorbente, ed infatti è cioè che si ottiene provando a 
+sommarli.
 
 % -----------------------------------------------------------------------------------------------------------------
 % --------------------------------------------------- APPENDICE ---------------------------------------------------
@@ -3974,13 +4068,13 @@ componenti affinche rimanga lo stesso vettore
 \end{align}
 dove $ J_{i j} $ è lo jacobiano della trasformazione, mentre la base $ \{ e_i \} $ trasforma nel modo inverso cioè
 \begin{align} \label{eq:_trasformazione_covariante}
-  {e'}_i = \sum_j \der{x^i}{{x'}^j} \, e_i = \sum_j {J^{-1}}^t_{i j} \, e_j
+  {e'}_i = \sum_j \der{x^i}{x'^j} \, e_i = \sum_j {J^{-1}}^t_{i j} \, e_j
 \end{align}
 Definiamo \textit{controvariante} gli oggetti che trasformano come in \eqref{eq:_trasformazione_controvariante} ed indicheremo le sue componenti con un 
 indice in alto. Definiamo allo stesso modo \textit{covariante} gli oggetti che trasformano come in \eqref{eq:_trasformazione_covariante} ed indicheremo le 
 componenti con un indice in basso. Vediamo come trasforma il gradiente di una funzione scalare:
 \begin{align}
-  \nabla'_i f = \der{f}{{x'}^i} = \der{x^j}{{x'}^i} \der{f}{x^j} = \left( J^-1 \right)^t_{i j} \nabla_j f
+  \nabla'_i f = \der{f}{x'^i} = \der{x^j}{x'^i} \der{f}{x^j} = \left( J^-1 \right)^t_{i j} \nabla_j f
 \end{align}
 
 \section{Quadrivettori}

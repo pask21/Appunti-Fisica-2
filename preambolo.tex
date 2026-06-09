@@ -1,22 +1,21 @@
-\documentclass[11pt,oneside]{scrbook} 
+\documentclass[11pt,oneside]{scrbook} % KOMA
 
 % ---------- LINGUA & CODIFICA ----------
 \usepackage[italian]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
-% ---------- TIPOGRAFIA CONSIGLIATA ----------
-\usepackage{lmodern}     
-\usepackage{microtype}   
+% ---------- TIPOGRAFIA ----------
+\usepackage{lmodern}
+\usepackage{microtype}
 
 % ---------- GEOMETRIA PAGINA ----------
-% Impostazioni consigliate per A4 (Italia):
 \usepackage[
   a4paper,
   top=24mm,
   bottom=28mm,
   inner=24mm,   % margine interno (verso rilegatura)
-  outer=30mm,   % margine esterno 
+  outer=30mm,   % margine esterno: note a margine
   heightrounded
 ]{geometry}
 \setlength{\headheight}{17pt} % evita sovrapposizioni con l'header
@@ -54,23 +53,15 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{graphicx}
-\usepackage{hyperref}
-\hypersetup{  % stile dei riferimenti
-  colorlinks=true,
-  linkcolor=black,
-  citecolor=blue,
-  urlcolor=blue
-}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \usepackage{subcaption} 
 \usepackage{upgreek} % \uptau
-
 \usepackage{mathrsfs} % \mathscr{}
-
+\usepackage{dsfont}
 \usepackage{tikz}
 \usetikzlibrary{intersections}
-\usepackage{pgfplots} % grafici
+\usepackage{pgfplots} % grafici, creato in tikZ
 \pgfplotsset{compat = 1.18}
 \usetikzlibrary{
 arrows.meta,
@@ -82,16 +73,17 @@ quotes,
 3d,
 patterns
 }
-
-\usepackage{subcaption}
-
 \usepackage[european]{circuitikz} % circuiti
-
 \usepackage{comment} % \begin{comment}  \end{comment}
-
 \usepackage{mathtools} % \coloneqq
-
 \usepackage{siunitx}
+\usepackage{hyperref}
+\hypersetup{  % stile dei riferimenti
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=blue,
+  urlcolor=blue
+}
 \sisetup{separate-uncertainty=true}
 %----------- TEOREMI E STRUTTURE VARIE (KOMA, AMSTHM)
 
@@ -111,36 +103,36 @@ patterns
 \newtheorem{remark}[theorem]{Osservazione}
 \newtheorem{example}[theorem]{Esempio}
 
-
-% ---------- NOTE A MARGINE (parole-chiave/sidenote) ----------
+% ---------- NOTE A MARGINE ----------
 % \marginpar stampa nel margine esterno con oneside.
-% Definiamo un comando comodo e graficamente coerente:
 \newcommand{\mkeyword}[1]{%
   \marginpar{\raggedright\footnotesize\emph{#1}}%
 }
 
-% Se preferisci le note a sinistra, attiva la riga seguente:
+% per le note a sinistra:
 % \reversemarginpar
 
 % ---------- PARAGRAFI E SPAZI ----------
-\setlength{\parindent}{0.8em}  % rientro tradizionale
-\setlength{\parskip}{0.25em}   % piccolo spazio extra tra paragrafi
+\setlength{\parindent}{0.8em}
+\setlength{\parskip}{0.25em}
 
 %----------- COMANDI AGGIUNTIVI -----------
-% --- Comando per vettori colonna di lunghezza variabile ---
 
+\newcommand{\1}{\mathds{1}} % in stile funzione caratteristica
+
+% --- vettore colonna ---
 \newcommand{\colvec}[1]{%
   \begin{pmatrix}
     #1
   \end{pmatrix}%
 }
 
-% --- comando derivata --- parziale \der[ordine]{funzione}{variabile}
+% --- derivata parziale ---
 \newcommand{\der}[3][]{%
   \frac{\partial^{#1} {#2}}{\partial {#3}^{#1}}%
 }
 
-% --- comando versore --- 
+% --- versore --- 
 \newcommand{\vers}[1]{
   \hat{\boldsymbol{#1}}
 }
@@ -163,6 +155,26 @@ patterns
 % --- vettore ---
 \renewcommand{\v}[1]{
   \mathbf{#1}
+}
+
+% --- \mathbb{R} --- R numeri reali
+\newcommand{\R}[0]{
+    \mathbb{R}
+}
+
+% --- \displaystyle ---
+\newcommand{\DS}[0]{
+	\displaystyle 
+}
+
+% --- \backslash ---
+\newcommand{\bs}[0]{
+	\backslash 
+}
+
+% --- \diag ---
+\newcommand{\diag}[0]{
+	\textnormal{diag} 
 }
 
 % ---------- BIBLIOGRAFIA ----------
