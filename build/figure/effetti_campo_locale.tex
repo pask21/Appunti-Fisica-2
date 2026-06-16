@@ -1,0 +1,60 @@
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  >=Stealth,
+  dipolo/.style={->, thick, brown!70!black},
+  Pvec/.style={->, thin, purple!70!black},
+  leader/.style={dashed, gray, thin},
+  every node/.style={font=\small}
+]
+
+% --- Regione esterna: continuo polarizzato ---
+\fill[purple!15, rounded corners=4pt] (-4.2,-3.2) rectangle (4.2,3.2);
+
+% Frecce di P sparse (continuo uniformemente polarizzato)
+\draw[Pvec] (-3.6,-2.6) -- ++(0,0.5);
+\draw[Pvec] (-3.6,-0.5) -- ++(0,0.5);
+\draw[Pvec] (-3.6, 1.8) -- ++(0,0.5);
+\draw[Pvec] (-2.2, 2.4) -- ++(0,0.5);
+\draw[Pvec] ( 0.0, 2.6) -- ++(0,0.5);
+\draw[Pvec] ( 2.2, 2.4) -- ++(0,0.5);
+\draw[Pvec] ( 3.6, 1.8) -- ++(0,0.5);
+\draw[Pvec] ( 3.6,-0.5) -- ++(0,0.5);
+\draw[Pvec] ( 3.6,-2.6) -- ++(0,0.5);
+\draw[Pvec] ( 2.2,-2.8) -- ++(0,0.5);
+\draw[Pvec] ( 0.0,-2.8) -- ++(0,0.5);
+\draw[Pvec] (-2.2,-2.8) -- ++(0,0.5);
+
+% --- Sfera di Lorentz ---
+\draw (0,0) circle (1.6);
+\draw[dashed, thick] (0,0) circle (1.6);
+
+% Dipoli discreti dentro la sfera (orientazioni varie)
+\draw[dipolo] (-0.9, 0.6) -- ++(0.05,0.45);
+\draw[dipolo] ( 0.8, 0.7) -- ++(0.10,0.45);
+\draw[dipolo] (-0.8,-0.5) -- ++(-0.10,0.45);
+\draw[dipolo] ( 0.9,-0.4) -- ++(0.10,0.45);
+\draw[dipolo] ( 0.0, 1.0) -- ++(0.05,0.40);
+\draw[dipolo] (-1.1, 0.0) -- ++(0.00,0.45);
+\draw[dipolo] ( 1.1, 0.0) -- ++(0.00,0.45);
+\draw[dipolo] (-0.3,-1.0) -- ++(-0.05,0.45);
+\draw[dipolo] ( 0.4,-1.0) -- ++(0.05,0.45);
+
+% --- Punto centrale: la molecola di interesse ---
+\fill[red!80!black] (0,0) circle (1.8pt);
+
+% --- Etichette con linee guida ---
+\draw[leader] (1.35, 1.0) -- (4.2, 2.6);
+\node[anchor=west] at (4.2, 2.6) {Continuo, $ \v{E}_P $};
+
+\draw[leader] (0.7, 0.5) -- (4.2, 1.0);
+\node[anchor=west] at (4.2, 1.0) {Dipoli discreti, $\mathbf{E}_{\text{micro}}$};
+
+\draw[leader] (0, 0) -- (4.2,-0.6);
+\node[anchor=west] at (4.2,-0.6) {Punto di interesse, $ \v{E}_\textnormal{loc} $};
+
+\end{tikzpicture}
+\caption{Sfera mesoscopica con cui modelliamo gli effetti di campo locale: tutto il mezzo è modellizzato tramite polarizzazione dando 
+il campo $ \v{E}_P $, mentre dentro abbiamo il contributo dei dipoli che contiamo come $ \v{E}_{\text{micro}} $.}
+\label{figure:_effetti_campo_locale}
+\end{figure}

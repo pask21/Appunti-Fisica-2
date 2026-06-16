@@ -725,53 +725,6 @@ questo lungo l'asse $ z $, quindi in generale vale
   V(r,\theta) = \frac{Q}{12} \left( h^2 - 3a^2 \right) \frac{1}{r^3} \frac{3\cos^2\theta - 1}{2}
 \end{equation}
 
-\begin{comment}
-
-\chapter{Dielettrici}
-\textbf{BOZZA}
-\section{aaaa}
-I materiali diellettrici sono dei materiali che inseriti all'interno di un condensatore, ne modificano la capacità; questo implica varie cose tra una 
-variazione del campo elettrico. La capicità aumenta secondo:
-\[C = C_0\varepsilon_r\]
-dove $C_0$ è la capacità del condensatore senza il dielettrico (ossia nel vuoto, anche se la costante dielettrica relativa dell'aria 
-$\varepsilon_r = 1.0006$) e $\varepsilon_r$ è detta "costante dielettrica relativa". Con il prodotto $\varepsilon_0\varepsilon_r = \varepsilon$ 
-si ottiene la costante dielettrica del mezzo o "permittivià elettrica". Il fatto che la capacità del condensatore aumenti implica direttamente che: 
-o la carica sulle armature aumenta, o la differenza di potenziale fra le due diminuisce (o entrambe). I dielettrici si possono divere fra lineari 
-o non lineari, e isotropi o anisotropi:
-\begin{itemize}
-    \item Lineari: sottoposti a un campo elettrico esterno reagiscono con un vettore polarizzazione $\mathbf{P}$ lineare nel campo 
-    \[\mathbf{P} = \varepsilon_0\chi_e\mathbf{E}\]
-    dove \[\chi_e\equiv\varepsilon_r -1\]
-    \item Non lineari: il vettore polarizzazione non è linearmente proporzionale al campo elettrico esterno e questo implica una maggiore difficoltà 
-    nel trattare questi materiali, anche solo dal lato analitico.
-    \item Isotropi: in ogni direzione, la risposta di polarizzazione è la stessa, ossia possono essere considerati omogenei nella risposta al campo.
-    \item Anisotropi: la risposta al campo non è omogenea nelle direzioni
-\end{itemize}
-I dielettrici non lineari e/o anisotropi non saranno trattati in questo corso (se non forse alcuni esempi)
-\section{b}
-Il campo all'interno dei dielettrici dimiuisce di un fattore $\varepsilon_r$:
-\[\mathbf{E_d} = \frac{\mathbf{E_0}}{\varepsilon_r}\]
-dove $\mathbf{E}_d$ è il campo elettrico con il dielettrico inserito, mentre $\mathbf{E_0}$ è il campo elettrico senza il dielettrico.
-Il fatto che il campo cambi significa che la risposta del dielettrico consiste in un campo elettrico interno $\mathbf{E}_{\text{int}}$ in verso 
-opposto al campo $\mathbf{E_0}$ tale che \[\mathbf{E}_{\text{int}}+ \mathbf{E_0} = \mathbf{E_d}\]. La presenza di questo campo indica la presenza 
-di alcune distribuzioni di carica non dovute al condensatore. Definiamo la densità di carica di polarizzazione $\sigma_p$ come prodotto scalare 
-fra il vettore di polarizzazione e la normale alla superficie del dielettrico
-\[\sigma_p \equiv \mathbf{P}\cdot\mathbf{n}\]
-da ciò deriva anche il segno della densità di carica di polarizzazione (locale).
-Per la presenza di questa carica di polarizzazione, è conveniente riscrivere le equazioni di Maxwell per l'elettrostatica utilizzando il 
-vettore di induzione dielettrica:
-\[\mathbf{D} \equiv \varepsilon\mathbf{E} + \mathbf{P}\]
-Attraverso $\mathbf{D}$ possiamo riscrivere che:
-\[\oint_S\mathbf{D}d\mathbf{S} = \varepsilon\oint_S\mathbf{E}d\mathbf{S}+\oint_S\mathbf{P}d\mathbf{S} 
-= \varepsilon\frac{(q_\text{L}+q_\text{p})}{\varepsilon} -q_\text{p}=q_\text{L}\]
-dove abbiamo usato che il flusso di $\mathbf{E}$ è uguale alla carica interna diviso $\varepsilon$ e P scalar la superficie è la sigma di 
-polarizzazione. Da notare che se all'interno della superficie $S$ non ci sono cariche libere e/o di polarizzazione, il calcolo è corretto 
-lo stesso ponendo 0 alla carica che non è presente. Per quanto riguarda la seconda di Maxwell, $\mathbf{E}$ rimane sempre un campo conservativo 
-(perché è esprimibile come somma del campo precedente e del campo $\mathbf{E_\text{int}}$ come discusso sopra, entrambi conservativi perché generati 
-da distribuzioni di cariche) e dunque la sua circuitazione lungo una linea chiusa è nulla. 
-
-
-\end{comment}
 
 \chapter{Magnetostatica}
 Da un punto di vista storico, il magnetismo era un fenomeno che consisteva in una attrazione e repulsione in punti diversi fra alcuni materiali 
@@ -1898,7 +1851,7 @@ In questa espressione riconosciamo la densità di energia elettrica $ u_e $ ed a
   u_m \coloneqq \frac{\mathbf{ B }^2}{2\mu_0}
 \end{align}
 riscrivendo in termini di $ u $ otteniamo la relazione
-\begin{align}
+\begin{align} \label{eq:teorema_di_Poynting_locale}
   \nabla\! \cdot \! \left( \mathbf{ E } \times \frac{\mathbf{ B }}{\mu_0} \right) + \mathbf{ E \cdot J } = - \der{u}{t}
 \end{align}
 che è la forma locale del Teorema di Poynting. Applicando il teorema della divergenza passiamo alla sua formulazione globale su un volume $ V $:
@@ -1909,7 +1862,7 @@ che è la forma locale del Teorema di Poynting. Applicando il teorema della dive
 \end{align}
 dove $ W $ rappresenta la potenza ceduta alle cariche e $ U $ è l'energia elettro-magnetica immagazzinata nel volume (nei campi). Analizzando i termini 
 del teorema di Poynting osserviamo che esprime il principio di conservazione dell'energia in termini dell'energia trasferita alle cariche, l'energia dei 
-campi e un certo flusso uscente dal volume. Questa quntità viene definita come \textit{vettore di Poynting} $ \mathbf{ S } $:
+campi e un certo flusso uscente dal volume. Questa quantità viene definita come \textit{vettore di Poynting} $ \mathbf{ S } $:
 \begin{align}
   \mathbf{ S } \coloneqq \frac{1}{\mu_0} \left(  \mathbf{ E \times B } \right) = \mathbf{ E \times H }
 \end{align}
@@ -2889,11 +2842,6 @@ un condensatore $ C $ e l'ultimo ramo vuoto, e si indichi il lato con $ \Delta x
 \ref{figure:_circuito_LC_infinito}. Si vuole trovare una espressione per la corrente.
 \input{build/figure/circuito_LC_infinito.tex}
 
-\begin{comment}
-Tramite la legge dei nodi otteniamo che $ j_n = i_n + j_{n+1} $. La differenza di potenziale ai capi di una induttanza vale:
-$ V_{n-1} - V_n = L \dot{J}_n $. Infine la differenza di potenziale ai capi di un condensatore è $ V_n - 0 = \frac{Q_n}{C} $, ma in base 
-ai segni che abbiamo scelto $ \dot{Q}_n = \frac{i_n}{C} $, quindi $ \dot{V}_n = \frac{i_n}{C} $. Mettendo insieme queste relazioni otteniamo
-\end{comment}
 \textit{Soluzione} Per risolvere questi problemi è utile trovare una relazione ricorsiva fra le varie quantità.
 Applichiamo la legge dei nodi al nodo $ n $-esimo: la corrente $ I_{n-1} $ si separa nella corrente $ I_n $ e in quella che va a modificare la carica sull
 armatura del condensatore $ n $-esimo cioè
@@ -3503,27 +3451,36 @@ quindi per ottenere il risultato più semplice in assoluto richiediamo che $ \ch
 \end{align}
 dove $ \chi_e $ è detta \textit{suscettività elettrica}, ed è una grandezza adimensionale. Il vettore di induzione elettrica diventa
 \begin{align}
-  \v{D} = \v{P} + \eps_0 \v{E} = \eps_0 (1 + \chi_e) \v{E} \eqcolon \eps \v{E}
+  &\v{D} = \eps_0 \v{E} + \v{P} = \eps_0 (1 + \chi_e) \v{E} \eqcolon \eps \v{E}  \tag*{[\textnormal{SI}]}
+  \\
+  &\v{D} = 4\pi \v{P} + \v{E} = \left( 1 + 4\pi \chi_e \right) \v{E} \eqcolon \eps \v{E} \tag*{[\textnormal{cgs}]}
 \end{align}
 dove abbiamo definito la \textit{costante dielettrica del mezzo} $ \eps $. Abbiamo inoltre omesso la notazione con il campo medio $ \langle \v{E} \rangle $ 
 al fine di snellire la notazione, dunque da ora in poi supponeremo sempre questa cosa, specificando invece quando si intende il campo microscopico.
 Sempre riguardo la notazione, useremo i pedici $ 1,2 $ per indicare rispettivamente la parte reale e immaginaria di una quantità complessa, ad esempio 
 $ \eps = \eps_1 + \eps_2 $, e quando è necessario precisare che una certa grandezza è complessa la indicheremo con una tilde: $ \tilde{\eps} $.
 
+\section{Effetti di campo locale}
+
+\input{build/figure/effetti_campo_locale.tex}
+
 Per trovare gli effetti di un campo macroscopico su un punto (atomo) dobbiamo considerare anche gli effetti che la polarizzazione degli altri atomi produce 
-sul punto considerato: il campo nel punto verrà indicato con $ \v{E}_{\text{locale}} $, e considerando una sfera mesoscopica di raggio $ R $ si ha 
+sul punto considerato: ussiamo il modello descritto in figura \ref{figure:_effetti_campo_locale} dove il campo nel punto verrà indicato 
+con $ \v{E}_{\text{locale}} $, e considerando una sfera mesoscopica di raggio $ R $ si ha 
 \begin{align}
   \v{E}_{\text{loc}} = \v{E} - \v{E}_P + \v{E}_{\text{micro}}
 \end{align}
-dove $ \v{E}_{\text{P}} $ è il campo dovuto alla polarizzazione della sfera, $ \v{E}_{\text{micro}} $ è quello dovuto ai dipoli vicini. È facile vedere che 
-il contributo dei dipoli vicini si annulla per simmetria, mentre il campo di una sfera polarizzata uniformemente è
+dove $ \v{E}_{\text{P}} $ è il campo dovuto alla polarizzazione della sfera, $ \v{E}_{\text{micro}} $ è quello dovuto ai dipoli vicini. 
+In sostanza togliamo dal campo medio $ \v{E} $ il contributo dei dipoli di tutto il mezzo che descriviamo come un campo generato da una polarizzazione, cioè 
+$ \v{E}_P $, riaggiungendo (perché erano compresi in $ \v{E}_P $) il contributo dovuto ai dipoli dentro la sfera cioè $ \v{E}_{\text{micro}} $.
+È facile vedere che il contributo dei dipoli vicini si annulla per simmetria, mentre il campo di una sfera polarizzata uniformemente è
 \begin{align}
-  \v{E}_P = - \frac{ \v{P}}{3\eps_0}
+  \v{E}_P = - \frac{4\pi k_e}{3} \v{P}
 \end{align}
 ed il motivo perché consideriamo la sfera con polarizzazione uniforme viene dal risolvere il problema della sfera in campo elettrico uniforme. Quindi 
 abbiamo che 
 \begin{align}
-  \v{E}_{\text{loc}} = \v{E} + \frac{ \v{P}}{3\eps_0}
+  \v{E}_{\text{loc}} = \v{E} + \frac{4\pi k_e}{3} \v{P}
 \end{align}
 che ci permette di trovare il dipolo 
 \begin{align}
@@ -3532,7 +3489,7 @@ che ci permette di trovare il dipolo
 dove $ \alpha $ è la \textit{polarizzabilità atomica} (supponiamo che segua questa relazione lineare). La polarizzazione diventa, con $ n $ la densità di 
 elettroni,
 \begin{align}
-  \v{P} = n \alpha \v{E}_{\text{loc}} = n\alpha (\v{E} + \frac{ \v{P}}{3\eps_0}) \implies \v{P} = \frac{n \alpha}{1 - \frac{n\alpha}{3 \eps_0} } \v{E} 
+  \v{P} = n \alpha \v{E}_{\text{loc}} = n\alpha (\v{E} + \frac{4\pi k_e}{3} \v{P}) \implies \v{P} = \frac{n \alpha}{1 - \frac{4\pi k_e n \alpha}{3} } \v{E} 
   \eqcolon \eps_0 \chi \v{E}
 \end{align}
 Confrontiamo la relazione appena ottenuta con 
@@ -3541,12 +3498,59 @@ Confrontiamo la relazione appena ottenuta con
 \end{align}
 ed otteniamo che la costante dielettrica relativa rispetta la relazione
 \begin{align}
-  \eps_r - 1 = \frac{n \alpha}{\eps_0 \left( 1 - \frac{n\alpha}{3 \eps_0} \right)} \implies \frac{\eps_r - 1}{\eps_r + 2} = \frac{n\alpha}{3\eps_0}
+  \eps_r - 1 = \frac{4\pi k_e n \alpha}{ \left( 1 - \frac{4\pi k_e n \alpha}{3} \right)} \implies \frac{\eps_r - 1}{\eps_r + 2} = \frac{4\pi k_e}{3}n\alpha
   \tag*{[Clausius-Mossotti]}
 \end{align}
 nota come \textit{relazione di Clausius-Mossotti}. Questa relazione ci dà una modo operativo per trovare la relazione costitutiva, dovendo soltanto 
 trovare $ n $ (relativamente facile) e $ \alpha $, che come vedremo nella sezione \ref{section:_Drude-Lorentz} richiederà un modello per descrivere 
 la risposta atomica.
+
+\section{Energia e leggi di conservazione}
+Il lavoro del campo elettromagnetico sulle cariche è dovuto solo al campo elettrico e vale 
+\begin{align}
+  W = \int_V \v{J \cdot E} \,d^3x
+\end{align}
+e, per ottenere una analoga legge di conservazione come quella trovata nel vuoto, sfruttiamo le equazioni di Maxwell macroscopiche per sostituire  $ \v{J} $:
+\begin{align}
+  W = \int_V \v{J \cdot E} \,d^3x = \int_V \v{E} \cdot \left( \nabla\!\times\!\mathbf{ H } \right) - \v{E} \cdot \der{\v{D}}{t} \, d^3x.
+\end{align}
+Addesso applichiamo l'identità vettoriale
+\begin{align}
+  \nabla \cdot \left( \v{E \times H} \right) = \v{H} \cdot \left( \nabla\!\times\!\mathbf{ E } \right)
+  - \v{E} \cdot \left( \nabla\!\times\!\mathbf{ H } \right) 
+\end{align}
+ed otteniamo
+\begin{align}
+  \int_V \v{J \cdot E} \,d^3x &= \int_V \v{H} \cdot \left( \nabla\!\times\!\mathbf{ E } \right) - \nabla \cdot \left( \v{E \times H} \right)
+  - \v{E} \cdot \der{\v{D}}{t} \, d^3x 
+  \\
+  &= - \int_V \v{H} \cdot \der{\v{B}}{t} + \nabla \cdot \left( \v{E \times H} \right)
+  + \v{E} \cdot \der{\v{D}}{t} \, d^3x 
+\end{align}
+dove abbiamo usato l'equazione per il rotore di $ \v{E} $. Per procedere oltre assumiamo che il mezzo sia lineare e che non ci siano effetti di 
+assorbimento, in questo modo possiamo riconoscere nell'espressione che abbiamo ottenuto la derivata di una quantita $ u $ che definiremo come la 
+\textit{densità di energia elettromagnetica}:
+\begin{align}
+  u = \frac{1}{2} \left( \v{E \cdot D} + \v{B \cdot H}  \right) \implies \der{u}{t} = \v{E} \cdot \der{\v{D}}{t} + \v{B} \cdot \der{\v{H}}{t} 
+\end{align}
+e nel caso $ \v{D} = \eps \v{E}, \v{H} = \frac{\v{B}}{\mu} $ allora 
+\begin{align}
+  u = \frac{\eps}{2}\v{E}^2 + \frac{1}{2\mu} \v{B}^2.
+\end{align}
+Manca solo da definire il nuovo vettore di Poynting:
+\begin{align}
+  \v{S} = \v{E \times H}
+\end{align}
+e quindi la legge di conservazione che avevamo scritto prende il nome di \textit{teorema di Poynting nella materia} ed è in forma globale
+\begin{align}
+  \int_A \v{S} \cdot d\v{A} + \int_V \der{u}{t}\, d^3x + \int_V \v{J \cdot E} \,d^3x = 0.
+\end{align}
+Notiamo che il teorema di Poynting possiamo definirlo adesso anche su un altra scala: in quella mesoscopica useremo il nuovo vettore di Poynting 
+$ \v{S} = \v{E \times H} $ e la nuova densità di energia ed il teorema è lo stesso solo che le quantità in gioco sono una media mesoscopica di quelle 
+microscopiche. Tuttavia se volesso invece definire un teorema di Poynting microscopico, allora sarebbe esattamente quello definito 
+\ref{eq:teorema_di_Poynting_locale} e dovremmo in prima istanza considerare tutte le piccolissime correnti, cosa che si può approcciare con il metodo 
+sviluppato nella sezione precedente studiando gli effetti locali tramite un modello di una sfera mesoscopica.
+
 
 \subsection{Atomo di Thomson}
 
@@ -3611,13 +3615,13 @@ Definiamo la \textit{frequenza di plasma} $ \omega_p $ come
 \end{align}
 e quindi la $ \eps(\omega) $ definita come 
 \begin{align}
-  \eps(\omega) = 1 + \frac{g_\omega}{\eps_0} = 1 + \frac{\omega_p^2}{\omega_0^2 - \omega^2 - i \gamma \omega}
+  \eps_r(\omega) = 1 + \frac{g_\omega}{\eps_0} = 1 + \frac{\omega_p^2}{\omega_0^2 - \omega^2 - i \gamma \omega}
 \end{align}
 Essendo complesso la dividiamo in parte reale e parte immaginaria, che rappresentano rispettivamente il termine dispersivo e il termine dissipativo:
 \begin{align}
-  \eps_1 &= 1 + \frac{\omega_p^2 (\omega_0^2 - \omega^2) }{(\omega_0^2 - \omega^2)^2 + \gamma^2 \omega^2}  \tag*{dispersivo}
+  \eps_{r1} &= 1 + \frac{\omega_p^2 (\omega_0^2 - \omega^2) }{(\omega_0^2 - \omega^2)^2 + \gamma^2 \omega^2}  \tag*{dispersivo}
   \\
-  \eps_2 &= \frac{\omega_p^2 \gamma \omega }{(\omega_0^2 - \omega^2)^2 + \gamma^2 \omega^2} \tag*{dissipativo}
+  \eps_{r2} &= \frac{\omega_p^2 \gamma \omega }{(\omega_0^2 - \omega^2)^2 + \gamma^2 \omega^2} \tag*{dissipativo}
 \end{align}
 
 \input{build/figure/grafico_dispersione_dissipazione.tex}
@@ -3635,15 +3639,15 @@ Possiamo distingere il dominio delle frequenze in tre zone dette I, II, III.
 $ \omega \ll \omega_0 $. Questa zona non presenta differenze con l'elettrodinamica nel vuoto, se non per la relazione di dispersione dovuto al fatto che 
 l'equazione di d'Alambert che si ottiene è
 \begin{align}
-  \nabla^2 \v{E} - \frac{\mu \eps}{c^2} \der[2]{\v{E}}{t} = 0
+  \nabla^2 \v{E} - {\mu \eps} \der[2]{\v{E}}{t} = 0
 \end{align}
 dunque abbiamo che il numero d'onda $ k $ vale
 \begin{align}
-  k = \sqrt{\mu \eps} \,\frac{\omega}{c}
+  k = \sqrt{\mu_r \eps_r} \,\frac{\omega}{c}
 \end{align}
 e definiamo l'indice di rifrazione $ n $ come:
 \begin{align}
-  n \coloneq \sqrt{\mu \eps} \implies k = \frac{n \omega}{c}
+  n \coloneq \sqrt{\mu_r \eps_r} \implies k = \frac{n \omega}{c}
 \end{align}
 La velocità di fase e la velocità di gruppo coincidono essendo una relazione di dispersione lineare, ma a differenza del vuoto sono soppresse del fattore 
 $ n $:
@@ -3655,19 +3659,16 @@ $ n $:
 \textbf{Zona II}. In questa zona torniamo a considerare la dipendenza dalla frequenza ma trascuriamo sempre l'assorbimento, quindi 
 $ \eps(\omega) = \eps_1(\omega) \in \R $, partiamo dalla relazione di dispersione :
 \begin{align}
-  k = \frac{\omega}{c} \sqrt{\eps(\omega)} \simeq \frac{\omega}{c} \sqrt{1 + \frac{\omega_P^2}{\omega_0^2 - \omega^2 }} \coloneq \frac{\omega}{c} n(\omega)
+  k = \frac{\omega}{c} \sqrt{\eps_r(\omega)} \simeq \frac{\omega}{c} \sqrt{1 + \frac{\omega_P^2}{\omega_0^2 - \omega^2 }} \coloneq \frac{\omega}{c} n(\omega)
 \end{align}
 e quindi la velocità di fase è
 \begin{align}
   v_f = \frac{c}{n(\omega)} = \frac{c}{\sqrt{1 + \frac{\omega_P^2}{\omega_0^2 - \omega^2 }}}
 \end{align}
-In generale per i nostri scopi vale la relazione per l'indice di rifrazione, considerando $ \mu_r = 1 $,
+In generale per i nostri scopi vale la relazione per l'indice di rifrazione, considerando $ \mu_r \simeq 1 $,
 \begin{align}
-  n(\omega) \simeq \sqrt{\eps_r (\omega)} = \sqrt{\eps(\omega)}
+  n(\omega) \simeq \sqrt{\eps_r (\omega)}.
 \end{align}
-ribadendo la notazione ambigua di $ \eps $ che rappresenta la costante dielettrica \textbf{relativa}, abbandonando la notazione $ \eps \neq \eps_0 \eps_r $.
-
-AMBIGUITÀ NELLA NOTAZIONE FRA SOPRA E SOTTO. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \textbf{Zona III}: mezzo assorbente e dispersivo. In questa zona la costante dielettrica è in generale complessa: 
 $ \eps(\omega) = \eps_1(\omega) + i \eps_2(\omega) $, tuttavia consideriamo sempre mezzi non magnetici, dunque 
@@ -3686,7 +3687,33 @@ considerando un andamento dei campi del tipo $ f(\v{r},t) \sim e^{i(\v{k \cdot r
 \end{align}
 che è la relazione di dispersione che cercavamo. Da questa osserviamo che $ \v{k} $ deve essere necessariamente complesso e lo indicheremo come
 $ \v{k} = \v{k}_1 + i\v{k}_2 $ e quindi l'andamento dei campi può essere riscritto nella forma 
-$ f(\v{r},t) \sim e^{i(\v{k_1 \cdot r} - \omega t)}\cdot e^{-\v{k}_2} \cdot \v{r} $
+$ f(\v{r},t) \sim e^{i(\v{k_1 \cdot r} - \omega t)}\cdot e^{-\v{k}_2} \cdot \v{r} $. Sviluppiamo la relazione di dispersione:
+\begin{align}
+  (\v{k}_1 + i\v{k}_2)(\v{k}_1 + i\v{k}_2) &= k_1^2 -k_2^2 + 2 i\v{k}_1  \cdot \v{k}_2 
+  = \frac{\omega^2}{c^2} \eps_{r1}(\omega) + i \frac{\omega^2}{c^2} \eps_{r2}(\omega)
+  \\
+  &\begin{cases}
+    k_1^2 -k_2^2 = \frac{\omega^2}{c^2} \eps_{r1}(\omega)
+    \\
+    2\v{k}_1  \cdot \v{k}_2 = \frac{\omega^2}{c^2} \eps_{r2}(\omega).
+  \end{cases}
+\end{align}
+Dal sistema che abbiamo ottenuto, dato che $ \v{k}_1 \neq 0 $ perché altrimenti non si propagherebbe, osserviamo che se $ \eps_{r2} \neq 0 $ allora 
+$ \v{k}_2 \neq 0 $, ma non vale il viceversa dato che per $ \v{k}_2 \perp \v{k}_1 \implies \eps_{r2} = 0 $. Riscrivendo la relazione di dispersione con 
+l'indice di rifrazione $ \tilde{n}^2 = n_1 + in_2 = \eps_{r1} + i \eps_{r2} $ si ottiene
+\begin{align}
+  \begin{cases}
+    k_1 = \frac{\omega^2}{c^2} n_1
+    \\
+    k_2 = \frac{\omega^2}{c^2} n_2
+  \end{cases}
+  \quad \textnormal{con} \quad 
+  \begin{cases}
+    n_1^2 -n_2^2 = \eps_{r1}(\omega)
+    \\
+    2n_1 n_2 = \eps_{r2}(\omega).
+  \end{cases}
+\end{align}
 
 
 \section{Onde incidenti}
