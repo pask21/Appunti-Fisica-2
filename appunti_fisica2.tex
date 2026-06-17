@@ -40,7 +40,7 @@ differenza di quest'ultima possiamo avere anche delle forze repulsive dovute all
 gravitazionale non è possibile.
 
 \section{Campo elettrostatico}
-Abbiamo discusso la forza di Coulomb nel caso di due cariche, proviamo quindi ad aggiungerne una terza ed otteniamo che per il principio di 
+Abbiamo discusso la forza di Coulomb nel caso di due cariche, proviamo quindi ad aggiungerne una terza e otteniamo che per il principio di 
 sovrapposizione la forza risultante sulla carica $ q_1 $ è data dalla somma dei due contributi:
 \begin{align}
   \v{F}_{1, 2\,3} = k_e \frac{q_1 \, q_2 \, \left( \v{r}_1 - \v{r}_2 \right)}{|\v{r}_1 - \v{r}_2|^3} + 
@@ -54,18 +54,18 @@ Definiamo campo elettrico $ \v{E(r)} $ il rapporto
 \begin{align}
   \v{E(r)} \coloneq \frac{\v{F}_q}{q}
 \end{align}
-la cui generalizzazione ad un sistema continuo di cariche si basa sul sostituire la carica i-esima con una densità di carica moltiplicata per un volume 
-infinitesimo $ q_i \mapsto \rho(\v{r}) \,d^3r' $ ed integrare sullo spazio (dove la densità di carica è non nulla):
+la cui generalizzazione a un sistema continuo di cariche si basa sul sostituire la carica i-esima con una densità di carica moltiplicata per un volume 
+infinitesimo $ q_i \mapsto \rho(\v{r}) \,d^3r' $ e integrare sullo spazio (dove la densità di carica è non nulla):
 \begin{align}
   \v{E(r)} = k_e\, \int \frac{\rho(\v{r'}) \, \left( \v{r}_1 - \v{r'} \right)}{|\v{r}_1 - \v{r'}|^3} \,d^3r'
 \end{align}
-Nella gravitazione classica il campo gravitazionale viene considerato come uno ``artificio'' matematico costruito a partire dalla forza ed il motivo 
+Nella gravitazione classica il campo gravitazionale viene considerato come uno ``artificio'' matematico costruito a partire dalla forza e il motivo 
 di questa considerazione è dovuto principalmente a due ragioni: la prima è storica, lo sviluppo della teoria gravitazionale da parte di Newton precede 
 la maggior parte dei lavori che hanno costruito la teoria elettromagnetica non disponendo quindi degli strumenti matematici necessari; la seconda è 
 dovuta all'intensità della forza infatti $ k_e \sim 10^9 $ mentre $ G_N \sim 10^{-11} $, dunque fare misure che riguardano il campo risulta difficile senza 
 degli strumenti sofisticati. Il punto del discorso è che l'elettrodinamica è la prima teoria considerabile come \textit{teoria di campo}, dove questo 
 termine è dilagato ampiamente nella fisica più avanzata ma a noi basta sapere che è considerata tale perché i campi sono delle entità fisiche tanto quanto 
-lo sono le forze e le cariche, ed il campo elettrico in particolare è considerato il mediatore dell'interazione fra cariche.
+lo sono le forze e le cariche, e il campo elettrico in particolare è considerato il mediatore dell'interazione fra cariche.
 
 \section{Teorema di Gauss}
 Dopo aver introdotto il campo elettrostatico vogliamo calcolarne il flusso attraverso una superficie chiusa che racchiude le cariche, per farlo sfrutteremo 
@@ -83,11 +83,12 @@ dove $ \delta(\v{x}) $ è la delta di Dirac. In questo modo abbiamo
   \\
   \implies \Phi(\v{E(r)}) &= \int_V \frac{\rho(\v{r'})}{\eps_0} \,dV = \frac{Q_{\text{int}}}{\eps_0}
 \end{align}
-dove $ Q_{\text{int}} $ è la carica interna al volume $ V $. Il risultato che abbiamo ottenuto è noto come teorema di Gauss ed è un risultato utile al fine di 
-svolgere integrali lunghi con alta probabilità di errore. Noi abbiamo mostrato come l'espressione sperimentale della forza di Coulomb implica il  teorema 
-di Gauss, ma può essere dimostrato vale anche il viceversa, ovvero che assumento il teorema allora l'unica forza possibile è l'espressione di Coulomb.
+dove $ Q_{\text{int}} $ è la carica interna al volume $ V $. Il risultato che abbiamo ottenuto è noto come teorema di Gauss ed è un risultato utile al 
+fine di svolgere integrali lunghi con alta probabilità di errore. Noi abbiamo mostrato come l'espressione sperimentale della forza di Coulomb implica 
+il  teorema di Gauss, ma può essere dimostrato vale anche il viceversa, ovvero che assumendo il teorema allora l'unica forza possibile è l'espressione 
+di Coulomb.
 
-Per quanto rigurda il flusso attraverso una superficie qualsiasi non necessariamente chiusa sfruttiamo la definizione di angolo solido:
+Per quanto riguarda il flusso attraverso una superficie qualsiasi non necessariamente chiusa sfruttiamo la definizione di angolo solido:
 \begin{align}
   d\Omega \coloneq \frac{dA}{R^2} = \sin\theta \,d\theta\, d\varphi
 \end{align}
@@ -99,7 +100,7 @@ infinitesimo di flusso su una superficie infinitesima come
   \\
   &\implies \Phi_S(\v{E}) = \int_\Omega E \, R^2 \,d\Omega
 \end{align}
-L'intero angolo solido vale $ 4\pi $ quindi quando facciamo il flusso su una supeficie chiusa del campo di una carica otteniamo
+L'intero angolo solido vale $ 4\pi $ quindi quando facciamo il flusso su una superficie chiusa del campo di una carica otteniamo
 \begin{align}
   \Phi_S(\v{E}) = \oint_\Omega \frac{q}{4\pi \eps_0} \,d\Omega = \frac{q}{\eps_0}
 \end{align}
@@ -109,7 +110,7 @@ teorema di Gauss.
 
 
 \section{Potenziale elettrostatico}
-Definendo il campo elettrico abbiamo visto che questo dipende dalla distanza fra le cariche ed il punto di osservazione, che è indipendente dal tempo e 
+Definendo il campo elettrico abbiamo visto che questo dipende dalla distanza fra le cariche e il punto di osservazione, che è indipendente dal tempo e 
 che è centrale, queste caratteristiche sono sufficienti per dire che è conservativo, dato che il lavoro lungo una linea chiusa $ \gamma $ è nullo. Questo 
 implica l'esistenza di una funzione potenziale che indicheremo con $ V(\v{r}) $ \footnote{In alcuni testi è indicato con $ \phi(\v{r}) $ o $ \Phi(\v{r}) $}:
 \begin{align}
@@ -124,14 +125,14 @@ $ \frac{|\v{r - r'}|}{|\v{r - r'}|^3} = - \nabla \left( \frac{1}{|\v{r - r'}|} \
 \begin{align} \label{eq:_potenziale_elettrostatico}
   V(\v{r}) = k_e \int \frac{\rho(\v{r'})}{|r - r'|} \,d^3r'
 \end{align}
-il potenziale è chiaramente definito a meno di una costante ed in questo caso abbiamo posto $ V(\v{r} \to \infty) = 0 $.
+il potenziale è chiaramente definito a meno di una costante e in questo caso abbiamo posto $ V(\v{r} \to \infty) = 0 $.
 Nel definire il potenziale abbiamo trovato due importanti relazioni del campo elettrostatico cioè
 \begin{align}
   &\oint_S \v{E} \cdot d\v{S} = \frac{Q_{\text{int}}}{\eps_0}
   \\
   &\oint_\gamma \v{E} \cdot d\v{l} = 0
 \end{align}
-che sono note come equzioni di Maxwell dell'elettrostatica in forma globale. Possiamo esprimerle in forma locale tramite il teorema della divergenza e il 
+che sono note come equazioni di Maxwell dell'elettrostatica in forma globale. Possiamo esprimerle in forma locale tramite il teorema della divergenza e il 
 teorema del rotore:
 \begin{align}
   &\nabla \cdot \v{E}(\v{r}) = \frac{\rho(\v{r})}{\eps_0}
@@ -167,7 +168,7 @@ diversi in base al sistema di coordinate che scegliamo di impiegare per risolver
 Dalla conservatività del campo elettrico abbiamo potuto definire un potenziale elettrostatico, adesso vogliamo sfruttare ciò per definire una energia 
 associata alla forza elettrostatica.
 
-Il lavoro per portare una carica $ q $ dall'`ìnfinito'' ad un punto $ \v{R} $ è dato da
+Il lavoro per portare una carica $ q $ dall'`infinito'' a un punto $ \v{R} $ è dato da
 \begin{align}
   W_q = \int_{+\infty}^\v{R} \v{F} \,d\v{l} = q \int_{+\infty}^\v{R} \v{E}\cdot \vers{r} \,dr = q \left( V(+\infty) - V(\v{R}) \right)
 \end{align}
@@ -199,7 +200,7 @@ dove abbiamo integrato per parti e sfruttato l'identità vettoriale
 \begin{align}
   V \nabla^2V = \nabla \cdot (V \nabla V) - |\nabla V|^2
 \end{align}
-Nella forma che abbiamo ottunuto riconosciamo una densità di energia elettrostatica $ u_e = \frac{\eps_0}{2} |\v{E}|^2 $ e quindi
+Nella forma che abbiamo ottenuto riconosciamo una densità di energia elettrostatica $ u_e = \frac{\eps_0}{2} |\v{E}|^2 $ e quindi
 \begin{align}
   U = \int u_e \,d^3x
 \end{align}
@@ -207,7 +208,7 @@ dove l'integrale è svolto stavolta in tutto lo spazio essendo limitato al campo
 Il problema è che in questa forma l'energia potenziale $ U $ contiene sia l'energia di mutua interazione che l'auto-energia (\textit{self energy}), 
 la quale per cariche puntiformi chiaramente diverge. Nella distribuzione discreta avevamo risolto questo problema semplicemente non contando i contributi 
 in cui $ i = j $, ma adesso per ottenere la consueta forma dell'energia elettrostatica occorre fare una distinzione: 
-$ U = U_{\textit{self}} + U_{\text{int}} $. Sarà per ora nostra accortezza eleiminare accuratamente i termini di self energy.
+$ U = U_{\textit{self}} + U_{\text{int}} $. Sarà per ora nostra accortezza eliminare accuratamente i termini di self energy.
 
 \section{Teorema della media per le funzioni armoniche}
 Introduciamo ora un risultato che ci sarà utile in seguito che è noto come il teorema del valor medio per le funzioni armoniche. 
@@ -227,8 +228,8 @@ alla superficie, questo perché se non lo fosse le cariche si sposterebbero otte
 è quindi costante, ma allora applicando il teorema della media abbiamo che il potenziale è costante anche all'interno del conduttore, che ci porta dire che 
 il campo elettrico all'interno è nullo. In realtà si potrebbe obiettare che non possiamo applicare il teorema della media a meno che il conduttore non sia 
 una sfera, tuttavia questo si può aggirare tramite una forma locale del teorema nota come \textit{principio del massimo}. Tale principio dice che se $ f $ 
-è una funzione armonica in $ \Omega $ allora questa ammette massimi e minimi solo sul bordo $ \partial\Omega $, altrimenti è costante. Applicandolo ad 
-ogni punto del conduttore si mostra che il potenziale deve essere costante in ogni punto.
+è una funzione armonica in $ \Omega $ allora questa ammette massimi e minimi solo sul bordo $ \partial\Omega $, altrimenti è costante. Applicandolo a ogni 
+punto del conduttore si mostra che il potenziale deve essere costante in ogni punto.
 
 \section{Formulazione del potenziale tramite funzione di Green}
 Nell'ultima sezione abbiamo introdotto i conduttori e le loro proprietà principali, fra cui il potenziale elettrostatico costante sul bordo. Descrivere da 
@@ -439,14 +440,14 @@ cioè
 \end{equation}
 dove $ \nabla^2 $ è l'operatore di Laplace (laplaciano). Si tratta di una equazione differenziale alle 
 derivate parziali ed, in generale, non omogenea. Dato che nell'equazione la funzione che fa da "termine noto" è la 
-densità di carica (calcolata nel punto $ \mathbf{ x } $, dove stiamo valutando le derivate di $ V $ ) nei casi in 
+densità di carica (calcolata nel punto $ \mathbf{ x } $, dove stiamo valutando le derivate di $ V $) nei casi in 
 cui la densità sia nulla l'equazione diventa omogenea ed è chiamata Equazione di Laplace
 \begin{align} \label{eq:Laplace}
   && \nabla^2 V = 0 \tag*{[Equazione di Laplace]}
 \end{align}
 che rispetto alla generica equazione di Poisson, possiamo trovare delle tecniche per risolverla in base al sistema di 
 coordinate che scegliamo di utilizzare. Nei prossimi paragrafi risolveremo l'equazione di Laplace tramite la 
-separazione delle variabili, ma è importante notare che le funzioni che otteremo non sono tutte le soluzioni 
+separazione delle variabili, ma è importante notare che le funzioni che otterremo non sono tutte le soluzioni 
 dell'equazione ma soltanto una parte (cioè quelle scrivibili come prodotto di funzioni di una singola variabile)-
 
 \section{Coordinate cartesiane}
@@ -491,13 +492,13 @@ Allora il potenziale si scrive come
 \begin{equation}
   V(x,y) = \sum_{n = 0}^{\infty} A_n \sin\left( \frac{n\pi}{a} x \right) e^{-\frac{n\pi}{a} y}
 \end{equation}
-dove abbiamo già imposto la condizione di perdiodo $ T = 2a \implies \sin (\alpha (x + T)) = \sin(\alpha x + 2\pi) $ quindi $ \alpha T = 2\pi $
+dove abbiamo già imposto la condizione di periodo $ T = 2a \implies \sin (\alpha (x + T)) = \sin(\alpha x + 2\pi) $ quindi $ \alpha T = 2\pi $
 cioè $ \alpha = \frac{\pi}{a} $, e abbiamo già scartato il coseno che non si poteva annullare agli estremi.\\
 Manca solo da imporre la condizione del potenziale fissato $ V (x,0) = \phi(x) $ 
 \begin{equation}
   \left( V(x,0) = \sum_{n = 0}^{\infty} A_n \sin\left( \frac{n\pi}{a} x \right) = \phi(x) \right) \sin\left(  \frac{n'\pi}{a} x \right)
 \end{equation}
-ed integrando sfruttiamo la ortogonalità dei seni:
+e integrando sfruttiamo la ortogonalità dei seni:
 \begin{equation}
   \int_{-T/2}^{T/2} \sin \left( \frac{2\pi n}{T} \right) \sin \left( \frac{2\pi n'}{T} \right)  \,dx = \delta_{nn'} \frac{T}{2}
 \end{equation}
@@ -665,7 +666,7 @@ Abbiamo adesso la forma del potenziale interno:
   + \frac{\rho_0}{8\pi^2 \varepsilon_0} a^2 \left( \frac{L^2}{L^2 + a^2} \cos\! \left( \frac{2\pi z}{L} \right) + 1  \right)\right]
   \cos (\frac{2\pi x}{a})
 \end{equation}
-Imponiamo la condizione di parità su $ z $, che ci porta ad $ A = B $, quindi
+Imponiamo la condizione di parità su $ z $, che ci porta a $ A = B $, quindi
 \begin{equation}
   V_{in}(x,z) = \left[ A \left( e^{\frac{2\pi z}{a}} + e^{-\frac{2\pi z}{a}} \right)
   + \frac{\rho_0}{8\pi^2 \varepsilon_0} a^2 \left( \frac{L^2}{L^2 + a^2} \cos\! \left( \frac{2\pi z}{L} \right) + 1  \right)\right]
@@ -686,7 +687,7 @@ Per trovare $ A $ e $ C_1 $ dobbiamo risolvere il sistema; $ k := \frac{\pi L}{a
 
 
 \section{Cilindro con carica}
-Una carica $ Q $ è uniformemente distribuita nel volume di un cilindro di raggio $ a $ ed altezza $ h $, inoltre al centro del cilindro è posta una 
+Una carica $ Q $ è uniformemente distribuita nel volume di un cilindro di raggio $ a $ e altezza $ h $, inoltre al centro del cilindro è posta una 
 carica puntiforme $ -Q $. Si determini il potenziale elettrostatico a grandissima distanza dal cilindro e si discuta il risultato ottenuto al variare 
 del rapporto $ h/a $.
 
@@ -737,7 +738,7 @@ L'equazione di continuità
 \end{equation}
 
 Questa è l'espressione matematica del principio di conservazione della carica: se in un piccolo volume la densità di carica $ \rho $ diminuisce, 
-quella carica deve essere per forza uscita dal volume, quindi la $ \nabla \mathbf{J}$ deve aumentare. In magnetostatisca:
+quella carica deve essere per forza uscita dal volume, quindi la $ \nabla \mathbf{J}$ deve aumentare. In magnetostatica:
 \[ \frac{\partial\rho}{\partial t} = 0 \implies\nabla\cdot\mathbf{J} = 0 \]
 
 \section{Interazione fra correnti}
@@ -746,11 +747,11 @@ Poco dopo Ampère osserva che le correnti interagiscono fra loro e si verifica u
 alla distanza:
 \[\frac{\Delta F}{\Delta L} = k\frac{i_1 i_2}{d}\]
 dove la forza è attrattiva se le correnti scorrono nello stesso verso, altrimenti repulsiva.
-La costante di proporzionalià vale $ k = 2\times10^\text{-7} $ e non fu misurata da Ampère ma soltanto in epoca moderna dopo che Maxwell introdusse il 
+La costante di proporzionalità vale $ k = 2\times10^\text{-7} $ e non fu misurata da Ampère ma soltanto in epoca moderna dopo che Maxwell introdusse il 
 concetto di permeabilità magnetica $ \mu $. Fu deciso $ k = \frac{\mu_0}{2\pi}  $ in modo tale da ridefinire 1 Ampère come la corrente che scorrendo in 2 
 fili alla distanza di 1 metro produce una forza di $ 2\times10^\text{-7} $ Newton (2019).
 \\
-Ampère e Laplace arrivano ad una espressione del campo magnetico generato da un filo percorso da corrente:
+Ampère e Laplace arrivano a una espressione del campo magnetico generato da un filo percorso da corrente:
 \begin{equation} \label{eq:B_integrale_di_dB}
   \mathbf{B} =  \frac{\mu_\text{0} i}{4\pi} \oint_C \frac{d\mathbf{s}\times\mathbf{u}_r}{r^2} % legge di Ampère-Laplace
 \end{equation}
@@ -766,7 +767,7 @@ e quindi riscrivere la \eqref{eq:dB} come
 \begin{equation}
   d\mathbf{ B } = \frac{\mu_0}{4\pi} \frac{\mathbf{ J }\times\mathbf{ u_r }}{r^2}
 \end{equation}
-intengrando si ottiene
+integrando si ottiene
 \begin{equation}
   \mathbf{ B } = \frac{\mu_0}{4\pi} \int_\uptau \frac{\mathbf{ J }\times\mathbf{ u_r }}{r^2} d\uptau
 \end{equation}
@@ -776,7 +777,7 @@ intengrando si ottiene
 Consideriamo un filo di lunghezza $ l = 2a $ nel quale scorre una corrente stazionaria $ I $ (da un punto di vista della magnetostatica non è chiaro 
 perché non sarebbe verificata l'equazione di continuità \eqref{eq:continuità}), vogliamo trovare il campo lungo il piano mediano del filo.
 Siccome $ \mathbf{ B } $ è uno pseudovettore e c'è simmetria dispari rispetto al piano $ xy $, il campo ha solo componente $ B_{\varphi} $.\\
-Utiliziamo la \eqref{eq:dB} integrandola fra gli estremi del filo:
+Utilizziamo la \eqref{eq:dB} integrandola fra gli estremi del filo:
 \begin{align}
   & d\mathbf{ s } \times \mathbf{ u }_r = dz \sin \theta \, \mathbf{ u }_{\varphi}   \quad \sin\theta = \frac{R}{r} = \frac{R}{\sqrt{R^2 + z^2}}\\
   & d\theta \cos\theta = - R \frac{z}{\left( R^2 + z^2 \right)^{\frac{3}{2}}} dz \quad \text{ma}\quad \cos\theta =  \frac{z}{r} \\
@@ -839,13 +840,11 @@ e una proprietà del rotore di funzione scalare per vettore:
   \mathbf{\nabla}\times(a\mathbf{ b }) = \nabla(a)\times\mathbf{ b } + a\nabla\times\mathbf{ b }
 \end{equation}
 così la \eqref{B_Laplace} si riscrive come
-
 \begin{align}
   \mathbf{ B } &= \frac{\mu_0}{4\pi} \int \mathbf{ J(x') }\times \mathbf{\nabla}\left(\frac{-1}{|\mathbf{ x-x'}|}\right)  \,d^3x'\\
   &= \frac{\mu_0}{4\pi} \int \mathbf{\nabla}\left(\frac{1}{|\mathbf{ x-x'}|}\right) \times \mathbf{ J(x') }   \,d^3x' \nonumber \\
   &=  \nabla \times \left( \frac{\mu_0}{4\pi} \int \frac{\mathbf{ J(x') } }{|\mathbf{ x-x' }|} \,d^3x' \right) \equiv \nabla \times \mathbf{ A(x) } \label{eq:rot_potenziale_vettore}
 \end{align}
-
 dove nell'ultima uguaglianza abbiamo sfruttato la \eqref{rot_proprietà} notando che il rotore è fatto rispetto 
 alle coordinate $ \mathbf{ x } $ e non rispetto alle $ \mathbf{ x' } $, ma $ \mathbf{ J(x') } $ è funzione delle coordinate primate (stiamo integrando sulle correnti nel volume).
 Quindi il suo rotore è 0. Da qui segue la prima equazione di Maxwell:
@@ -864,7 +863,7 @@ per il rotore di rotore vale l'identità
 \begin{equation}
   \nabla \times  \left(\nabla \times \mathbf{ A } \right) = \nabla\left( \nabla\cdot \mathbf{ A } \right) - \nabla^2 \mathbf{ A } \quad \forall \mathbf{ A } \in C^2
 \end{equation}
-dove l'ultimo Laplaciano è componente per componenete cioè
+dove l'ultimo Laplaciano è componente per componente cioè
 \begin{equation}
    \left( \nabla^2 \mathbf{ A } \right) _i = \, \nabla^2 A_i \quad \text{Laplaciano vettoriale}
 \end{equation}
@@ -889,12 +888,12 @@ otteniamo quindi
 \begin{align}
   \mathbf{\nabla}\times\mathbf{ B } = \mu_0 \mathbf{ J(x) }
 \end{align}
-Per ottenere la forma globale possiamo integrare su una superficie $ S $ ed applicare il teorema del rotore:
+Per ottenere la forma globale possiamo integrare su una superficie $ S $ e applicare il teorema del rotore:
 \begin{align}
   \mu_0 \int_S \mathbf{ J } \cdot \,d\mathbf{ S } = \int_S \mathbf{\nabla}\times\mathbf{ B } \,d\mathbf{ S } = \oint_{\partial S} \mathbf{ B } \cdot \, d\mathbf{ l }
 \end{align}
 Abbiamo ottenuto che la circuitazione del campo magnetico lungo una linea chiusa $ \partial S $ è il flusso di $ \mathbf{ J } $ attraverso la 
-superficie $ S $, cioè la corrente concantenata alla linea:
+superficie $ S $, cioè la corrente concatenata alla linea:
 \begin{equation} \label{eq:circuitazione_B=i_concatenata}
   \oint_{\partial S} \mathbf{ B } \cdot \, d\mathbf{ l } = \mu_0 i_{\text{conc}}
 \end{equation}
@@ -925,13 +924,12 @@ L'arbitrarietà di $ \Psi(\mathbf{ x }) $ ci dice che:
   
 \end{itemize}
 Significa che siamo liberi di scegliere (scelta di gauge) $ \Psi $ a seconda del problema che stiamo affrontando.\\
-Applicando la seconda equazione di Mawell per il campo magnetico si ottiene che
+Applicando la seconda equazione di Maxwell per il campo magnetico si ottiene che
 
 \begin{align}
   \mathbf{\nabla}\times\mathbf{ B } &= \mathbf{\nabla}\times\mathbf{ \left( \mathbf{\nabla}\times\mathbf{ A(x) } \right) } = \nabla \left( \nabla \cdot \mathbf{ A(x) } \right) - \nabla^2\mathbf{ A(x) } \\
   &= - \nabla^2 \mathbf{ A(x) } = \mu_0 \mathbf{ J(x) }
 \end{align}
-
 e dall'elettrostatica sappiamo che la soluzione a questa equazione è
 \begin{equation}
     \mathbf{ A(x) } = \frac{\mu_0}{4\pi} \int \frac{\mathbf{ J(x') }}{\mathbf{ |x-x'| }} \,d^3x' \quad \Psi \; \text{scelto costante}
@@ -966,7 +964,7 @@ sezione \ref{section:_soluzione_Maxwell_con_sorgenti}.
 
 \section{Espansione in multipolo del campo magnetico} \label{section :B espansione multipolo}
 In analogia col potenziale elettrostatico, voglia trovare il termine dominante nel calcolo del campo magnetico di una distribuzione di correnti nota.
-Appurato che non esistono ancora (2025) evidenze sperimentali del monopòlo magnetico, non potremo avere (come nel caso di una distribuzione di cariche) un termine dovuto alla "carica" magnetica netta.
+Appurato che non esistono ancora (2025) evidenze sperimentali del monopolo magnetico, non potremo avere (come nel caso di una distribuzione di cariche) un termine dovuto alla "carica" magnetica netta.
 Ci aspettiamo quindi di avere come primo termine non nullo un termine che assomigli a quello di un dipolo elettrico, sempre per la somiglianza fra le espressioni dei potenziali elettrico e vettore.
 \\La quantità che vogliamo sviluppare è come al solito
 \begin{equation}
@@ -988,7 +986,7 @@ nell'ultima uguaglianza abbiamo sfruttato l'equazione di continuità \eqref{eq:c
   \int_V J_i(\mathbf{ x' }) \,d^3x' = \int_V \nabla \cdot \left( x_i ' \, \mathbf{ J(x') } \right)  \,dV = \int_S x_i ' \, \mathbf{ J(x') } \,d\mathbf{ S } = 0
 \end{align}
 è nullo perché il flusso di $ \mathbf{ J } $ sulla superficie è $ 0 $ per l'ipotesi di correnti localizzate (le correnti non escono dalla superficie).\\
-Valutiamo il secondo termine; senza perdità di generalità consideriamo la componente lungo $ \mathbf{ u }_x $:
+Valutiamo il secondo termine; senza perdita di generalità consideriamo la componente lungo $ \mathbf{ u }_x $:
 \begin{align}
   A_x(\mathbf{ x }) = \frac{\mu_0}{4\pi} \frac{1}{\mathbf{ |x| }^3} \int J_x(\mathbf{ x' }) \left( xx' + yy' + zz' \right) \,d^3x' \label{eq:A_x_intermedio}
 \end{align}
@@ -1034,7 +1032,7 @@ calcolando la divergenza si ottiene
 \begin{equation}
   0 = \nabla\cdot\mathbf{ B } = - \nabla^2 W
 \end{equation}
-In questo modo lo studio del campo magnetico si riconduce a risolvere l'equazione di Laplace con oppurtune condizioni al bordo, 
+In questo modo lo studio del campo magnetico si riconduce a risolvere l'equazione di Laplace con opportune condizioni al bordo, 
 proprio come avevamo fatto per il potenziale elettrico.\\
 Consideriamo il caso del filo infinito con corrente uniforme $ i $. Il campo magnetico a distanza R lo abbiamo calcolato nella sezione \eqref{section: B filo infinito}
 e vale
@@ -1071,7 +1069,7 @@ in un campo magnetico esterno $ \mathbf{ B }_{\text{ext}} $ come
 \begin{align}
   U = - \mathbf{ m } \cdot \mathbf{ B }_{\text{ext}} = - m { B }_{\text{ext}} \cos\theta
 \end{align}
-dove $ \theta $ è l'angolo compreso fa il dipolo ed il campo esterno. Da questa espressione si riconosce il flusso nel caso la spira sia piana, infatti
+dove $ \theta $ è l'angolo compreso fa il dipolo e il campo esterno. Da questa espressione si riconosce il flusso nel caso la spira sia piana, infatti
 \begin{align}
   \mathbf{ m } = S I \vers{n} \implies U = - \Phi_S({\mathbf{ B }}) I
 \end{align}
@@ -1132,13 +1130,13 @@ e quindi in generale il momento e la forza valgono
 Fin ora abbiamo trattato i fenomeni magnetici nel vuoto, in questo capitolo studieremo come i materiali reagiscono e generano campi magnetici.
 
 \section{Magnetizzazione}
-Sperimentalmente si osserva che alcuni materiali subiscono una forza quando sottoposti ad un campo magnetico, infatti attaccando un dinamometro ad un 
-materiale che vogliamo studiare e sottoponendolo ad un campo magnetico generato da un solenoide (noto), questo respinto o attratto. Nel seguito utilizzeremo 
+Sperimentalmente si osserva che alcuni materiali subiscono una forza quando sottoposti a un campo magnetico, infatti attaccando un dinamometro a un 
+materiale che vogliamo studiare e sottoponendolo a un campo magnetico generato da un solenoide (noto), questo respinto o attratto. Nel seguito utilizzeremo 
 sempre l'approssimazione di dipolo magnetico. Abbiamo visto che l'energia associata al campo magnetico in questa approssimazione si può esprimere come
 \begin{equation}
   U = - \mathbf{ m } \cdot \mathbf{ B } \implies F_z = - \left( \nabla U \right)_z = m_z \der{B_z}{z}
 \end{equation}
-dove abbiamo supposto che il dipolo ed il campo siano allineati lungo l'asse $ z $. Possiamo definire la forza per unità di volume
+dove abbiamo supposto che il dipolo e il campo siano allineati lungo l'asse $ z $. Possiamo definire la forza per unità di volume
 \begin{equation}
   \mathbf{ F }_{\uptau} = \frac{\mathbf{ F }}{\uptau} = \frac{m'_z}{\uptau} \frac{\partial B'_z }{\partial z } \coloneqq M_z \frac{\partial B'_z }{\partial z }
 \end{equation}
@@ -1152,7 +1150,7 @@ Per diversi valori di $ M $ possiamo classificare i materiali come:
   \item paramagnetici, dove la forza è debolmente attrattiva;
   \item ferromagnetici, dove la forza è fortemente attrattiva.
 \end{itemize}
-Passando ad un volume infinitesimo otteniamo
+Passando a un volume infinitesimo otteniamo
 \begin{equation}
   \mathbf{ M } = \frac{d \mathbf{ m }}{d \uptau}
 \end{equation}
@@ -1161,7 +1159,7 @@ che è una relazione locale la quale lega il momento di dipolo magnetico con $ \
 \section{Permeabilità e suscettibilità magnetica}
 Prendiamo un solenoide di $ n $ spire di cui conosciamo il campo nel vuoto e lo riempiamo con il materiale di cui vogliamo conoscerne le
 proprietà magnetiche. A livello sperimentale questo procedimento si effettua tramite una \textit{sonda Hall}.
-Il rapporto tra il campo (il suo modulo) misurato con il materiale all'interno ed il campo nel vuoto viene chiamato permeabilità magnetica relativa:
+Il rapporto tra il campo (il suo modulo) misurato con il materiale all'interno e il campo nel vuoto viene chiamato permeabilità magnetica relativa:
 \begin{equation}
   \mu_r = \frac{B}{B_0}
 \end{equation}
@@ -1197,7 +1195,7 @@ che lo descrive è la \textit{2° legge di Curie}:
 dove $ T_C $ è detta temperatura di Curie.
 \section{Correnti amperiane}
 Nel modello di Bohr, ogni atomo genera una corrente grazie all'orbita degli elettroni attorno al nucleo. Modellizzare questo fenomeno è molto complicato 
-ed infatti ci limitiamo all'approssimazione di dipolo, che comunque porta a dei risultati più che sufficienti.
+e infatti ci limitiamo all'approssimazione di dipolo, che comunque porta a dei risultati più che sufficienti.
 \input{build/figure/cilindro_magnetizzazione.tex} % Cilindro con momenti di dipolo -> magnetizzazione
 Consideriamo un piccolo volume $ \uptau $, allora la magnetizzazione $ \mathbf{ M } $ dovuta ai momenti di dipolo degli atomi del volume è
 \begin{equation}
@@ -1208,7 +1206,7 @@ con $ N_{\uptau} $ il numero di atomi nel volume $ \uptau $ e $ n $ la densità 
 \begin{equation}
   d\mathbf{ m } = \mathbf{ M } d\uptau = \mathbf{ M } d\Sigma dz
 \end{equation}
-ma ricordando che il momento di dipolo magnetico è associato ad una corrente dalla relazione $ d\mathbf{ m } = dI_m d\Sigma \vers{z} $ si ottiene
+ma ricordando che il momento di dipolo magnetico è associato a una corrente dalla relazione $ d\mathbf{ m } = dI_m d\Sigma \vers{z} $ si ottiene
 \begin{align}
   dI_m = M dz
 \end{align}
@@ -1267,7 +1265,7 @@ Grazie al vettore $ \mathbf{ H } $ la legge di Ampère in forma globale diventa
 \end{align}
 
 \subsection{Mezzi omogenei e isotropi}
-In seguito tratteremo soltanto mezzi materiali detti omogenei ed isotropi, cioè quelli per cui in ogni punto del materiale (isotropia) il campo 
+In seguito tratteremo soltanto mezzi materiali detti omogenei e isotropi, cioè quelli per cui in ogni punto del materiale (isotropia) il campo 
 $ \mathbf{ H } $ risulta parallelo al campo magnetico esterno $ \mathbf{ B } $ (omogeneità), cioè vale
 \begin{align}
   \mathbf{ B } = \mu \mathbf{ H } \implies \mathbf{ M } = \chi_m \mathbf{ H } = \frac{\chi_m}{\mu} \mathbf{ B }
@@ -1281,13 +1279,13 @@ Avevamo già visto come la discontinuità di campo dovuta una corrente superfici
   \mathbf{ B }_2 - \mathbf{ B }_1 = \mu_0 \mathbf{ K } \times \mathbf{ n }
 \end{equation}
 Vogliamo vedere adesso come si comportano $ \mathbf{ B } $ e $ \mathbf{ H } $ fra due materiali diversi a contatto. Consideriamo il caso in cui i 
-campi sono sullo stesso piano, prendiamo un cilindro e ne calcoliamo il flusso di $ \mathbf{ B } $, ed otteniamo
+campi sono sullo stesso piano, prendiamo un cilindro e ne calcoliamo il flusso di $ \mathbf{ B } $, e otteniamo
 \begin{align}
   B_1 \cos \theta_1 &= B_2 \cos \theta_2 \implies B_{1|} = B_{2|}
   \\
   \mu_1 H_1 \cos \theta_1 &= \mu_2 H_2 \cos \theta_2 \implies \mu_1 H_{1|} = \mu_2 H_{2|}
 \end{align}
-Per la discontinuità della componenente parallela prendiamo un circuito amperiano e calcoliamo la circuitazione ottenendo
+Per la discontinuità della componente parallela prendiamo un circuito amperiano e calcoliamo la circuitazione ottenendo
 \begin{align}
   B_{2||} - B_{1||} = K
 \end{align}
@@ -1393,15 +1391,15 @@ ottenuti sono risultati esatti. Inoltre, a seguito delle considerazioni sulle si
 elementare di dipolo magnetico esatto in una regione di illimitata. 
 
 \section{Cilindri con correnti opposte}
-Siano due cilindri coassiali di raggi $ a < b $, altezza $ h \gg b $ collegati ad un estremo da una \textit{ddp} e all'altro da una resistenza $ R $. 
+Siano due cilindri coassiali di raggi $ a < b $, altezza $ h \gg b $ collegati a un estremo da una \textit{ddp} e all'altro da una resistenza $ R $. 
 Trovare il campo magnetico e il coefficiente di autoinduttanza.
 
 \textit{Soluzione} Il campo esterno è nullo perché la corrente concatena totale è $ i - i = 0 $, per lo stesso motivo è nullo anche il campo 
 nella regione $ \rho < a $
 
 \chapter{Elettrodinamica}
-Conitnuiamo la trattazione dell'elettromagnetismo passando al caso dinamico. Nei precedenti capitoli abbiamo discusso i campi elettrico e magnetico 
-e le relative forze nal caso in cui l'evoluzione temporale non influenzi l'evoluzione del sistema, e questo ci ha portato alle equazioni di Maxwell 
+Continuiamo la trattazione dell'elettromagnetismo passando al caso dinamico. Nei precedenti capitoli abbiamo discusso i campi elettrico e magnetico 
+e le relative forze nel caso in cui l'evoluzione temporale non influenzi l'evoluzione del sistema, e questo ci ha portato alle equazioni di Maxwell 
 (nel vuoto) statiche:
 \begin{align}
   &\nabla\cdot\mathbf{ E } = \frac{\rho}{\varepsilon_0} &
@@ -1418,21 +1416,21 @@ Per passare al caso dinamico dobbiamo tenere presente che l'equazione di continu
 stazionarie, ma in generale la quantità di cariche all'interno di un volume può variare nel tempo. Il fatto che $ \nabla\cdot\mathbf{ J } \neq 0 $
 fa perdere di validità la legge di Ampère così come l'abbiamo formulata.\\
 Analizziamo adesso la seconda legge di Maxwell per il 
-campo elettrico: Faraday osserva che in un circuito sottoposto ad un campo magnetico, effettuando delle variazioni al campo, si misurava una 
+campo elettrico: Faraday osserva che in un circuito sottoposto a un campo magnetico, effettuando delle variazioni al campo, si misurava una 
 differenza di potenziale agli estremi del circuito. La legge di Faraday è espressa come
 \begin{equation}
   \mathscr{E} = - \frac{d \Phi (\mathbf{ B })}{dt}
 \end{equation}
-dove $ \mathscr{E} $ è la differenza di potenziale ed il flusso è sulla superficie che ha come bordo il circuito $ \gamma $ (che abbiamo mostrato 
+dove $ \mathscr{E} $ è la differenza di potenziale e il flusso è sulla superficie che ha come bordo il circuito $ \gamma $ (che abbiamo mostrato 
 essere equivalente per qualsiasi superficie che abbia $ \gamma $ come bordo). Vogliamo mettere in relazione questa legge sperimentale con la 
 definizione di differenza di potenziale ai capi di un circuito che abbiamo dato:
 \begin{align}
   \mathscr{E} &= \oint_{\gamma} \frac{\mathbf{ F }}{q} \, d\mathbf{ l } = \oint \left( \mathbf{ E } +  \mathbf{ v } \times \mathbf{ B } \right) \, d\mathbf{ l } 
   = \oint_{\gamma} \mathbf{ E } \, d\mathbf{ l } + \oint_{\gamma} \mathbf{ v } \times \mathbf{ B } \, d\mathbf{ l }
 \end{align}
-il secondo pezzo dell'integrale rappresente fisica "vecchia", che andremo a sviluppare nel capo il circuito si deformi nel tempo, mentre il primo 
+il secondo pezzo dell'integrale rappresenta fisica "vecchia", che andremo a sviluppare nel capo il circuito si deformi nel tempo, mentre il primo 
 termine qualora sia non nullo rappresenta "nuova" fisica.\\
-Per sviluppare il secondo termine osserviamo che la velocità di una carica possiamo scomporla come velocita di traslazione del circuito e 
+Per sviluppare il secondo termine osserviamo che la velocità di una carica possiamo scomporla come velocità di traslazione del circuito e 
 velocità relativa al circuito
 \begin{equation}
   \mathbf{ v } = \mathbf{ V }_{\text{T}} + \mathbf{ v }_{\text{rel}} \quad \text{con} \quad \mathbf{ v }_{\text{rel}} \parallel d\mathbf{ l }
@@ -1442,7 +1440,7 @@ quindi il fatto che $ \mathbf{ v }_{\text{rel}} $ sia parallelo al tratto del ci
   \oint_{\gamma} \mathbf{ v } \times \mathbf{ B } \, d\mathbf{ l } = \oint_{\gamma} \mathbf{ V }_{\text{T}} \times \mathbf{ B } \, d\mathbf{ l }
 \end{align}
 
-\textbf{Caso $ V_{\text{T}} = 0$:} abbiamo solo il termine con la circuitazone di $ \mathbf{ E } $ quindi
+\textbf{Caso $ V_{\text{T}} = 0$:} abbiamo solo il termine con la circuitazione di $ \mathbf{ E } $ quindi
 \begin{align}
   \mathscr{E} &= - \frac{d \Phi(\mathbf{ B })}{dt} = -\frac{d}{dt} \left( \int_{S_{\gamma}} \mathbf{ B }\! \cdot\! d\mathbf{ S } \right) 
   = - \int_{S_{\gamma}} \frac{\partial \mathbf{ B } }{\partial t } d\mathbf{ S }
@@ -1498,13 +1496,13 @@ Allora
   \\
   &\implies L = \mu_0 \pi n^2 l R^2
 \end{align}
-Se riempiamo il solonoide con un materiale di permeabilità magnetica $ \mu_0 $ abbiamo che
+Se riempiamo il solenoide con un materiale di permeabilità magnetica $ \mu_0 $ abbiamo che
 \begin{align}
   H = n I \qquad B = \mu H \implies L_\mu = \mu_r L = \mu \pi l R^2 n^2
 \end{align}
 
 \subsection{Circuito RL}
-Sfruttiamo l'autoinduzione di un solenoide calcolata nel precedente paragrafo per risolvere (cioè trovare la corrente in funzione del temppo) 
+Sfruttiamo l'autoinduzione di un solenoide calcolata nel precedente paragrafo per risolvere (cioè trovare la corrente in funzione del tempo) 
 un circuito formato da generatore, solenoide e resistenza come in figura \ref{figure:_circuito_RL}.\input{build/figure/circuito_RL.tex}
 Scriviamo la legge delle maglie
 \begin{align}
@@ -1529,11 +1527,11 @@ divergenza del rotore di $ \mathbf{ B } $ questa dovrebbe essere nulla eppure
   \nabla\! \cdot\! \left( \nabla\! \times\!\mathbf{ B } \right) = \mu_0 \nabla \cdot \mathbf{ J } 
   \overset{\text{eq. continuità}}{=} \mu_0 \left(- \der{\rho}{t} \right)
 \end{align}
-che in generale la variazione della carica non è nulla. Maxwell nel 1864 corregge quindi le equzioni soltanto per una inconsistenza da un punto di vista 
-teorico e non perché avesse fatto esperimenti che evidensiassero una problema nel modello, anche perché la conferma sperimentale delle equazioni dopo la 
+che in generale la variazione della carica non è nulla. Maxwell nel 1864 corregge quindi le equazioni soltanto per una inconsistenza da un punto di vista 
+teorico e non perché avesse fatto esperimenti che evidenziassero una problema nel modello, anche perché la conferma sperimentale delle equazioni dopo la 
 modifica di Maxwell arrivò soltanto nel 1884 (ben 20 anni dopo) dal laboratorio di Hertz.
 
-La modifica consinste nell'imporre che la quarta equzione abbia divergenza nulla, aggiungengo un termine apposito:
+La modifica consiste nell'imporre che la quarta equazione abbia divergenza nulla, aggiungendo un termine apposito:
 \begin{align}
   \mathbf{\nabla}\times\mathbf{ B } = \mu_0 \mathbf{ J } + \mathbf{ \Lambda }
 \end{align}
@@ -1548,7 +1546,7 @@ e una scelta possibile è
 \begin{equation}
   \mathbf{ \Lambda } = \mu_0 \varepsilon_0 \der{\mathbf{ E }}{t}
 \end{equation}
-È una scelta perché potremmo aggiungere un qualsiasi campo vettoriale a divergenza nulla ed otterremmo delle equazioni consistenti dal punto di 
+È una scelta perché potremmo aggiungere un qualsiasi campo vettoriale a divergenza nulla e otterremmo delle equazioni consistenti dal punto di 
 vista matematico, tuttavia questo non è possibile dal punto di vista fisico per delle proprietà che le equazioni devono rispettare che tratteremo 
 più avanti. La forma definitiva delle equazioni di Maxwell è
 \begin{align} \label{equazioni di Maxwell dinamiche}
@@ -1558,14 +1556,14 @@ più avanti. La forma definitiva delle equazioni di Maxwell è
   &\mathbf{\nabla}\times\mathbf{ B } = \mu_0 \mathbf{ J } + \mu_0 \varepsilon_0 \der{\mathbf{ E }}{t}
 \end{align}
 In questo modo l'equazione di continuità diventa un corollario della prima e della quarta equazione di Maxwell.
-\subsection{Corrente di spostamento nel condesatore piano}
+\subsection{Corrente di spostamento nel condensatore piano}
 Un esempio della consistenza delle equazioni col termine della corrente di spostamento può essere visto analizzando il caso del 
-condensatore piano a facce parallele. Consideriamo il condensatore isolato e le facce collegate entrambe ad un filo conduttore: 
+condensatore piano a facce parallele. Consideriamo il condensatore isolato e le facce collegate entrambe a un filo conduttore: 
 se prendiamo una piccola superficie circolare $ D $ attraversata dal filo e calcoliamo la circuitazione del campo magnetico otteniamo
 \begin{equation}
   \oint_{\gamma} \mathbf{ B } \, d\mathbf{ l } = 2\pi r B_{\varphi} = \mu_0 I
 \end{equation}
-Ma se prendiamo una superficie che ha sempre $ \gamma $ come bordo ma passa in mezzo alle armature in modo che non cia nessuna 
+Ma se prendiamo una superficie che ha sempre $ \gamma $ come bordo ma passa in mezzo alle armature in modo che non ci sia nessuna 
 corrente concatenata, otteniamo che la stessa circuitazione del campo magnetico è nulla, che è assurdo. Considerando anche il 
 termine di Maxwell otteniamo che
 \begin{equation}
@@ -1583,7 +1581,7 @@ diverse. In questa sezione vogliamo capire quali sono le condizioni per stabilir
 
 \input{build/figure/condensatore_piano_verticale.tex}
 
-Consideriamo un condesatore a facce piane parallele circolari come in figura \ref{figure: condensatore verticale} dove la carica su una armatura è 
+Consideriamo un condensatore a facce piane parallele circolari come in figura \ref{figure: condensatore verticale} dove la carica su una armatura è 
 data da $ Q(t) = Q_0 \sin(\omega t) $, e quindi il 
 campo è dato da 
 \begin{equation}
@@ -1603,7 +1601,7 @@ quindi il campo vale
 \begin{align}
   B_{\varphi} = \mu \varepsilon  r \frac{\omega}{2} E_0\cos(\omega t)
 \end{align}
-quindi ,
+quindi,
 \begin{equation}
   \mathbf{ B }_1(r) = \frac{\mu \varepsilon \omega r}{2} E_0 \cos(\omega t) \vers{\varphi}
 \end{equation}
@@ -1670,11 +1668,11 @@ in cui non ci siano alcun tipo di sorgenti, calcoliamo allora il rotore del roto
   \text{ma} \quad \mathbf{\nabla}\!\times\! \left( \mathbf{\nabla}\!\times\!\mathbf{ E } \right) 
   &= \nabla \left( \nabla \cdot \mathbf{ E } \right) - \nabla^2 \mathbf{ E } = - \nabla ^2 \mathbf{ E }
 \end{align}
-ed unendo questi due risultati si ottiene:
+e unendo questi due risultati si ottiene:
 \begin{equation}
   \nabla^2\mathbf{ E } -\mu_0 \varepsilon_0 \der[2]{\mathbf{ E }}{t} = 0
 \end{equation}
-quindi ogni componente $ E_i $ del campo elettrico soffisfa l'equazione tridimensionale delle onde. Facendo lo stesso procedimento per il campo 
+quindi ogni componente $ E_i $ del campo elettrico soddisfa l'equazione tridimensionale delle onde. Facendo lo stesso procedimento per il campo 
 magnetico si ha che:
 \begin{align}
   -\nabla^2 \mathbf{ B } = \nabla\!\times\!\left( \nabla\!\times\!\mathbf{ B } \right) 
@@ -1693,7 +1691,7 @@ Proviamo con le \textit{onde piane}
   \\
   \mathbf{ B }(\mathbf{ r },t) &= \mathbf{ B }_0 e^{i\left( \mathbf{ k \cdot r } - \omega t \right)}
 \end{align}
-(ricordando che dobbiamo sempre prenderne la parte reale prima o poi), verifichiamo che risolvono le equzioni di Maxwell:
+(ricordando che dobbiamo sempre prenderne la parte reale prima o poi), verifichiamo che risolvono le equazioni di Maxwell:
 \begin{align}
   \nabla\!\cdot\!\mathbf{ E } &= i \left( E_{0x}k_x + E_{0y}k_y + E_{0z}k_z \right) e^{i\left( \mathbf{ k \cdot r } - \omega t \right)} = 0 
   \iff \mathbf{ k\cdot E }_0 = 0
@@ -1719,7 +1717,7 @@ essere autofunzioni dell'operatore derivata e ci convinciamo che
   \\= i \mathbf{ k \times E }_0 e^{i\left( \mathbf{ k \cdot r } - \omega t \right)} &= - \der{ \mathbf{ B }}{t} 
   = i \omega \mathbf{ B }_0 e^{i\left( \mathbf{ k \cdot r } - \omega t \right)}
 \end{align}
-ed otteniamo così una relazione sulla direzione e sul modulo:
+e otteniamo così una relazione sulla direzione e sul modulo:
 \begin{equation}
   \mathbf{ k \times E }_0 = \omega \mathbf{ B }_0
 \end{equation}
@@ -1734,7 +1732,7 @@ Non è un caso che otteniamo gli stessi risultati per $ \mathbf{ B } $ ed $ \mat
 Maxwell \eqref{equazioni di Maxwell dinamiche}, il che significa che campo magnetico e campo elettrico sono due facce della stessa medaglia, l'uno 
 la conseguenza (e causa) dell'altro.\\
 Dalle onde meccaniche sapevamo già che $ |\mathbf{ k }| = \frac{\omega}{v} $, con $ v $ la velocità di propagazione dell'onda, per trovarla in questo 
-caso prendiamo il coefficiente davanti alla derivata temporale nell'equazione delle onde ed otteniamo
+caso prendiamo il coefficiente davanti alla derivata temporale nell'equazione delle onde e otteniamo
 \begin{equation} \label{definizione di c}
   \mu_0 \varepsilon_0 = \frac{1}{v^2} \implies v = \frac{1}{\sqrt{\mu_0 \varepsilon_0}} =: c
 \end{equation}
@@ -1743,7 +1741,7 @@ e quindi le relazioni trovate prima si riscrivono come
   \mathbf{ n } \times \mathbf{ E }_0 = c \mathbf{ B }_0 \implies E = c B
 \end{align}
 dove $ \mathbf{ n } $ è il versore di propagazione dell'onda, cioè $ \mathbf{ n } = \frac{\mathbf{ k }}{|\mathbf{ k }|} $
-Ad oggi è scontato che la luce sia una un'onda elettromagnetica ma al tempo di Maxwell non erano ancora stati fatti gli esperimenti che evidenziassero 
+a oggi è scontato che la luce sia una un'onda elettromagnetica ma al tempo di Maxwell non erano ancora stati fatti gli esperimenti che evidenziassero 
 il comportamento da onda elettromagnetica della luce. Tuttavia la velocità della luce era nota e con un incertezza dell'ordine del $ 1\% $, dunque 
 Maxwell disse che \textit{"non è possibile escludere che la luce stessa sia una perturbazione elettromagnetica"}.\\
 Nella nostra trattazione per ora ci basta la definizione in equazione \eqref{definizione di c}.
@@ -1754,7 +1752,7 @@ Nel caso in cui sono presenti le sorgenti
 \subsection{Gradi di libertà}
 Soffermiamoci a vedere quante variabili sono necessarie per fissare in modo univoco una soluzione. La scelta della fase 
 $ \mathbf{ k } = (k_x,k_y,k_z) $ comporta 3 parametri ma $ \omega = c|\mathbf{ k }| $ quindi nessun grado di libertà. Per quanto riguarda le due 
-ampiezze sfruttiamo le relazioni trovate e prime ed abbiamo che $ \mathbf{ E }_0 \cdot \mathbf{ k } = 0 $, quindi solo due 
+ampiezze sfruttiamo le relazioni trovate e prime e abbiamo che $ \mathbf{ E }_0 \cdot \mathbf{ k } = 0 $, quindi solo due 
 gradi di libertà. Infine per il campo magnetico abbiamo già modulo e direzione fissati quindi non ci sono effettivamente dei parametri liberi, 
 dunque in totale ne abbiamo $ 5 $.
 
@@ -1790,7 +1788,7 @@ Fase relativa costante $ \implies $ coerenti, altrimenti non sono coerenti. Quan
 che i fenomeni di interferenza non esistono, ma nella realtà questo è vero nel caso in cui il mio strumento faccia la misura (la media) su una scala 
 maggiore a quella a cui avvengono i fenomeni di interferenza. 
 \subsection{Somma di onde progressive e regressive}
-Nella nostra trattazione supponiamo sempre che oltre ad essere reale, $ \omega $ sia positiva, che è una usuale convenzione dato che per ottenere la 
+Nella nostra trattazione supponiamo sempre che oltre a essere reale, $ \omega $ sia positiva, che è una usuale convenzione dato che per ottenere la 
 frequenza negativa basta mandare $ t \to -t $. Per quanto riguarda $ \mathbf{ k } $, in base al segno otteniamo l'onda progressiva o l'onda regressiva, 
 riferito alla direzione di propagazione. Vogliamo vedere cosa succede se combiniamo due soluzioni, una progressiva e l'altra regressiva.
 Consideriamo le soluzioni progressive ($ \mathbf{ k }=k \vers{z} $)
@@ -1814,16 +1812,16 @@ e prendendone la parte reale otteniamo:
   \\
   \mathbf{ B } &= 2A_0 \sin(\omega t) \sin (kz) \vers{y}
 \end{align}
-Possiamo visualizzare questi campi in un piano cartesiano metteno in ascissa la $ z $, in ordinata i campi e li disegniamo in vari tempi. La cosa 
+Possiamo visualizzare questi campi in un piano cartesiano mettendo in ascissa la $ z $, in ordinata i campi e li disegniamo in vari tempi. La cosa 
 apparentemente strana è che ci sono dei punti per ogni campo in cui questi sono sempre nulli, ad esempio per $ z = n\pi, n\in \mathbb{N} $ il campo 
 magnetico è sempre nullo mentre quello elettrico varia nel tempo. Sembra contraddire l'accoppiamento dei due campi dettato dalle leggi di Maxwell, 
-che ad un campo elettrico prevedono sempre associato un campo magnetico e viceversa. Tuttavia la soluzione al (presunto) paradosso è che sì è vero 
+che a un campo elettrico prevedono sempre associato un campo magnetico e viceversa. Tuttavia la soluzione al (presunto) paradosso è che sì è vero 
 il fatto dell'accoppiamento dei campi ma dobbiamo sempre ricordare che le equazioni di Maxwell sono delle relazioni \textbf{locali} fra i campi, 
 non puntuali e nemmeno istantanee, ma vanno sempre considerati degli intorni.
 
 \section{Teorema di Poynting}
 In questa sezione otterremo un risultato fondamentale dell'elettrodinamica, che riguarda l'energia associata al campo elettromagnetico, noto 
-come \textit{Teorema di Poynting}. Tale teorema è una conseguenza delle equazioni di Maxwell , non ci fornisce relazioni ulteriori fra i campi 
+come \textit{Teorema di Poynting}. Tale teorema è una conseguenza delle equazioni di Maxwell, non ci fornisce relazioni ulteriori fra i campi 
 ma bensì mette in chiaro il fatto che i campi sono un'unica identità e come sono legati alla trasmissione di energia.
 
 Consideriamo un volume $ V $ di superficie $ A $ orientata uscente, dove sono presenti delle sorgenti. 
@@ -1843,7 +1841,7 @@ Sottraiamo la prima alla seconda applichiamo l'identità vettoriale \eqref{ident
   \\
   &= - \mu_0 \mathbf{ E \cdot J} - \mu_0 \der{}{t} \left( \frac{\mathbf{ B }^2}{2\mu_0} +  \frac{\eps_0\mathbf{ E }^2}{2} \right)
 \end{align}
-In questa espressione riconosciamo la densità di energia elettrica $ u_e $ ed allo stesso modo definiamo la densità di energia magnetica $ u_m $ 
+In questa espressione riconosciamo la densità di energia elettrica $ u_e $ e allo stesso modo definiamo la densità di energia magnetica $ u_m $ 
 (entrambe nel vuoto):
 \begin{align}
   u_e \coloneqq  \frac{\eps_0\mathbf{ E }^2}{2}
@@ -1860,7 +1858,7 @@ che è la forma locale del Teorema di Poynting. Applicando il teorema della dive
   \\
   \implies \oint \left( \mathbf{ E \times } \frac{\mathbf{ B }}{\mu_0} \right) + W &= - \der{U}{t}
 \end{align}
-dove $ W $ rappresenta la potenza ceduta alle cariche e $ U $ è l'energia elettro-magnetica immagazzinata nel volume (nei campi). Analizzando i termini 
+dove $ W $ rappresenta la potenza ceduta alle cariche e $ U $ è l'energia elettromagnetica immagazzinata nel volume (nei campi). Analizzando i termini 
 del teorema di Poynting osserviamo che esprime il principio di conservazione dell'energia in termini dell'energia trasferita alle cariche, l'energia dei 
 campi e un certo flusso uscente dal volume. Questa quantità viene definita come \textit{vettore di Poynting} $ \mathbf{ S } $:
 \begin{align}
@@ -1932,7 +1930,7 @@ Riportando il risultato ottenuto alla formulazione iniziale si ha
 \begin{align}
   \der{}{t} \left( \frac{1}{c^2}\, \mathbf{ S } \right) + \rho \mathbf{ E } + \mathbf{ J } \times \mathbf{ B } = \sum_j \der{T_{i j}}{x_j} \vers{x}_j
 \end{align}
-ed integrando sul volume riotteniamo la forza meccanica totale $ \mathbf{ F } = \frac{d \mathbf{ P }_{\text{mecc}}}{dt} $ sommata alla derivata rispetto al 
+e integrando sul volume riotteniamo la forza meccanica totale $ \mathbf{ F } = \frac{d \mathbf{ P }_{\text{mecc}}}{dt} $ sommata alla derivata rispetto al 
 tempo del flusso del vettore di Poynting $ \Phi(\mathbf{ S }) = \mathbf{ P }_{\text{em}} $ (che abbiamo definito come la derivata rispetto al 
 tempo della quantità di moto dei campi) che è uguale all'integrale sul volume del tensore di Maxwell:
 \begin{align}
@@ -1956,7 +1954,7 @@ Il vettore $ \mathbf{ S } $ non è additivo, infatti consideriamo due sorgenti c
 \begin{align}
   \mathbf{ E }_1 , \mathbf{ B }_1 \qquad \mathbf{ E }_2 , \mathbf{ B }_2
 \end{align}
-il vettore di Poynting risultante non è banalmente la somma dei due vetttori $ \mathbf{ S }_1, \mathbf{ S }_2 $ ma è
+il vettore di Poynting risultante non è banalmente la somma dei due vettori $ \mathbf{ S }_1, \mathbf{ S }_2 $ ma è
 \begin{align}
   \mathbf{ S } = \frac{1}{\mu_0} \left[ (\mathbf{ E }_1 + \mathbf{ E }_2) \times (\mathbf{ B }_1 + \mathbf{ B }_2 ) \right]
 \end{align}
@@ -1979,7 +1977,7 @@ quindi basta scegliere una frequenza tale che il diametro del condensatore sia u
 \begin{align}
   R = n \, \frac{\lambda}{2} = \frac{n \pi c}{\omega} \implies \omega_n = \frac{n \pi c}{R}
 \end{align}
-quindi prendendo una qualsiasiasi $ \omega_n $ avremo che il campo elettrico sarà nullo sul bordo, come mostrato in figura 
+quindi prendendo una qualsiasi $ \omega_n $ avremo che il campo elettrico sarà nullo sul bordo, come mostrato in figura 
 \ref{figure:_condensatore_piano_cavità} dove abbiamo preso 
 $ n = 1 $ ottenendo quindi $ \lambda = 2 R $. Il ragionamento che abbiamo appena fatto parte dall'assunzione che le soluzioni siano effettivamente delle 
 sinusoidi, il che non è vero per il condensatore cilindrico. Infatti le soluzioni esatte di questo modello sono le funzioni di Bessel e per vederlo si 
@@ -1989,14 +1987,14 @@ elettrico tangenziale è nullo sul bordo.
 
 \input{build/figure/condensatore_piano_cavità.tex}
 
-Adesso che abbiamo dato le condizioni per avere il campo nullo al bordo possiamo chiudere il condensatore con un metallo di spessore $ \delta $ ed un 
-sistema così fatto è detto \textit{cavità}, rappresentatà in figura \ref{figure:_cavità:_A}. Vogliamo studiare questo tipo di sistema considerando due casi: 
+Adesso che abbiamo dato le condizioni per avere il campo nullo al bordo possiamo chiudere il condensatore con un metallo di spessore $ \delta $ e un 
+sistema così fatto è detto \textit{cavità}, rappresentata in figura \ref{figure:_cavità:_A}. Vogliamo studiare questo tipo di sistema considerando due casi: 
 \begin{itemize}
   \item quando la cavità è considerata ideale e quindi all'interno delle pareti metalliche il campo elettrico è nullo;
   \item quando non può più essere considerata ideale per via del campo elettrico e quindi si aggiungerà un effetto di dissipazione;
 \end{itemize}
 
-Calcoliamo la circuitazione dei campi su un circuito amperiano $ \gamma $ al bordo della cavità come in fugura \ref{figure:_cavità:_B}.
+Calcoliamo la circuitazione dei campi su un circuito amperiano $ \gamma $ al bordo della cavità come in figura \ref{figure:_cavità:_B}.
 \input{build/figure/cavità.tex}
 \begin{align}
   E_z(\text{metallo}) - E_z(\text{cavità}) = 0 &\qquad E_\rho(\text{metallo}) - E_\rho(\text{cavità}) = \frac{\sigma}{\eps_0}
@@ -2018,7 +2016,7 @@ trovata sopra:
 \begin{align}
   \mathbf{ B } = - \frac{i}{\omega} \nabla\!\times\!\mathbf{ E } \implies \nabla\!\cdot\!\mathbf{ B } = 0 \implies B_\rho = 0
 \end{align}
-che sono proprio le condizioni che dovevamo imporre, dunque ci possiamo concentrare solo sul campo elettrico. Dalla matematicatica sappiamo che c'è un 
+che sono proprio le condizioni che dovevamo imporre, dunque ci possiamo concentrare solo sul campo elettrico. Dalla matematica sappiamo che c'è un 
 insieme numerabile di modi propri $ \omega_n $ che costituiscono le soluzioni dell'equazione, le quali costituiscono una base (numerabile) ortogonale e 
 completa. Nel seguito forniremo le soluzioni a questa equazione in coordinate cartesiane.
 
@@ -2040,7 +2038,7 @@ e vogliamo mostrare che i due termini elettrico e magnetico forniscono esattamen
 
 \subsection{Cavità in coordinate cartesiane}
 \input{build/figure/cavità_parallelepipedo.tex}
-Vogliamo risolvere l'equazione trovata nella sezione precedente per una cavità a forma di parellelepipedo di lati $ a > b > d $ allineati (in ordine) lungo 
+Vogliamo risolvere l'equazione trovata nella sezione precedente per una cavità a forma di parallelepipedo di lati $ a > b > d $ allineati (in ordine) lungo 
 $ xyz $ (figura \ref{figure:_cavità_parallelepipedo}). Proviamo una soluzione del tipo 
 \begin{align}
   \mathbf{ E }(\mathbf{ x }, t) = e^{-i\omega t}& \left[  \mathcal{E}_x \cos\left( \frac{n_1\pi}{a}x \right) \sin\left( \frac{n_2\pi}{a}y \right) 
@@ -2079,7 +2077,7 @@ configurazioni di $ (n_1,n_2,n_3) $ sono possibili in base ai vincoli che abbiam
   \item con un solo parametro nullo la soluzione è completamente fissata (quindi anche la polarizzazione)
   \item con tutti i parametri non nulli ho due diverse polarizzazioni possibili
 \end{itemize}
-Ponendo a $ 0 $ un solo parametro, affinché la frequenza sia minima, in base alle dimensioni che abbiamo dato ($ a>b>d $), occorre annullare $ n_3 $ ed in 
+Ponendo a $ 0 $ un solo parametro, affinché la frequenza sia minima, in base alle dimensioni che abbiamo dato ($ a>b>d $), occorre annullare $ n_3 $ e in 
 questo modo avremo che
 \begin{align}
   \mathbf{ E } &= E_z \vers{z} = e^{-i\omega t} \mathcal{E}_z \sin\left( \frac{n_1 \pi}{a} x \right) \sin\left( \frac{n_2 \pi}{b}y \right) \vers{z}
@@ -2110,7 +2108,7 @@ e definiamo $ \chi $ come
 \begin{align}
   \chi^2 \coloneqq \frac{\omega^2}{c^2} + i \omega \mu_0 \sigma 
 \end{align}
-ma dato che siamo siamo ancora nell'approssimazione di campi lentamente variabili abbiamo $ \omega \ll c $, quindi $ \chi \approx i \omega \mu_0 \sigma $, 
+ma dato che siamo ancora nell'approssimazione di campi lentamente variabili abbiamo $ \omega \ll c $, quindi $ \chi \approx i \omega \mu_0 \sigma $, 
 e l'equazione diventa
 \begin{align}
   -\nabla^2 \mathbf{ E } = \chi^2 \mathbf{ E }
@@ -2126,18 +2124,18 @@ in questo modo possiamo definire una lunghezza caratteristica $ \delta $ chiamat
   \\
   \text{cgs} \qquad \delta &= \frac{c}{\sqrt{2\pi \omega \sigma}}
 \end{align}
-ed il campo risultà così
+e il campo risulta così
 \begin{align}
   E_\parallel = E_0 e^{-z/\delta} \text{Re}(e^{i(z/\delta - \omega t)}) 
   = E_0 e^{-z/\delta} \cos \left( z/\delta -\omega t\right)
 \end{align}
 Possiamo definire un fattore che ci permette di confrontare vari materiali in base a quanto velocemente decadono i campi in funzione dello spessore del 
-metaallo:
+metallo:
 \begin{align}
   Q \coloneqq \frac{l}{\delta} 
 \end{align}
 ed è detto \textit{fattore di qualità}. Per gli scopi di confinamento di campi elettromagnetici si impiegano materiali con $ Q \gg 1 $. Il concetto di 
-fattore di qualità è molto più generale che per le sole onde elettromagnetiche, infatti fa parte dei parametri per descrivere gli smorzarmenti di segnali, 
+fattore di qualità è molto più generale che per le sole onde elettromagnetiche, infatti fa parte dei parametri per descrivere gli smorzamenti di segnali, 
 che siano onde meccaniche o di altra natura.
 %% AGGIUNGERE CALCOLO DI LUNGHEZZA PELLE PER ALCUNI MATERIALI
 
@@ -2156,7 +2154,7 @@ cioè per sovrapposizione lineare.
 
 \subsection{Trasformata di Fourier}
 Una trasformata è un operatore (in genere lineare) che va da uno spazio di funzioni in un altro spazio di funzioni; la trasformata di Fourier è una 
-trasformata integrale ed opera con funzioni che appartengono allo spazio $ \mathbb{L}^2 $ (spazio delle funzioni a quadrato sommabile) cioè:
+trasformata integrale e opera con funzioni che appartengono allo spazio $ \mathbb{L}^2 $ (spazio delle funzioni a quadrato sommabile) cioè:
 \begin{equation}
   \mathbb{L}^2 = \left\{f:\mathbb{R} \to \mathbb{C} \quad \text{tale che} \quad \int_{-\infty}^{+\infty} |f(x)|^2 \,dx < +\infty \right\}
 \end{equation}
@@ -2178,8 +2176,8 @@ e quindi la funzione trasformata vale
 \begin{align}
   \hat{f}(k,\omega) = \frac{1}{2\pi}\int\!\!\! \int_{-\infty}^{+\infty} {f}(x,t) e^{-ikx+i\omega t} \,dxdt
 \end{align}
-La trasformata di Fourier è uno strumento che permette di trasformare equazioni differenziali in equazioni algebriche: applichiamo la trasformata ad una 
-equazione, troviamo un espressione per la variabile trasformata ed infine applichiamo l'anti-trasformata.
+La trasformata di Fourier è uno strumento che permette di trasformare equazioni differenziali in equazioni algebriche: applichiamo la trasformata a una 
+equazione, troviamo un espressione per la variabile trasformata e infine applichiamo l'anti-trasformata.
 
 \subsection{Trasformata di un oscillatore forzato}
 Sfruttiamo questa tecnica nel caso del oscillatore armonico con forzante esterna $ F(t) $:
@@ -2195,7 +2193,7 @@ dove abbiamo sfruttato l'integrazione per parti della $ \ddot{x} $ e che è effe
 \begin{equation}
   \hat{x}(\omega) = \frac{\hat{F}}{\omega_0^2 - \omega^2}
 \end{equation}
-ed infine per trovare la legge oraria ne facciamo l'anti-trasformata
+e infine per trovare la legge oraria ne facciamo l'anti-trasformata
 \begin{equation}
   x(t) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} \frac{\hat{F}}{\omega_0^2 - \omega^2} e^{i\omega t} \,dt
 \end{equation}
@@ -2221,9 +2219,9 @@ Consideriamo adesso il pacchetto d'onda gaussiano di prima cioè
 \begin{align}
   f(x,t) = e^{i k_0 x - i\omega t} \cdot e^{- \frac{x^2}{L^2}}
 \end{align}
-e ne vogliamo fare la trsformata di Fourier, stavolta però stando attenti in dominio la facciamo. $ f(x,t) $ è funzione dello spazio e del tempo, ma la 
+e ne vogliamo fare la trasformata di Fourier, stavolta però stando attenti in dominio la facciamo. $ f(x,t) $ è funzione dello spazio e del tempo, ma la 
 parte temporale è quella di un onda piana, dunque si porta dietro gli stessi aspetti critici cioè che esiste in tutti i tempi. Se facessimo la trasformata 
-considerandola funzione di due variabili allora questa non sarebbe ben definita dato che non appartiene ad $ \mathbb{L}^2 $ proprio perché il suo integrale non 
+considerandola funzione di due variabili allora questa non sarebbe ben definita dato che non appartiene a $ \mathbb{L}^2 $ proprio perché il suo integrale non 
 converge. Possiamo aggirare questo problema in due modi: annullando completamente la parte temporale, o portarcela dietro e considerarla come una modifica 
 alla distribuzione di $ k $, che è ciò che faremo.
 \begin{align}
@@ -2236,8 +2234,8 @@ e per risolvere questo integrale completiamo il quadrato sommando e sottraendo $
   e^{-\left[ \frac{x}{L} - \frac{iL}{2}(k_0 - k) \right]^2} \,dx = \frac{L\;e^{-i\omega t}\cdot e^{-\frac{L^2}{4}(k_0 - k)^2}}{\sqrt{2}}
 \end{align}
 Questa funzione rappresenta nel dominio di $ k $ una gaussiana di centro $ \mu = k_0 $ e varianza $ \sigma^2 = \frac{2}{L^2} $, quindi all'aumentare di 
-$ L $ la distribuzione si restringe attorno $ k_0 $. Con questi risultati siamo pronti per trattare cosa succede ad un pacchetto d'onda che attraversa un 
-mezzo materiale: la relazione di dispersione in generale non è lineare, a dato che la trasformata del pacchetto è centrata nel valore $ k_0 $, è 
+$ L $ la distribuzione si restringe attorno $ k_0 $. Con questi risultati siamo pronti per trattare cosa succede a un pacchetto d'onda che attraversa un 
+mezzo materiale: la relazione di dispersione in generale non è lineare, ha dato che la trasformata del pacchetto è centrata nel valore $ k_0 $, è 
 ragionevole cercare una nuova legge di dispersione sviluppando in Taylor la frequenza in funzione di del passo d'onda nel punto $ k_0 $. Dallo sviluppo
 \begin{align}
   \omega(k) \approx \omega(k_0) + \partial_k \omega (k-k_0) + \frac{1}{2} \partial_k^2 \omega (k-k_0)^2
@@ -2267,7 +2265,7 @@ Riscriviamo il rotore di rotore di $ \mathbf{ E } $:
   -\nabla^2 \mathbf{ E } = \nabla\!\times\!\left( \nabla\!\times\!\mathbf{ E } \right) = \nabla \! \times \! \left( i \omega \mathbf{ B } \right) 
   =\frac{\omega^2}{c^2} \mathbf{ E } 
 \end{align}
-ed iniziamo a calcolare il laplaciano della $ f(x,y,z,t) $:
+e iniziamo a calcolare il laplaciano della $ f(x,y,z,t) $:
 \begin{align}
   -\left( \der[2]{}{x} + \der[2]{}{y} + \der[2]{}{z} \right)f &= \left( k^2 - \der[2]{}{x} - \der[2]{}{y} \right) f
   \\
@@ -2297,7 +2295,7 @@ Scriviamo le equazioni di Maxwell applicate al caso della guida senza sorgenti:
   \\
   &\nabla \times \v{B} = \frac{1}{c^2} \der{\v{E}}{t} = -\frac{i \omega}{c^2} \v{E} \qquad &\nabla \cdot \v{B} = 0
 \end{align}
-che esplicidandole direttamente diventano
+che esplicitandole direttamente diventano
 \begin{align}
   i\omega B_x &= \partial_y E_z - \partial_z E_y  &{-\frac{i \omega}{c^2} E_x = \partial_y B_z - \partial_z B_y}
   \\
@@ -2330,7 +2328,7 @@ concludiamo che in queste condizioni il modo TEM è solo il modo banale. Il ragi
 semplicemente connesso, infatti nel caso del cavo coassiale il dominio non è connesso e infatti esiste il modo TEM come soluzione.
 
 % POTENZA
-{Per quanto riguarda la potenza stiamo passando da una equazione differenziale nel tempo ad una che è nello spazio: 
+{Per quanto riguarda la potenza stiamo passando da una equazione differenziale nel tempo a una che è nello spazio: 
 scriviamo il bilancio energetico come potenza entrante meno la potenza uscente: potenza entrante (il vettore di 
 Poynting mediato sul tempo e integrato sulla superficie) che sarà proporzionale a $ \Delta z $ portiamo sotto e 
 passiamo a $ dz $.}
@@ -2339,7 +2337,7 @@ passiamo a $ dz $.}
 \section{Soluzione equazioni di Maxwell in presenza di sorgenti} \label{section:_soluzione_Maxwell_con_sorgenti}
 Fin ora abbiamo trattato i casi in cui le sorgenti non sono presenti, dunque le soluzioni che abbiamo trovato sono il limite in cui i campi sono molto 
 lontani da ciò che li ha generati. Vogliamo ora rielaborare le equazioni di Maxwell in termini dei potenziali elettrico $ V $ e vettore $ \mathbf{ A } $ 
-in modo da ottenere una forma integrale per i campi. giustamente
+in modo da ottenere una forma integrale per i campi.
 
 Dato che $ \nabla \cdot \mathbf{ B } = 0 $ è valida sia nel caso statico sia nel caso dinamico, la definizione che avevamo dato del potenziale vettore è 
 ancora valida cioè
@@ -2353,7 +2351,7 @@ Ciò non vale per il potenziale scalare $ V $ perché il campo elettrico non è 
   \\
   &\implies \nabla \times \left( \mathbf{ E } + \der{\mathbf{ A }}{t} \right) = 0
 \end{align}
-dunque definiamo un nuovo potenziale $ V $ tale che il suo grandiente (cambiato di segno) sia $ \mathbf{ E } + \der{\mathbf{ A }}{t} $:
+dunque definiamo un nuovo potenziale $ V $ tale che il suo gradiente (cambiato di segno) sia $ \mathbf{ E } + \der{\mathbf{ A }}{t} $:
 \begin{align}
   -\nabla V = \mathbf{ E } + \der{\mathbf{ A }}{t} \implies \mathbf{ E } = - \nabla V - \der{\mathbf{ A }}{t}.
 \end{align}
@@ -2384,7 +2382,7 @@ l'equazione di Poisson
 \begin{align}
   \nabla^2 V = -\frac{\rho}{\eps_0} \implies V = \frac{1}{4\pi\eps_0} \int \frac{\rho(\mathbf{ x }', t)}{|\mathbf{ x }-\mathbf{ x }'} \,d^3x'
 \end{align}
-mentre adesso sfrutteremo la \textit{gauge di Lorenz} (fisico danese, da non confondere con il fisico olandese Lorentz a cui si devono le omonime trasormazioni e 
+mentre adesso sfrutteremo la \textit{gauge di Lorenz} (fisico danese, da non confondere con il fisico olandese Lorentz a cui si devono le omonime trasformazioni e 
 la forza magnetica) dove il nuovo potenziale vettore $ \mathbf{ A }' $ è tale che
 \begin{align}
   \nabla\!\cdot\!\mathbf{ A }' = -\frac{1}{c^2} \der{V'}{t}
@@ -2395,7 +2393,7 @@ che si ottiene imponendo che $ \Psi $ risolva l'equazione
   \\
   \implies \Box\Psi &= - \left( \nabla\!\cdot\!\mathbf{ A } + \frac{1}{c^2} \der{V}{t} \right)
 \end{align}
-dove $ \Box \Psi $ è l'operatore di d'Alambert applicato alla funzione scalare $ \Psi $. Questa parrticolare gauge sarà molto utile per scrivere le 
+dove $ \Box \Psi $ è l'operatore di d'Alembert applicato alla funzione scalare $ \Psi $. Questa particolare gauge sarà molto utile per scrivere le 
 equazioni di Maxwell in forma covariante poiché è invariante sotto trasformazioni fra sistemi di riferimento inerziali. Dopo questa trasformazione di Gauge 
 possiamo riscrivere le equazioni (per semplicità di notazione indicheremo i nuovi potenziali semplicemente con $ \mathbf{ A } $ e $ V $ poiché non 
 compariranno termini contenenti i vecchi potenziali), partiamo dalla prima:
@@ -2416,18 +2414,18 @@ semplificando i termini otteniamo
   \left.3\right)\qquad &\nabla\!\cdot\!\mathbf{ A } + \frac{1}{c^2} \der{V}{t} = 0 \label{eq:_condizione_di_Lorenz}
 \end{align}
 che sono delle equazioni più semplici da risolvere. Dunque abbiamo trovato che $ V $ e ogni componente $ A_i $ del potenziale vettore soddisfano 
-l'equazione non omogenea di d'Alambert, ci basta quindi trovare una soluzione per una generica sorgente $ S(\mathbf{ x }, t) $:
+l'equazione non omogenea di d'Alembert, ci basta quindi trovare una soluzione per una generica sorgente $ S(\mathbf{ x }, t) $:
 \begin{align}
   \nabla^2 f(\mathbf{ x }, t) - \frac{1}{c^2} \der[2]{}{t} f(\mathbf{ x },t) = -S(\mathbf{ x },t).
 \end{align}
 Dato che è lineare, applichiamo a tutta l'equazione la trasformata di Fourier rispetto al tempo, in modo che dopo ricostruiremo la funzione originale 
-$ f(\mathbf{ x }, t) $ facendo l'antitrasformata:
+$ f(\mathbf{ x }, t) $ facendo l'anti-trasformata:
 \begin{align}
   &f(\mathbf{ x },t) = \int_{-\infty}^{+\infty} e^{-i\omega t} f_\omega(\mathbf{ x }) \,d\omega
   \\
   &\implies \nabla^2 f_\omega + \frac{\omega^2}{c^2} f_\omega = -S_\omega
 \end{align}
-dove abbiamo sfruttato le proprietà della trasformata di Fourier con le derivate. Definendo $ k^2 \coloneqq \omega^2 /c^2 $ ottiena quella che nota 
+dove abbiamo sfruttato le proprietà della trasformata di Fourier con le derivate. Definendo $ k^2 \coloneqq \omega^2 /c^2 $ otteniamo quella che nota 
 come \textit{equazione di Helmholtz}:
 \begin{align}
   \left( \nabla^2 + k^2 \right)f_\omega = -S_\omega
@@ -2436,7 +2434,7 @@ Per trovarne una soluzione sfruttiamo la tecnica di Green, cioè scriviamo la fu
 \begin{align}
   f_\omega(\mathbf{ x }) = \frac{1}{4\pi} \int S_\omega(\mathbf{ x }') G(\mathbf{ x }, \mathbf{ x }') \,d^3x'
 \end{align}
-e adesso troviamo quale condizione deve rispettare la funzione di Green $ G(\mathbf{ x },\mathbf{ x }') $ affinche $ f_\omega $ sia soluzione:
+e adesso troviamo quale condizione deve rispettare la funzione di Green $ G(\mathbf{ x },\mathbf{ x }') $ affinché $ f_\omega $ sia soluzione:
 \begin{align}
   \left( \nabla^2 + k^2 \right)f_\omega 
   = \frac{1}{4\pi} \int S(\mathbf{ x }') \left[ \nabla^2 + k^2 \right]\!G(\mathbf{ x }, \mathbf{ x }') \,d^3x' \overset{!}{=} -S_\omega(\mathbf{ x })
@@ -2462,7 +2460,7 @@ la soluzione che cercavamo dobbiamo verificare che risolva anche la \eqref{eq:_c
   = \frac{i\omega}{4\pi c^2} \int  \frac{\rho_\omega(\mathbf{ x }')}{\eps_0} G(\mathbf{ x }, \mathbf{ x }') \,d^3x' = \frac{-1}{c^2} \der{V_\omega}{t}
 \end{align}
 dove abbiamo usato (in ordine): la differenziazione di un prodotto; il teorema della divergenza per fare diventare un termine un integrale di superficie 
-ed annullarlo grazie all'ipotesi di sorgenti localizzate; l'equazione di continuità con la proprietà di derivazione della trasformata di Fourier. 
+e annullarlo grazie all'ipotesi di sorgenti localizzate; l'equazione di continuità con la proprietà di derivazione della trasformata di Fourier. 
 Finalmente abbiamo la nostra soluzione, possiamo quindi applicare l'anti-trasformata per ottenere i potenziali:
 \begin{align} 
   V(\mathbf{ x },t) &= \int_{-\infty}^{+\infty} e^{-i\omega t}V_\omega(\mathbf{ x }) \,d\omega 
@@ -2491,19 +2489,19 @@ quell'evento, con il tempo ritardato che vale
 
 
 \section{Elettrodinamica raw del 23 febbraio}
-Fattore di qualità $ Q \sim \frac{l}{\delta} \approx 10^4 \gg 1 $(nei materiali ) con $ l $ spessore della cavità e $ \delta $ spessore pelle.
+Fattore di qualità $ Q \sim \frac{l}{\delta} \approx 10^4 \gg 1 $(nei materiali) con $ l $ spessore della cavità e $ \delta $ spessore pelle.
 \begin{align}
   \delta \sim \frac{c}{\sqrt{2\pi\omega \sigma}}.
 \end{align}
 Velocità di gruppo: $ v_g \coloneqq = \der{\omega}{k} $ che si ottiene dal primo termine dello sviluppo in Taylor.
 L'effetto degli ordini superiori è quello di allargare il pacchetto mentre si propaga.
 
-Consideriamo un tubo di sezione rettangolare illimitato su $ z $. Questo oggetto è detto guia d'onda, ed abbiamo le stesse condizioni al bordo nel caso 
-della cavità rett. Supponiamo che i nostri campi abbiano una dipendenza da del tipo
+Consideriamo un tubo di sezione rettangolare illimitato su $ z $. Questo oggetto è detto guida d'onda, e abbiamo le stesse condizioni al bordo nel caso 
+della cavità rettangolare. Supponiamo che i nostri campi abbiano una dipendenza da del tipo
 \begin{align}
   f(x,y,z,t) = e^{ikz} e^{-i\omega t} F(x,y)
 \end{align}
-Applichiamo il laplaciando 
+Applichiamo il laplaciano 
 \begin{align}
   (\der[2]{}{z} + \dots ) f = \left( k^2 - \nabla^2_{2D} \right) F(x,y) e^{ikz - i\omega t}
 \end{align}
@@ -2515,7 +2513,7 @@ che è un'altra equazione agli autovalori per un operatore differenziale che sta
 \begin{align}
   \alpha + \beta K^2 = \frac{\omega}{c} = \chi \sqrt{1- \frac{k^2}{\chi^2}}
 \end{align}
-Praticamente $ \chi^2 $ è il risultato che trovero in aggiunta a $ k^2 $ nell'autovalore dell'operatore.
+Praticamente $ \chi^2 $ è il risultato che troveremo in aggiunta a $ k^2 $ nell'autovalore dell'operatore.
 
 Risolviamo le stesse due equazioni:
 \begin{align}
@@ -2526,7 +2524,7 @@ Risolviamo le stesse due equazioni:
   \dots
 \end{align}
 stessa cosa per $ E $. Iniziamo a cercare delle soluzioni tali che $ E_z = B_z = 0 $ che si chiamano TED (trasverse electrical and magnetic) e otterremo 
-che $ B = \vers{z} \times \mathbf{ E } $ ( come nelle onde piane).
+che $ B = \vers{z} \times \mathbf{ E } $ (come nelle onde piane).
 \begin{align}
   i \frac{\omega}{c} B_x = -ik \der{B_y}{z} = i k ( k \frac{c}{\omega}) B_x 
 \end{align}
@@ -2567,7 +2565,7 @@ imponiamo
 \begin{align}
   \der{B_z}{n}|_{\text{bordo}} = \nabla_{2D} B_z \cdot \vers{n}
 \end{align}
-Per sovreaposizione fra modi (TM e TE) si può ottenere campi che hanno tutte le componenti non nulle.
+Per sovrapposizione fra modi (TM e TE) si può ottenere campi che hanno tutte le componenti non nulle.
 
 \subsection{Guida rettangolare}
 \begin{align}
@@ -2604,7 +2602,7 @@ Ora abbiamo tutto. Media temporale dell'energia:
   \langle U \rangle = \frac{1}{8\pi} \left( \langle E^2 \rangle + \langle B^2 \rangle \right) 
   = \frac{a^2}{16\pi} \left( \sin^2(\frac{\pi}{a}x) + \left( \frac{ck}{\omega} \right)\sin^2(\pi/a x) + (\frac{c\pi}{\omega a})\cos^2(\pi/a x) \right)
 \end{align}
-è opportuno fare una ulteriore media stavolta sulla sezione, coosì i cos2 e i sen2 mediano $ 1/2 $
+è opportuno fare una ulteriore media stavolta sulla sezione, così i cos2 e i sen2 mediano $ 1/2 $
 \begin{align}
   \langle \langle U \rangle \rangle = \frac{1}{8\pi} \left( \langle \langle E^2 \rangle \rangle + \langle \langle B^2 \rangle \rangle \right) = \frac{a^2}{16\pi}
 \end{align}
@@ -2649,22 +2647,22 @@ passiamo ai potenziali ritardati nel dominio delle frequenze facendo una trasfor
   &= \frac{\mu_0}{4\pi} \int  \frac{\v{ J }_\omega(\v{ r' })}{R - \frac{\v{r\cdot r'}}{R}}\; e^{i k (R - \frac{\v{r\cdot r'}}{R})} \,d^3r' 
   = \frac{\mu_0}{4\pi}\; \frac{e^{ik R}}{R} \int \v{J}_\omega(\v{r'}) \; e^{-ik \frac{ \v{r\cdot r'} }{ R }} \,d^3r'
 \end{align}
-e da questo risultato vediamo che il potenziale vettore rappresenta un onda sferica che dercresce come $ R^{-1} $, con l'aggiunta di un qualche 
-coefficiente dovuto all'angolo a cui si trova il punto di interessere $ \v{r} $. A questo punto è chiaro che nell'espressione ottenuta possiamo sviluppare 
-in serie di Taylor l'esponenziale ed ottenere una serie di muptipoli, ma affinché questa approssimazione sia valida occorre aggiungere un ulteriore ipotesi 
+e da questo risultato vediamo che il potenziale vettore rappresenta un onda sferica che decresce come $ R^{-1} $, con l'aggiunta di un qualche 
+coefficiente dovuto all'angolo a cui si trova il punto di interesse $ \v{r} $. A questo punto è chiaro che nell'espressione ottenuta possiamo sviluppare 
+in serie di Taylor l'esponenziale e ottenere una serie di multipoli, ma affinché questa approssimazione sia valida occorre aggiungere un ulteriore ipotesi 
 che ci permette di dire che l'esponenziale è abbastanza piccolo da essere sviluppato. L'esponente è $ k \vers{u} \cdot \v{r'} $ ma $ r' $ è al massimo $ a $
 quindi dobbiamo imporre $ k\, a = 2\pi a/\lambda \ll 1 $ che è la condizione di \textit{sorgenti non relativiste} (oppure è chiamata approssimazione di 
-dipolo come vedremo tra poco), ed il motivo è che
+dipolo come vedremo tra poco), e il motivo è che
 \begin{align}
   ka = 2\pi \frac{a}{\lambda} = \frac{2\pi a}{T \,c} = 2\pi \frac{v}{c} \ll 1 \implies v \ll c.
 \end{align}
-Sotto questa ipotesi aggiuntiva scriviamo l'esponensiale in serie:
+Sotto questa ipotesi aggiuntiva scriviamo l'esponenziale in serie:
 \begin{align}
   \v{A}_\omega(\v{r}) = \frac{\mu_0}{4\pi} \frac{e^{ikR}}{R} 
   \sum_{n = 0}^\infty \frac{\left( -ik \right)^n}{n!} \int \v{J}_\omega(\v{r'}) \left( \vers{u}\cdot \v{r'} \right)^n \,d^3r'
 \end{align}
 e noi siamo interessati al termine che da il maggior contributo quindi per $ n = 0 $. L'idea per svolgere questo integrale è quella di ricondurci alla 
-divergenza della densità di corrente e quindi usare l'equazione di continuità per trsformarlo in integrale sulla densità di carica $ \rho $, così da 
+divergenza della densità di corrente e quindi usare l'equazione di continuità per trasformarlo in integrale sulla densità di carica $ \rho $, così da 
 ottenere il termine di dipolo elettrico $ \v{p} $. Sfruttiamo l'identità vettoriale \eqref{identity:_divergenza(scalare_per_vettore)} applicata al caso
 \begin{align}
   \nabla' \cdot \left( x' \, \v{J}_\omega(\v{r'}) \right) &= \vers{x}' \cdot \v{J}_\omega(\v{r'}) + x' \nabla'\!\cdot\!\mathbf{ J }_\omega(\v{r'}) 
@@ -2673,7 +2671,7 @@ ottenere il termine di dipolo elettrico $ \v{p} $. Sfruttiamo l'identità vettor
 \end{align}
 dove nell'ultimo passaggio la $ J_{\omega,x} $ è diventata $ J_{\omega,x'} $, questo perché nell'integrale è valutata nel punto $ \v{r'} $ quindi la 
 direzione è sempre la stessa, a questo possiamo subito notare che il termine $ \nabla' \cdot \left( x' \, \v{J}_\omega(\v{r'}) \right) $ può essere 
-traformato in un integrale di superficie per il teorema della divergenza ed è quindi nullo per l'ipotesi di sorgenti localizzate dato che la superficie 
+trasformato in un integrale di superficie per il teorema della divergenza ed è quindi nullo per l'ipotesi di sorgenti localizzate dato che la superficie 
 va all'infinito. Rimane soltanto il termine con $ \rho(\v{r'}) $
 \begin{align}
   A_{\omega,x}(\v{r}) &= -\frac{\mu_0}{4\pi} \frac{e^{ikR}}{R} \int i\omega x'\rho_\omega(\v{r'}) \,d^3r' 
@@ -2731,12 +2729,12 @@ dove abbiamo sostituito $ k_0 = \frac{1}{4\pi \eps_0} $ (che nel sistema $ cgs $
 di osservazione e la sua distribuzione angolare varia con $ \sin^2\theta $ con $ \theta $ angolo polare, questo ci dice che il suo modulo è minimo per 
 $ \theta = 0,\pi $ quindi sull'asse $ z $, mentre è massimo per $ \theta = \pi/2 $. Per trovare l'intensità ricordiamo che la sorgente è varia nel tempo 
 come $ e^{-i\omega t} $ che è quindi un $ \cos\left( \omega(t - R/c) \right) $ calcolato al tempo ritardato, la derivata seconda elevata al quadrato 
-ci porta porta un fattore $ \omega^4 $, rimane l'integrale sul periodo del $ \cos^2 $ che ci porta un fattore $ 1/2 $, dunque abbiamo che
+ci porta un fattore $ \omega^4 $, rimane l'integrale sul periodo del $ \cos^2 $ che ci porta un fattore $ 1/2 $, dunque abbiamo che
 \begin{align}
   I = \frac{\eps_0 k_0^2}{c^3} \, \frac{\sin^2\theta}{R^2} \frac{\omega^4}{2} \;\lvert \v{p}_0 \rvert^2.
 \end{align}
 Un dettaglio interessante è che il vettore di Poynting, e di conseguenza l'intensità, decrescono come $ 1/R^2 $, il loro integrale su una superficie è 
-quindi costante ed è proprio ciò che ci aspettavamo di ottenere, che significa che osservare l'intesità emessa non dipende dalla distanza a cui lo facciamo, 
+quindi costante ed è proprio ciò che ci aspettavamo di ottenere, che significa che osservare l'intensità emessa non dipende dalla distanza a cui lo facciamo, 
 a patto di osservare su tutto l'angolo solido. Infatti la dipendenza dell'intensità dall'angolo solido è costante:
 \begin{align}
   {dI} = R^2 \langle \v{S} \cdot \vers{n} \rangle {d\Omega}
@@ -2762,7 +2760,7 @@ cioè con il protone carico positivo al centro e l'elettrone che lo orbita, e su
 Le forze agenti sull'elettrone sono la forza di Lorenz $ \v{F}_L = q \left( \v{E} + \v{v} \times \v{B} \right) $ dovuta all'onda che incide su $ e^- $, 
 la forza di Coulomb $ \v{F}_C $ dovuta al protone di carica opposta e una forza che possiamo esprimere come un attrito dinamico dovuto all'irraggiamento 
 dell'elettrone stesso. Il motivo per cui imponiamo che l'irraggiamento dell'elettrone si manifesti come una forza dissipativa è che irraggiando perde 
-energia, quindi è del tutto plausibile che sia simile ad un attrito, inoltre se non inserissimo questo termine dovremmo farlo uscire dai campi 
+energia, quindi è del tutto plausibile che sia simile a un attrito, inoltre se non inserissimo questo termine dovremmo farlo uscire dai campi 
 elettromagnetici totali e quindi affrontare il problema della \textit{self force}. Questo problema è notoriamente complicato sia classicamente che andando 
 ad avanzare teorie più sofisticate che tentano di spiegare cosa sia effettivamente l'elettrone, quindi imporre questa forma è più che conveniente. 
 Scriviamo quindi le equazioni del moto
@@ -2790,7 +2788,7 @@ e quindi la forma completa è
 Ricordiamo che usiamo la notazione in cui $ e^- = \SI{-1.6e-19}{\C} $ mentre $ e = |e^-| $. 
 Da questa forma si nota chiaramente il fenomeno della risonanza dato che per $ \omega = \omega_0 $ c'è un massimo nel modulo dell'ampiezza $ |z_0| $ e 
 soprattutto abbiamo che $ z_p $ è in \textit{quadratura} con la forzante, infatti abbiamo che $ z_p \propto \sin(\omega t) $, risulta quindi sfasata di 
-$ \pi/2 $ rispetto ad $ E_z $ che quando andiamo a vedere la potenza $ W = F \cdot \v \propto \cos^2 (\omega t) $. Risulta quindi che la potenza assorbita 
+$ \pi/2 $ rispetto a $ E_z $ che quando andiamo a vedere la potenza $ W = F \cdot \v \propto \cos^2 (\omega t) $. Risulta quindi che la potenza assorbita 
 dall'elettrone alla frequenza di risonanza è massima. Notiamo che il termine dissipativo dovuto all'irraggiamento svolge un ruolo fondamentale che 
 legittimizza ancora di più la sua presenza: impedisce al denominatore di divergere, il che avrebbe portato a dire che l'elettrone assorbe energia infinita 
 che è chiaramente assurdo. D'ora in poi consideriamo il caso $ \gamma = 0 $, per trovare la potenza irraggiata usiamo la relazione appena ricavata della 
@@ -2830,7 +2828,7 @@ colore blu. A
 \section{Circuiti}
 \subsection{Circuito con ramo mobile}
 Sia un circuito piano rettangolare costituito da: una \textit{ddp} $ V_0 $, una resistenza ohmica $ R $, un ramo mobile di lunghezza $ h $.
-Il circuito è sottoposto ad un campo magnetico entrante $ \mathbf{ B } = B_0 $ costante. Considerando il sistema inizialmente in quiete, trovare la 
+Il circuito è sottoposto a un campo magnetico entrante $ \mathbf{ B } = B_0 $ costante. Considerando il sistema inizialmente in quiete, trovare la 
 velocità in funzione del tempo $ v(t) $ del ramo mobile e l'energia dissipata per $ t \to \infty $.
 
 \textit{Soluzione} 
@@ -2864,7 +2862,7 @@ La coordinata del nodo $ n $-esimo è $ x_n = na $, quindi vogliamo provare una 
 \begin{align}
   I_n(t) = I_0 e^{ikx_n - i\omega t}
 \end{align}
-e quindi proviamo a sostiruire questa espressione nell'equazione ricorsiva che abbiamo ottenuto:
+e quindi proviamo a sostituire questa espressione nell'equazione ricorsiva che abbiamo ottenuto:
 \begin{align}
   \frac{d^2I_n}{dt^2} &= - \omega^2 I_n = \omega_0^2 I_0 e^{-i\omega t} \left( e^{ik(n-1)a} -2e^{ikna}+ e^{ik(n+1)a}\right) 
   \\
@@ -2881,7 +2879,7 @@ significa che è possibile trasmettere segnali in modo consistente. In questo ca
 \end{align}
 
 \section{Cavità cilindrica} \label{section:_esercizio_cavità_cilindrica}
-Vogliamo trovare le soluzioni alle equazioni di Maxwell in una cavità cilindirca limitata. 
+Vogliamo trovare le soluzioni alle equazioni di Maxwell in una cavità cilindrica limitata. 
 
 Supponiamo i campi abbiano una dipendenza del tipo
 \begin{align}
@@ -2890,7 +2888,7 @@ Supponiamo i campi abbiano una dipendenza del tipo
   \mathbf{ B }(\mathbf{ r }, t) = \mathcal{B}(\rho)e^{-i\omega t} \vers{\varphi}
 \end{align}
 in questo modo abbiamo che non dipendono da $ z $, hanno simmetria cilindrica e possiamo imporre successivamente l'annullamento ai bordi. Per 
-risolvere le equazioni ci concentriamo sul trovare prima il campo elettrico e per trovare il campo magnetico basterà calcolarrne il rotore e dividere per 
+risolvere le equazioni ci concentriamo sul trovare prima il campo elettrico e per trovare il campo magnetico basterà calcolarne il rotore e dividere per 
 il fattore $ i\omega $ dovuto alla derivata rispetto al tempo:
 \begin{align}
   \nabla\!\times\!\mathbf{ E } = i\omega \mathbf{ B }.
@@ -2959,7 +2957,7 @@ e grazie alla $ \delta(z) $ si trasforma in un integrale di superficie sul piano
   t - \frac{|\mathbf{ r-r' }|}{c} > 0 \implies c\,t < |\mathbf{ r-r' }| = \sqrt{\rho^2 + z^2} \eqcolon R
 \end{align}
 dove abbiamo scritto in coordinate cilindriche la distanza $ |\mathbf{ r-r' }| $ che abbiamo chiamo $ R $. Il fatto fondamentale è che il vincolo ci 
-limita il nostro integrale fino ad un certo raggio, altrimenti ci sarebbe stato il problema della convergenza dell'integrale. Quindi il potenziale vale
+limita il nostro integrale fino a un certo raggio, altrimenti ci sarebbe stato il problema della convergenza dell'integrale. Quindi il potenziale vale
 \begin{align}
   \mathbf{ A }(\mathbf{ r },t) 
   &= \vers{x}\, \frac{\mu_0 J_0}{4\pi}\int_0^{2\pi} d\theta \int_0^{\sqrt{c^2 t^2 - z^2}}\frac{\rho }{\sqrt{\rho^2 + z^2}} \,d\rho
@@ -2967,7 +2965,7 @@ limita il nostro integrale fino ad un certo raggio, altrimenti ci sarebbe stato 
   &= \vers{x} \frac{\mu_0J_0}{2} \int_z^{ct} \frac{1}{R}\, R\,dR = \frac{\mu_0 J_0}{2} \left( ct - z \right) \vers{x}
 \end{align}
 dove abbiamo fatto la sostituzione che abbiamo definito prima con $ R $. Ricordiamo che il potenziale vettore ottenuto vale $ 0 $  per $ z > c\,t $. 
-Ne facciamo il rotore ed otteniamo il campo magnetico 
+Ne facciamo il rotore e otteniamo il campo magnetico 
 \begin{align}
   \mathbf{ B } = 
   \begin{cases}
@@ -2981,7 +2979,7 @@ fatto che nella gauge di Lorenz abbiamo
 \begin{align}
   \mathbf{ E } = - \nabla V - \der{\mathbf{ A }}{t}
 \end{align}
-ma dato che non ci sono sorgenti del campo elettrico, il potenziale scalare è nullo (o costante). Questo può essefere giustificato anche dalla condizione 
+ma dato che non ci sono sorgenti del campo elettrico, il potenziale scalare è nullo (o costante). Questo può essere giustificato anche dalla condizione 
 che lega i potenziali nella gauge di Lorenz ovvero
 \begin{align}
   \nabla \cdot \mathbf{ A } + \frac{1}{c^2} \der{V}{t} = 0
@@ -3005,7 +3003,7 @@ Vogliamo inizialmente trovare i campi generati da una carica in moto, partiamo s
   V(\mathbf{ x },t) = \frac{1}{4\pi\eps} \int \frac{\rho(\mathbf{ x }', t - \frac{|\mathbf{ x-x' }|}{c})}{|\mathbf{ x-x' }|}\,d^3x'
 \end{align}
 indichiamo con $ \mathbf{ r } = \mathbf{ x - x' } $ e siccome abbiamo una carica, la cui posizione indichiamo con $ \mathbf{ X }(t) $, riscriviamo la 
-$ \rho = q \, \delta(\mathbf{ x' } - \mathbf{ X }(t - t - \frac{|\mathbf{ x-x' }|}{c})) $, ed usiamo una proprietà della delta di Dirac ovvero che
+$ \rho = q \, \delta(\mathbf{ x' } - \mathbf{ X }(t - t - \frac{|\mathbf{ x-x' }|}{c})) $, e usiamo una proprietà della delta di Dirac ovvero che
 \begin{align}
   \int \delta(f(x')) \,dx' = \int \delta(y) \, \frac{1}{|\frac{df}{dx'}(y)|} \,dy.
 \end{align}
@@ -3020,7 +3018,7 @@ In questo modo possiamo svolgere l'integrale del potenziale ritardato
 \end{align}
 ed è immediato il potenziale vettore
 \begin{align}
-  \mathbf{ A }(\mathbf{ x },t) = \frac{\mu_0 q}{4\pi} \frac{\mathbf{ v }}{r - \frac{\mathbf{ v }\cdot \mathbf{ r }}{c}}.
+  \mathbf{ A }(\mathbf{ x },t) = \frac{\mu_0 q}{4\pi} \frac{\mathbf{ v }}{r - \frac{\mathbf{ v }\cdot \mathbf{ r }}{c}}
 \end{align}
 e questi sono detti potenziali di Liénard-Wiechert. Calcoliamo i potenziali nel caso del moto rettilineo uniforme lungo $ x $:
 
@@ -3031,7 +3029,7 @@ agli oggetti dell'elettrodinamica come le sorgenti e i potenziali.
 Partiamo dal fatto che la carica elettrica deve essere necessariamente un invariante di Lorentz, altrimenti si dovrebbe osservare che oggetti carichi 
 modificano le loro proprietà elettriche in base alla velocità a cui si muovono, cosa che non osserviamo. Consideriamo quindi la densità di carica 
 $ \rho(\v{x}) $, per sapere come trasforma notiamo che essendo una carica diviso un volume sappiamo che i volumi si contraggono nella direzione del boost 
-quindi nel sistema di riferimento $ O' $ che si muove a velocità costante $ V $ rispetto ad $ O $ si ha che la densità di carica vale
+quindi nel sistema di riferimento $ O' $ che si muove a velocità costante $ V $ rispetto a $ O $ si ha che la densità di carica vale
 \begin{align}
   \rho'(\v{x}) = \gamma \, \rho(\v{x})
 \end{align}
@@ -3053,7 +3051,7 @@ calcolare la quadridivergenza $ \partial_mu J^\mu $ cioè
 
 
 \section{Formulazione covariante delle equazioni di Maxwell}
-Vogliamo prima di tutto dimostrare che anche i potenziali $ V $ e $ \v{A} $ formano un quadrivettore, e questo si poò fare prendendo l'equazione delle 
+Vogliamo prima di tutto dimostrare che anche i potenziali $ V $ e $ \v{A} $ formano un quadrivettore, e questo si può fare prendendo l'equazione delle 
 onde per i potenziali che abbiamo visto che rispettano nella gauge di Lorenz:
 \begin{align}
   \begin{cases}
@@ -3119,7 +3117,7 @@ $ F^{\mu 0} $ ci dà la divergenza del campo elettrico, imponiamo che il tensore
     c B_z & \ast & \ast & 0 
   \end{pmatrix}
 \end{align}
-dove abbiamo imposto l'antissimetria. In questo modo applicando $ \partial_\mu \tilde{F}^{\mu 0} $ otteniamo la divergenza del campo magnetico che 
+dove abbiamo imposto l'antisimmetria. In questo modo applicando $ \partial_\mu \tilde{F}^{\mu 0} $ otteniamo la divergenza del campo magnetico che 
 imponendola a $ 0 $ ci porta all'equazione
 \begin{align}
   \partial_\mu \tilde{F}^{\mu \nu} = 0
@@ -3136,7 +3134,7 @@ componenti giuste del campo elettrico, che risulta essere
   \end{pmatrix}
 \end{align}
 noto come \textit{tensore di campo duale}. Notiamo che è possibile ottenere il tensore duale da quello di Faraday tramite il tensore completamente 
-antissimetrico cioè il tensore di Levi-Civita a $ 4 $ indici $ \eps^{\mu \nu \rho \sigma} $ come
+antisimmetrico cioè il tensore di Levi-Civita a $ 4 $ indici $ \eps^{\mu \nu \rho \sigma} $ come
 \begin{align}
   \tilde{F}^{\mu \nu} = \frac{1}{2} \eps^{\mu \nu \rho \sigma} F_{\rho \sigma}
 \end{align}
@@ -3144,7 +3142,7 @@ dove è necessario abbassare gli indici di $ F^{\mu \nu} $ con la metrica
 \begin{align}
   F_{\mu \nu} = g_{\mu \alpha} g_{\nu \beta} F^{\alpha \beta}
 \end{align}
-ed il fattore $ 1/2 $ è dovuto all'antisimetria. In questo modo le equazioni di Maxwell nel formalismo covariante sono espresse dalle relazioni compatte:
+e il fattore $ 1/2 $ è dovuto all'antisimmetria. In questo modo le equazioni di Maxwell nel formalismo covariante sono espresse dalle relazioni compatte:
 \begin{align}
   &\partial_\mu F^{\mu \nu} = \frac{1}{\eps_0 c} J^\nu
   \\
@@ -3155,7 +3153,7 @@ così una quadricorrente magnetica che farebbe da termine noto alla seconda equa
 
 \section{Invarianti elettromagnetici}
 Vogliamo trovare delle quantità costruite a partire dai tensori elettromagnetici che siano invarianti per trasformazioni di Lorentz. Un modo per farlo è 
-prendere lo scalare associato ad un tensore: possiamo fare i calcoli espliciti oppure prendendo la traccia del prodotto fra le due matrici
+prendere lo scalare associato a un tensore: possiamo fare i calcoli espliciti oppure prendendo la traccia del prodotto fra le due matrici
 \begin{align}
   F^{\mu \nu} F_{\mu \nu} &= \text{tr} \left[  
   \begin{pmatrix}
@@ -3174,7 +3172,7 @@ prendere lo scalare associato ad un tensore: possiamo fare i calcoli espliciti o
   \\
   &= 2 \left( \v{E}^2 - c^2\v{B}^2 \right)
 \end{align}
-Questo primo invariante elettroagnetico contiente già molte informazioni: il segno ci dice che se in un sistema di riferimento abbiamo 
+Questo primo invariante elettromagnetico contiene già molte informazioni: il segno ci dice che se in un sistema di riferimento abbiamo 
 $ \v{E}^2 > \v{B}^2 $ ($ < $) allora questo è vero in ogni sistema di riferimento. 
 Il secondo invariante lo troviamo tramite il prodotto
 \begin{align}
@@ -3198,7 +3196,7 @@ Il secondo invariante lo troviamo tramite il prodotto
 il quale ci dice che se i campi sono ortogonali in un sistema di riferimento allora lo sono in tutti.
 
 \section{Trasformazioni di Lorentz dei campi}
-Dato che abbiamo scritto in maniera compatta il campo elettomagnetico con i tensori elettromagnetici sfruttiamo le leggi di trasformazione dei tensori per 
+Dato che abbiamo scritto in maniera compatta il campo elettromagnetico con i tensori elettromagnetici sfruttiamo le leggi di trasformazione dei tensori per 
 ottenere come cambiano i campi cambiando sistema di riferimento inerziale. Un tensore a due indici trasforma come
 \begin{align}
   F'^{\mu \nu} = \Lambda^\mu_\rho \, \Lambda^\nu_\sigma \, F^{\rho \sigma} = \left( \Lambda \, F \, \Lambda^T \right)_{\mu \nu}
@@ -3210,7 +3208,7 @@ perpendicolari alla direzione del boost otteniamo
   \\
   &{B'_\parallel = B_\parallel} \qquad {\v{B'}_\perp = \gamma \left( \v{B}_\perp - \frac{\v{V}}{c^2} \times \v{E} \right)}
 \end{align}
-dove $ \v{V} $ è la velocità del boost cioè la velocità di $ O' $ rispetto ad $ O $.
+dove $ \v{V} $ è la velocità del boost cioè la velocità di $ O' $ rispetto a $ O $.
 
 \section{Effetto Doppler-Fizeau}
 Abbiamo visto come i campi trasformano fra i sistemi di riferimento, che è però una relazione locale cioè non ci fornisce ancora informazioni su come 
@@ -3225,7 +3223,7 @@ trasformata deve avere la stessa fase della soluzione originale a meno di una co
 \begin{align}
   \omega' t' - \v{k'} \cdot \v{x'} = \omega t - \v{k} \cdot \v{x}
 \end{align}
-riscriviamo adesso questa relazione con il quadrivettore posizione $ x = (c t, \v{x}) $ e un certo $ k \coloneq (\omega/c, \v{k}) $ ed otteniamo
+riscriviamo adesso questa relazione con il quadrivettore posizione $ x = (c t, \v{x}) $ e un certo $ k \coloneq (\omega/c, \v{k}) $ e otteniamo
 \begin{align}
   k^t g x = k'^t g x'= k'^t g \Lambda x \; \forall x \implies k'^tg \Lambda = k^t g 
   \implies (g\Lambda)^t k' = \Lambda^t g k' =  g k  \\ \implies k' = g {(\Lambda^t)}^{-1} g k = \Lambda k
@@ -3248,7 +3246,7 @@ $ \vec{\beta} \parallel  \vers{n} $ che è detto \textit{effetto Doppler longitu
 \begin{align}
   \omega = \omega \gamma \left( 1 - \beta \right) = \omega \sqrt{\frac{1 - \beta}{1 + \beta}}
 \end{align}
-ed il caso in cui $ \vec{\beta} \cdot \vers{n} = \beta \cos\theta $ (che per $ \theta = \pi/2 $ è detto \textit{effetto Doppler trasversale}) e vale
+e il caso in cui $ \vec{\beta} \cdot \vers{n} = \beta \cos\theta $ (che per $ \theta = \pi/2 $ è detto \textit{effetto Doppler trasversale}) e vale
 \begin{align}
   \omega' = \omega \gamma (1 - \beta \cos\theta ) \; \overset{\theta = \frac{\pi}{2}}{\longrightarrow}\; \omega' = \gamma \omega
 \end{align}
@@ -3257,10 +3255,10 @@ ed il caso in cui $ \vec{\beta} \cdot \vers{n} = \beta \cos\theta $ (che per $ \
 
 \chapter{Elettromagnetismo nella materia}
 In questo capitolo studieremo come i campi elettromagnetici interagiscono con la materia e come è possibile modellizzarli. Le equazioni di Maxwell 
-che abbiamo ricavato, insieme alla forza di Lorenz, costituiscono una teoria esatta per descrivere i campi elettromagnetici. L'aggetivo esatto è da 
+che abbiamo ricavato, insieme alla forza di Lorenz, costituiscono una teoria esatta per descrivere i campi elettromagnetici. L'aggettivo esatto è da 
 intendersi nel senso che non è una teoria ricavata da una qualche approssimazione di una teoria più completa, come ad esempio la meccanica Newtoniana che 
 è il limite di bassa velocità della relatività ristretta. Trattare fenomeni elettromagnetici con questa teoria è relativamente semplice quando il numero di 
-cariche interagenti è piccolo, ma nella materia abbiamo un numero di atomi dell'ordine di $ N \sim 10^{24} $ per centrimetro cubo. Quindi oltre che 
+cariche interagenti è piccolo, ma nella materia abbiamo un numero di atomi dell'ordine di $ N \sim 10^{24} $ per centimetro cubo. Quindi oltre che 
 straordinariamente difficile, è addirittura inutile conoscere in modo esatto tutti gli effetti elettromagnetici in un oggetto macroscopico, dato che è 
 possibile ottenere le informazioni a cui siamo interessati da delle grandezze studiabili dal punto di vista macroscopico, come le funzioni di stato.
 
@@ -3273,7 +3271,7 @@ dei campi:
 \begin{align}
   a \ll R \ll \lambda \tag*{[scala mesoscopica]}
 \end{align}
-Sfrutteremo la scala mesoscopica per introdurre un approccio comune quando si vuole passare ad una trattazione su scala maggiore di una qualche teoria 
+Sfrutteremo la scala mesoscopica per introdurre un approccio comune quando si vuole passare a una trattazione su scala maggiore di una qualche teoria 
 microscopica, ovvero quello della teoria di campo medio: sostituiremo i campi microscopici $ \v{E}, \v{B} $ (rispettivamente campo elettrico e magnetico) 
 con le loro medie in scala mesoscopica $ \langle \v{E} \rangle, \langle \v{B} \rangle $. La media che useremo è 
 \begin{align}
@@ -3302,7 +3300,7 @@ $ V_d = k_e \frac{\v{d} \cdot \v{r}}{r^3} $, possiamo scrivere il potenziale div
 \begin{align}
   V(\v{r}) \simeq k_e \int d^3r'\left[ \frac{\rho_{\text{ext}}(\v{r'} )}{|\v{r - r'}|} + \frac{\v{P}(\v{r'}) \cdot (\v{r - r'})}{|\v{r-r'}|^3} \right]
 \end{align}
-dove abbiamo introdotto $ \v{P} $ che è detto  \textit{vettore di polarizzazione} e nella nostra trattazione corrisponde ad una media dei dipoli in un certo 
+dove abbiamo introdotto $ \v{P} $ che è detto  \textit{vettore di polarizzazione} e nella nostra trattazione corrisponde a una media dei dipoli in un certo 
 punto del materiale:
 \begin{align}
   \v{P}(\v{r}) = \langle \frac{\v{d}_{\text{indotti}}( \v{r})}{\uptau} \rangle
@@ -3312,7 +3310,7 @@ A questo punto applichiamo la solita identità vettoriale
   \int d^3r'\; \v{P}(\v{r'}) \cdot \nabla' \left( \frac{1}{|\v{r-r'}|} \right) 
   = \int d^3r'\left[ \nabla' \cdot \left( \frac{\v{P}(\v{r'})}{|\v{r-r'}|} \right) - \frac{\nabla' \cdot \v{P}(\v{r'})}{|\v{r - r'}|} \right]
 \end{align}
-ed il primo termine è nullo applicando il teorema della divergenza e per l'ipotesi di sorgenti localizzate. Dunque il potenziale diventa
+e il primo termine è nullo applicando il teorema della divergenza e per l'ipotesi di sorgenti localizzate. Dunque il potenziale diventa
 \begin{align}
   V(\v{r}) \simeq k_e \int d^3r' \;\frac{1}{\v{|r - r'|}} \left[ \rho_{\text{ext}} - \nabla' \cdot \v{P}(\v{r'}) \right] 
   = k_e \int d^3r' \;\frac{1}{\v{|r - r'|}} \left[ \rho_{\text{ext}} - \rho_{\text{pol}}(\v{r'}) \right] 
@@ -3332,7 +3330,7 @@ e definiamo il \textit{vettore di induzione elettrica} $ \v{D} $ come
 \begin{align}
   \v{D} \coloneq \eps_0 \langle \v{E} \rangle + \v{P} \implies \nabla \cdot \v{D} = \rho_{\text{ext}}
 \end{align}
-Sfruttiamo lo stesso ragionamendo con il potenziale vettore ed il dipolo magnetico per arrivare ad ottenere una nuova equazione anche per le correnti: dato
+Sfruttiamo lo stesso ragionamento con il potenziale vettore e il dipolo magnetico per arrivare a ottenere una nuova equazione anche per le correnti: dato
 che $ \v{A}_\v{m} = k_m \frac{\v{m}\times \v{r}}{r^3} $ scriviamo il potenziale vettore totale come
 \begin{align}
   \v{A}(\v{r}) \simeq k_m \int d^3r' \left[ \frac{\v{J}_{\text{ext}}(\v{r'})}{\v{|r -r'|}} 
@@ -3343,7 +3341,7 @@ volume
 \begin{align}
   \v{M}(\v{r}) \coloneq \langle \frac{\v{m}_{\text{indotti}}(\v{r})}{\uptau} \rangle
 \end{align}
-Sviluppiamo il termine contenente $ \v{M} $ con l'identità vettoriale del rotore ed otteniamo
+Sviluppiamo il termine contenente $ \v{M} $ con l'identità vettoriale del rotore e otteniamo
 \begin{align}
   \int d^3r'\; \v{M}(\v{r'}) \times \nabla' \left( \frac{1}{\v{|r - r'|}} \right)
   = \int d^3 r' \left[ \frac{\nabla'\!\times\!\mathbf{ M }(\v{r'})}{\v{|r - r'|}} - \nabla'\!\times\!\left( \mathbf{ \frac{M(r')}{|r - r'|} }\right)\right]
@@ -3399,7 +3397,7 @@ che sono una semplice conseguenza del fatto che le equazioni di Maxwell valgono 
   \der{(-\nabla\!\cdot\!\mathbf{ P })}{t} + \nabla\!\cdot\!\mathbf{ J }_{\text{pol}} = 0 
   \implies \v{J}_{\text{pol}} = \der{\v{P}}{t} \;\left( + \;\nabla\!\times\!\mathbf{ M } \right)
 \end{align}
-quindi abbiamo trovato che alla corrente di polarizzazione trovata prima dobbiare aggiungere il termine dovuto a $ \partial_t\v{P} $:
+quindi abbiamo trovato che alla corrente di polarizzazione trovata prima dobbiamo aggiungere il termine dovuto a $ \partial_t\v{P} $:
 \begin{align}
   \v{J}_{\text{pol}} = \nabla \times \v{M} + \partial_t \v{P}
 \end{align}
@@ -3418,7 +3416,7 @@ e quindi le equazioni di Maxwell dinamiche in scala mesoscopica diventano
   &\nabla \times \v{H} = \v{J}_{\text{ext}} + \der{\v{D}}{t}
 \end{align}
 Le equazioni così ottenute sono ben diverse dalle equazioni microscopiche, tanto per cominciare non sono complete, dato che non abbiamo abbastanza relazioni 
-per identificare 4 campi, ed inoltre le relazioni che legano i campi di induzione rispetto a quelli microscopici, cioè $ \v{D}(\v{E,B}), \v{H}(\v{E,B}) $ 
+per identificare 4 campi, e inoltre le relazioni che legano i campi di induzione rispetto a quelli microscopici, cioè $ \v{D}(\v{E,B}), \v{H}(\v{E,B}) $ 
 sono in generale molto complicate. Dalle equazioni otteniamo però le seguenti leggi di conservazione in assenza di sorgenti esterne:
 \begin{align*}
   D_\perp, B_\perp, E_\parallel, H_\parallel \qquad \text{si conservano.}
@@ -3431,14 +3429,14 @@ la polarizzazione in funzione del campo elettrico prende la forma di un integral
 \begin{align}
   P_i (\v{r},t) = \eps_0 \int d^3r' \int dt' \chi_{i j}(\v{r, r'}, t, t') E_j (\v{r'}, t')
 \end{align}
-ed in questa forma chiediamo che rispetti l'ipotesi di stazionarietà, cioè che dipenda dalla differenza $ t - t' $ e non in modo indipendente dal tempo, e 
+e in questa forma chiediamo che rispetti l'ipotesi di stazionarietà, cioè che dipenda dalla differenza $ t - t' $ e non in modo indipendente dal tempo, e 
 l'ipotesi di mezzo omogeneo che consiste nel richiedere che la dipendenza solo da $ \v{r - r'} $. Abbiamo richiesto quindi l'invarianza traslazionale sia 
 nel tempo che nello spazio e l'integrale prende la forma
 \begin{align}
   P_i (\v{r},t) = \eps_0 \int d^3r' \int dt' \chi_{i j}(\v{r - r'}, t - t') E_j (\v{r'}, t')
 \end{align}
 e a questo punto richiediamo anche altre due ipotesi cioè la località spaziale e temporale, la quale ci dice che la risposta del mezzo è legata a un punto 
-preciso e ad un istante, cosa che chiaramente non è vera ma è utile per dare una prima approssimazione del mezzo, che ci porta ad un semplice coefficiente
+preciso e a un istante, cosa che chiaramente non è vera ma è utile per dare una prima approssimazione del mezzo, che ci porta a un semplice coefficiente
 \begin{align}
   \chi_{i j}(\v{r - r'}, t- t') &= \chi \; \delta( \v{r - r'}) \, \delta(t - t')
   \\
@@ -3456,7 +3454,7 @@ dove $ \chi_e $ è detta \textit{suscettività elettrica}, ed è una grandezza a
   &\v{D} = 4\pi \v{P} + \v{E} = \left( 1 + 4\pi \chi_e \right) \v{E} \eqcolon \eps \v{E} \tag*{[\textnormal{cgs}]}
 \end{align}
 dove abbiamo definito la \textit{costante dielettrica del mezzo} $ \eps $. Abbiamo inoltre omesso la notazione con il campo medio $ \langle \v{E} \rangle $ 
-al fine di snellire la notazione, dunque da ora in poi supponeremo sempre questa cosa, specificando invece quando si intende il campo microscopico.
+al fine di snellire la notazione, dunque da ora in poi supporremo sempre questa cosa, specificando invece quando si intende il campo microscopico.
 Sempre riguardo la notazione, useremo i pedici $ 1,2 $ per indicare rispettivamente la parte reale e immaginaria di una quantità complessa, ad esempio 
 $ \eps = \eps_1 + \eps_2 $, e quando è necessario precisare che una certa grandezza è complessa la indicheremo con una tilde: $ \tilde{\eps} $.
 
@@ -3465,7 +3463,7 @@ $ \eps = \eps_1 + \eps_2 $, e quando è necessario precisare che una certa grand
 \input{build/figure/effetti_campo_locale.tex}
 
 Per trovare gli effetti di un campo macroscopico su un punto (atomo) dobbiamo considerare anche gli effetti che la polarizzazione degli altri atomi produce 
-sul punto considerato: ussiamo il modello descritto in figura \ref{figure:_effetti_campo_locale} dove il campo nel punto verrà indicato 
+sul punto considerato: usiamo il modello descritto in figura \ref{figure:_effetti_campo_locale} dove il campo nel punto verrà indicato 
 con $ \v{E}_{\text{locale}} $, e considerando una sfera mesoscopica di raggio $ R $ si ha 
 \begin{align}
   \v{E}_{\text{loc}} = \v{E} - \v{E}_P + \v{E}_{\text{micro}}
@@ -3477,7 +3475,7 @@ $ \v{E}_P $, riaggiungendo (perché erano compresi in $ \v{E}_P $) il contributo
 \begin{align}
   \v{E}_P = - \frac{4\pi k_e}{3} \v{P}
 \end{align}
-ed il motivo perché consideriamo la sfera con polarizzazione uniforme viene dal risolvere il problema della sfera in campo elettrico uniforme. Quindi 
+e il motivo perché consideriamo la sfera con polarizzazione uniforme viene dal risolvere il problema della sfera in campo elettrico uniforme. Quindi 
 abbiamo che 
 \begin{align}
   \v{E}_{\text{loc}} = \v{E} + \frac{4\pi k_e}{3} \v{P}
@@ -3496,7 +3494,7 @@ Confrontiamo la relazione appena ottenuta con
 \begin{align}
   \v{P} = \eps_0 (\eps_r - 1)\v{E}
 \end{align}
-ed otteniamo che la costante dielettrica relativa rispetta la relazione
+e otteniamo che la costante dielettrica relativa rispetta la relazione
 \begin{align}
   \eps_r - 1 = \frac{4\pi k_e n \alpha}{ \left( 1 - \frac{4\pi k_e n \alpha}{3} \right)} \implies \frac{\eps_r - 1}{\eps_r + 2} = \frac{4\pi k_e}{3}n\alpha
   \tag*{[Clausius-Mossotti]}
@@ -3514,12 +3512,12 @@ e, per ottenere una analoga legge di conservazione come quella trovata nel vuoto
 \begin{align}
   W = \int_V \v{J \cdot E} \,d^3x = \int_V \v{E} \cdot \left( \nabla\!\times\!\mathbf{ H } \right) - \v{E} \cdot \der{\v{D}}{t} \, d^3x.
 \end{align}
-Addesso applichiamo l'identità vettoriale
+Adesso applichiamo l'identità vettoriale
 \begin{align}
   \nabla \cdot \left( \v{E \times H} \right) = \v{H} \cdot \left( \nabla\!\times\!\mathbf{ E } \right)
   - \v{E} \cdot \left( \nabla\!\times\!\mathbf{ H } \right) 
 \end{align}
-ed otteniamo
+e otteniamo
 \begin{align}
   \int_V \v{J \cdot E} \,d^3x &= \int_V \v{H} \cdot \left( \nabla\!\times\!\mathbf{ E } \right) - \nabla \cdot \left( \v{E \times H} \right)
   - \v{E} \cdot \der{\v{D}}{t} \, d^3x 
@@ -3528,7 +3526,7 @@ ed otteniamo
   + \v{E} \cdot \der{\v{D}}{t} \, d^3x 
 \end{align}
 dove abbiamo usato l'equazione per il rotore di $ \v{E} $. Per procedere oltre assumiamo che il mezzo sia lineare e che non ci siano effetti di 
-assorbimento, in questo modo possiamo riconoscere nell'espressione che abbiamo ottenuto la derivata di una quantita $ u $ che definiremo come la 
+assorbimento, in questo modo possiamo riconoscere nell'espressione che abbiamo ottenuto la derivata di una quantità $ u $ che definiremo come la 
 \textit{densità di energia elettromagnetica}:
 \begin{align}
   u = \frac{1}{2} \left( \v{E \cdot D} + \v{B \cdot H}  \right) \implies \der{u}{t} = \v{E} \cdot \der{\v{D}}{t} + \v{B} \cdot \der{\v{H}}{t} 
@@ -3546,8 +3544,8 @@ e quindi la legge di conservazione che avevamo scritto prende il nome di \textit
   \int_A \v{S} \cdot d\v{A} + \int_V \der{u}{t}\, d^3x + \int_V \v{J \cdot E} \,d^3x = 0.
 \end{align}
 Notiamo che il teorema di Poynting possiamo definirlo adesso anche su un altra scala: in quella mesoscopica useremo il nuovo vettore di Poynting 
-$ \v{S} = \v{E \times H} $ e la nuova densità di energia ed il teorema è lo stesso solo che le quantità in gioco sono una media mesoscopica di quelle 
-microscopiche. Tuttavia se volesso invece definire un teorema di Poynting microscopico, allora sarebbe esattamente quello definito 
+$ \v{S} = \v{E \times H} $ e la nuova densità di energia e il teorema è lo stesso solo che le quantità in gioco sono una media mesoscopica di quelle 
+microscopiche. Tuttavia se volessimo invece definire un teorema di Poynting microscopico, allora sarebbe esattamente quello definito 
 \ref{eq:teorema_di_Poynting_locale} e dovremmo in prima istanza considerare tutte le piccolissime correnti, cosa che si può approcciare con il metodo 
 sviluppato nella sezione precedente studiando gli effetti locali tramite un modello di una sfera mesoscopica.
 
@@ -3556,8 +3554,8 @@ sviluppato nella sezione precedente studiando gli effetti locali tramite un mode
 
 
 \section{Interazione luce-materia}
-Nei paragrafi precedenti abbiamo visto come poter descrire i campi elettromagnetici su scala mesoscopica, e facendo varie ipotesi semplificative sulla natura 
-della relazione costitutiva che lega $ \v{P} $ ed $ \v{E} $. Adesso vogliamo capire cosa succede se i campi variano rapidamente nella nostra zona di 
+Nei paragrafi precedenti abbiamo visto come poter descrivere i campi elettromagnetici su scala mesoscopica, e facendo varie ipotesi semplificative sulla 
+natura della relazione costitutiva che lega $ \v{P} $ e $ \v{E} $. Adesso vogliamo capire cosa succede se i campi variano rapidamente nella nostra zona di 
 interesse.
 
 Nella relazione 
@@ -3565,12 +3563,12 @@ Nella relazione
   \v{P}(\v{r}, t) = \int_{-\infty}^{+\infty} g( t-t') \v{E}(\v{r}, t') \, dt'
 \end{align}
 non possiamo più imporre che $ g( t - t') = \delta( t - t') $ e quindi che la risposta sia istantanea, perché i campi variano molto rapidamente. Dobbiamo 
-quindi sistemare questo integrale, pur mantenendo il principio di causalità, cioè che la risposta può dipendere soltanto dal campo ad un tempo 
+quindi sistemare questo integrale, pur mantenendo il principio di causalità, cioè che la risposta può dipendere soltanto dal campo a un tempo 
 $ \v{E}( t > t') $, e possiamo farlo imponendo che
 \begin{align}
   g( t < t') = 0.
 \end{align}
-Adesso è conveniente passare in trasformata di Fourier, ed i motivi sono due: in generale il campo $ \v{E} $ nel dominio del tempo può essere molto 
+Adesso è conveniente passare in trasformata di Fourier, e i motivi sono due: in generale il campo $ \v{E} $ nel dominio del tempo può essere molto 
 complicato, passando in trasformata lavoriamo con le sue componenti monocromatiche per poi ricomporre il campo facendo un integrale; il secondo motivo è 
 che riconosciamo che l'integrale in \eqref{eq:_integrale_di_convoluzione} è detto un integrale di convoluzione, e la trasformata di Fourier ha la proprietà 
 di trasformare integrali di convoluzione in prodotti. Ci aspettiamo di ottenere un risultato del tipo 
@@ -3581,11 +3579,11 @@ di trasformare integrali di convoluzione in prodotti. Ci aspettiamo di ottenere 
 \section{Modello di Drude-Lorentz} \label{section:_Drude-Lorentz}
 Al fine di poter descrivere le interazioni fra la radiazione elettromagnetica con vari tipi di materia, abbiamo bisogno della relazione fra polarizzazione 
 indotta e campo elettrico, cioè la $ g_\omega $ vista precedentemente, che possiamo ricavare dall'esperimento in modo empirico, oppure attraverso una 
-modellizzazione dei costituenti della materia, ed in particolare degli elettroni.
+modellizzazione dei costituenti della materia, e in particolare degli elettroni.
 
-Il modello di Drude-Lorentz considera l'elettrone come una particella sottoposta a 3 tipi di forze: una di richiamo, una dissipativa ed una forzante che per 
+Il modello di Drude-Lorentz considera l'elettrone come una particella sottoposta a 3 tipi di forze: una di richiamo, una dissipativa e una forzante che per 
 noi sarà la forza di Coulomb dovuta al campo elettrico di una onda (piana) incidente. 
-Questo si realizza in una equazione del moto per una particella di carica $ q $ e massa $ m $ in una equazione del moto del tipo
+Questo si realizza in una equazione del moto per una particella di carica $ q $ e massa $ m $ in una equazione del moto del tipo 
 \begin{align}
   m \ddot{\v{x}} = - \omega_0^2 \v{x} - \gamma m \dot{\v{x}} + q \v{E}(\v{r}, t)
 \end{align}
@@ -3605,7 +3603,7 @@ dove $ n $ è il numero di cariche $ q $ in un volumetto (densità volumetrica d
 oscillazioni nell'origine e finiti ottenendo una dipendenza spaziale della polarizzazione, ma questo può essere giustificato dicendo che quello che abbiamo 
 ottenuto è in realtà la trasformata di Fourier $ \v{P}_\omega $, cosa che avremmo potuto fare all stesso modo aggiungendo $ \v{P}_{k,\omega} $, ma $ \v{r} $ 
 non svolge alcun ruolo nel nostro modello se non quello di selezionare l'atomo che consideriamo. Inoltre per l'ipotesi di isotropia la risposta deve essere 
-uguale in ogni punto quindi è normale che la polarizzazione eriditi la dipendenza spaziale del campo elettrico. Il nostro $ \chi(\omega) $ è quindi
+uguale in ogni punto quindi è normale che la polarizzazione erediti la dipendenza spaziale del campo elettrico. Il nostro $ \chi(\omega) $ è quindi
 \begin{align}
   \chi(\omega) = \frac{n q^2 /m}{\omega_0^2 - \omega^2 - i \gamma \omega}
 \end{align}
@@ -3630,14 +3628,14 @@ Il $ \chi(\omega) $ che abbiamo appena trovato grazie a Drude-Lorentz è esattam
 proporzionalità fra il campo elettrico e la polarizzazione indotta, dunque è l'$\alpha$ che ci serviva nella relazione di Clausius-Mossotti.
 
 \section{Zone di frequenza} % da cambiare il titolo
-Nella sezione precedente abbiamo ricavato che la costante dielettrica nel modello Drude-Lorentz ha parte reale e parte immaginaria, ognuna relatica 
-ad un fenomeno fisico diverso, dispersione e assorbimento, con grafici:
+Nella sezione precedente abbiamo ricavato che la costante dielettrica nel modello Drude-Lorentz ha parte reale e parte immaginaria, ognuna relativa 
+a un fenomeno fisico diverso, dispersione e assorbimento, con grafici:
 % grafico dispersione e assorbimento
-Possiamo distingere il dominio delle frequenze in tre zone dette I, II, III.
+Possiamo distinguere il dominio delle frequenze in tre zone dette I, II, III.
 
 \textbf{Zona I}. In questa zona trascuriamo sia l'assorbimento, sia la dipendenza dalla frequenza di $ \eps(\omega) = \eps \in \R  $, cioè è il limite per 
 $ \omega \ll \omega_0 $. Questa zona non presenta differenze con l'elettrodinamica nel vuoto, se non per la relazione di dispersione dovuto al fatto che 
-l'equazione di d'Alambert che si ottiene è
+l'equazione di d'Alembert che si ottiene è
 \begin{align}
   \nabla^2 \v{E} - {\mu \eps} \der[2]{\v{E}}{t} = 0
 \end{align}
@@ -3657,7 +3655,7 @@ $ n $:
 
 
 \textbf{Zona II}. In questa zona torniamo a considerare la dipendenza dalla frequenza ma trascuriamo sempre l'assorbimento, quindi 
-$ \eps(\omega) = \eps_1(\omega) \in \R $, partiamo dalla relazione di dispersione :
+$ \eps(\omega) = \eps_1(\omega) \in \R $, partiamo dalla relazione di dispersione:
 \begin{align}
   k = \frac{\omega}{c} \sqrt{\eps_r(\omega)} \simeq \frac{\omega}{c} \sqrt{1 + \frac{\omega_P^2}{\omega_0^2 - \omega^2 }} \coloneq \frac{\omega}{c} n(\omega)
 \end{align}
@@ -3734,11 +3732,11 @@ imporre la relazione di dispersione che è
 \begin{align}
   \v{k} \cdot \v{k} = \tilde{\eps}\, \frac{\omega^2}{c^2}
 \end{align}
-ed abbiamo quindi per l'onda riflessa che 
+e abbiamo quindi per l'onda riflessa che 
 \begin{align}
   k_x^2 + k_{iz}^2 = \eps_a \frac{\omega^2}{c^2} = k_x^2 + k_{rz}^2  \implies k_{rz} = \pm k_{iz}
 \end{align}
-ed il segno che dobbiamo scegliere è il $ - $ poiché deve andare nel verso opposto (delle $ z $) dell'onda incidente, quindi $ k_{rz} = -k_{iz} $. 
+e il segno che dobbiamo scegliere è il $ - $ poiché deve andare nel verso opposto (delle $ z $) dell'onda incidente, quindi $ k_{rz} = -k_{iz} $. 
 Da questa informazione ricaviamo che l'angolo dell'onda riflessa è lo stesso dell'onda incidente: $ \theta_i = \theta_r $.
 Per l'onda trasmessa abbiamo
 \begin{align}
@@ -3746,7 +3744,7 @@ Per l'onda trasmessa abbiamo
 \end{align}
 e qui invece scegliamo il segno $ + $ perché vogliamo che allontanandosi decada, quindi $ k_{tz} = \sqrt{\tilde{\eps}_b \frac{\omega^2}{c^2} - k_x^2} $.
 
-\textbf{Caso di mezzo trasparente} ($ \eps_b \in \mathbb{R} $): l'onda trasmessa è omogenea nel suo mezzo quindi definiamo un angolo $ \theta_t $ ed 
+\textbf{Caso di mezzo trasparente} ($ \eps_b \in \mathbb{R} $): l'onda trasmessa è omogenea nel suo mezzo quindi definiamo un angolo $ \theta_t $ e 
 imponiamo la conservazione di $ k_x $:
 \begin{align}
   k_{ix} = k_{tx} \implies n_a \frac{\omega}{c} \sin\theta_i &= n_b \frac{\omega}{c} \sin\theta_t 
@@ -3757,7 +3755,7 @@ dove abbiamo ottenuto la nota legge di Snell-Cartesio. Sostituiamo in $ k_{tz} $
 \begin{align}
   k_{tz} = \sqrt{{\eps}_b \frac{\omega^2}{c^2} - \eps_a \frac{\omega^2}{c^2}\sin^2\theta_i}= \frac{\omega}{c}\sqrt{{\eps}_b - \eps_a\sin^2\theta_i } 
 \end{align}
-ed in questa forma notiamo che se $ n_a > n_b $, per $ \sin\theta_i > \frac{n_b}{n_a} $ abbiamo che $ k_{tz} \in \mathbb{C} $ puramente immaginario, dunque 
+e in questa forma notiamo che se $ n_a > n_b $, per $ \sin\theta_i > \frac{n_b}{n_a} $ abbiamo che $ k_{tz} \in \mathbb{C} $ puramente immaginario, dunque 
 si verifica un fenomeno detto \textit{riflessione totale interna}, dove anche se non è presente alcun processo dissipativo l'onda trasmessa è soppressa 
 esponenzialmente.
 
@@ -3805,7 +3803,7 @@ che sono detti \textit{coefficienti di Fresnel}. Li riscriviamo in termini degli
   \\
   \implies \v{E} &= \frac{c^2}{\omega \, n^2} \left( k_z B \vers{x} - k_x B \vers{z} \right) \quad \textnormal{con} \quad E = \frac{c}{n} B
 \end{align}
-ed imponiamo le stesse condizioni di raccordo
+e imponiamo le stesse condizioni di raccordo
 \begin{align}
   \begin{cases}
     E_{i\parallel} + E_{r\parallel} = E_{t\parallel} \implies \frac{k_{iz}}{n^2_a} \left( B_i - B_r \right) = \frac{k_{tz}}{n^2_b} B_t
@@ -3840,13 +3838,13 @@ relazione $ E = \frac{c}{n} B $ nel relativo mezzo.
 \subsection{Incidenza normale}
 Consideriamo adesso il caso in cui $ \theta_i = 0 $, cioè l'onda incidente è ortogonale alla superficie. In questa situazione abbiamo che 
 $ \v{k}_i = k_{iz} \vers{z} $ e dalla relazione di dispersione vale $ k_{iz} = \sqrt{\eps_a} \frac{\omega}{c} = n_a \frac{\omega}{c} $, e 
-$ k_t = \frac{\omega}{c} \sqrt{\tilde{\eps}_b} = \frac{\omega}{c} \tilde{n}_b $. I coefficenti di Fresnel diventano
+$ k_t = \frac{\omega}{c} \sqrt{\tilde{\eps}_b} = \frac{\omega}{c} \tilde{n}_b $. I coefficienti di Fresnel diventano
 \begin{align}
   E_t = \frac{2n_a}{n_a + \tilde{n}_b}\, E_i
   \\
   E_r = \frac{n_a - \tilde{n}_b}{n_a + \tilde{n}_b}\, E_i
 \end{align}
-L'intensità di onda onda piana in un mezzo abbiamo visto essere
+L'intensità di onda piana in un mezzo abbiamo visto essere
 \begin{align}
   I = \langle |\v{S}| \rangle = \frac{n_R}{2 \mu_0} E^2
 \end{align}
@@ -3862,7 +3860,7 @@ A questo punto utilizziamo le relazioni di Fresnel per scrivere i due coefficien
   T &= \frac{n_{bR}}{n_a} \left| \frac{E_t}{E_i} \right|^2 = \frac{n_{bR}}{n_a} |t|^2 = \frac{n_{bR}}{n_a} \frac{(2n_a)^2}{|n_a + \tilde{n}_b|^2} 
   = \frac{4 n_a n_{bR}}{|n_a + \tilde{n}_b|^2}
 \end{align}
-È interessante notare che la somma dei due coefficienti è $ R + T = 1 $, dato che il mezzo è non assorbente, ed infatti è cioè che si ottiene provando a 
+È interessante notare che la somma dei due coefficienti è $ R + T = 1 $, dato che il mezzo è non assorbente, e infatti è cioè che si ottiene provando a 
 sommarli.
 
 % -----------------------------------------------------------------------------------------------------------------
@@ -3872,7 +3870,7 @@ sommarli.
 
 \chapter{Identità vettoriali}
 
-\section{Opearzioni generiche}
+\section{Operazioni generiche}
 Di seguito alcune delle identità vettoriali utilizzate nel testo.\\
 Triplo prodotto:
 \begin{itemize}
@@ -3899,7 +3897,7 @@ Triplo prodotto:
   \\
   &= [\mathbf{ B } \cdot (\nabla\!\times\!\mathbf{ A })]_k - [\mathbf{ A } \cdot (\nabla\!\times\!\mathbf{ B })]_j
 \end{align}
-dove abbiamo sfrtuttato le proprietà di permutazione del tensore di Levi-Civita e la convenzione sugli indici ripetuti.
+dove abbiamo sfruttato le proprietà di permutazione del tensore di Levi-Civita e la convenzione sugli indici ripetuti.
 
 \textbf{Divergenza di scalare per vettore}:
 \begin{align} \label{identity:_divergenza(scalare_per_vettore)}
@@ -3996,7 +3994,7 @@ Laplaciano $\nabla^2 f$
 
 \chapter{Decomposizione di Helmholtz}
 La decomposizione di Helmholtz può essere vista come un caso particolare della decomposizione di Hodge (che non tratteremo). 
-Questa decomposizione ci dice che un camposufficientemente regolare può essere scomposto come somma di due campi, 
+Questa decomposizione ci dice che un campo sufficientemente regolare può essere scomposto come somma di due campi, 
 uno a rotore nullo e uno a divergenza nulla, cioè come somma di un campo solenoidale e un campo conservativo.
 
 Sia $ \mathbf{ F } \in C^2, \quad \mathbf{ F }: \mathbb{R}^3 \to \mathbb{R}^3$, allora $ F $ è tale che:
@@ -4011,12 +4009,12 @@ Sia $ \mathbf{ F } \in C^2, \quad \mathbf{ F }: \mathbb{R}^3 \to \mathbb{R}^3$, 
   {Sviluppo di 1 su r - r'}}
 Vogliamo sviluppare questo oggetto in coordinate sferiche perché:
 \begin{itemize}
-  \item rispetto ad altri sistemi di coordinate e soprattutto rispetto alle cartesiane, gli sviluppi successivi facilitano i conti.
+  \item rispetto ad altri sistemi di coordinate e soprattutto rispetto alle cartesiane, gli sviluppi successivi facilitano i conti;
   \item è una funzione armonica quasi dappertutto, perché
   \begin{equation}
     \nabla^2 \left( \frac{1}{\mathbf{ |r-r'| }} \right) = -4\pi \delta(\mathbf{ r-r' })
   \end{equation}
-  cioè è nullo (il suo laplaciano) $ \forall \mathbf{ r } \not= \mathbf{ r' } $ .
+  cioè è nullo (il suo laplaciano) $ \forall \mathbf{ r } \not= \mathbf{ r' } $.
 \end{itemize}
 Scegliamo un sistema di coordinate dove $ \mathbf{ r' } $ giace sull'asse polare, in questo modo siamo nel caso di simmetria azimutale e quindi il problema 
 è notevolmente più semplice e soprattutto non richiede di invocare lo sviluppo in armoniche sferiche.
@@ -4033,7 +4031,7 @@ Sfruttando lo sviluppo di Taylor (con $ \mathbf{ r } $ e $ \mathbf{ r' } $ allin
 \begin{equation}
   \frac{1}{ r_a - r_b } = \frac{1}{r_a} \frac{1}{1- \frac{r_b}{r_a}} = \frac{1}{r_a} \sum_{n = 0}^{\infty} \left( \frac{r_b}{r_a} \right)^n =  \frac{1}{r_a} \left( 1 + \frac{r_b}{r_a} + \left( \frac{r_b}{r_a} \right)^2 + ... \right)
 \end{equation}
-dove $ r_a \; (r_b) $ è il maggiore (minore) fra $ r $ ed $ r' $.\\
+dove $ r_a \; (r_b) $ è il maggiore (minore) fra $ r $ e $ r' $.\\
 Per $ r>r' $:
 
 \begin{align}
@@ -4068,7 +4066,7 @@ A differenza dei vettori "veri" che trasformano normalmente
 \begin{equation}
   \mathbf{ V' } = T\mathbf{ V } \implies \; V'_i = T_{i j}V_j
 \end{equation}
-dove nell'ultima relazione è implicita la sommatoria sull'indice ripetuto, gli pseudovettori trasformano le loro componenti in base segno della 
+dove nell'ultima relazione è implicita la sommatoria sull'indice ripetuto, gli pseudo-vettori trasformano le loro componenti in base segno della 
 trasformazione applicata:
 \begin{equation}
   \mathbf{ A' } = \det \!T \left( T\mathbf{ A } \right) \implies \; A'_i = \det\!T \, T_{i j} A_j
@@ -4086,7 +4084,7 @@ $ \v{e}_1, \v{e}_2 $:
 \end{align}
 e supponiamo di fare un riscalamento dei vettori di base nel seguente modo: $ \v{e}_1 \mapsto \v{e'}_1 = 2\v{e}_1, \v{e}_2 \mapsto \v{e'}_2 = 5\v{e}_2  $. 
 Dato che abbiamo aumentato i vettori di base allora il vettore $ \v{v'} = \left. \v{v} \right|_{\{ \v{e'}_1, \v{e'}_2\}} $ deve trasformate le sue 
-componenti affinche rimanga lo stesso vettore
+componenti affinché rimanga lo stesso vettore
 \begin{align}
   &\v{v'} = v'^1 \v{e'}_1 + v'^2 \v{e'}_2 = v^1\v{e}_1 + v^2 \v{e}_2
   \\
@@ -4100,8 +4098,8 @@ dove $ J_{i j} $ è lo jacobiano della trasformazione, mentre la base $ \{ e_i \
 \begin{align} \label{eq:_trasformazione_covariante}
   {e'}_i = \sum_j \der{x^i}{x'^j} \, e_i = \sum_j {J^{-1}}^t_{i j} \, e_j
 \end{align}
-Definiamo \textit{controvariante} gli oggetti che trasformano come in \eqref{eq:_trasformazione_controvariante} ed indicheremo le sue componenti con un 
-indice in alto. Definiamo allo stesso modo \textit{covariante} gli oggetti che trasformano come in \eqref{eq:_trasformazione_covariante} ed indicheremo le 
+Definiamo \textit{controvariante} gli oggetti che trasformano come in \eqref{eq:_trasformazione_controvariante} e indicheremo le sue componenti con un 
+indice in alto. Definiamo allo stesso modo \textit{covariante} gli oggetti che trasformano come in \eqref{eq:_trasformazione_covariante} e indicheremo le 
 componenti con un indice in basso. Vediamo come trasforma il gradiente di una funzione scalare:
 \begin{align}
   \nabla'_i f = \der{f}{x'^i} = \der{x^j}{x'^i} \der{f}{x^j} = \left( J^-1 \right)^t_{i j} \nabla_j f
@@ -4139,7 +4137,7 @@ allo stesso modo troviamo la quadridivergenza di un quadrivettore
   \partial_\mu b^\mu = \frac{1}{c} \der{b^0}{t} + \nabla \cdot \mathbf{ b } = \frac{1}{c} \der{b^0}{t} + \nabla \cdot \mathbf{ b }
 \end{align}
 Possiamo notare come effettivamente il quadrigradiente e la quadridivergenza siano rappresentati dallo stesso simbolo in questa notazione, l'unica 
-differenza rimane chiaramente l'oggetto a cui si applicano. Il d'alambertiano applicato ai quadrivettori diventa
+differenza rimane chiaramente l'oggetto a cui si applicano. Il d'Alembertiano applicato ai quadrivettori diventa
 \begin{align}
   \Box \coloneq \frac{1}{c^2} \der[2]{}{t} - \der[2]{}{x} - \der[2]{}{y} - \der[2]{}{z} = g^{\mu \nu} \partial_\mu \partial_\nu = \partial^\mu \partial_\mu
 \end{align}
