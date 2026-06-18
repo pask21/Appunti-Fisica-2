@@ -3284,9 +3284,9 @@ possiamo quindi applicarla subito alle equazioni di Maxwell:
   \\
   &\nabla \times \langle \v{E} \rangle = - \der{\langle \v{B} \rangle}{t}
   \\
-  &\nabla \cdot \langle \v{E} \rangle = \frac{\langle \rho \rangle}{\eps_0}
+  &\nabla \cdot \langle \v{E} \rangle = 4\pi k_e {\langle \rho \rangle}
   \\
-  &\nabla \times \langle \v{B} \rangle = \mu_0 \langle \v{J} \rangle + \frac{1}{c^2} \der{\langle \v{E} \rangle}{t}
+  &\nabla \times \langle \v{B} \rangle = 4\pi k_m \langle \v{J} \rangle + \frac{k_m}{k_e} \der{\langle \v{E} \rangle}{t}
 \end{align}
 Per quanto riguarda le sorgenti dobbiamo distinguere fra i contributi esterni, i quali sono inseriti da noi dunque ne conosciamo necessariamente una media 
 mesoscopica, e quelli microscopici, quindi
@@ -3321,15 +3321,21 @@ dove abbiamo introdotto la \textit{densità di carica di polarizzazione} $ \rho_
 \end{align}
 Tramite $ \rho_{\text{pol}} $ l'equazione per la divergenza del campo elettrico si riscrive
 \begin{align}
-  &\nabla \cdot \langle \v{E} \rangle = \frac{\rho_{\text{ext}}}{\eps_0} + \frac{\rho_{\text{pol}}}{\eps_0} 
-  = \frac{\rho_{\text{ext}}}{\eps_0} - \nabla \cdot \frac{\v{P}}{\eps_0}
+  &\nabla \cdot \langle \v{E} \rangle = 4\pi k_e ({\rho_{\text{ext}}} +{\rho_{\text{pol}}})
+  = 4\pi k_e ({\rho_{\text{ext}}} - \nabla \cdot {\v{P}})
   \\
-  &\implies \nabla \cdot \left[ \langle \v{E} \rangle + \frac{\v{P}}{\eps_0}  \right] = \frac{\rho_{\text{ext}}}{\eps_0}
+  &\implies \nabla \cdot \left[ \langle \v{E} \rangle + 4\pi k_e {\v{P}} \right] = 4\pi k_e {\rho_{\text{ext}}}
 \end{align}
 e definiamo il \textit{vettore di induzione elettrica} $ \v{D} $ come
 \begin{align}
-  \v{D} \coloneq \eps_0 \langle \v{E} \rangle + \v{P} \implies \nabla \cdot \v{D} = \rho_{\text{ext}}
+  \v{D} \coloneq \frac{\langle \v{E} \rangle}{4\pi k_e}  + \v{P} \implies \nabla \cdot \v{D} = \rho_{\text{ext}}. \tag*{[SI]}
 \end{align}
+Qui in realtà il sistema internazionale (SI) e quello gaussiano (cgs) differiscono nella definizione, cosa che succederà anche fra poco per il vettore 
+$ \v{H} $. Il motivo è che si vuole arrivare a scrivere le equazioni di Maxwell in due forme diverse: nel sistema internazionale si vuole scrivere 
+dell'equazioni differenziali in funzione delle sorgenti (esterne) senza costanti moltiplicative, mentre nel sistema gaussiano rimangono le medesime 
+costanti del caso microscopico, e ciò si traduce nel dividere la sorgente $ \rho_{\text{ext}} $ per $ 4\pi k_e $ oppure no. Da questo si capisce che per 
+passare da $ \v{D} $ $ (\v{H}) $ da SI a cgs basta moltiplicare per $ 4\pi k_e $ $ (4\pi k_m) $.
+
 Sfruttiamo lo stesso ragionamento con il potenziale vettore e il dipolo magnetico per arrivare a ottenere una nuova equazione anche per le correnti: dato
 che $ \v{A}_\v{m} = k_m \frac{\v{m}\times \v{r}}{r^3} $ scriviamo il potenziale vettore totale come
 \begin{align}
@@ -3357,13 +3363,13 @@ che è appunto una divergenza, dunque possiamo trasformarlo in un integrale di s
 \end{align}
 dove $ \v{J}_{\text{pol}} $ è la \textit{corrente di polarizzazione}. L'equazione magnetostatica per il rotore di $ \v{B} $ diventa
 \begin{align}
-  &\nabla \times \langle \v{B} \rangle = \mu_0 \v{J}_{\text{ext}} + \mu_0 \v{J}_{\text{pol}} = \mu_0 \v{J}_{\text{ext}} + \mu_0 \nabla \times \v{M}
+  &\nabla \times \langle \v{B} \rangle = 4\pi k_m (\v{J}_{\text{ext}} + \v{J}_{\text{pol}}) = 4\pi k_m (\v{J}_{\text{ext}} + \nabla \times \v{M})
   \\
-  &\implies \nabla \times \left[ \langle \v{B} - \mu_0 \v{M} \rangle \right] = \mu_0 \v{J}_{\text{ext}}
+  &\implies \nabla \times \left[ \langle \v{B}\rangle - 4\pi k_m \v{M}  \right] = 4\pi k_m \v{J}_{\text{ext}}
 \end{align}
 e definiamo il \textit{vettore di induzione magnetica} $ \v{H} $ come
 \begin{align}
-  \v{H} \coloneq \frac{\v{B}}{\mu_0} - \v{M}
+  \v{H} \coloneq \frac{\langle \v{B} \rangle}{4\pi k_m} - \v{M}
   \implies \nabla \times \v{H} = \v{J}_{\text{ext}}
 \end{align}
 Le equazioni di Maxwell mesoscopiche statiche che abbiamo ottenuto sono quindi:
@@ -3403,7 +3409,7 @@ quindi abbiamo trovato che alla corrente di polarizzazione trovata prima dobbiam
 \end{align}
 Possiamo quindi riscrivere l'equazione per il rotore di $ \v{H} $ con i termini aggiuntivi
 \begin{align}
-  \nabla \times \v{H} = \v{J}_{\text{ext}} + \der{\v{P}}{t} + \eps_0 \der{\langle \v{E} \rangle}{t} = \v{J}_{\text{ext}} + \der{\v{D}}{t}
+  \nabla \times \v{H} = \v{J}_{\text{ext}} + \der{\v{P}}{t} + \frac{1}{4\pi k_e} \der{\langle \v{E} \rangle}{t} = \v{J}_{\text{ext}} + \der{\v{D}}{t}
 \end{align}
 e quindi le equazioni di Maxwell dinamiche in scala mesoscopica diventano
 \begin{align}
@@ -3427,25 +3433,25 @@ richiedere che $ \v{D} = \v{D}(\v{E}) $ e che $ \v{H} = \v{H}(\v{B}) $, che in r
 necessitiamo soltanto delle \textit{equazioni costitutive}, cioè le effettive relazioni che ci permettono di determinare i campi indotti. In generale 
 la polarizzazione in funzione del campo elettrico prende la forma di un integrale 
 \begin{align}
-  P_i (\v{r},t) = \eps_0 \int d^3r' \int dt' \chi_{i j}(\v{r, r'}, t, t') E_j (\v{r'}, t')
+  P_i (\v{r},t) = \frac1{4\pi k_e} \int d^3r' \int dt' \chi_{i j}(\v{r, r'}, t, t') E_j (\v{r'}, t')
 \end{align}
 e in questa forma chiediamo che rispetti l'ipotesi di stazionarietà, cioè che dipenda dalla differenza $ t - t' $ e non in modo indipendente dal tempo, e 
 l'ipotesi di mezzo omogeneo che consiste nel richiedere che la dipendenza solo da $ \v{r - r'} $. Abbiamo richiesto quindi l'invarianza traslazionale sia 
 nel tempo che nello spazio e l'integrale prende la forma
 \begin{align}
-  P_i (\v{r},t) = \eps_0 \int d^3r' \int dt' \chi_{i j}(\v{r - r'}, t - t') E_j (\v{r'}, t')
+  P_i (\v{r},t) = \frac1{4\pi k_e} \int d^3r' \int dt' \chi_{i j}(\v{r - r'}, t - t') E_j (\v{r'}, t')
 \end{align}
 e a questo punto richiediamo anche altre due ipotesi cioè la località spaziale e temporale, la quale ci dice che la risposta del mezzo è legata a un punto 
 preciso e a un istante, cosa che chiaramente non è vera ma è utile per dare una prima approssimazione del mezzo, che ci porta a un semplice coefficiente
 \begin{align}
   \chi_{i j}(\v{r - r'}, t- t') &= \chi \; \delta( \v{r - r'}) \, \delta(t - t')
   \\
-  \implies P_i (\v{r},t) &= \eps_0 \chi_{i j} E_j (\v{r}, t)
+  \implies P_i (\v{r},t) &= \frac1{4\pi k_e} \chi_{i j} E_j (\v{r}, t)
 \end{align}
 ma finora $ \chi_{i j} $ è ancora un tensore, che può portare a dei risultati come la polarizzazione orientata in modo diverso rispetto al campo elettrico, 
 quindi per ottenere il risultato più semplice in assoluto richiediamo che $ \chi_{i j} = \chi_e \, \delta_{ij} $ quindi si ottiene
 \begin{align}
-  \v{P}(\v{r}, t) = \eps_0 \chi_e \,\v{E}(\v{r}, t)
+  \v{P}(\v{r}, t) = \frac1{4\pi k_e} \chi_e \,\v{E}(\v{r}, t)
 \end{align}
 dove $ \chi_e $ è detta \textit{suscettività elettrica}, ed è una grandezza adimensionale. Il vettore di induzione elettrica diventa
 \begin{align}
@@ -3488,15 +3494,15 @@ dove $ \alpha $ è la \textit{polarizzabilità atomica} (supponiamo che segua qu
 elettroni,
 \begin{align}
   \v{P} = n \alpha \v{E}_{\text{loc}} = n\alpha (\v{E} + \frac{4\pi k_e}{3} \v{P}) \implies \v{P} = \frac{n \alpha}{1 - \frac{4\pi k_e n \alpha}{3} } \v{E} 
-  \eqcolon \eps_0 \chi \v{E}
+  \eqcolon \frac1{4\pi k_e} \chi_e \v{E}
 \end{align}
 Confrontiamo la relazione appena ottenuta con 
 \begin{align}
-  \v{P} = \eps_0 (\eps_r - 1)\v{E}
+  \v{P} = \frac1{4\pi k_e} (\eps_r - 1)\v{E}
 \end{align}
 e otteniamo che la costante dielettrica relativa rispetta la relazione
 \begin{align}
-  \eps_r - 1 = \frac{4\pi k_e n \alpha}{ \left( 1 - \frac{4\pi k_e n \alpha}{3} \right)} \implies \frac{\eps_r - 1}{\eps_r + 2} = \frac{4\pi k_e}{3}n\alpha
+  \chi_e = \eps_r - 1 = \frac{4\pi k_e n \alpha}{ \left( 1 - \frac{4\pi k_e n \alpha}{3} \right)} \implies \frac{\eps_r - 1}{\eps_r + 2} = \frac{4\pi k_e}{3}n\alpha
   \tag*{[Clausius-Mossotti]}
 \end{align}
 nota come \textit{relazione di Clausius-Mossotti}. Questa relazione ci dà una modo operativo per trovare la relazione costitutiva, dovendo soltanto 
