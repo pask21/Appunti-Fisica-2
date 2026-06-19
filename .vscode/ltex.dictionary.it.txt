@@ -85,3 +85,6 @@ riscalare
 Quadricorrente
 semplificative
 antisimmetria
+Biot
+Savart
+Pascarella
