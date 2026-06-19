@@ -1494,6 +1494,7 @@ Sia $ \gamma (t) $ il circuito dipendente dal tempo, sviluppiamo la variazione d
   \Delta \Phi (\v{ B }) = \Phi ()
 \end{align}
 \dots
+
 \section{Induzione elettromagnetica}
 Per un sistema di conduttori è possibile definire i coefficienti di capacità, cioè dei valori numerici che dipendono dalla geometria del 
 conduttore, utili a determinare il potenziale del conduttore $ i $-esimo in funzione della carica presente sugli altri conduttori. Siano i $ C_{ij} $ tali 
@@ -1510,9 +1511,13 @@ e di \textit{mutua induzione}. Consideriamo $ N $ circuiti distinti capaci di co
   U = \frac{1}{2} \sum_{i}^N L_i I_i^2 + \sum_i^N \sum_{j>i}^N M_{ij}I_i I_j
 \end{align}
 dove gli $ L_i $ sono i coefficienti di autoinduzione e gli $ M_{ij} $ sono i coefficienti di mutua induzione. In condizioni quasi stazionarie il flusso 
-del campo magnetico è proporzionale al campo che a sua volta è proporzionale alla corrente, definiamo tale costante $ L $:
+del campo magnetico è proporzionale al campo che a sua volta è proporzionale alla corrente, tale costante è detta \textit{induttanza} ed è definita come:
 \begin{align}
-  \Phi(\v{ B }) = L I \implies U = \frac{1}{2} \Phi(\v{ B }) I = \frac{1}{2} L I^2
+  L \coloneq \frac{\Phi(B)}{I}
+\end{align}
+e in questo modo l'energia immagazzinata in un induttore si può esprimere come
+\begin{align}
+  U = \frac{1}{2} \Phi(\v{ B }) I = \frac{1}{2} L I^2
 \end{align}
 I coefficienti di mutua induzione sono particolarmente utili per determinare l'forza elettromotrice indotta su un circuito da un altro, infatti considerando 
 noto due circuiti, una volta trovato $ M = M_{12} = M_{21} $ si ha che la \textit{fem} del primo circuito è data da
@@ -1559,11 +1564,11 @@ Abbiamo visto che con la nuova espressione per il rotore di $ \v{ E } $ le equaz
 Esaminando le equazioni in questo stato (non in questa forma precisa) Maxwell si accorge di una inconsistenza fra queste: se si prova a calcolare la 
 divergenza del rotore di $ \v{ B } $ questa dovrebbe essere nulla eppure
 \begin{align}
-  \nabla\! \cdot\! \left( \nabla\! \times\!\v{ B } \right) = \mu_0 \nabla \cdot \v{ J } 
-  \overset{\text{eq. continuità}}{=} \mu_0 \left(- \der{\rho}{t} \right)
+  \nabla\! \cdot\! \left( \nabla\! \times\!\v{ B } \right) = 4\pi k_m \nabla \cdot \v{ J } 
+  \overset{\text{eq. continuità}}{=} 4\pi k_m \left(- \der{\rho}{t} \right)
 \end{align}
-che in generale la variazione della carica non è nulla. Maxwell nel 1864 corregge quindi le equazioni soltanto per una inconsistenza da un punto di vista 
-teorico e non perché avesse fatto esperimenti che evidenziassero una problema nel modello, anche perché la conferma sperimentale delle equazioni dopo la 
+che in generale è non nulla. Notando questa inconsistenza, Maxwell nel 1864 corregge le equazioni mosso soltanto da tali motivazioni teoriche  
+e non perché avesse fatto esperimenti che evidenziassero una problema nel modello, anche perché la conferma sperimentale delle equazioni dopo la 
 modifica di Maxwell arrivò soltanto nel 1884 (ben 20 anni dopo) dal laboratorio di Hertz.
 
 La modifica consiste nell'imporre che la quarta equazione abbia divergenza nulla, aggiungendo un termine apposito:
@@ -1592,22 +1597,25 @@ più avanti. La forma definitiva delle equazioni di Maxwell è
 \end{align}
 In questo modo l'equazione di continuità diventa un corollario della prima e della quarta equazione di Maxwell.
 \subsection{Corrente di spostamento nel condensatore piano}
+\input{build/figure/termine_Maxwell.tex}
 Un esempio della consistenza delle equazioni col termine della corrente di spostamento può essere visto analizzando il caso del 
-condensatore piano a facce parallele. Consideriamo il condensatore isolato e le facce collegate entrambe a un filo conduttore: 
-se prendiamo una piccola superficie circolare $ D $ attraversata dal filo e calcoliamo la circuitazione del campo magnetico otteniamo
+condensatore piano a facce parallele in figura \ref{figure: condensatore corrente spostamento}. Consideriamo il condensatore isolato e le facce collegate 
+entrambe a un filo conduttore nel quale scorre la corrente 
+$ I $: se prendiamo la superficie circolare $ \Sigma $ attraversata dal filo con bordo $ C $ e calcoliamo la circuitazione del campo magnetico otteniamo
 \begin{equation}
-  \oint_{\gamma} \v{ B } \, d\v{ l } = 2\pi r B_{\varphi} = \mu_0 I
+  \oint_{C} \v{ B } \, d\v{ l } = 2\pi r B_{\varphi} = 4\pi k_m I
 \end{equation}
-Ma se prendiamo una superficie che ha sempre $ \gamma $ come bordo ma passa in mezzo alle armature in modo che non ci sia nessuna 
+Ma se prendiamo la superficie $ S $ che ha sempre $ C $ come bordo ma passa in mezzo alle armature in modo che non ci sia nessuna 
 corrente concatenata, otteniamo che la stessa circuitazione del campo magnetico è nulla, che è assurdo. Considerando anche il 
 termine di Maxwell otteniamo che
 \begin{equation}
-  \oint_{\gamma} \v{ B } \, d\v{ l } = \mu_0 \Phi_S(\v{ J }) + \mu_0 \varepsilon_0 \Phi_S(\v{ E }) 
+  \oint_{C} \v{ B } \, d\v{ l } = \mu_0 \Phi_S(\v{ J }) + \mu_0 \varepsilon_0 \Phi_S(\v{ E }) 
   = 0 + \mu_0 \varepsilon_0 \der{}{t} \left( \frac{Q}{\varepsilon_0} \right) = \mu_0 I
 \end{equation}
 dove per calcolare il flusso di $ \v{ E } $ abbiamo sfruttato che il campo è non nullo solo fra le armature quindi possiamo 
-applicare il teorema di Gauss alla superficie chiusa $ S \cup D $.\\
-Da questo esempio deriva il termine \textit{corrente di spostamento}.
+applicare il teorema di Gauss alla superficie chiusa $ S \cup \Sigma $. 
+Da questo esempio deriva il termine \textit{corrente di spostamento} proprio in analogia con la legge di Biot-Savart, tuttavia ribadiamo che il termine di 
+Maxwell non rappresenta in alcun modo una corrente.
 
 \section{Campi lentamente variabili} \label{section: campi lentamente variabili}
 Studiare i regimi in cui i campi sono considerati lentamente variabili è utile perché il termine della corrente di spostamento risulta trascurabile, 
@@ -1617,12 +1625,11 @@ diverse. In questa sezione vogliamo capire quali sono le condizioni per stabilir
 \input{build/figure/condensatore_piano_verticale.tex}
 
 Consideriamo un condensatore a facce piane parallele circolari come in figura \ref{figure: condensatore verticale} dove la carica su una armatura è 
-data da $ Q(t) = Q_0 \sin(\omega t) $, e quindi il 
-campo è dato da 
+data da $ Q(t) = Q_0 \sin(\omega t) $, e quindi il campo è uniforme e vale  
 \begin{equation}
-  \v{ E } = \frac{Q}{\varepsilon A} \vers{z} = E_0 \sin(\omega t) \vers{z}
+  \v{ E } = \frac{Q}{\varepsilon A} \vers{z} = E_0 \sin(\omega t) \vers{z}.
 \end{equation}
-Vedremo come questo primo termine è il primo di 
+Vedremo come questo termine è il primo di 
 uno sviluppo in potenze di $ \omega $. Ne calcoliamo la derivata rispetto al tempo
 \begin{equation}
   \der{\v{ E }}{t} = E_0 \omega \cos(\omega t) \vers{z}
@@ -1634,7 +1641,7 @@ Calcoliamo ora la circuitazione del campo magnetico lungo una circonferenza $ \g
 \end{align}
 quindi il campo vale
 \begin{align}
-  B_{\varphi} = \mu \varepsilon  r \frac{\omega}{2} E_0\cos(\omega t)
+  B_{\varphi}(r) = \mu \varepsilon  r \frac{\omega}{2} E_0\cos(\omega t)
 \end{align}
 quindi,
 \begin{equation}
@@ -1660,18 +1667,33 @@ Chiamiamo $ E_z(r = 0) = E_1 $ e semplificando $ h $ otteniamo una espressione p
 
 
 Notiamo che $ \v{ E }_2 $ differisce da $ \v{ E }_1 $ per un coefficiente 
-$ 1 - \alpha^2 $ con $\displaystyle \alpha = \frac{\omega r}{2} \sqrt{\mu \varepsilon} = \frac{\omega r}{2 c} \eta $ (ricordiamo che $ \eta $ lo abbiamo 
-definito come l'indice di "rifrazione" del mezzo, cioè $ \eta = \sqrt{\mu_r \varepsilon_r} $). Grazie a ciò siamo in grado di dare una condizione di 
-\textit{\enquote{lentamente variabili}}: quando $ \alpha $ è piccolo possiamo considerare solo il termine $ \v{ E }_1 $. Il problema sta 
-nel verificare rispetto a quale quantità è piccolo (non ci viene in aiuto l'analisi dimensionale dato che $ \alpha $ è adimensionale). Piccolo o grande è 
-da intedersi rispetto all'unica grandezza costante in gioco ovvero $ c $, e possiamo stimare l'ordine di grandezza limite della frequenza (quando non è più 
-trascurabile): $ \omega = 2 \pi f \approx 6 f $, con un condensatore di raggio $ r = \SI{1}{\meter} $ si ha
+$ 1 - \alpha^2 $ con $\displaystyle \alpha = \frac{\omega r}{2} \sqrt{\mu \varepsilon} = \frac{\omega r}{2 c} n $ dove $ n \coloneq \sqrt{\eps_r \mu_r}$ 
+è l'indice di rifrazione del mezzo che per ora ha il solo ruolo di una costante reale; per la sua definizione rimandiamo al capitolo 
+\ref{chap: elettromagnetismo nella materia}. Grazie a ciò siamo in grado di dare una condizione di 
+\textit{\enquote{lentamente variabili}}: quando $ \alpha $ è piccolo possiamo considerare solo il termine $ \v{ E }_1 $. La correzione $ \alpha $ è una 
+quantità adimensionale dunque la consideriamo piccola rispetto ad $ 1 $, tuttavia dopo ci soffermeremo cosa davvero stiamo richiedendo che sia piccolo 
+in questa quantità. Possiamo stimare l'ordine di grandezza limite della frequenza (quando non è più trascurabile) in funzione del raggio $ R $ del 
+condensatore: approssimando $ \omega = 2 \pi f \approx 6 f $ si ha
 \begin{align}
-  \alpha^2 = \left( \frac{ 6 f}{2 \cdot 3 \cdot 10^8} \right)^2 \leq 10^{-2} \implies f \leq \SI{e7}{\Hz}
+  \alpha^2 = \left( \frac{ 6 f \cdot r }{2 \cdot 3 \cdot 10^8} \right)^2 \leq 10^{-2} \implies f \leq \frac{10^7}{R} \si{\Hz}
 \end{align}
-Quindi per frequenze fino alle decine di \si{\MHz} il campo può essere considerato lentamente varibiale.
-
-
+quindi per un condensatore di raggio $ R = \SI{1}{\cm} $ otteniamo che per frequenze $ f \leq \SI{e9}{\Hz} = \SI{1}{\GHz} $ la correzione al campo elettrico 
+è al massimo dell'$ 1\% $. Se ci soffermiamo su quello che abbiamo richiesto, notiamo che scrivendo $ \alpha $ in termini della lunghezza d'onda 
+$ \lambda = \frac{v}{f} = \frac{2\pi c}{n\omega} $ si ha che 
+\begin{align}
+  \alpha = \frac{\pi r}{\lambda} 
+\end{align}
+e dunque la richiesta che abbiamo fatto equivale a 
+\begin{align}
+  \alpha \ll 1 \implies R \ll \lambda \quad \text{oppure} \quad \omega R \ll c
+\end{align}
+cioè che il condensatore sia "invisibile" rispetto alla lunghezza d'onda, o che la scala di velocità $ \omega R $ non sia comparabile a quella della luce. 
+Questa seconda condizione acquista maggiormente significa riscrivendo in termini del periodo $ T = \frac{2\pi}{\omega} $ ottenendo
+\begin{align}
+  \frac{2R}{c} \ll \frac{T}{\pi}
+\end{align}
+dove $ 2R/c $ è il tempo che la luce impiega ad attraversa il condensatore, che richiediamo essere molto più piccolo rispetto al tempo di variazione 
+dei campi.
 
 \section{Corda elastica e onde meccaniche}
 
@@ -3288,7 +3310,7 @@ e il caso in cui $ \vec{\beta} \cdot \vers{n} = \beta \cos\theta $ (che per $ \t
 
 
 
-\chapter{Elettromagnetismo nella materia}
+\chapter{Elettromagnetismo nella materia} \label{chap: elettromagnetismo nella materia}
 In questo capitolo studieremo come i campi elettromagnetici interagiscono con la materia e come è possibile modellizzarli. Le equazioni di Maxwell 
 che abbiamo ricavato, insieme alla forza di Lorenz, costituiscono una teoria esatta per descrivere i campi elettromagnetici. L'aggettivo esatto è da 
 intendersi nel senso che non è una teoria ricavata da una qualche approssimazione di una teoria più completa, come ad esempio la meccanica Newtoniana che 

@@ -1,0 +1,62 @@
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[>=Stealth, scale=1.1,
+        plate/.style={line width=1pt},
+        wire/.style={line width=1pt},
+        efield/.style={gray!70, line width=0.6pt, ->}]
+
+        \def\r{1.5}   % raggio verticale delle armature
+        \def\h{2}     % distanza tra le armature
+        \def\e{0.4}   % schiacciamento orizzontale delle ellissi
+
+        % Campo E nel gap: flusso che attraversa l'estremita' chiusa di S
+        \foreach \y in {-0.7, 0, 0.7}{ \draw[efield] (0.30,\y) -- (1.70,\y); }
+        \node[gray!70] at (1.5,1.25) {$\vec{E}$};
+
+        % Armatura destra
+        \draw[plate] (\h,\r) arc[start angle=90, end angle=270, x radius=\e, y radius=\r];
+        \draw[plate, dashed] (\h,\r) arc[start angle=90, end angle=-90, x radius=\e, y radius=\r];
+
+        % Fili
+        \draw[wire, dashed] (0,0) -- (-\e,0);          % tratto dietro l'armatura
+        \draw[wire] (-\e,0) -- (-4.6,0);               % filo che porta la corrente I
+        \draw[wire] (\h,0) -- (\h+1.2,0);              % terminale destro
+        \draw[wire, -{Stealth[length=3mm]}] (-4.1,0) -- (-3.3,0);
+        \node at (-3.7,0.30) {$I$};
+
+        % Superficie S, profilo ad anfora:
+        %  - tangente orizzontale in partenza da C
+        %  - si gonfia sopra l'armatura sinistra (non la interseca)
+        %  - si richiude a tangente verticale fra le armature
+        \path[fill=blue!50, fill opacity=0.25, draw=blue!55!black, line width=0.6pt]
+            (-2.5,1.0)
+            .. controls (-1.9, 1.00) and (-1.2, 1.95) .. (-0.1, 1.95)
+            .. controls ( 0.7, 1.95) and ( 1.1, 1.05) .. ( 1.1, 0.00)
+            .. controls ( 1.1,-1.05) and ( 0.7,-1.95) .. (-0.1,-1.95)
+            .. controls (-1.2,-1.95) and (-1.9,-1.00) .. (-2.5,-1.0)
+            arc[start angle=-90, end angle=90, x radius=0.45, y radius=1.0]
+            -- cycle;
+
+        % Armatura sinistra (davanti al sacco)
+        \draw[plate] (0,\r) arc[start angle=90, end angle=270, x radius=\e, y radius=\r];
+        \draw[plate, dashed] (0,\r) arc[start angle=90, end angle=-90, x radius=\e, y radius=\r];
+
+        \node at (-0.62,0.45) {$+$};
+        \node at (\h+0.62,0.45) {$-$};
+
+        % Bordo C (loop attorno al filo) e verso di circuitazione
+        \draw[fill=red, fill opacity = 0.25, red!75!black, line width=1pt] (-2.5,0) ellipse[x radius=0.45, y radius=1.0];
+        \draw[red!75!black, -{Stealth[length=2.4mm]}, line width=1pt]
+            (-2.105,-0.5) arc[start angle=-30, end angle=35, x radius=0.45, y radius=1.0];
+
+        % Etichette
+        \node[red!75!black] at (-2.5,1.35) {$C$};
+        \node[blue!55!black] at (-0.30,1.55) {$S$};
+        \node[red!75!black] at (-2.5,0.35) {$\Sigma$};
+        \draw[gray!60,line width=0.5pt] (1.13,-0.12) -- (1.7,-1.65);
+        \node at (2.15,-1.9) {\footnotesize "corrente di spostamento"};
+
+    \end{tikzpicture}
+    \caption{Condensatore piano con una curva $ C $ concatenata al filo e due superfici $ \Sigma $ e $ S $ con bordo la stessa $ C $.}
+    \label{figure: condensatore corrente spostamento}
+\end{figure}
