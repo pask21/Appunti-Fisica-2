@@ -1695,35 +1695,48 @@ Questa seconda condizione acquista maggiormente significa riscrivendo in termini
 dove $ 2R/c $ è il tempo che la luce impiega ad attraversa il condensatore, che richiediamo essere molto più piccolo rispetto al tempo di variazione 
 dei campi.
 
-\section{Corda elastica e onde meccaniche}
+\section{Onde elettromagnetiche piane} \label{section:_Onde_elettromagnetiche}
+In questa sezione risolveremo le equazioni di Maxwell nel vuoto e in assenza di sorgenti, e questo ci porterà a delle soluzioni che possono sembrare 
+inutili dato che se non ci sono sorgenti è naturale chiedersi come si sono generate. Tuttavia le soluzioni che troveremo, chiamate \textit{onde piane}, sono 
+il limite per quando siamo molto lontani da correnti e cariche libere, in cui le soluzioni sono localmente onde piane.
 
-\section{Onde elettromagnetiche} \label{section:_Onde_elettromagnetiche}
-Dalla matematica sappiamo che le funzioni $ \cos(\alpha_n x), \sin(\alpha_n x) $ sono un insieme completo e tramite serie di Fourier è possibile 
-ricostruire una qualsiasi funzione. Quindi una volta verificato che $ h = h_0\cos(kx - \omega t) $ (o il seno) è soluzione, dato che le equazioni sono 
-lineari, possiamo comporle linearmente e trovare la soluzione generale. Questo approccio è classico ma vogliamo provare ad affrontare il problema da 
-con un metodo più formale e che successivamente risulterà più comodo per i calcoli.\\
+Dalla matematica sappiamo che il sistema $ \{1, \cos\left( \frac{n\pi}{a} x \right), \sin\left( \frac{n\pi}{a} x \right)\} $ è completo nello spazio di 
+Hilbert $ L^2(-a, a) $, e quindi tramite serie di Fourier è possibile ricostruire una qualsiasi funzione di tale spazio. Allora una volta verificato che 
+una funzione del tipo $ h = h_0\cos(kx - \omega t) $ (o il seno) è soluzione, dato che le equazioni sono lineari, possiamo comporle linearmente e scrivere 
+ogni soluzione come serie di termini del tipo $ h $. Questo approccio è classico ma vogliamo provare ad affrontare il problema 
+con un metodo più formale e che successivamente risulterà più comodo per i calcoli, il quale richiede una raffinatezza a livello teorico. 
 Per snellire i calcoli indicheremo con $ g = g (x,t) = kx - \omega t $. Sfruttiamo la notazione complessa:
 \begin{align}
-  h = h_0 e^{i \left( kx - \omega t \right)}
-\end{align}
+  h = h_0 e^{i \left( kx - \omega t \right)} 
+\end{align} \label{eq: onda piana monodimensionale}
 con
 \begin{equation}
-  h_0 \in \mathbb{C},\; h_0 = \alpha + i \beta \quad \alpha, \beta \in \mathbb{C}
+  h_0 \in \mathbb{C},\; h_0 = \alpha + i \beta \quad \alpha, \beta \in \R
 \end{equation}
-In questo modo prendendo la parte reale di h (dato che cerchiamo soluzioni nello spazio $ \mathbb{R}^3 $):
+In questo modo prendendo la parte reale di $ h $ (cerchiamo soluzioni nello spazio $ \mathbb{R} $ dato che i campi fisici sono reali):
 \begin{align}
-  Re\left( h \right) = Re \left[ (\alpha + i \beta)\left( \cos g + i \sin g \right) \right] = \alpha \cos g - \beta \sin g
+  \text{Re}\left( h \right) = \text{Re} \left[ (\alpha + i \beta)\left( \cos g + i \sin g \right) \right] = \alpha \cos g - \beta \sin g
 \end{align}
 Scegliendo il numero complesso $ h_0 $ otteniamo una combinazione lineare di seno e coseno di $ g(x,t) $, quindi la notazione complessa non ci fa 
-effettivamente perdere generalità.\\
-Vediamo adesso come Maxwell ha manipolato le sue equazioni in modo da trovare l'equazione differenziale delle onde. Mettiamoci nel vuoto e nel caso 
-in cui non ci siano alcun tipo di sorgenti, calcoliamo allora il rotore del rotore di $ \v{ E } $:
+effettivamente perdere generalità. Generalizzando nello spazio $ \R^3 $ l'oggetto in equazione \eqref{eq: onda piana monodimensionale} otteniamo 
+($ h:\R^3 \to \mathbb{C} $)
+\begin{align}
+  h = h_0 e^{i (\v{k\cdot r} - \omega t)} \tag*{[Onda piana]}
+\end{align} \label{eq: onda piana}
+che è l'onda piana di cui parlavamo sopra, chiamata così perché il fronte d'onda, cioè il luogo dei punti con stessa immagine, è un piano. Sarà proprio 
+questo oggetto l'elemento fondamentale con cui descriveremo le soluzioni alle equazioni di Maxwell, tuttavia non è banale il perché possiamo farlo dato che 
+le onde piane non sono funzioni $ L^2 $. Dal punto di vista teorico stiamo cambiando lo spazio su cui ci appoggiamo, infatti mandando $ a \to \infty $ la 
+nostra (discreta) serie di Fourier diventa una (continua) trasformata di Fourier. Per ora ci basta sapere che in questo nuovo spazio dove vivono le onde 
+piane, la trasformata di una onda piana rimane ancora in questo spazio e dunque possiamo comporle per formare la soluzione generale, e questo chiude le 
+giustificazioni della notazione complessa. 
+Vediamo adesso come Maxwell ha manipolato le sue equazioni in modo da trovare l'equazione differenziale delle onde. Calcoliamo allora il rotore del 
+rotore di $ \v{ E } $:
 \begin{align}
   \v{\nabla}\!\times\! \left( \v{\nabla}\!\times\!\v{ E } \right) &= \v{\nabla}\!\times\! \left( - \der{\v{ B }}{t} \right)
   = - \mu_0 \varepsilon_0 \der[2]{\v{ E }}{t}
   \\
   \text{ma} \quad \v{\nabla}\!\times\! \left( \v{\nabla}\!\times\!\v{ E } \right) 
-  &= \nabla \left( \nabla \cdot \v{ E } \right) - \nabla^2 \v{ E } = - \nabla ^2 \v{ E }
+  &= \nabla \left( \nabla \cdot \v{ E } \right) - \nabla^2 \v{ E } = 0 - \nabla ^2 \v{ E }
 \end{align}
 e unendo questi due risultati si ottiene:
 \begin{equation}
@@ -1742,13 +1755,14 @@ e quindi
 Con queste due nuove equazioni, $ \v{ B } $ ed $ \v{ E } $ non sono accoppiati, quindi nel cercare le soluzioni dovremo poi verificare che 
 risolvano effettivamente anche le equazioni di Maxwell (questo perché non sono effettivamente equivalenti). Per chiarire, se una funzione è soluzione 
 delle equazioni di Maxwell, allora risolve anche le due equazioni delle onde, ma non è vero il viceversa.\\
-Proviamo con le \textit{onde piane}
+Proviamo con le onde piane
 \begin{align} \label{onde piane E,B}
   \v{ E }(\v{ r },t) &= \v{ E }_0 e^{i\left( \v{ k \cdot r } - \omega t \right)}
   \\
   \v{ B }(\v{ r },t) &= \v{ B }_0 e^{i\left( \v{ k \cdot r } - \omega t \right)}
 \end{align}
-(ricordando che dobbiamo sempre prenderne la parte reale prima o poi), verifichiamo che risolvono le equazioni di Maxwell:
+ricordando che dobbiamo sempre prenderne la parte reale prima o poi. È facile verificare per quali condizioni sono soluzioni dell'equazione delle onde 
+che abbiamo trovato ma per quanto detto sopra noi verificheremo che risolvono le equazioni di Maxwell:
 \begin{align}
   \nabla\!\cdot\!\v{ E } &= i \left( E_{0x}k_x + E_{0y}k_y + E_{0z}k_z \right) e^{i\left( \v{ k \cdot r } - \omega t \right)} = 0 
   \iff \v{ k\cdot E }_0 = 0
@@ -1795,16 +1809,12 @@ caso prendiamo il coefficiente davanti alla derivata temporale nell'equazione de
 \end{equation}
 e quindi le relazioni trovate prima si riscrivono come
 \begin{align}
-  \v{ n } \times \v{ E }_0 = c \v{ B }_0 \implies E = c B
+  \vers{k} \times \v{ E }_0 = c \v{ B }_0 \implies E = c B
 \end{align}
-dove $ \v{ n } $ è il versore di propagazione dell'onda, cioè $ \v{ n } = \frac{\v{ k }}{|\v{ k }|} $
-a oggi è scontato che la luce sia una un'onda elettromagnetica ma al tempo di Maxwell non erano ancora stati fatti gli esperimenti che evidenziassero 
-il comportamento da onda elettromagnetica della luce. Tuttavia la velocità della luce era nota e con un incertezza dell'ordine del $ 1\% $, dunque 
-Maxwell disse che \textit{"non è possibile escludere che la luce stessa sia una perturbazione elettromagnetica"}.\\
-Nella nostra trattazione per ora ci basta la definizione in equazione \eqref{definizione di c}.
-
-Nel caso in cui sono presenti le sorgenti
-
+dove $ \vers{k} $ è il versore di propagazione dell'onda, cioè $ \vers{k} = \frac{\v{ k }}{|\v{ k }|} $. A oggi è scontato che la luce sia una un'onda 
+elettromagnetica ma al tempo di Maxwell non erano ancora stati fatti gli esperimenti che evidenziassero il comportamento da onda elettromagnetica della 
+luce. Tuttavia la velocità della luce era nota e con un incertezza dell'ordine del $ 1\% $, dunque Maxwell disse che 
+\textit{"non è possibile escludere che la luce stessa sia una perturbazione elettromagnetica"}.
 
 \subsection{Gradi di libertà}
 Soffermiamoci a vedere quante variabili sono necessarie per fissare in modo univoco una soluzione. La scelta della fase 
@@ -1881,7 +1891,7 @@ In questa sezione otterremo un risultato fondamentale dell'elettrodinamica, che 
 come \textit{Teorema di Poynting}. Tale teorema è una conseguenza delle equazioni di Maxwell, non ci fornisce relazioni ulteriori fra i campi 
 ma bensì mette in chiaro il fatto che i campi sono un'unica identità e come sono legati alla trasmissione di energia.
 
-Consideriamo un volume $ V $ di superficie $ A $ orientata uscente, dove sono presenti delle sorgenti. 
+Consideriamo un volume $ V $ con superficie regolare $ \partial V = A $ orientata uscente, dove sono presenti delle sorgenti. 
 Svolgiamo i seguenti prodotti scalari: $ \v{ E } $ con il rotore di $ \v{ B } $ e $ \v{ B } $ con il rotore di $ \v{ E } $.
 \begin{align}
   \v{ E } \cdot \left( \nabla\!\times\!\v{ B } \right) &= 
@@ -1923,12 +1933,13 @@ campi e un certo flusso uscente dal volume. Questa quantità viene definita come
 \end{align}
 Sotto una certa interpretazione si può pensare il vettore di Poynting come un flusso di energia, ma comparendo nel teorema solo la sua divergenza potremmo 
 aggiungere un qualsiasi rotore di un campo vettoriale (che ha quindi divergenza nulla) e il teorema rimarrebbe invariato. Benché questo non abbia conseguenze 
-fisiche, dal solo teorema di Poynting il campo $ \v{ S } $ non è unico, infatti per dirlo servono delle considerazioni relativistiche.\\
+fisiche, dal solo teorema di Poynting il campo $ \v{ S } $ non è unico, infatti per dirlo servono delle considerazioni relativistiche.
+
 Abbiamo detto che il teorema di Poynting rappresenta quindi una sorta di equazione di continuità per l'energia, ma proprio perché i campi scambiano energia 
 con le cariche vogliamo trovare le implicazioni dinamiche di questo fatto. 
 Consideriamo la forza di Lorentz che agisce su una singola carica $ q $:
 \begin{align}
-  \v{ F } = q\v{ E } + \v{ v \times B},
+  \v{ F } = q(\v{ E } + \v{ v \times B}),
 \end{align}
 se la scriviamo in termini delle distribuzioni di carica e corrente $ \rho, \v{ J } $ otteniamo
 \begin{align}
@@ -1947,57 +1958,60 @@ Sostituiamo le due densità applicando le equazioni di Maxwell
   &= \eps_0 \left[ \v{ E } \left( \nabla\!\cdot\!\v{ E } \right) + c^2 \left( \nabla\!\times\!\v{ B } \right) \times \v{ B } 
   - \der{\v{ \left( E \times B \right)}}{t} - \v{ E } \times \left( \nabla\!\times\!\v{ E } \right) \right]
 \end{align}
-Scriviamo il secondo principio della dinamica, indicando con $ \v{ p } $ la quantità di moto totale delle cariche nel volume:
+Per il secondo principio della dinamica abbiamo che
 \begin{align}
-  &\frac{d\v{ p }}{dt} = \v{ F }
-  \\
-  &\implies \dot{\v{ p }} + \eps_0 \int_V \der{\left( \v{ E \times B } \right)}{t} \,dV
+  \frac{d\v{p}}{dt} = \v{F} = \int_V \v{f} \,dV 
+\end{align}
+dove $ \v{p} $ è il momento totale delle cariche del sistema considerato, dunque è il \textit{momento meccanico} 
+(spesso indicato con $ \v{p}_{\text{mecc}} $). A questo punto è naturale riconoscere nei termini che compongono $ \v{f} $ una densità di momento,  
+ovvero il termine con la derivata temporale, che indicheremo con $ \v{g} $, mentre il suo integrale di volume lo indicheremo con $ \v{G} $. 
+Tali quantità rappresentano rispettivamente la densità di momento e il momento del campo elettromagnetico, e cioè $ \v{p}_{\text{em}} \coloneq \v{G}  $: 
+\begin{align}
+  \v{g} \coloneq \eps_0 \left( \v{E \times B} \right) = \frac{\v{S}}{c^2} \qquad \v{G} = \int_V \v{g} \,dV
+\end{align}
+dove abbiamo evidenziato la proporzionalità col vettore di Poynting. In questi termini il secondo principio si riscrive come
+\begin{align}
+  \frac{d}{dt} \left( \v{p}_{\text{mecc}} + \v{G} \right) 
   = \int_V \eps_0 \left[ \v{ E } \left( \nabla\!\cdot\!\v{ E } \right) + c^2 \left( \nabla\!\times\!\v{ B } \right) \times \v{ B } 
   - \v{ E } \times \left( \nabla\!\times\!\v{ E } \right) \right] \,dV
-  \\
-  &= \frac{d}{dt} \left( \v{ p } + \eps_0 \int_V \left( \v{ E \times B } \right) \,dV \right) 
 \end{align}
-Da questa equazione possiamo riconoscere l'integrale nel membro di sinistra come il momento associato ai campi, ed è immediato riconoscere la 
-proporzionalità col vettore di Poynting
+Adesso manipoliamo il membro di destra aggiungendo la quantità nulla $ 0 = c^2 \v{ B } \left( \nabla\!\cdot\!\v{ B } \right) $ perché ci permette di 
+ottenere una espressione che è simmetrica per i due campi (a meno del fattore $ c^2 $):
 \begin{align}
-  \eps_0 \int_V {\left( \v{ E \times B } \right)} \,dV = \frac{1}{c^2} \, \v{ S } \eqqcolon \v{ g }
-\end{align}
-dove abbiamo definito $ \v{ g } $ come il momento elettromagnetico associato ai campi. Per quanto riguarda l'altro membro se ci aggiungiamo il 
-termine $ c^2 \v{ B } \left( \nabla\!\cdot\!\v{ B } \right) = 0 $ otteniamo una espressione che è simmetrica per i due campi 
-(a meno del fattore $ c^2 $):
-\begin{align}
-  \v{ f } = \eps_0 \left[ \v{ E } \left( \nabla\!\cdot\!\v{ E } \right) + c^2 \v{ B } \left( \nabla\!\cdot\!\v{ B } \right) 
+  \eps_0 \left[ \v{ E } \left( \nabla\!\cdot\!\v{ E } \right) + c^2 \v{ B } \left( \nabla\!\cdot\!\v{ B } \right) 
   -  c^2 \, \v{ B } \times \left( \nabla\!\times\!\v{ B } \right)  
-  - \v{ E } \times \left( \nabla\!\times\!\v{ E } \right) \right]
+  - \v{ E } \times \left( \nabla\!\times\!\v{ E } \right) \right].
 \end{align}
-Sfruttiamo un risultato per i campi vettoriali ovvero
+Da qui il nostro obiettivo è quello di compattare questa espressione e per farlo sfruttiamo un risultato noto per i campi vettoriali, il quale ci permette 
+di costruire un tensore a due indici:
 \begin{align}
   \left[ \v{ E } \left( \nabla \cdot \v{ E } \right) - \v{ E } \times \left( \nabla \times \v{ E } \right) \right]_i 
   = \sum_{j} \der{}{x_j} \left( E_i E_j - \frac{1}{2} \v{ E }^2 \delta_{i j} \right)
+  \\
+  \implies T_{i j} \coloneqq \eps_0 \left[ E_i E_j + c^2 \, B_i B_j - \frac{1}{2} \left( \v{ E }^2 + c^2 \, \v{ B }^2 \right) \delta_{i j} \right]
 \end{align}
-in cui si riconosce la struttura di un tensore a due indici. Possiamo quindi definire il \textit{tensore di Maxwell} $ T_{i j} $:
+e il tensore $ T_{i j} $ è detto \textit{tensore di Maxwell} $ T_{i j} $ (o \textit{tensore degli sforzi}). La componente $ i $-esima $ f_i $ della densità 
+di forza si riscrive come
 \begin{align}
-  T_{i j} \coloneqq \eps_0 \left[ E_i E_j + c^2 \, B_i B_j - \frac{1}{2} \left( \v{ E }^2 + c^2 \, \v{ B }^2 \right) \delta_{i j} \right]
+  f_i = \sum_j \der{T_{i j}}{x_j} - \der{g_i}{t}
 \end{align}
-in questo modo l'equazione per il momento in termini del tensore di Maxwell diventa
+e riportandola in termini della formulazione iniziale si ha
 \begin{align}
-  \v{ f }_i + \der{}{t} \left(\frac{1}{c^2} \, \v{ S } \right)_i = \sum_j \der{T_{i j}}{x_j}.
+  \der{}{t} \left( \frac{\v{S}}{c^2} \right) + \rho \v{ E } + \v{ J } \times \v{ B } = \sum_{i,j} \der{T_{i j}}{x_j} \vers{x}_i
 \end{align}
-Riportando il risultato ottenuto alla formulazione iniziale si ha
+A questo punto per ottenere il secondo principio in forma compatta manca solo da integrare sul volume la densità di forza $ \v{f} $:
 \begin{align}
-  \der{}{t} \left( \frac{1}{c^2}\, \v{ S } \right) + \rho \v{ E } + \v{ J } \times \v{ B } = \sum_j \der{T_{i j}}{x_j} \vers{x}_j
+  \frac{d}{dt} \left( \v{ p }_{\text{mecc}} + \v{ p }_{\text{em}} \right) 
+  = \sum_{i,j} \int_V \der{T_{i j}}{x_j} \vers{x}_i \,d^3r = \sum_{i,j} \oint_{\partial V} T_{i j} n_j \vers{x}_i \,d^2r
 \end{align}
-e integrando sul volume riotteniamo la forza meccanica totale $ \v{ F } = \frac{d \v{ P }_{\text{mecc}}}{dt} $ sommata alla derivata rispetto al 
-tempo del flusso del vettore di Poynting $ \Phi(\v{ S }) = \v{ P }_{\text{em}} $ (che abbiamo definito come la derivata rispetto al 
-tempo della quantità di moto dei campi) che è uguale all'integrale sul volume del tensore di Maxwell:
+dove abbiamo usato il teorema della divergenza sul tensore di Maxwell, che risulta più chiaro nella seguente forma per la componente $ i $-esima
 \begin{align}
-  \frac{d}{dt} \left( \v{ P }_{\text{mecc}} + \v{ P }_{\text{em}} \right) 
-  = \sum_{j} \int_V \der{T_{ij}}{x_j} \vers{x}_j \,dV = \sum_j \oint_S T_{i j} \vers{n}_j \,dS
+  \frac{d}{dt} \left( p_i^{\text{mecc}} + p_i^{\text{em}} \right) 
+  = \sum_{j} \int_V \der{T_{i j}}{x_j} \,d^3r = \sum_{j} \oint_{\partial V} T_{i j} n_j \,d^2r.
 \end{align}
-dove abbiamo applicato il teorema della divergenza anche al tensore con $ \vers{n} $ il versore normale della superficie $ S $. Il risultato che abbiamo 
-ottenuto ci dice che la quantità di moto (derivata rispetto al tempo) contenuta nel volume è uguale tensore di Maxwell valutato sulla superficie, 
-questo perché l'informazione che è contenuta sul bordo è quella dei campi iniziali (che evolvono nel tempo) e quella della materia che reagisce ai campi 
-modificandoli.
+Il risultato che abbiamo ottenuto ci dice che la quantità di moto (derivata rispetto al tempo) contenuta nel volume è uguale tensore di Maxwell 
+valutato sulla superficie, questo perché l'informazione che è contenuta sul bordo è quella dei campi iniziali (che evolvono nel tempo) e quella della 
+materia che reagisce ai campi modificandoli.
 
 \subsection{Vettore di Poynting per il filo}
 Nel caso del filo percorso da densità di corrente $ \v{ J } $ uniforme, $ \v{ E } $ è lungo il filo ($ \vers{z} $) mentre $ \v{ B } $ è 
@@ -2107,7 +2121,7 @@ $ xyz $ (figura \ref{figure:_cavità_parallelepipedo}). Proviamo una soluzione d
   &+ \left. \mathcal{E}_z \sin\left( \frac{n_1\pi}{a}x \right) \sin\left( \frac{n_2\pi}{a}y \right)
   \cos\left( \frac{n_3\pi}{a}z \right)\vers{z} \right]
 \end{align}
-vogliamo verificare che può essere una soluzione del nostro problema e per quali condizioni. Calcolandone il laplaciano vettoriale otteniamo 
+vogliamo verificare se e per quali condizioni può essere una soluzione del nostro problema. Calcolandone il laplaciano vettoriale otteniamo 
 (componente $ x $)
 \begin{align}
   - \left( \nabla^2 \v{ E } \right)_x = - \frac{n_1\pi}{a} E_x \implies - \left( \nabla^2 \v{ E } \right) 
@@ -2177,7 +2191,7 @@ essere solo parallelo alla cavità. Per ottenere il campo reale troviamo prima $
 \end{align}
 in questo modo possiamo definire una lunghezza caratteristica $ \delta $ chiamata \textit{spessore pelle}
 \begin{align}
-  \text{SI} \qquad \delta &= \frac{1}{\text{Re}(\chi)} = \sqrt{\frac{2}{\omega \mu_0 \sigma}}
+  \text{SI} \qquad \delta &= \frac{1}{\text{Im}(\chi)} = \sqrt{\frac{2}{\omega \mu_0 \sigma}}
   \\
   \text{cgs} \qquad \delta &= \frac{c}{\sqrt{2\pi \omega \sigma}}
 \end{align}
@@ -2213,7 +2227,7 @@ cioè per sovrapposizione lineare.
 Una trasformata è un operatore (in genere lineare) che va da uno spazio di funzioni in un altro spazio di funzioni; la trasformata di Fourier è una 
 trasformata integrale e opera con funzioni che appartengono allo spazio $ \mathbb{L}^2 $ (spazio delle funzioni a quadrato sommabile) cioè:
 \begin{equation}
-  \mathbb{L}^2 = \left\{f:\mathbb{R} \to \mathbb{C} \quad \text{tale che} \quad \int_{-\infty}^{+\infty} |f(x)|^2 \,dx < +\infty \right\}
+  L^2 = \left\{f:\mathbb{R} \to \mathbb{C} \quad \text{tale che} \quad \int_{-\infty}^{+\infty} |f(x)|^2 \,dx < +\infty \right\}
 \end{equation}
 Definiamo la trasformata di Fourier come segue:
 \begin{align}
@@ -2224,7 +2238,7 @@ dove $ \mathcal{F}(f) = \hat{f} $ è la trasformata di Fourier della funzione $ 
   \hat{f}(k) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} f(x) e^{-ikx} \,dx
 \end{equation}
 È come se fosse una somma (infinita) di funzioni sinusoidali pesate con la $f(k)$.
-Qualunque funzione (che sia in $ \mathbb{L}^2 $) si può scrivere come sovrapposizione di onde piane monocromatiche. $ \hat{f}(k) $ è l'ampiezza di ciascuna 
+Qualunque funzione (che sia in $ L^2 $) si può scrivere come sovrapposizione di onde piane monocromatiche. $ \hat{f}(k) $ è l'ampiezza di ciascuna 
 componente spaziale, mentre $ \exp(ikx) $ è la componente sinusoidale della frequenza spaziale $ k $. Quando c'è anche dipendenza dal tempo $ f(x,t) $ si ha
 \begin{align}
   f(x,t ) = \frac{1}{2\pi} \int \!\!\!\int_{-\infty}^{+\infty} \hat{f}(k,\omega) e^{ikx-i\omega t} \,dkd\omega
@@ -2276,7 +2290,7 @@ Consideriamo adesso il pacchetto d'onda gaussiano di prima cioè
 \begin{align}
   f(x,t) = e^{i k_0 x - i\omega t} \cdot e^{- \frac{x^2}{L^2}}
 \end{align}
-e ne vogliamo fare la trasformata di Fourier, stavolta però stando attenti in dominio la facciamo. $ f(x,t) $ è funzione dello spazio e del tempo, ma la 
+e ne vogliamo fare la trasformata di Fourier, stavolta però stando attenti in che dominio la facciamo. $ f(x,t) $ è funzione dello spazio e del tempo, ma la 
 parte temporale è quella di un onda piana, dunque si porta dietro gli stessi aspetti critici cioè che esiste in tutti i tempi. Se facessimo la trasformata 
 considerandola funzione di due variabili allora questa non sarebbe ben definita dato che non appartiene a $ \mathbb{L}^2 $ proprio perché il suo integrale non 
 converge. Possiamo aggirare questo problema in due modi: annullando completamente la parte temporale, o portarcela dietro e considerarla come una modifica 
@@ -2421,8 +2435,8 @@ Adesso che abbiamo sistemato i due potenziali passiamo a riscrivere le due equaz
   \\
   &= \mu_0 \v{ J } - \frac{1}{c^2}\left[ \nabla \left( \der{V}{t} \right) + \der[2]{\v{ A }}{t} \right].
 \end{align}
-Le equazioni che abbiamo ottenuto sono complicate da risolvere così come sono, perciò sfruttiamo il fatto che il potenziale vettore non è unico per 
-semplificarle: l'idea è di applicare una trasformazione di gauge per ottenere un nuovo potenziale vettore che ci semplifichi le equazioni, ricordiamo 
+Le equazioni che abbiamo ottenuto sono complicate da risolvere così come sono, perciò per semplificarle sfruttiamo il fatto che il potenziale vettore 
+non è unico: l'idea è di applicare una trasformazione di gauge per ottenere un nuovo potenziale vettore che ci semplifichi le equazioni. Ricordiamo 
 che una trasformazione di gauge è della forma
 \begin{align}
   \nabla \cdot \v{ A }' = 0, \qquad \v{ A }' = \v{ A } + \nabla \Psi,
@@ -2494,7 +2508,7 @@ Per trovarne una soluzione sfruttiamo la tecnica di Green, cioè scriviamo la fu
 e adesso troviamo quale condizione deve rispettare la funzione di Green $ G(\v{ x },\v{ x }') $ affinché $ f_\omega $ sia soluzione:
 \begin{align}
   \left( \nabla^2 + k^2 \right)f_\omega 
-  = \frac{1}{4\pi} \int S(\v{ x }') \left[ \nabla^2 + k^2 \right]\!G(\v{ x }, \v{ x }') \,d^3x' \overset{!}{=} -S_\omega(\v{ x })
+  = \frac{1}{4\pi} \int S_\omega(\v{ x }') \left[ \nabla^2 + k^2 \right]\!G(\v{ x }, \v{ x }') \,d^3x' \overset{!}{=} -S_\omega(\v{ x })
 \end{align}
 da cui la condizione da imporre è
 \begin{align}
@@ -2507,13 +2521,13 @@ da cui la condizione da imporre è
 espressa in coordinate sferiche (per verificare che risolve effettivamente l'equazione si usi il laplaciano in coordinate sferiche). Affinché sia proprio 
 la soluzione che cercavamo dobbiamo verificare che risolva anche la \eqref{eq:_condizione_di_Lorenz}: 
 \begin{align}
-  \nabla\!\cdot\!\v{ A }_\omega &= \frac{\mu_0}{4\pi} \int \v{ J }_\omega(\v{ x' }) \cdot \nabla G(\v{ x },\v{ x }') \,d^3x' 
-  = - \frac{\mu_0}{4\pi} \int \v{ J }_\omega(\v{ x' }) \cdot \nabla' G(\v{ x },\v{ x }') \,d^3x' 
+  \nabla\!\cdot\!\v{ A }_\omega &= k_m \int \v{ J }_\omega(\v{ x' }) \cdot \nabla G(\v{ x },\v{ x }') \,d^3x' 
+  = - k_m \int \v{ J }_\omega(\v{ x' }) \cdot \nabla' G(\v{ x },\v{ x }') \,d^3x' 
   \\
-  &= - \frac{\mu_0}{4\pi} \int \left[ \nabla' \cdot \left( \v{ J }_\omega(\v{ x' }) G(\v{ x },\v{ x }') \right) 
+  &= - k_m \int \left[ \nabla' \cdot \left( \v{ J }_\omega(\v{ x' }) G(\v{ x },\v{ x }') \right) 
   - G(\v{ x },\v{ x }') \nabla' \cdot \v{ J }_\omega(\v{ x' }) \right] \,d^3x' 
   \\
-  &= 0 + \frac{\mu_0}{4\pi} \int i\omega \rho_\omega(\v{ x }') G(\v{ x }, \v{ x }') \,d^3x' 
+  &= 0 + k_m \int i\omega \rho_\omega(\v{ x }') G(\v{ x }, \v{ x }') \,d^3x' 
   = \frac{i\omega}{4\pi c^2} \int  \frac{\rho_\omega(\v{ x }')}{\eps_0} G(\v{ x }, \v{ x }') \,d^3x' = \frac{-1}{c^2} \der{V_\omega}{t}
 \end{align}
 dove abbiamo usato (in ordine): la differenziazione di un prodotto; il teorema della divergenza per fare diventare un termine un integrale di superficie 
@@ -2527,12 +2541,12 @@ Finalmente abbiamo la nostra soluzione, possiamo quindi applicare l'anti-trasfor
   &= \frac{1}{4\pi \eps_0} \int \frac{1}{|\v{ x-x' }|} \int_{-\infty}^{+\infty} \rho_\omega(\v{ x' }) 
   \exp\left\{ -i\omega \left( t - \frac{|\v{ x-x' }|}{c} \right) \right\} \,d\omega \,d^3x' 
   \\
-  &= \frac{1}{4\pi\eps_0} \int \frac{\rho\left( \v{ x }', t - \frac{|\v{ x-x' }|}{c} \right)}{|\v{ x-x' }|} \,d^3x'
+  &= k_e \int \frac{\rho\left( \v{ x }', t - \frac{|\v{ x-x' }|}{c} \right)}{|\v{ x-x' }|} \,d^3x'
   \label{eq:_potenziale_scalare_ritardato}
 \end{align}
 gli stessi identici passaggi valgono per il potenziale vettore
 \begin{align} \label{eq:_potenziale_vettore_ritardato}
-  \v{ A }(\v{ x },t) = \frac{\mu_0}{4\pi}\int\frac{\v{J}\left(\v{x}',t-\frac{|\v{x-x'}|}{c} \right)}{|\v{x-x'}|} \,d^3x'
+  \v{ A }(\v{ x },t) = k_m  \int\frac{\v{J}\left(\v{x}',t-\frac{|\v{x-x'}|}{c} \right)}{|\v{x-x'}|} \,d^3x'
 \end{align}
 Quelli che abbiamo ottenuto sono i cosiddetti \textit{potenziali ritardati}, per evidenziare il fatto che il potenziale in un punto dello spazio-tempo
 non dipenda dalla sorgente in quell'istante, ma in un intervallo di tempo precedente detto tempo ritardato $ t_r $, che corrisponde al tempo che la luce 
@@ -2543,7 +2557,7 @@ quell'evento, con il tempo ritardato che vale
 \end{align}
 
 
-
+\begin{comment}
 
 \section{Elettrodinamica raw del 23 febbraio}
 Fattore di qualità $ Q \sim \frac{l}{\delta} \approx 10^4 \gg 1 $(nei materiali) con $ l $ spessore della cavità e $ \delta $ spessore pelle.
@@ -2682,6 +2696,7 @@ Sfera pulsante, E costante fuori dal raggio massimo, B sempre nullo a causa dell
 monopolo. $ \der{B}{t} $ associata a una j quando il piano passa, delta
 
 
+\end{comment}
 \section{Irraggiamento}
 \input{build/figure/irraggiamento.tex}
 Con le espressioni che abbiamo ottenuto per i potenziali ritardati vogliamo studiare il problema dell'irraggiamento: valutare in un punto lontano gli 
@@ -2698,24 +2713,24 @@ valutare i campi è $ \v{ r } $ mentre la distanza fra il punto e un elemento de
 passiamo ai potenziali ritardati nel dominio delle frequenze facendo una trasformata di Fourier
 \begin{align}
   \v{ A }_\omega (\v{ r }) &= \mathcal{F}(\v{ A }(\v{ r },t)) 
-  = \frac{\mu_0}{4\pi} \int  \frac{\v{ J }_\omega(\v{ r' }) e^{-i\omega t_r}}{|\v{x-x'}|} e^{i\omega t} \,d^3r' 
-  = \frac{\mu_0}{4\pi} \int  \frac{\v{ J }_\omega(\v{ r' })}{|\v{x-x'}|} e^{i\frac{\omega}{c} |\v{x - x'}| } \,d^3r' 
+  = k_m \int  \frac{\v{ J }_\omega(\v{ r' }) e^{-i\omega t_r}}{|\v{x-x'}|} e^{i\omega t} \,d^3r' 
+  = k_m \int  \frac{\v{ J }_\omega(\v{ r' })}{|\v{x-x'}|} e^{i\frac{\omega}{c} |\v{x - x'}| } \,d^3r' 
   \\
-  &= \frac{\mu_0}{4\pi} \int  \frac{\v{ J }_\omega(\v{ r' })}{R - \frac{\v{r\cdot r'}}{R}}\; e^{i k (R - \frac{\v{r\cdot r'}}{R})} \,d^3r' 
-  = \frac{\mu_0}{4\pi}\; \frac{e^{ik R}}{R} \int \v{J}_\omega(\v{r'}) \; e^{-ik \frac{ \v{r\cdot r'} }{ R }} \,d^3r'
+  &\simeq k_m \int  \frac{\v{ J }_\omega(\v{ r' })}{R - \frac{\v{r\cdot r'}}{R}}\; e^{i k (R - \frac{\v{r\cdot r'}}{R})} \,d^3r' 
+  \simeq k_m\; \frac{e^{ik R}}{R} \int \v{J}_\omega(\v{r'}) \; e^{-ik \frac{ \v{r\cdot r'} }{ R }} \,d^3r'
 \end{align}
 e da questo risultato vediamo che il potenziale vettore rappresenta un onda sferica che decresce come $ R^{-1} $, con l'aggiunta di un qualche 
 coefficiente dovuto all'angolo a cui si trova il punto di interesse $ \v{r} $. A questo punto è chiaro che nell'espressione ottenuta possiamo sviluppare 
 in serie di Taylor l'esponenziale e ottenere una serie di multipoli, ma affinché questa approssimazione sia valida occorre aggiungere un ulteriore ipotesi 
-che ci permette di dire che l'esponenziale è abbastanza piccolo da essere sviluppato. L'esponente è $ k \vers{u} \cdot \v{r'} $ ma $ r' $ è al massimo $ a $
-quindi dobbiamo imporre $ k\, a = 2\pi a/\lambda \ll 1 $ che è la condizione di \textit{sorgenti non relativiste} (oppure è chiamata approssimazione di 
+che ci permette di dire che l'esponenziale è abbastanza piccolo da essere sviluppato. L'esponente è $ k (\vers{u} \cdot \v{r'}) $ ma $ r' $ è al massimo $ a $
+quindi dobbiamo imporre $ k\, a = 2\pi a/\lambda \ll 1 $ che è la condizione di \textit{sorgenti non relativiste} (anche chiamata approssimazione di 
 dipolo come vedremo tra poco), e il motivo è che
 \begin{align}
   ka = 2\pi \frac{a}{\lambda} = \frac{2\pi a}{T \,c} = 2\pi \frac{v}{c} \ll 1 \implies v \ll c.
 \end{align}
 Sotto questa ipotesi aggiuntiva scriviamo l'esponenziale in serie:
 \begin{align}
-  \v{A}_\omega(\v{r}) = \frac{\mu_0}{4\pi} \frac{e^{ikR}}{R} 
+  \v{A}_\omega(\v{r}) = k_m \frac{e^{ikR}}{R} 
   \sum_{n = 0}^\infty \frac{\left( -ik \right)^n}{n!} \int \v{J}_\omega(\v{r'}) \left( \vers{u}\cdot \v{r'} \right)^n \,d^3r'
 \end{align}
 e noi siamo interessati al termine che da il maggior contributo quindi per $ n = 0 $. L'idea per svolgere questo integrale è quella di ricondurci alla 
@@ -2724,91 +2739,96 @@ ottenere il termine di dipolo elettrico $ \v{p} $. Sfruttiamo l'identità vettor
 \begin{align}
   \nabla' \cdot \left( x' \, \v{J}_\omega(\v{r'}) \right) &= \vers{x}' \cdot \v{J}_\omega(\v{r'}) + x' \nabla'\!\cdot\!\v{ J }_\omega(\v{r'}) 
   \\
-  &= J_{\omega,x'} - x' \der{\rho_\omega(\v{r'})}{t} = J_{\omega,x} + x' i\omega \rho_\omega(\v{r'})
+  &= J_{x'}^\omega - x' \der{\rho_\omega(\v{r'})}{t} = J_{x}^\omega + x' i\omega \rho_\omega(\v{r'})
 \end{align}
-dove nell'ultimo passaggio la $ J_{\omega,x} $ è diventata $ J_{\omega,x'} $, questo perché nell'integrale è valutata nel punto $ \v{r'} $ quindi la 
-direzione è sempre la stessa, a questo possiamo subito notare che il termine $ \nabla' \cdot \left( x' \, \v{J}_\omega(\v{r'}) \right) $ può essere 
+dove nell'ultimo passaggio la $ J_{x'}^\omega $ è diventata $ J_{x}^\omega $, questo perché nell'integrale è valutata nel punto $ \v{r'} $ quindi la 
+direzione è sempre la stessa. A questo possiamo subito notare che il termine $ \nabla' \cdot \left( x' \, \v{J}_\omega(\v{r'}) \right) $ può essere 
 trasformato in un integrale di superficie per il teorema della divergenza ed è quindi nullo per l'ipotesi di sorgenti localizzate dato che la superficie 
 va all'infinito. Rimane soltanto il termine con $ \rho(\v{r'}) $
 \begin{align}
-  A_{\omega,x}(\v{r}) &= -\frac{\mu_0}{4\pi} \frac{e^{ikR}}{R} \int i\omega x'\rho_\omega(\v{r'}) \,d^3r' 
-  = -\frac{\mu_0 \, i \omega}{4\pi} \frac{e^{ikR}}{R} p_{\omega, x}
+  A_{x}^\omega(\v{r}) &= -k_m \frac{e^{ikR}}{R} \int i\omega x'\rho_\omega(\v{r'}) \,d^3r' 
+  = -k_m \, i \omega \frac{e^{ikR}}{R} p_{x}^\omega
   \\
-  \implies \v{A}_{\omega}(\v{r}) &= -\frac{\mu_0 \, i \omega}{4\pi} \frac{e^{ikR}}{R} \v{p}_{\omega}
+  \implies \v{A}_{\omega}(\v{r}) &= -k_m \,i \omega \frac{e^{ikR}}{R} \v{p}_{\omega}
 \end{align}
 Per trovare i campi dobbiamo farne il rotore, ma il dipolo $ \v{p}_\omega $ non dipende dalle coordinate e a grandi distanze il termine dominante è la 
 derivata rispetto a $ R $ della fase cioè $ \der{}{R} \left( e^{ikR} \right) $ perché l'altro termine va come $ 1/R^2 $. Quindi applicando il rotore 
 otteniamo
 \begin{align}
-  \v{B}_\omega(\v{r}) = \nabla\!\times\!\v{ A }_\omega(\v{r}) &\simeq - \frac{\mu_0\, i\omega}{4\pi} \,\frac{e^{ikR}}{R} i \v{k} \times \v{p}_\omega
+  \v{B}_\omega(\v{r}) &= \nabla\!\times\!\v{ A }_\omega(\v{r}) \simeq i \v{k} \times \v{A}_\omega(\v{r})
   \\
-  &= \frac{\mu_0\,\omega}{4\pi} \, \frac{e^{ikR}}{R}\, \v{k} \times \v{p}_\omega
+  &= - k_m \,i\omega \frac{e^{ikR}}{R} i \v{k} \times \v{p}_\omega
+  = k_m\,\omega \, \frac{e^{ikR}}{R}\, \v{k} \times \v{p}_\omega
 \end{align}
 dove abbiamo riscritto $ \v{k} = k \vers{u} $ come la direzione di propagazione dell'onda, così da tenere conto direttamente nel prodotto vettore la 
 dipendenza dall'angolo compreso ($ \sin\theta $). Otteniamo ora il campo elettrico
 \begin{align}
   \v{E}_\omega(\v{r}) &= \frac{i\,c^2}{\omega} \nabla\!\times\!\v{ B }_\omega \simeq \frac{i\,c^2}{\omega} \, i\v{k} \times \v{B}_\omega 
-  = -\frac{k^2}{4\pi \eps_0} \frac{e^{ikR}}{R} \vers{u} \times (\vers{u} \times \v{p}_\omega)
+  = -k_e \, k^2\, \frac{e^{ikR}}{R} \vers{u} \times (\vers{u} \times \v{p}_\omega)
   \\
-  &= \frac{k^2}{4\pi \eps_0} \frac{e^{ikR}}{R} (\vers{u} \times \v{p}_\omega) \times \vers{u}
+  &= k_e \, k^2\, \frac{e^{ikR}}{R} (\vers{u} \times \v{p}_\omega) \times \vers{u}
 \end{align}
 I campi che abbiamo ottenuto sono trovati nel dominio delle frequenze, per tornare al dominio del tempo occorre fare l'anti-trasformata del campo nel 
 dominio delle frequenze $ \v{B}_\omega(\v{r}) $, cioè
 \begin{align}
   \v{B}(\v{r},t) &= \mathcal{F}^{-1} \left[ \v{B}_\omega(\v{r}) \right] 
-  = \frac{\mu_0}{4\pi c \, R} \mathcal{F}^{-1} \left[ {\omega^2} e^{i\frac{\omega}{c} R} \vers{u} \times \v{p}_\omega \right]
+  = k_m \frac1{cR} \mathcal{F}^{-1} \left[ {\omega^2} e^{i\frac{\omega}{c} R} \vers{u} \times \v{p}_\omega \right]
   \\
-  &= \frac{\mu_0}{4\pi c } \, \frac{\ddot{\v{p}}_{(t - \frac{R}{c})} \times \vers{u} }{R} 
+  &= k_m \, \frac{\ddot{\v{p}}_{(t - \frac{R}{c})} \times \vers{u} }{c\,R} 
 \end{align}
 dove abbiamo invertito il prodotto vettore per cambiare segno e abbiamo usato il teorema del ritardo causale (\textit{time shifting}) relativo alla 
 trasformata di Fourier che ci ha permetto di trasformare l'esponenziale complesso nel dominio delle frequenze in una tralazione temporale nel dominio 
 del tempo. Facciamo la stessa cosa per il campo elettrico
 \begin{align}
   \v{E}(\v{r},t) &= \mathcal{F}^{-1} \left[ \v{E}_\omega(\v{r}) \right]
-  = \frac{1}{4\pi c^2\,R} \mathcal{F}^{-1} \left[ {\omega^2} e^{i\frac{\omega}{c} R} (\vers{u} \times \v{p}_\omega) \times \vers{u} \right]
+  = \frac{k_e}{c^2\,R} \mathcal{F}^{-1} \left[ {\omega^2} e^{i\frac{\omega}{c} R} (\vers{u} \times \v{p}_\omega) \times \vers{u} \right]
   \\
-  &= \frac{1}{4\pi \eps_0 c^2} \frac{( \ddot{\v{p}}_{(t - \frac{R}{c})} \times \vers{u} ) \times \vers{u}}{R} 
+  &= k_e \,\frac{( \ddot{\v{p}}_{(t - \frac{R}{c})} \times \vers{u} ) \times \vers{u}}{c^2 \,R} 
 \end{align}
 Adesso che abbiamo ottenuto entrambi i campi possiamo trovare il vettore di Poynting $ \v{S} $ e la media temporale calcolata sul periodo del suo modulo che 
 costituisce una grandezza di ampio interesse chiamata \textit{intensità}:
 \begin{align} 
   I = \langle |\v{S}| \rangle_T.
 \end{align}
-Troviamo quindi $ \v{S} $, per svolgere questo prodotto vettore di cinque termini osserviamo che se chiamiamo $ \v{a} = \ddot{\v{p}}(t_r) \times \vers{u} $ 
-si può applicare la regola {bac-cab}:
+Troviamo quindi $ \v{S} $, per svolgere questo prodotto vettore di cinque termini osserviamo che se chiamiamo 
+$ \v{a} = \ddot{\v{p}}_{(t_r)} \times \vers{u} $ si può applicare la regola $"{bac-cab}"$:
 \begin{align}
-  \v{S} &= \frac{1}{\mu_0} \v{E} \times \v{B} = \frac{1}{8\pi^2 \eps_0 \, c^3\,R^2} (\v{a}\times \vers{u}) \times \v{a} 
-  = \frac{1}{8\pi^2 \eps_0 \, c^3\,R^2}\,a^2 \vers{u}
+  \v{S} (\v{r}, t) &= \frac{1}{\mu_0} \v{E} \times \v{B} = \frac{k_e  k_m }{\mu_0 c^3\, R^2}\, (\v{a}\times \vers{u}) \times \v{a} 
+  = \frac{1}{16 \pi^2 \eps_0 \, c^3\,R^2}\,a^2 \vers{u}
   \\
-  &= \frac{\eps_0 k_0^2}{c^3} \, \frac{\sin^2\theta}{R^2} \;\lvert \ddot{\v{p}}(t_r) \rvert^2 \vers{u}
+  &= \frac{\eps_0 \,k_e^2 }{c^3 R^2} \sin^2\theta\lvert \ddot{\v{p}}(t_r) \rvert^2 \vers{u}.
 \end{align}
-dove abbiamo sostituito $ k_0 = \frac{1}{4\pi \eps_0} $ (che nel sistema $ cgs $ vale $ 1 $). Notiamo che il vettore di Poynting è diretto verso il punto 
+Notiamo che il vettore di Poynting è diretto verso il punto 
 di osservazione e la sua distribuzione angolare varia con $ \sin^2\theta $ con $ \theta $ angolo polare, questo ci dice che il suo modulo è minimo per 
 $ \theta = 0,\pi $ quindi sull'asse $ z $, mentre è massimo per $ \theta = \pi/2 $. Per trovare l'intensità ricordiamo che la sorgente è varia nel tempo 
-come $ e^{-i\omega t} $ che è quindi un $ \cos\left( \omega(t - R/c) \right) $ calcolato al tempo ritardato, la derivata seconda elevata al quadrato 
-ci porta un fattore $ \omega^4 $, rimane l'integrale sul periodo del $ \cos^2 $ che ci porta un fattore $ 1/2 $, dunque abbiamo che
+come $ e^{-i\omega t} $ che è quindi un $ \cos\!\left( \omega(t - R/c) \right) $ calcolato al tempo ritardato, la derivata seconda elevata al quadrato 
+ci porta un fattore $ \omega^4 $, rimane l'integrale sul periodo del $ \cos^2(\omega (t - R/c))$ che ci porta un fattore $ 1/2 $, dunque abbiamo che
 \begin{align}
-  I = \frac{\eps_0 k_0^2}{c^3} \, \frac{\sin^2\theta}{R^2} \frac{\omega^4}{2} \;\lvert \v{p}_0 \rvert^2.
+  I = \frac{\eps_0 k_e^2 }{2c^3 R^2} \omega^4 \sin^2 \theta\lvert \v{p}_0 \rvert^2.
 \end{align}
 Un dettaglio interessante è che il vettore di Poynting, e di conseguenza l'intensità, decrescono come $ 1/R^2 $, il loro integrale su una superficie è 
 quindi costante ed è proprio ciò che ci aspettavamo di ottenere, che significa che osservare l'intensità emessa non dipende dalla distanza a cui lo facciamo, 
 a patto di osservare su tutto l'angolo solido. Infatti la dipendenza dell'intensità dall'angolo solido è costante:
 \begin{align}
   {dI} = R^2 \langle \v{S} \cdot \vers{n} \rangle {d\Omega}
-  = \frac{\eps_0 k_0^2}{c^3} \, {\sin^2\theta} \frac{\omega^4}{2} \;\lvert \v{p}_0 \rvert^2 \,{d\Omega}
+  = \frac{\eps_0 k_e^2 }{2c^3} \omega^4 \sin^2 \theta\lvert \v{p}_0 \rvert^2 \,{d\Omega}
 \end{align}
 A questo punto è facile ottenere la potenza totale irraggiata che è il flusso del vettore di Poynting
 \begin{align}
-  W &= \int |\v{S}| R^2 \,d\Omega = \frac{2\pi\eps_0 k_0^2}{c^3} \, \lvert \ddot{\v{p}}_0 \rvert^2 \int_0^\pi sin^2\theta \cdot \sin \theta \,d\theta 
+  W &= \Phi_\Sigma(\v{S}) = \int |\v{S}| R^2 \,d\Omega 
+  = \frac{2\pi\eps_0 k_e^2}{c^3} \, \lvert \ddot{\v{p}}_0 \rvert^2 \int_0^\pi sin^2\theta \cdot \sin \theta \,d\theta 
   \\
-  &= \frac{8\pi\eps_0 k_0^2}{3\,c^3}\, \lvert \ddot{\v{p}}_0 \rvert^2 = \frac{1}{6\pi \eps_0 \,c^3}\,\lvert \ddot{\v{p}}_0 \rvert^2 
+  &= \frac{8\pi\eps_0 k_e^2}{3\,c^3}\, \lvert \ddot{\v{p}}_0 \rvert^2 = \frac{1}{6\pi \eps_0 \,c^3}\,\lvert \ddot{\v{p}}_0 \rvert^2 
+  = \frac{2 k_e}{3c^3} \lvert \ddot{\v{p}}_0 \rvert^2 
 \end{align}
 che mediandola su un periodo si ha
 \begin{align}
-  \langle W \rangle = \frac{2 k_0\, \langle \lvert \ddot{\v{p}}_0 \rvert^2 \rangle}{3\,c^3} =
-  \langle W \rangle = \frac{k_0\, \omega^4 \lvert {\v{p}}_0 \rvert^2 }{3\,c^3}  
+  \langle W \rangle =  \frac{2 k_e\, \langle \lvert \ddot{\v{p}}_0 \rvert^2 \rangle}{3\,c^3} 
+  = \frac{k_0}{3\,c^3}  \omega^4 \lvert {\v{p}}_0 \rvert^2
 \end{align}
-e questa potenza è detta potenza di \textit{Larmor}.
+e questa potenza è detta potenza di \textit{Larmor}. La formula di Larmor per la potenza riguarda più in generale la potenza emessa da una carica in 
+moto accelerato, mentre noi l'abbiamo ricavata nel caso specifico di un dipolo che oscilla in moto armonico. Più avanti vedremo in generale le formule 
+per ottenere la potenza irraggiata da una carica in un moto generico.
 
 \subsection{Irraggiamento nell'atomo di idrogeno}
 Applichiamo quello che abbiamo appena ricavato sulla teoria dell'irraggiamento all'atomo di idrogeno nel modello planetario (modello di Rutherford), 
@@ -2848,28 +2868,29 @@ soprattutto abbiamo che $ z_p $ è in \textit{quadratura} con la forzante, infat
 $ \pi/2 $ rispetto a $ E_z $ che quando andiamo a vedere la potenza $ W = F \cdot \v \propto \cos^2 (\omega t) $. Risulta quindi che la potenza assorbita 
 dall'elettrone alla frequenza di risonanza è massima. Notiamo che il termine dissipativo dovuto all'irraggiamento svolge un ruolo fondamentale che 
 legittimizza ancora di più la sua presenza: impedisce al denominatore di divergere, il che avrebbe portato a dire che l'elettrone assorbe energia infinita 
-che è chiaramente assurdo. D'ora in poi consideriamo il caso $ \gamma = 0 $, per trovare la potenza irraggiata usiamo la relazione appena ricavata della 
-potenza di Larmor
+che è chiaramente assurdo. D'ora trascureremo l'attrito ponendo $ \gamma = 0 $, più avanti verificheremo quando è possibile farlo e cosa succede nel 
+considerarlo. Per trovare la potenza irraggiata usiamo la relazione di Larmor trovata nella sezione precedente:
 \begin{align}
-  \langle W \rangle = \frac{k_0 \,\omega ^4 |\v{p}_0|^2}{3\, c^3} &= \frac{k_0 \,\omega ^4 |e\,\ddot{\v{z}}_p|^2}{3\, c^3} 
-  = \frac{k_0 \, e^4 E_0^2}{3\,c^3\,m_e^2} \frac{\omega^4}{(\omega^2 -\omega_0^2)^2}
+  \langle W \rangle_{\textit{Larmor}} = \frac{k_e \,\omega ^4 |\v{p}_0|^2}{3\, c^3} &= \frac{k_e \,\omega ^4 |e\,\ddot{\v{z}}_p|^2}{3\, c^3} 
+  = \frac{k_e \, e^4 E_0^2}{3\,c^3\,m_e^2} \frac{\omega^4}{(\omega^2 -\omega_0^2)^2}
   \\
-  &= \frac{k_0 \, e^4 E_0^2}{3\,c^3\,m_e^2} \, F(\omega)
+  &= \frac{k_e \, e^4 E_0^2}{3\,c^3\,m_e^2} \, F(\omega).
 \end{align}
-e definiamo una grandezza chiamata \textit{sezione d'urto}, che ha le dimensioni di una superficie, nel modo seguente:
+Adesso definiamo una grandezza chiamata \textit{sezione d'urto}, che ha le dimensioni di una superficie, come il rapporto fra la potenza emessa dalla 
+carica eccitata e l'intensità dell'onda incidente, cioè 
 \begin{align}
-  \sigma = \frac{\langle W \rangle}{I}
+  \sigma = \frac{\langle W \rangle_{\text{diff}}}{I_{\text{inc}}}
 \end{align}
-e siccome l'intensità di un onda piana incidente è 
+e siccome l'intensità di un onda piana vale 
 \begin{align}
-  I = \langle |\v{S}| \rangle = \eps_0 c^2\langle \frac{ E_0^2}{c} \cos^2(\omega t) \rangle = \frac{\eps_0 \, c \,E_0^2}{2}
+  I_{\text{piana}} = \langle |\v{S}| \rangle = \eps_0 c^2\langle \frac{ E_0^2}{c} \cos^2(kx - \omega t) \rangle = \frac{\eps_0 \, c \,E_0^2}{2}
 \end{align}
 quindi la sezione d'urto vale
 \begin{align}
-  \sigma = \frac{2 \, k_0 \, e^4}{3\,\eps_0\,c^4 \,m_e^2}\, F(\omega) = \frac{8\pi}{3} \left( \frac{k_0\,e^2}{m_e^2\,c^2} \right)^2 F(\omega) 
+  \sigma = \frac{2 \, k_e \, e^4}{3\,\eps_0\,c^4 \,m_e^2}\, F(\omega) = \frac{8\pi}{3} \left( \frac{k_e\,e^2}{m_e^2\,c^2} \right)^2 F(\omega) 
   \eqcolon \frac{8\pi}{3}\, R_e^2 \,F(\omega)
 \end{align}
-dove abbiamo definito il raggio classico dell'elettrone $ R_e \coloneq \frac{k_0\,e^2}{m_e\,c^2} $ che si ottiene eguagliando l'energia a riposo 
+dove abbiamo definito il raggio classico dell'elettrone $ R_e \coloneq \frac{k_e\,e^2}{m_e\,c^2} $ che si ottiene eguagliando l'energia a riposo 
 con l'energia coulombiana. Analizziamo la sezione d'urto nei due limiti: 
 \begin{align}
   \left.1\right)\qquad &\omega \gg \omega_0 \implies F(\omega) \simeq 1
@@ -2879,7 +2900,10 @@ con l'energia coulombiana. Analizziamo la sezione d'urto nei due limiti:
 Il primo caso è chiamato \textit{scattering Thomson} o scattering di elettrone libero, questo perché il moto di rivoluzione è "invisibile" rispetto alla 
 frequenza con cui l'onda elettromagnetica incide. Il secondo caso è detto \textit{scattering Rayleigh} è interessante per le interazioni luce-materia, 
 dato che l'onda incidente non ha abbastanza energia per alterare la struttura atomica. Lo scattering Rayleigh è il motivo per il quale il cielo appare di 
-colore blu. A
+colore blu: apparte il disco solare, quando guardiamo il cielo stiamo vedendo le regioni più prossime di un cono di diffusione che si crea quando la 
+radiazione solare incontra l'atmosfera terrestre. Il colore che domina in questo modello è quello con la frequenza più alta, tuttavia è non può essere il 
+viola per via dello spettro di emissione del Sole, dunque rimane il blu. Al tramonto la radiazione ha un percorso maggiore su cui diffondere e dunque 
+rimangono i colori che hanno diffuso di meno e cioè il rosso.
 
 \chapter{Esercizi elettrodinamica}
 \section{Circuiti}
@@ -3055,27 +3079,33 @@ Fin ora abbiamo sempre assunto che i portatori di carica avessero delle velocit�
 in cui la velocità può essere un qualunque valore compreso fra $ 0 $ e $ c $.
 % ##########
 \section{Potenziali di Liénard-Wiechert}
-Vogliamo inizialmente trovare i campi generati da una carica in moto, partiamo scrivendo i potenziali ritardati
+Vogliamo inizialmente trovare i campi generati da una carica in moto, partiamo scrivendo i potenziali ritardati:
 \begin{align}
-  V(\v{ x },t) = \frac{1}{4\pi\eps} \int \frac{\rho(\v{ x }', t - \frac{|\v{ x-x' }|}{c})}{|\v{ x-x' }|}\,d^3x'
+  V(\v{ x },t) = k_e \int \frac{\rho(\v{ x }', t - \frac{|\v{ x-x' }|}{c})}{|\v{ x-x' }|}\,d^3x'
 \end{align}
-indichiamo con $ \v{ r } = \v{ x - x' } $ e siccome abbiamo una carica, la cui posizione indichiamo con $ \v{ X }(t) $, riscriviamo la 
-$ \rho = q \, \delta(\v{ x' } - \v{ X }(t - t - \frac{|\v{ x-x' }|}{c})) $, e usiamo una proprietà della delta di Dirac ovvero che
+e indichiamo con $ \v{ r } = \v{ x - x' } $. Siccome abbiamo una carica puntiforme, la cui posizione indichiamo con $ \v{r}_q(t) $, riscriviamo le 
+sorgenti come
 \begin{align}
-  \int \delta(f(x')) \,dx' = \int \delta(y) \, \frac{1}{|\frac{df}{dx'}(y)|} \,dy.
+  \rho(\v{r}, t) &= q \, \delta(\v{ r' } - \v{ r }_q(t))
+  \\
+  \v{J}(\v{r}, t) &= q \v{v}_q(t) \, \delta(\v{ r' } - \v{ r }_q(t))
+\end{align}
+e usiamo una proprietà della delta di Dirac ovvero che
+\begin{align}
+  \int \delta(f(x)) \,dx = \int \delta(y) \, \frac{1}{|\frac{df}{dx}(y)|} \,dy = \frac{1}{|\frac{df}{dx}(y = 0)|}
 \end{align}
 In questo modo possiamo svolgere l'integrale del potenziale ritardato
 \begin{align}
-  V(\v{ x },t) = \frac{q}{4\pi\eps} \int \delta(\v{ x' } - \v{ X }(t - t - \frac{|\v{ x-x' }|}{c})) \frac{1}{|\v{ x-x' }|} \,d^3x'
+  V(\v{ x },t) = k_e q \int \delta(\v{ x' } - \v{ X }(t - t - \frac{|\v{ x-x' }|}{c})) \frac{1}{|\v{ x-x' }|} \,d^3x'
   = \frac{q}{4\pi\eps} \int \delta(y) \, \frac{1}{|1 - \frac{\v{ v }\cdot \vers{r} }{c}|} \,dy = \frac{q}{4\pi\eps} 
 \end{align}
 \dots
 \begin{align}
-  V(\v{ x },t) = \frac{q}{4\pi\eps} \frac{1}{r - \frac{\v{ v }\cdot \v{ r }}{c}}
+  V(\v{ x },t) = k_e \frac{q}{r - \frac{\v{ v }\cdot \v{ r }}{c}}
 \end{align}
 ed è immediato il potenziale vettore
 \begin{align}
-  \v{ A }(\v{ x },t) = \frac{\mu_0 q}{4\pi} \frac{\v{ v }}{r - \frac{\v{ v }\cdot \v{ r }}{c}}
+  \v{ A }(\v{ x },t) = k_m \frac{ q \v{ v }}{r - \frac{\v{ v }\cdot \v{ r }}{c}}
 \end{align}
 e questi sono detti potenziali di Liénard-Wiechert. Calcoliamo i potenziali nel caso del moto rettilineo uniforme lungo $ x $:
 
@@ -3085,42 +3115,45 @@ agli oggetti dell'elettrodinamica come le sorgenti e i potenziali.
 
 Partiamo dal fatto che la carica elettrica deve essere necessariamente un invariante di Lorentz, altrimenti si dovrebbe osservare che oggetti carichi 
 modificano le loro proprietà elettriche in base alla velocità a cui si muovono, cosa che non osserviamo. Consideriamo quindi la densità di carica 
-$ \rho(\v{x}) $, per sapere come trasforma notiamo che essendo una carica diviso un volume sappiamo che i volumi si contraggono nella direzione del boost 
+$ \rho(\v{r}) $, per sapere come trasforma notiamo che essendo una carica diviso un volume sappiamo che i volumi si contraggono nella direzione del boost 
 quindi nel sistema di riferimento $ O' $ che si muove a velocità costante $ V $ rispetto a $ O $ si ha che la densità di carica vale
 \begin{align}
-  \rho'(\v{x}) = \gamma \, \rho(\v{x})
+  \rho'(\v{r}) = \gamma \, \rho(\v{r})
 \end{align}
 Quella che abbiamo espresso non è la legge di trasformazione completa, dato che può esistere una densità di corrente che in un certo sistema di riferimento 
-diventa una densità di carica. La relazione fra $ \v{J}(\v{x}, t) $ e $ \rho(\v{x}, t) $ è
+diventa una densità di carica. Per trovare la densità di corrente dovuta a una $ \rho $ che viene messa in moto con una velocità $ \v{v} $ applichiamo il 
+modello microscopico dei portatori di carica ottenendo
 \begin{align}
-  \v{J'}(\v{x}, t) = \rho'(\v{x}, t) \, \v{v}(\v{x},t) = \gamma \, \rho(\v{x}, t) \, \v{v}(\v{x},t)
+  \v{J'}(\v{r}, t) = \rho'(\v{r}, t) \, \v{v}(\v{r},t) = \gamma \, \rho(\v{r}, t) \, \v{v}(\v{r},t)
 \end{align}
 quindi è facile notare che $ c\cdot \rho $ e $ \v{J} $ sono proporzionali alle componenti della quadrivelocità $ u^\mu $. Questo ci suggerisce che moltiplicando 
 per $ c $ la densità di carica possiamo costruire un quadrivettore con le dimensioni di una corrente che chiameremo \textit{quadricorrente} $ J^\mu $:
 \begin{align}
   J^\mu \coloneq \rho(x) \, u^\mu (x) = \left( c \rho , \v{J}\right)
 \end{align}
-dove $ x $ è il quadrivettore posizione. Sfruttiamo subito la quadricorrente per verificare l'equazione di continuità con questo nuovo formalismo: dobbiamo 
-calcolare la quadridivergenza $ \partial_mu J^\mu $ cioè
+dove $ x $ è il quadrivettore posizione. Sfruttiamo subito la quadricorrente per verificare l'equazione di continuità con questo nuovo formalismo: 
+calcolando la quadridivergenza di $ J^\mu $ si ha
 \begin{align}
   \partial_\mu J^\mu  = \left( \frac{1}{c} \der{}{t}, \nabla \right) \cdot J = \der{\rho}{t} + \nabla \cdot \v{J} = 0
 \end{align}
-
+che è proprio l'equazione di continuità.
 
 \section{Formulazione covariante delle equazioni di Maxwell}
 Vogliamo prima di tutto dimostrare che anche i potenziali $ V $ e $ \v{A} $ formano un quadrivettore, e questo si può fare prendendo l'equazione delle 
-onde per i potenziali che abbiamo visto che rispettano nella gauge di Lorenz:
+onde che i potenziali rispettano in gauge di Lorenz:
 \begin{align}
   \begin{cases}
-    -\nabla^2V + \frac{1}{c^2} \der[2]{V}{t} = \frac{\rho}{\eps_0} \\
-    -\nabla^2\v{ A } + \frac{1}{c^2} \der[2]{\v{ A }}{t} = \mu_0\v{ J }
+    \DS -\nabla^2V + \frac{1}{c^2} \der[2]{V}{t} = \frac{\rho}{\eps_0} \\
+    \DS -\nabla^2\v{ A } + \frac{1}{c^2} \der[2]{\v{ A }}{t} = \mu_0\v{ J }
   \end{cases}
   \implies \Box A^\mu = \frac{J^\mu}{\eps_0 c}
 \end{align}
 dove $ A^\mu $ rappresenta il quadripotenziale definito come 
 \begin{align}
-  A^\mu \coloneq \left( V, c \v{A} \right)
+  A^\mu \coloneq \left( V, c \v{A} \right) \footnotemark
 \end{align}
+\footnotetext{Può essere definito anche come $ A^\mu = (V/c, \v{A}) $ con una conseguente 
+ridefinizione delle successive quantità ed equazioni.}
 Abbiamo tutti gli strumenti per scrivere le equazioni di Maxwell in forma tensoriale. Per farlo dobbiamo trovare un tensore a due indici che sia 
 gauge-invariante e le sue componenti siano i campi. Il candidato più semplice è 
 \begin{align}
@@ -4181,7 +4214,7 @@ e moltiplicando per la massa a riposo otteniamo il quadrimpulso $ p^\mu $
 \begin{align}
   p^\mu = m_0 u^\mu = (m_0 \gamma c, m_0 \gamma \v{ v })
 \end{align}
-I quadrivettori hanno la norma invariante per trasformazioni di Lorentz, ma la norma non è quella euclidea ma quella di Lorenz:
+I quadrivettori hanno la norma invariante per trasformazioni di Lorentz, ma la norma non è quella euclidea bensì quella di Lorentz:
 \begin{align}
   \Lambda = 
   \begin{pmatrix}
@@ -4203,6 +4236,59 @@ Possiamo notare come effettivamente il quadrigradiente e la quadridivergenza sia
 differenza rimane chiaramente l'oggetto a cui si applicano. Il d'Alembertiano applicato ai quadrivettori diventa
 \begin{align}
   \Box \coloneq \frac{1}{c^2} \der[2]{}{t} - \der[2]{}{x} - \der[2]{}{y} - \der[2]{}{z} = g^{\mu \nu} \partial_\mu \partial_\nu = \partial^\mu \partial_\mu
+\end{align}
+
+\section{Operazioni con gli indici}
+Nella sezione precedente, nell'applicare la quadridivergenza a un quadrivettore abbiamo ottenuto uno scalare, ma più in generale si dice che abbiamo 
+\textit{contratto gli indici}. La contrazione di un indice è una somma implicita su quell'indice e si può fare quando l'indice compare due volte, una 
+come controvariante e una come covariante:
+\begin{align}
+  A^\mu B_\mu = \sum_{\mu = 0}^3 A^0B_0 + A^1B_1 + A^2B_2 + A^3B_3.
+\end{align}
+Questa operazione ha un suo significato, dato che quando moltiplichiamo una quantità covariante con una controvariante, le due matrici di trasformazione 
+sono una l'inversa dell'altra, dunque moltiplicate danno l'identità e otteniamo quindi una quantità invariante, cioè uno scalare.
+
+Altra operazione importante è l'alzare o abbassare gli indici: per farlo occorre la metrica $ g_{\mu \nu} $ e serve per quando abbiamo una quantità 
+covariante (controvariante) e vogliamo alzare (abbassare) l'indice per farla trasformare nel modo opposto. È definita nel modo seguente:
+\begin{align}
+  A^\mu &\coloneq g^{\mu \nu} A_\nu
+  \\
+  A_\mu &\coloneq g_{\mu \nu} A^\nu
+\end{align}
+mentre per quanto riguarda la metrica la sua versione con gli indici alti è l'inversa cioè
+\begin{align}
+  g^{\mu \nu} g_{\nu \rho} = \delta^\mu{}_\rho
+\end{align}
+dove $ {\delta^\mu}_\rho $ è la delta di Kronecker. In relatività la $ \delta $ è definità come quella a cui siamo abituati solo quando ha un indice alto 
+e uno basso, cioè
+\begin{align}
+  \delta^\mu{}_\nu = 
+  \begin{cases}
+    \DS 1 \quad \textnormal{se} \; \mu = \nu \\
+    \DS 0 \quad \textnormal{se} \; \mu \neq \nu \\
+  \end{cases}
+\end{align}
+mentre se abbassiamo (o alziamo) un indice otteniamo di nuovo la metrica:
+\begin{align}
+  \delta_{\mu \nu} = g_{\mu \rho}\, \delta^\rho{}_\nu = g_{\mu \rho} \, g^{\rho \alpha} \, g_{\alpha \nu} = g_{\mu \nu}
+\end{align}
+
+\section{Metrica di Minkowski}
+Si dice \textit{metrica di Minkowski} il tensore metrico costante e uniforme $ g_{\mu \nu} = \diag(+1, -1, -1, -1) $ cioè
+\begin{align}
+  g_{\mu \nu} = 
+  \begin{pmatrix}
+    +1 & 0 & 0 & 0 \\
+    0 & -1 & 0 & 0 \\
+    0 & 0 & -1 & 0 \\
+    0 & 0 & 0 & -1
+  \end{pmatrix},
+\end{align}
+tuttavia alcuni testi invertono i segni. Questa è la metrica più semplice, sopratutto per due proprietà molto importanti: la prima è che il tensore con 
+gli indici alzati è sempre $ g^{\mu \nu} = \diag(+1, -1, -1, -1) $, e la seconda è che nell'alzare o abbassare un indice cambia soltanto il segno 
+della parte spaziale ovvero
+\begin{align}
+  A^\mu = g^{\mu \nu} A_\nu = (A_0, -\v{A}).
 \end{align}
 
 \end{document}

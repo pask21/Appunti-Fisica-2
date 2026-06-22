@@ -88,3 +88,4 @@ antisimmetria
 Biot
 Savart
 Pascarella
+Minkowski
