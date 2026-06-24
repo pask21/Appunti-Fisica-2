@@ -84,6 +84,7 @@ patterns
   citecolor=blue,
   urlcolor=blue
 }
+\usepackage{esint}
 \sisetup{separate-uncertainty=true}
 %----------- TEOREMI E STRUTTURE VARIE (KOMA, AMSTHM)
 
@@ -175,6 +176,14 @@ patterns
 % --- \diag ---
 \newcommand{\diag}[0]{
 	\textnormal{diag} 
+}
+
+% --- \footnote con asterisco ---
+\newcommand{\footnoteH}[1]{%
+  \begingroup
+  \renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+  \footnote[1]{#1}%
+  \endgroup
 }
 
 % ---------- BIBLIOGRAFIA ----------

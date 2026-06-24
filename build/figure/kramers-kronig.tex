@@ -1,0 +1,46 @@
+\begin{figure}[ht]
+\usetikzlibrary{decorations.markings, arrows.meta}
+\definecolor{kkcontour}{RGB}{216,90,48}
+\definecolor{kkpole}{RGB}{226,75,74}
+\definecolor{kkshade}{RGB}{55,138,221}
+  \centering
+  \begin{tikzpicture}[>=Stealth, scale=0.95,
+      contourarrow/.style={postaction={decorate},
+        decoration={markings,
+          mark=at position 0.13 with {\arrow{Stealth[length=2.4mm]}},
+          mark=at position 0.30 with {\arrow{Stealth[length=2.0mm]}},
+          mark=at position 0.36 with {\arrow{Stealth[length=2.4mm]}},
+          mark=at position 0.70 with {\arrow{Stealth[length=2.4mm]}}}}]
+
+    % regione di analiticità (semidisco superiore)
+    \fill[kkshade!8] (4,0) arc (0:180:4) -- cycle;
+
+    % assi
+    \draw[->, gray!60, thin] (-4.9,0) -- (5.0,0) node[below right, black]{$\operatorname{Re}\omega$};
+    \draw[->, gray!60, thin] (0,-0.7) -- (0,5.0) node[left, black]{$\operatorname{Im}\omega$};
+
+    % contorno di integrazione (asse reale + indentazione + arco grande), orientato in senso antiorario
+    \draw[very thick, kkcontour, contourarrow]
+          (-4,0) -- (1.65,0)
+          arc (180:0:0.35)      % indentazione sopra il polo, da sinistra a destra
+          -- (4,0)
+          arc (0:180:4);        % semicerchio grande, da destra a sinistra
+
+    % polo
+    \fill[kkpole] (2,0) circle (2.2pt);
+    \node[below=2pt] at (2,0) {$\omega_0$};
+    \node[below left=-1pt] at (0,0) {$O$};
+
+    % etichette
+    \node[kkcontour] at (3.25,3.05) {$\Gamma$};
+    \node[kkcontour, right] at (2.25,0.62) {$C_\eps$};
+    \node[align=center] at (-1.7,2.0)
+          {$\chi(\omega)$ olomorfa};
+
+  \end{tikzpicture}
+  \caption{Dominio di integrazione di $\chi(\omega)/(\omega-\omega_0)$ per le relazioni di
+  Kramers--Kronig. Il contorno percorre l'asse reale, aggira il polo semplice in $\omega_0$
+  con la semicirconferenza $C_\eps$ e si chiude con il semicerchio $\Gamma$ nel
+  semipiano superiore, dove $\chi$ è olomorfa per causalità. L'orientazione è antioraria.}
+  \label{fig:contorno-kk}
+\end{figure}

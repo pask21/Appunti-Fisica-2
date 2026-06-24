@@ -89,3 +89,5 @@ Biot
 Savart
 Pascarella
 Minkowski
+simplettico
+olomorfa

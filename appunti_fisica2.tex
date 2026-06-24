@@ -3101,13 +3101,12 @@ In questo modo possiamo svolgere l'integrale del potenziale ritardato
 \end{align}
 \dots
 \begin{align}
-  V(\v{ x },t) = k_e \frac{q}{r - \frac{\v{ v }\cdot \v{ r }}{c}}
+  V(\v{r},t) &= k_e \, q \left[ \frac{1}{R - \vec{\beta} \cdot \v{R}} \right]_{t_r} \mathbf{A}
+  \\
+  \v{A}(\v{r},t) &= k_m \, q \left[ \frac{\v{v}}{R - \vec{\beta} \cdot \v{R}} \right]_{t_r}
 \end{align}
-ed è immediato il potenziale vettore
-\begin{align}
-  \v{ A }(\v{ x },t) = k_m \frac{ q \v{ v }}{r - \frac{\v{ v }\cdot \v{ r }}{c}}
-\end{align}
-e questi sono detti potenziali di Liénard-Wiechert. Calcoliamo i potenziali nel caso del moto rettilineo uniforme lungo $ x $:
+e questi sono detti \textit{potenziali di Liénard-Wiechert}, dove $ \v{R} = \v{r} - \v{r}_q(t_r)$ e $ R = |\v{R}| = c (t - t_r) $. 
+Calcoliamo i potenziali nel caso del moto rettilineo uniforme lungo $ x $:
 
 \section{Quadricorrente}
 Per arrivare a costruire le equazioni di Maxwell nella cosiddetta \textit{formulazione covariante} è necessario applicare il formalismo dei quadrivettori 
@@ -3148,12 +3147,11 @@ onde che i potenziali rispettano in gauge di Lorenz:
   \end{cases}
   \implies \Box A^\mu = \frac{J^\mu}{\eps_0 c}
 \end{align}
-dove $ A^\mu $ rappresenta il quadripotenziale definito come 
-\begin{align}
-  A^\mu \coloneq \left( V, c \v{A} \right) \footnotemark
-\end{align}
-\footnotetext{Può essere definito anche come $ A^\mu = (V/c, \v{A}) $ con una conseguente 
+dove $ A^\mu $ rappresenta il quadripotenziale definito come \footnoteH{Può essere definito anche come $ A^\mu = (V/c, \v{A}) $ con una conseguente 
 ridefinizione delle successive quantità ed equazioni.}
+\begin{align}
+  A^\mu \coloneq \left( V, c \v{A} \right).
+\end{align}
 Abbiamo tutti gli strumenti per scrivere le equazioni di Maxwell in forma tensoriale. Per farlo dobbiamo trovare un tensore a due indici che sia 
 gauge-invariante e le sue componenti siano i campi. Il candidato più semplice è 
 \begin{align}
@@ -3162,11 +3160,11 @@ gauge-invariante e le sue componenti siano i campi. Il candidato più semplice �
 ma questo oggetto ha 16 componenti e non è gauge-invariante perché
 \begin{align}
   T^{\mu \nu} = \partial^\mu \left( A'^\nu + \partial^\nu(c\,\psi) \right) 
-  = \partial^\mu A'^\nu + \partial^\mu\partial^\nu(c\,\psi) \neq \partial^\mu A'^\nu = T'^{\mu \nu}
+  = \partial^\mu A'^\nu + \partial^\mu\partial^\nu(c\,\psi) \neq \partial^\mu A'^\nu = T'^{\mu \nu}.
 \end{align}
 Proviamo allora con il cosiddetto \textit{tensore di Faraday} $ F^{\mu \nu} $ definito come
 \begin{align}
-  F^{\mu \nu} = \partial^\mu A^\nu - \partial^\nu A^\mu
+  F^{\mu \nu} = \partial^\mu A^\nu - \partial^\nu A^\mu.
 \end{align}
 Notiamo che è antisimmetrico, il che ci dice che ha $ 6 $ componenti indipendenti ed è facile verificare che è gauge-invariante. La forma esplicita del 
 tensore di Faraday è 
@@ -3189,7 +3187,7 @@ Dal tensore di Faraday derivano le equazioni non omogenee di Maxwell che si poss
 \begin{align}
   \partial_\mu F^{\mu \nu} = \mu_0 J^\nu
 \end{align}
-che si possono verificare applicando rapidamente il quadrigradiente e sommando sulle componenti. Per quanto riguarda le equazioni omogenee cerchiamo un 
+che si possono verificare contraendo l'indice cioè applicando la quadridivergenza. Per quanto riguarda le equazioni omogenee cerchiamo un 
 tensore che in analogia al primo sia antisimmetrico e che ci esprima
 \begin{align}
   &\nabla \cdot \v{B} = \partial_x B_x + \partial_y B_y + \partial_z B_z = 0
@@ -3224,7 +3222,21 @@ componenti giuste del campo elettrico, che risulta essere
   \end{pmatrix}
 \end{align}
 noto come \textit{tensore di campo duale}. Notiamo che è possibile ottenere il tensore duale da quello di Faraday tramite il tensore completamente 
-antisimmetrico cioè il tensore di Levi-Civita a $ 4 $ indici $ \eps^{\mu \nu \rho \sigma} $ come
+antisimmetrico $ \eps_{\mu \nu \rho \sigma} $ che è il tensore di Levi-Civita a 4 indici, definito come 
+\begin{align}
+  \eps_{\mu \nu \rho \sigma} = 
+  \begin{cases}
+    +1 &\;\; \textnormal{se $ (\mu \nu \rho \sigma) $ è una permutazione pari di $ (0123) $} \\
+    -1 &\;\; \textnormal{se $ (\mu \nu \rho \sigma) $ è una permutazione dispari di $ (0123) $} \\
+    0 &\;\; \textnormal{se almeno due indici sono uguali}
+  \end{cases}
+\end{align}
+e per ottenere la versione con gli indici alzati si ha
+\begin{align}
+  \eps^{\mu \nu \rho \sigma} = g^{\mu \alpha} \, g^{\nu \beta} \, g^{\rho \gamma} \, g^{\sigma \delta} \, \eps_{\alpha \beta \gamma \delta} 
+  = \det(g^{\mu \nu})\, \eps_{\mu \nu \rho \sigma} = - \eps^{\mu \nu \rho \sigma}.
+\end{align}
+In termini di $ \eps^{\mu \nu \rho \sigma} $ il tensore duale si scrive come
 \begin{align}
   \tilde{F}^{\mu \nu} = \frac{1}{2} \eps^{\mu \nu \rho \sigma} F_{\rho \sigma}
 \end{align}
@@ -3234,7 +3246,7 @@ dove è necessario abbassare gli indici di $ F^{\mu \nu} $ con la metrica
 \end{align}
 e il fattore $ 1/2 $ è dovuto all'antisimmetria. In questo modo le equazioni di Maxwell nel formalismo covariante sono espresse dalle relazioni compatte:
 \begin{align}
-  &\partial_\mu F^{\mu \nu} = \frac{1}{\eps_0 c} J^\nu
+  &\partial_\mu F^{\mu \nu} = \frac{J^\nu}{\eps_0 c} 
   \\
   &\partial_\mu \tilde{F}^{\mu \nu} = 0
 \end{align}
@@ -3244,8 +3256,10 @@ così una quadricorrente magnetica che farebbe da termine noto alla seconda equa
 \section{Invarianti elettromagnetici}
 Vogliamo trovare delle quantità costruite a partire dai tensori elettromagnetici che siano invarianti per trasformazioni di Lorentz. Un modo per farlo è 
 prendere lo scalare associato a un tensore: possiamo fare i calcoli espliciti oppure prendendo la traccia del prodotto fra le due matrici
-\begin{align}
-  F^{\mu \nu} F_{\mu \nu} &= \text{tr} \left[  
+\begin{gather}
+  F^{\mu \nu} F_{\mu \nu} = \text{tr} \left( F^{\mu \nu} \, F_{\mu \nu}{}^t \right)
+  \\
+  = \text{tr} \left[  
   \begin{pmatrix}
     0 & -E_x & -E_y & -E_z \\
     E_x & 0 & -c B_z & c B_y \\
@@ -3257,16 +3271,16 @@ prendere lo scalare associato a un tensore: possiamo fare i calcoli espliciti op
     -E_x & 0 & -c B_z & c B_y \\
     -E_y & c B_z & 0 & -c B_x \\
     -E_z & -c B_y & c B_x & 0 
-  \end{pmatrix}
+  \end{pmatrix}^t \,
   \right]
   \\
-  &= 2 \left( \v{E}^2 - c^2\v{B}^2 \right)
-\end{align}
+  = 2 \left( c^2\v{B}^2 - \v{E}^2 \right) 
+\end{gather}
 Questo primo invariante elettromagnetico contiene già molte informazioni: il segno ci dice che se in un sistema di riferimento abbiamo 
-$ \v{E}^2 > \v{B}^2 $ ($ < $) allora questo è vero in ogni sistema di riferimento. 
+$ \v{E}^2 > c^2\v{B}^2 $ ($ < $) allora questo è vero in ogni sistema di riferimento. 
 Il secondo invariante lo troviamo tramite il prodotto
-\begin{align}
-  F^{\mu \nu} \tilde{F}_{\mu \nu} &= \text{tr} \left[  
+\begin{gather}
+  F^{\mu \nu} \tilde{F}_{\mu \nu} = \text{tr} \left[  
   \begin{pmatrix}
     0 & -E_x & -E_y & -E_z \\
     E_x & 0 & -c B_z & c B_y \\
@@ -3278,20 +3292,20 @@ Il secondo invariante lo troviamo tramite il prodotto
     -c B_x & 0 & -E_z & E_y \\
     -c B_y & E_z & 0 & -E_x \\
     -c B_z & -E_y & E_x & 0 
-  \end{pmatrix}
+  \end{pmatrix}^t \,
   \right]
   \\
-  &= 4 c^2 \, \v{E} \cdot \v{B}
-\end{align}
+  = - 4 c^2 \, \v{E} \cdot \v{B}
+\end{gather}
 il quale ci dice che se i campi sono ortogonali in un sistema di riferimento allora lo sono in tutti.
 
 \section{Trasformazioni di Lorentz dei campi}
 Dato che abbiamo scritto in maniera compatta il campo elettromagnetico con i tensori elettromagnetici sfruttiamo le leggi di trasformazione dei tensori per 
 ottenere come cambiano i campi cambiando sistema di riferimento inerziale. Un tensore a due indici trasforma come
 \begin{align}
-  F'^{\mu \nu} = \Lambda^\mu_\rho \, \Lambda^\nu_\sigma \, F^{\rho \sigma} = \left( \Lambda \, F \, \Lambda^T \right)_{\mu \nu}
+  F'^{\mu \nu} = \Lambda^\mu{}_\rho \, \Lambda^\nu{}_\sigma \, F^{\rho \sigma} = \left( \Lambda \, F \, \Lambda^T \right)_{\mu \nu}
 \end{align}
-quindi per trovare i campi trasformati basta confrontare basta svolvere questo prodotto. Indicando con $ \parallel $ e $ \perp $ le componenti parallele e 
+quindi per trovare i campi trasformati ci basta svolvere questo prodotto. Indicando con $ \parallel $ e $ \perp $ le componenti parallele e 
 perpendicolari alla direzione del boost otteniamo 
 \begin{align}
   &{E'_\parallel = E_\parallel} \qquad {\v{E'}_\perp = \gamma \left( \v{E}_\perp + \v{V} \times \v{B} \right)}
@@ -3314,33 +3328,54 @@ trasformata deve avere la stessa fase della soluzione originale a meno di una co
   \omega' t' - \v{k'} \cdot \v{x'} = \omega t - \v{k} \cdot \v{x}
 \end{align}
 riscriviamo adesso questa relazione con il quadrivettore posizione $ x = (c t, \v{x}) $ e un certo $ k \coloneq (\omega/c, \v{k}) $ e otteniamo
+\begin{gather}
+  k^t g x = k'^t g x'= k'^t g \Lambda x \;\; \forall x \;\; \implies k'^tg \Lambda = k^t g 
+  \\
+  k'^t = k^t g \Lambda^{-1} g^{-1} = k^t \left( g \Lambda g\right)^{-1} \implies k' = \left( g \Lambda g\right)^{-1}{}^t\, k
+\end{gather}
+dove abbiamo usato che $ g^{-1} = g $. Dato che il gruppo di Lorentz può essere definito come
+\footnoteH{Anche il gruppo simplettico ammette una definizione 
+simile con la matrice 
+$ \Gamma = \DS 
+\begin{pmatrix}
+  0 & \text{Id} \\ 
+  - \text{Id} & 0
+\end{pmatrix} $ al posto della metrica $ g $.} 
 \begin{align}
-  k^t g x = k'^t g x'= k'^t g \Lambda x \; \forall x \implies k'^tg \Lambda = k^t g 
-  \implies (g\Lambda)^t k' = \Lambda^t g k' =  g k  \\ \implies k' = g {(\Lambda^t)}^{-1} g k = \Lambda k
+  \Lambda^t g \Lambda = g ,
 \end{align}
-dove abbiamo usato che $ g^{-1} = g $ e $ gg {(\Lambda^t)}^{-1} g = \Lambda $. Dunque $ k $ deve trasformare come un quadrivettore, e la fase diventa 
+invertendo questa esplicitando la $ \Lambda^t $ si ottiene proprio la quantità che abbiamo ottenuto nella trasformazione di $ k $, 
+quindi abbiamo 
+\begin{align}
+  k' = \Lambda k
+\end{align}
+e dunque $ k $ deve trasformare come un quadrivettore. In questo modo possiamo esprimere la fase come contrazione degli indici: 
 $ \phi = k_\mu x^\mu $. Grazie a ciò possiamo trovare la frequenza e il vettore d'onda trasformati:
 \begin{align}
   \begin{cases}
-    \omega' = \gamma\left( \omega - \vec{\beta} \cdot c \v{k} \right)
+    \DS \omega' = \gamma\left( \omega - \vec{\beta} \cdot c\, \v{k} \right)
     \\
-    \v{k}' = \gamma \left( \v{k} - \vec{\beta} \frac{\omega}{c} \right)
+    \DS \v{k}' = \gamma \left( \v{k} - \vec{\beta} \, \frac{\omega}{c} \right)
   \end{cases}
 \end{align}
-e se vale la relazione di dispersione del vuoto per onda piana $ |\v{k}| = \frac{\omega}{c} $ si ha
+e se vale la relazione di dispersione del vuoto cioè $ \v{k}^2 = \frac{\omega^2}{c^2} $ allora la frequenza trasformata diventa
 \begin{align}
   \omega' = \omega \gamma \left( 1 - \vec{\beta} \cdot \vers{n} \right)
 \end{align}
-dove $ \vers{n} $ è la direzione di propagazione dell'onda. Dalla relazione ottenuta per la frequenza possiamo dividere fra il caso in cui 
-$ \vec{\beta} \parallel  \vers{n} $ che è detto \textit{effetto Doppler longitudinale} dove si ha
+dove $ \vers{n} $ è la direzione di propagazione dell'onda. Nel caso in cui $ \vec{\beta} \parallel  \vers{n} $, 
+che è detto \textit{effetto Doppler longitudinale}, l'espressione per $ \omega' $ si semplifica ottenendo
 \begin{align}
-  \omega = \omega \gamma \left( 1 - \beta \right) = \omega \sqrt{\frac{1 - \beta}{1 + \beta}}
+  \omega' = \omega \gamma \left( 1 - \beta \right) = \omega \sqrt{\frac{1 - \beta}{1 + \beta}}
 \end{align}
-e il caso in cui $ \vec{\beta} \cdot \vers{n} = \beta \cos\theta $ (che per $ \theta = \pi/2 $ è detto \textit{effetto Doppler trasversale}) e vale
+che l'analogo relativistico del effetto Doppler classico. Se esprimiamo con $ \theta $ l'angolo compreso fra la direzione del boost e la direzione di 
+propagazione dell'onda, si ha che $ \vec{\beta} \cdot \vers{n} = \beta \cos\theta $ ottenendo
 \begin{align}
   \omega' = \omega \gamma (1 - \beta \cos\theta ) \; \overset{\theta = \frac{\pi}{2}}{\longrightarrow}\; \omega' = \gamma \omega
 \end{align}
-
+dove abbiamo esplicitato il caso particolare in cui $ \theta = \frac\pi2 $ che è detto \textit{effetto Doppler trasversale}. Quest'ultimo è particolarmente 
+interessante perché non esiste un analogo effetto classico e ciò è dovuto al fattore di Lorentz $ \gamma $ che è presente nella versione relativistica, 
+infatti tutto il procedimento che abbiamo fatto comprende anche il caso classico per via della struttura delle trasformazioni di Lorentz che in 
+approssimazione non relativistica, $ v \ll c $, diventano le trasformazioni di Galileo.
 
 
 \chapter{Elettromagnetismo nella materia} \label{chap: elettromagnetismo nella materia}
@@ -3539,15 +3574,15 @@ preciso e a un istante, cosa che chiaramente non è vera ma è utile per dare un
   \implies P_i (\v{r},t) &= \frac1{4\pi k_e} \chi_{i j} E_j (\v{r}, t)
 \end{align}
 ma finora $ \chi_{i j} $ è ancora un tensore, che può portare a dei risultati come la polarizzazione orientata in modo diverso rispetto al campo elettrico, 
-quindi per ottenere il risultato più semplice in assoluto richiediamo che $ \chi_{i j} = \chi_e \, \delta_{ij} $ quindi si ottiene
-\begin{align}
-  \v{P}(\v{r}, t) = \frac1{4\pi k_e} \chi_e \,\v{E}(\v{r}, t)
+quindi per ottenere il risultato più semplice in assoluto richiediamo che $ \chi_{i j} = \chi \, \delta_{ij} $ quindi si ottiene
+\begin{align} \label{eq: relazione fra P e E}
+  \v{P}(\v{r}, t) = \frac1{4\pi k_e} \chi \,\v{E}(\v{r}, t)
 \end{align}
-dove $ \chi_e $ è detta \textit{suscettività elettrica}, ed è una grandezza adimensionale. Il vettore di induzione elettrica diventa
+dove $ \chi $ è detta \textit{suscettività elettrica}, ed è una grandezza adimensionale. Il vettore di induzione elettrica diventa
 \begin{align}
-  &\v{D} = \eps_0 \v{E} + \v{P} = \eps_0 (1 + \chi_e) \v{E} \eqcolon \eps \v{E}  \tag*{[\textnormal{SI}]}
+  &\v{D} = \eps_0 \v{E} + \v{P} = \eps_0 (1 + \chi) \v{E} \eqcolon \eps \v{E}  \tag*{[\textnormal{SI}]}
   \\
-  &\v{D} = 4\pi \v{P} + \v{E} = \left( 1 + 4\pi \chi_e \right) \v{E} \eqcolon \eps \v{E} \tag*{[\textnormal{cgs}]}
+  &\v{D} = 4\pi \v{P} + \v{E} = \left( 1 + 4\pi \chi \right) \v{E} \eqcolon \eps \v{E} \tag*{[\textnormal{cgs}]}
 \end{align}
 dove abbiamo definito la \textit{costante dielettrica del mezzo} $ \eps $. Abbiamo inoltre omesso la notazione con il campo medio $ \langle \v{E} \rangle $ 
 al fine di snellire la notazione, dunque da ora in poi supporremo sempre questa cosa, specificando invece quando si intende il campo microscopico.
@@ -3578,21 +3613,21 @@ abbiamo che
 \end{align}
 che ci permette di trovare il dipolo 
 \begin{align}
-  \v{d} = \alpha \v{E}_{\text{loc}}
+  \v{d} = \eps_0 \alpha \v{E}_{\text{loc}}
 \end{align}
 dove $ \alpha $ è la \textit{polarizzabilità atomica} (supponiamo che segua questa relazione lineare). La polarizzazione diventa, con $ n $ la densità di 
 elettroni,
 \begin{align}
-  \v{P} = n \alpha \v{E}_{\text{loc}} = n\alpha (\v{E} + \frac{4\pi k_e}{3} \v{P}) \implies \v{P} = \frac{n \alpha}{1 - \frac{4\pi k_e n \alpha}{3} } \v{E} 
-  \eqcolon \frac1{4\pi k_e} \chi_e \v{E}
+  \v{P} = \eps_0 n \alpha \v{E}_{\text{loc}} = n\alpha (\v{E} + \frac{4\pi k_e}{3} \v{P}) 
+  \implies \v{P} = \frac{n \alpha}{1 - \frac{n \alpha}{3} }\, \eps_0 \v{E} \eqcolon \eps_0 \chi \v{E}
 \end{align}
 Confrontiamo la relazione appena ottenuta con 
 \begin{align}
-  \v{P} = \frac1{4\pi k_e} (\eps_r - 1)\v{E}
+  \v{P} = \eps_0 (\eps_r - 1)\v{E}
 \end{align}
 e otteniamo che la costante dielettrica relativa rispetta la relazione
 \begin{align}
-  \chi_e = \eps_r - 1 = \frac{4\pi k_e n \alpha}{ \left( 1 - \frac{4\pi k_e n \alpha}{3} \right)} \implies \frac{\eps_r - 1}{\eps_r + 2} = \frac{4\pi k_e}{3}n\alpha
+  \chi = \eps_r - 1 = \frac{n \alpha}{ \left( 1 - \frac{ n \alpha}{3} \right)} \implies \frac{\eps_r - 1}{\eps_r + 2} = \frac{n\alpha}{3}
   \tag*{[Clausius-Mossotti]}
 \end{align}
 nota come \textit{relazione di Clausius-Mossotti}. Questa relazione ci dà una modo operativo per trovare la relazione costitutiva, dovendo soltanto 
@@ -3656,20 +3691,20 @@ interesse.
 
 Nella relazione 
 \begin{align} \label{eq:_integrale_di_convoluzione}
-  \v{P}(\v{r}, t) = \int_{-\infty}^{+\infty} g( t-t') \v{E}(\v{r}, t') \, dt'
+  \v{P}(\v{r}, t) = \eps_0 \int_{-\infty}^{+\infty} \chi( t-t') \v{E}(\v{r}, t') \, dt'
 \end{align}
-non possiamo più imporre che $ g( t - t') = \delta( t - t') $ e quindi che la risposta sia istantanea, perché i campi variano molto rapidamente. Dobbiamo 
+non possiamo più imporre che $ \chi( t - t') = \delta( t - t') $ e quindi che la risposta sia istantanea, perché i campi variano molto rapidamente. Dobbiamo 
 quindi sistemare questo integrale, pur mantenendo il principio di causalità, cioè che la risposta può dipendere soltanto dal campo a un tempo 
 $ \v{E}( t > t') $, e possiamo farlo imponendo che
 \begin{align}
-  g( t < t') = 0.
+  \chi( t < t') = 0.
 \end{align}
 Adesso è conveniente passare in trasformata di Fourier, e i motivi sono due: in generale il campo $ \v{E} $ nel dominio del tempo può essere molto 
 complicato, passando in trasformata lavoriamo con le sue componenti monocromatiche per poi ricomporre il campo facendo un integrale; il secondo motivo è 
 che riconosciamo che l'integrale in \eqref{eq:_integrale_di_convoluzione} è detto un integrale di convoluzione, e la trasformata di Fourier ha la proprietà 
 di trasformare integrali di convoluzione in prodotti. Ci aspettiamo di ottenere un risultato del tipo 
 \begin{align}
-  \v{P}_\omega(\v{r}) = g_\omega \v{E}_\omega(\v{r})
+  \v{P}_\omega(\v{r}) = \eps_0 \chi_\omega \v{E}_\omega(\v{r})
 \end{align}
 
 \section{Modello di Drude-Lorentz} \label{section:_Drude-Lorentz}
@@ -3709,7 +3744,7 @@ Definiamo la \textit{frequenza di plasma} $ \omega_p $ come
 \end{align}
 e quindi la $ \eps(\omega) $ definita come 
 \begin{align}
-  \eps_r(\omega) = 1 + \frac{g_\omega}{\eps_0} = 1 + \frac{\omega_p^2}{\omega_0^2 - \omega^2 - i \gamma \omega}
+  \eps_r(\omega) = 1 + \frac{g_\omega}{\eps_0} = 1 + \chi_\omega = 1 + \frac{\omega_p^2}{\omega_0^2 - \omega^2 - i \gamma \omega}
 \end{align}
 Essendo complesso la dividiamo in parte reale e parte immaginaria, che rappresentano rispettivamente il termine dispersivo e il termine dissipativo:
 \begin{align}
@@ -3809,6 +3844,69 @@ l'indice di rifrazione $ \tilde{n}^2 = n_1 + in_2 = \eps_{r1} + i \eps_{r2} $ si
   \end{cases}
 \end{align}
 
+\section{Relazioni di Kramers-Kronig}
+In questa sezione introdurremo dei risultati di Analisi Complessa al fine di ricavare delle relazioni che legano la parte reale del $ \chi $ in 
+equazione \eqref{eq: relazione fra P e E} con la sua parte immaginaria. Tuttavia queste relazioni non esistono "a priori" perché senza applicare 
+particolari ipotesi, $ \chi_1 $ e $ \chi_2 $ sono indipendenti. Non lo sono più quando abbiamo imposto l'ipotesi di causalità cioè che la risposta 
+deve essere successiva alla causa, che abbiamo tradotto in $ \chi(t - t') = 0 $ per $ t < t' $. La trasformata di Fourier della $ \chi(t) $ è 
+(con la convezione di dividere successivamente per $ 2\pi $)
+\begin{align}
+  \chi(\omega) = \int_{-\infty}^{+\infty} \chi(\tau) e^{i\omega \tau} \,d\tau
+\end{align}
+e se scriviamo l'esponenziale in forma trigonometrica si ottiene
+\begin{align}
+  \chi(\omega) = \int_{-\infty}^{+\infty} \chi(\tau) \cos(\omega \tau) \,d\tau + i \int_{-\infty}^{+\infty} \chi(\tau) \sin(\omega \tau) \,d\tau 
+  = \chi_p(\omega) + i \chi_d(\omega)
+\end{align}
+dove abbiamo riconosciuto la parte pari e dispari dovuta all'integrazione per le funzioni trigonometriche e alla unicità della decomposizione. Imponendo 
+che $ \chi(\tau) $ sia nulla per $ \tau < 0 $, si ha che $ \chi_p(\tau) = - \chi_d(\tau) $ per $ \tau < 0 $, mentre $ \chi_p(\tau) = \chi_d (\tau) $ per 
+$ \tau > 0 $. Dobbiamo tradurre questa relazione in frequenza, che sarebbe diretto se applicassimo la \textit{trasformata di Hilbert}, tuttavia è fuori dai 
+nostri scopi introdurre un'altra trasformata, e quindi ci viene in aiuto l'analisi complessa. 
+Scriviamo la frequenza (che fino a ora era reale) come numero complesso:
+\begin{align}
+  \omega = \omega_1 + i \omega_2.
+\end{align}
+Sostituiamo questa nuova frequenza nell'integrale ottenendo 
+\begin{align}
+  \chi(\omega) = \int_{0}^{+\infty} \chi(\tau) e^{i\omega_1 \tau} \cdot e^{-\omega_2 \tau} \,d\tau
+\end{align}
+che nel semipiano positivo del piano complesso ($ \omega_2 > 0 $) è assolutamente convergente, e per la convergenza dominata anche derivabile, per queste 
+ragioni la funzione $ \chi(\omega) $ è \textit{olomorfa}. \input{build/figure/kramers-kronig.tex}
+
+Fissato $ \omega_0 \in \R $, vogliamo valutare il seguente integrale:
+\begin{align}
+  \oint_\gamma \frac{\chi(\omega)}{\omega - \omega_0} \,d\omega
+\end{align}
+con $ \gamma $ una curva semplice, chiusa, rappresentata in figura \ref{fig:contorno-kk}, formata dall'unione di $ C $, $ \Gamma $ e la semiretta reale 
+(escluso il punto $ \omega_0 $), con $ \Gamma $ la semicirconferenza di raggio $ R $ centrata nell'origine del piano complesso. 
+Spezziamo l'integrale sulla curva $ \gamma $ nelle tre curve che la compongono:
+\begin{align}
+  \oint_\gamma  = \int_{C_\eps} + \int_\Gamma + \int_{-\infty}^{+\infty} 
+\end{align}
+e notiamo subito che membro di sinistra (l'integrale originale) è nullo per il teorema di Cauchy-Goursat, così come l'integrale sulla semicirconferenza 
+$ \Gamma $ per il decadimento all'infinito (dopo ritorneremo su questo punto). Gli altri due termini sono non nulli, e sviluppiamo il primo ottenendo
+\begin{align}
+  \int_{C_\eps} \frac{\chi(\omega)}{\omega - \omega_0} \,d\omega 
+  = - \int_0^\pi \frac{\chi(\omega_0 + \rho e^{i\theta})}{\rho e^{i\theta}} i \rho e^{i \theta} \,d\theta
+  \overset{\rho \to 0}{=} - i \pi \chi(\omega_0) 
+\end{align}
+dove abbiamo usato la sostituzione $ \omega - \omega_0 = \tilde{\omega} = \rho e^{i \theta} $ e il fatto che il raggio del cerchietto va a $ 0 $. 
+Abbiamo quindi che 
+\begin{align}
+  \int_{-\infty}^{+\infty} \frac{\chi(\omega)}{\omega - \omega_0} \,d\omega 
+  \coloneq \fint_{-\infty}^{+\infty} \frac{\chi(\omega)}{\omega - \omega_0} \,d\omega 
+  = i \pi \chi(\omega_0) = \pi \left( -\chi_2(\omega_0) + i \chi_1(\omega_0) \right)
+\end{align}
+dove abbiamo anche definito il simbolo di "integrale parte principale" con $ \fint $. Non resta che esplicitare le relazioni eguagliando parte reale e 
+parte immaginaria:
+\begin{align}
+  \begin{cases}
+    \DS \chi_1(\omega_0) =\frac1\pi \int_{-\infty}^{+\infty} \frac{\chi_2(\omega)}{\omega - \omega_0} \,d\omega 
+    \\
+    \DS \chi_2(\omega_0) = - \frac1\pi \int_{-\infty}^{+\infty} \frac{\chi_1(\omega)}{\omega - \omega_0} \,d\omega 
+  \end{cases} \tag*{[Kramers-Kronig]}
+\end{align}
+che sono dette \textit{relazioni di Kramers-Kronig}.
 
 \section{Onde incidenti}
 Vogliamo studiare come si comportano i mezzi quando facciamo incidere un onda all'interfaccia, il più semplice setup sperimentale è quello realizzato in 
@@ -3822,8 +3920,22 @@ Facendo incidere una onda piana sul mezzo si generano due onde, questo perché d
 devono conservarsi le componenti $ E_\parallel, \mu_0 H_\parallel = B_\parallel $. Siccome devono essere verificate a tutti i tempi, ricaviamo subito che 
 la frequenza $ \omega $ dell'onda incidente deve essere la stessa dell'onda riflessa e trasmessa. Per l'invarianza traslazionale sulle $ y $ abbiamo che 
 anche $ k_{y} $ si conserva dunque è $ 0 $ per ogni onda. Se nell'onda trasmessa è presente la componente immaginaria del vettore d'onda, ci aspettiamo 
-che sia solamente lungo $ z $ cioè $ \v{k}_I = k_I \vers{z} $, questo perché ci aspettiamo che l'onda si attenui man mano che procede all'interno del mezzo.
-Anche la componente $ k_x $ deve conservarsi per l'invarianza traslazionale quindi $ k_{ix} = k_{rx} = k_{tx} $, adesso abbiamo abbastanza informazioni per 
+che sia solamente lungo $ z $ cioè $ \v{k}_2 = k_2 \vers{z} $, questo perché ci aspettiamo che l'onda si attenui man mano che procede all'interno del mezzo, 
+mentre sempre per l'invarianza traslazionale la componente $ k_x $ deve conservarsi, cioè $ k_{ix} = k_{rx} = k_{tx} $. Una visualizzazione più matematica 
+di ciò si ha considerando che le tre onde, incidente, riflessa e trasmessa, sono onde piane cioè $ \v{E} e^{i(\v{k\cdot r } - \omega t)} $, e le condizioni 
+di raccordo sono relazioni lineari fra queste, che significa che avremo per ogni condizione una equazione del tipo:
+\begin{align}
+  A e^{i(\v{k}_i \cdot \v{r} - \omega t)} + B e^{i(\v{k}_r \cdot \v{r} - \omega t)} = C e^{i(\v{k}_t \cdot \v{r} - \omega t)}
+\end{align} 
+tutte da valutare alla superficie di incidenza che nel nostro caso è $ z = 0 $. Queste equazioni ammettono dei coefficienti costanti come soluzione 
+soltanto nel caso in cui gli esponenziali sono uguali e cioè la fase $ \phi = (\v{k\cdot r } - \omega t) $ deve essere la stessa per tutti, 
+ma questo significa proprio
+\begin{align}
+  \omega, k_x, k_y \;\; \textnormal{conservati.}
+\end{align}
+
+
+Adesso abbiamo abbastanza informazioni per 
 imporre la relazione di dispersione che è 
 \begin{align}
   \v{k} \cdot \v{k} = \tilde{\eps}\, \frac{\omega^2}{c^2}
