@@ -2713,8 +2713,10 @@ valutare i campi è $ \v{ r } $ mentre la distanza fra il punto e un elemento de
 passiamo ai potenziali ritardati nel dominio delle frequenze facendo una trasformata di Fourier
 \begin{align}
   \v{ A }_\omega (\v{ r }) &= \mathcal{F}(\v{ A }(\v{ r },t)) 
-  = k_m \int  \frac{\v{ J }_\omega(\v{ r' }) e^{-i\omega t_r}}{|\v{x-x'}|} e^{i\omega t} \,d^3r' 
-  = k_m \int  \frac{\v{ J }_\omega(\v{ r' })}{|\v{x-x'}|} e^{i\frac{\omega}{c} |\v{x - x'}| } \,d^3r' 
+  = k_m \int d^3r' \int_{-\infty}^{+\infty} dt \frac{\v{ J }(\v{ r' }) e^{-i\omega t_r}}{|\v{r-r'}|} e^{i\omega t} \,d^3r' 
+  \\
+  &= k_m \int  \frac{e^{i\frac\omega{c} |\v{r - r'}|}}{|r - r'} \left( \int \v{J(\v{r'}, t)} e^{i\omega t} \,dt \right) \, d^3 r'
+  = k_m \int  \frac{\v{ J }_\omega(\v{ r' })}{|\v{r-r'}|} e^{i\frac{\omega}{c} |\v{r - r'}| } \,d^3r' 
   \\
   &\simeq k_m \int  \frac{\v{ J }_\omega(\v{ r' })}{R - \frac{\v{r\cdot r'}}{R}}\; e^{i k (R - \frac{\v{r\cdot r'}}{R})} \,d^3r' 
   \simeq k_m\; \frac{e^{ik R}}{R} \int \v{J}_\omega(\v{r'}) \; e^{-ik \frac{ \v{r\cdot r'} }{ R }} \,d^3r'
@@ -3615,11 +3617,11 @@ che ci permette di trovare il dipolo
 \begin{align}
   \v{d} = \eps_0 \alpha \v{E}_{\text{loc}}
 \end{align}
-dove $ \alpha $ è la \textit{polarizzabilità atomica} (supponiamo che segua questa relazione lineare). La polarizzazione diventa, con $ n $ la densità di 
+dove $ \alpha $ è la \textit{polarizzabilità atomica} (supponiamo che segua questa relazione lineare). La polarizzazione diventa, con $ N $ la densità di 
 elettroni,
 \begin{align}
-  \v{P} = \eps_0 n \alpha \v{E}_{\text{loc}} = n\alpha (\v{E} + \frac{4\pi k_e}{3} \v{P}) 
-  \implies \v{P} = \frac{n \alpha}{1 - \frac{n \alpha}{3} }\, \eps_0 \v{E} \eqcolon \eps_0 \chi \v{E}
+  \v{P} = \eps_0 N \alpha \v{E}_{\text{loc}} = N\alpha (\v{E} + \frac{4\pi k_e}{3} \v{P}) 
+  \implies \v{P} = \frac{N \alpha}{1 - \frac{N \alpha}{3} }\, \eps_0 \v{E} \eqcolon \eps_0 \chi \v{E}
 \end{align}
 Confrontiamo la relazione appena ottenuta con 
 \begin{align}
@@ -3627,12 +3629,15 @@ Confrontiamo la relazione appena ottenuta con
 \end{align}
 e otteniamo che la costante dielettrica relativa rispetta la relazione
 \begin{align}
-  \chi = \eps_r - 1 = \frac{n \alpha}{ \left( 1 - \frac{ n \alpha}{3} \right)} \implies \frac{\eps_r - 1}{\eps_r + 2} = \frac{n\alpha}{3}
+  \chi = \eps_r - 1 = \frac{N \alpha}{ \left( 1 - \frac{ N \alpha}{3} \right)} \implies \frac{\eps_r - 1}{\eps_r + 2} = \frac{n\alpha}{3}
   \tag*{[Clausius-Mossotti]}
 \end{align}
 nota come \textit{relazione di Clausius-Mossotti}. Questa relazione ci dà una modo operativo per trovare la relazione costitutiva, dovendo soltanto 
-trovare $ n $ (relativamente facile) e $ \alpha $, che come vedremo nella sezione \ref{section:_Drude-Lorentz} richiederà un modello per descrivere 
-la risposta atomica.
+trovare $ N $ (relativamente facile) e $ \alpha $, che come vedremo nella sezione \ref{section:_Drude-Lorentz} richiederà un modello per descrivere 
+la risposta atomica. L'equazione di Clausius-Mossotti inserisce le correzioni al campo macroscopico dovute a una polarizzazione, dunque il campo locale 
+sarà tanto più diverso dal campo macroscopico quanto più sono importanti gli effetti di polarizzazione, che si traduce in tanto più è grande la 
+densità di dipoli $ N $. Per questo ragionamento, la relazione che abbiamo ricavato si dice che vale per \textit{mezzi densi}, proprio perché nei mezzi 
+rarefatti come i gas la densità $ N $ è molto più piccola rispetto a liquidi e solidi.
 
 \section{Energia e leggi di conservazione}
 Il lavoro del campo elettromagnetico sulle cariche è dovuto solo al campo elettrico e vale 
@@ -3716,7 +3721,7 @@ Il modello di Drude-Lorentz considera l'elettrone come una particella sottoposta
 noi sarà la forza di Coulomb dovuta al campo elettrico di una onda (piana) incidente. 
 Questo si realizza in una equazione del moto per una particella di carica $ q $ e massa $ m $ in una equazione del moto del tipo 
 \begin{align}
-  m \ddot{\v{x}} = - \omega_0^2 \v{x} - \gamma m \dot{\v{x}} + q \v{E}(\v{r}, t)
+  m \ddot{\v{r}} = - \omega_0^2 \v{r} - \gamma m \dot{\v{r}} + q \v{E}(\v{r}, t)
 \end{align}
 Per una onda piana abbiamo $ \v{E}(\v{r} = 0 , t) = E_0 \vers{z} e^{-i\omega t} $ che abbiamo ipotizzato lungo $ z $ (cosa che non cambia la trattazione, 
 a regime la direzione delle oscillazioni sarà la stessa del campo elettrico), supponiamo una soluzione dello stesso tipo cioè $ \v{z} = z_0 e^{-i\omega t} $ 
@@ -3759,7 +3764,7 @@ Il $ \chi(\omega) $ che abbiamo appena trovato grazie a Drude-Lorentz è esattam
 proporzionalità fra il campo elettrico e la polarizzazione indotta, dunque è l'$\alpha$ che ci serviva nella relazione di Clausius-Mossotti.
 
 \section{Zone di frequenza} % da cambiare il titolo
-Nella sezione precedente abbiamo ricavato che la costante dielettrica nel modello Drude-Lorentz ha parte reale e parte immaginaria, ognuna relativa 
+Nella sezione precedente abbiamo ricavato che la funzione dielettrica nel modello Drude-Lorentz ha parte reale e parte immaginaria, ognuna relativa 
 a un fenomeno fisico diverso, dispersione e assorbimento, con grafici:
 % grafico dispersione e assorbimento
 Possiamo distinguere il dominio delle frequenze in tre zone dette I, II, III.
@@ -3794,21 +3799,25 @@ e quindi la velocità di fase è
 \begin{align}
   v_f = \frac{c}{n(\omega)} = \frac{c}{\sqrt{1 + \frac{\omega_P^2}{\omega_0^2 - \omega^2 }}}
 \end{align}
-In generale per i nostri scopi vale la relazione per l'indice di rifrazione, considerando $ \mu_r \simeq 1 $,
+Notiamo che in questa espressione il denominatore $ \omega_0^2 - \omega^2 $ diventa negativo per $ \omega > \omega_0 $, il che ci porta al risultato 
+assurdo di $ v_f > c $, cioè che la velocità dell'onda nel mezzo diventa superluminale e per questo motivo la velocità di fase perde di significato in 
+questa zona. Un altro motivo che ci spinge a cercare una nuova velocità da associare alle onde nel mezzo è il fatto che adesso la velocità di fase varia in 
+base alla frequenza, dunque ci serve una velocità che descriva un pacchetto di onde che si muove nel mezzo. È chiaro che la velocità di gruppo $ v_g $ 
+risolve il problema, dalla definizione abbiamo 
 \begin{align}
-  n(\omega) \simeq \sqrt{\eps_r (\omega)}.
+  v_g = \frac{d\omega}{dk} = \frac{1}{\frac{dk}{d\omega}} = \frac{c}{n(\omega) + \omega \frac{dn}{d\omega}}
 \end{align}
 
-\textbf{Zona III}: mezzo assorbente e dispersivo. In questa zona la costante dielettrica è in generale complessa: 
+\textbf{Zona III}: mezzo assorbente e dispersivo. In questa zona la funzione dielettrica è in generale complessa: 
 $ \eps(\omega) = \eps_1(\omega) + i \eps_2(\omega) $, tuttavia consideriamo sempre mezzi non magnetici, dunque 
 $ \mu(\omega) = \mu_0 $ e $ \v{B} = \mu_0 \v{H} $. Dalla definizione il vettore di induzione elettrica vale 
 $ \v{D}(\omega) = \tilde{\eps}(\omega) \v{E}(\omega) $ e quindi usiamo le equazioni di Maxwell per ricavare la relazione di dispersione:
-\begin{align}
+\begin{gather}
   \nabla \times \nabla \times \v{E} = \nabla \times \left( i\omega \v{B} \right) = i\omega \mu_0 \nabla \times \v{H} 
-  &= \omega^2 \mu_0 \tilde{\eps}(\omega) \v{E}
+  = \omega^2 \mu_0 \tilde{\eps}(\omega) \v{E}
   \\
-  \implies \nabla^2 \v{E} + \omega^2 \mu_0 \tilde{\eps}(\omega) \v{E} &= 0
-\end{align}
+  \implies \nabla^2 \v{E} + \omega^2 \mu_0 \tilde{\eps}(\omega) \v{E} = 0
+\end{gather}
 considerando un andamento dei campi del tipo $ f(\v{r},t) \sim e^{i(\v{k \cdot r} - \omega t)}$ dalla precedente equazione otteniamo
 \begin{align}
   i \v{k} \cdot (i \v{k}) \v{E} + \omega^2 \mu_0 \tilde{\eps}(\omega) \v{E} = 0 \implies \v{k \cdot k} = \omega^2 \mu_0 \tilde{\eps}(\omega) 
@@ -3816,7 +3825,7 @@ considerando un andamento dei campi del tipo $ f(\v{r},t) \sim e^{i(\v{k \cdot r
 \end{align}
 che è la relazione di dispersione che cercavamo. Da questa osserviamo che $ \v{k} $ deve essere necessariamente complesso e lo indicheremo come
 $ \v{k} = \v{k}_1 + i\v{k}_2 $ e quindi l'andamento dei campi può essere riscritto nella forma 
-$ f(\v{r},t) \sim e^{i(\v{k_1 \cdot r} - \omega t)}\cdot e^{-\v{k}_2} \cdot \v{r} $. Sviluppiamo la relazione di dispersione:
+$ f(\v{r},t) \sim e^{i(\v{k_1 \cdot r} - \omega t)}\cdot e^{-\v{k}_2 \cdot \v{r}} $. Sviluppiamo la relazione di dispersione:
 \begin{align}
   (\v{k}_1 + i\v{k}_2)(\v{k}_1 + i\v{k}_2) &= k_1^2 -k_2^2 + 2 i\v{k}_1  \cdot \v{k}_2 
   = \frac{\omega^2}{c^2} \eps_{r1}(\omega) + i \frac{\omega^2}{c^2} \eps_{r2}(\omega)
@@ -3843,6 +3852,172 @@ l'indice di rifrazione $ \tilde{n}^2 = n_1 + in_2 = \eps_{r1} + i \eps_{r2} $ si
     2n_1 n_2 = \eps_{r2}(\omega).
   \end{cases}
 \end{align}
+
+Precedentemente avevamo definito la polarizzabilità atomica $ \alpha(\omega) $ come il coefficiente di proporzionalità (a meno di un $ \eps_0 $) fra il 
+campo elettrico locale e il dipolo indotto, cioè
+\begin{align}
+  \v{d} = \eps_0 \alpha(\omega) \v{E}_{\text{loc}},
+\end{align}
+la quale è legata alla suscettibilità elettrica dalla densità volumetrica di dipoli $ N $ come 
+\begin{align}
+  \chi(\omega) = N \alpha(\omega).
+\end{align}
+Scriviamo l'indice di rifrazione in termini della polarizzabilità:
+\begin{align}
+  n = \sqrt{\eps_r} = \sqrt{1 + N\alpha} = \sqrt{1 + \frac{\omega_p^2}{\omega_0^2 - \omega^2 - i \gamma \omega}}.
+\end{align}
+Definiamo il \textit{coefficiente di assorbimento} $ \beta $ come 
+\begin{align}
+  \beta \coloneq 2 k_2 = 2 n_2 \frac{\omega}{c}
+\end{align}
+e in questo modo possiamo esprimere l'onda in un mezzo assorbente che assumiamo propagarsi lungo $ z $ come
+\begin{align}
+  \v{E} = \v{E}_0 e^{i (k_1 z - \omega t)} e^{ - \beta \frac{z}{2}}
+\end{align}
+
+\section{Onde nei conduttori}
+Il modello del conduttore consiste nell'eliminare la frequenza di risonanza perché consideriamo gli elettroni non più come legati armonicamente al nucleo 
+ma liberi di muoversi all'interno del mezzo, sottoposti soltanto alla dissipazione e alla forza di Lorentz. La dissipazione in questo caso è dovuta, 
+oltre che all'irraggiamento, agli urti con gli atomi del conduttore nel muoversi. Proprio questi urti sono il motivo per il quale gli elettroni, in un 
+conduttore sottoposto a campo elettrico costante, non subiscono una accelerazione costante ma nel complesso raggiungono una velocità detta 
+\textit{velocità di deriva} (\textit{drift velocity}) $ v_d $. Per ricavare tale velocità consideriamo l'equazione del moto (in una dimensione) di un 
+elettrone sottoposto a un campo elettrico costante lungo $ x $ che è
+\begin{align}
+  m_e \ddot{x} = - e E = m_e a_x
+\end{align}
+e introducendo un parametro $ \tau $ che rappresenta un tempo caratteristico fra un urto e il successivo si ottiene che la velocità di drift è
+\begin{align}
+  v_d = a_x \tau = - \frac{e \tau E}{m_e}.
+\end{align}
+Questa affermazione è valida perché: $ v_d $ rappresenta una velocità caratteristica del flusso di elettroni; discretizzando l'equazione fra un urto e 
+l'altro, per $ \tau $ abbastanza piccoli (e lo è) si ha che il moto accelerato a tratti degli elettroni può essere descritto da una equazione del moto con 
+una dissipazione, tuttavia questo modello non aggiunge nulla alla fisica del sistema e porta allo stesso risultato; l'unica velocità che si poteva ottenere 
+dai parametri che avevamo è proprio $ v_d $. La densità di corrente dovuta al moto di  questi elettroni si ricava come
+\begin{align}
+  J = \frac{N_e \,q\, v_d}{V} = \frac{N e^2 \tau }{m_e} E \eqcolon \sigma_0 E
+\end{align}
+dove $ N_e $ è il numero di elettroni nel volume $ V $, $ N $ il loro rapporto (densità di elettroni) e abbiamo definito $ \sigma_0 $ come il coefficiente 
+fra il campo elettrico e la corrente che genera, che è detta \textit{conducibilità statica}. Quella che abbiamo ricavato è la \textit{legge di Ohm} 
+microscopica che lega la densità di corrente al campo elettrico che la induce. Per studiare il caso dinamico applichiamo il modello di Drude-Lorentz 
+(in realtà solo di Drude perché la parte della risonanza si riconduce a Lorentz) imponendo $ \omega_0 = 0 $:
+\begin{align}
+  m \ddot{\v{r}} = - m \gamma \dot{\v{r}} + q \v{E}(\v{r}, t).
+\end{align}
+Cerchiamo prima una soluzione per la velocità: dato che il campo elettrico ha 
+un andamento temporale del tipo $ e^{-i\omega t} $, supponiamo lo stesso andamento per la velocità e otteniamo
+\begin{align}
+  -i\omega \v{v} = -\gamma \v{v} + \frac{q}{m} \v{E} \implies \v{v} = \frac{q/m}{\gamma - i \omega} \v{E}.
+\end{align}
+In analogia col caso statico, leghiamo $ \gamma $ al tempo caratteristico come $ \gamma = 1/\tau $, e ci ricaviamo una nuova conducibilità moltiplicando 
+per $ N q $, ottenendo 
+\begin{align}
+  \v{v} = \frac{q \tau/m}{1 - i \omega \tau } \v{E} \quad \textnormal{e} \quad \sigma(\omega) = \frac{{N q^2 \tau}/{m}}{1 - i \omega\tau} 
+  = \frac{\sigma_0 }{1 - i \omega \tau}
+\end{align}
+dove abbiamo riconosciuto la conducibilità statica. Questa nuova conducibilità dipendente dalla frequenza è complessa e quindi la dividiamo in parte reale 
+e immaginaria:
+\begin{align}
+  \sigma = \sigma_1 + i \sigma_2 = \frac{\sigma_0}{1 + \omega^2 \tau^2}\left( 1 + i \omega \tau \right)
+\end{align}
+dove la parte reale è detta \textit{dissipativa} perché responsabile dell'energia ceduta alle cariche, mentre quella immaginaria è la risposta inerziale 
+degli elettroni quindi relativa allo sfasamento.
+
+Risolvendo invece per la posizione $ \v{r} $ otteniamo esattamente il modello di Drude-Lorentz con $ \omega_0 = 0 $, leghiamo con la polarizzazione 
+$ \v{P} = N q \v{r} $ e si ottiene la funzione dielettrica relativa $ \eps_r(\omega) $:
+\begin{align}
+  \eps_r(\omega) = 1 - \frac{\omega_p^2}{\omega^2 + i \gamma \omega} \;\; \textnormal{con} \;  \omega_p^2 = \frac{N e^2 }{\eps_0 m_e } 
+\end{align}
+che leghiamo alla conducibilità complessa appena definita come 
+\begin{gather}
+  \eps_r( \omega) = 1 + \frac{i \sigma(\omega)}{\eps_0 \omega}, 
+  \\
+  \textnormal{con} \;
+  \begin{cases}
+    \DS \eps_{r,1} = 1 - \frac{\omega_p^2}{\omega^2 + \gamma^2} 
+    \\
+    \DS \eps_{r,2} = \frac{\omega \gamma \omega_p^2}{\omega^4 + \gamma^2\omega^2}
+  \end{cases}  
+\end{gather}
+dove abbiamo diviso in parte reale e immaginaria. Per comodità riportiamo la relazione tra frequenza di plasma e conducibilità statica:
+\begin{align}
+  \omega_p^2 = \frac{\sigma_0}{\eps_0 \tau}.
+\end{align}
+Di seguito analizzeremo alcuni regimi di queste di questo modello.
+
+\textbf{Basse frequenze}. Consideriamo il limite di basse frequenze la condizione 
+\begin{align}
+  \omega \tau \ll 1
+\end{align}
+che ci porta a una conducibilità reale (niente sfasamento) pari alla conducibilità nel caso statico $ \sigma_0 $. L'indice di rifrazione in questo 
+regime vale 
+\begin{align}
+  n^2 \simeq 1 - \frac{i \sigma_0}{\eps_0 \omega} 
+\end{align}
+dove con l'approssimazione di buon conduttore $ \sigma_0 \gg \eps_0 \omega $ l'indice di rifrazione è quali solo immaginario, il che ci porta a un vettore 
+d'onda pari a 
+\begin{align}
+  \v{k}^2 = \frac{\omega^2}{c^2} \, i \frac{\sigma_0}{\eps_0 \omega} \implies |\v{k}| = \sqrt{\frac{\omega \mu_0 \sigma_0}{2}} (1 + i)
+\end{align}
+che è proprio il risultato a cui eravamo arrivati nello studiare i le cavità in regime di campi lentamente variabili. Infatti la lunghezza pelle è di nuovo 
+\begin{align}
+  \delta = \sqrt{\frac{2}{\omega \mu_0 \sigma_0}}, 
+\end{align}
+che rappresenta la lunghezza caratteristica con la quale penetrano i campi, infatti all'interno abbiamo che 
+\begin{align}
+  \v{E} = \v{E}_0 e^{i (\v{k \cdot r} - \omega t)} \simeq \v{E}_0 e^{i (k x - \omega t)} \cdot e^{-x/\delta}.
+\end{align}
+Questo range di frequenze corrisponde nel rame a $ f \ll \SI{4e12}{\Hz} = \SI{4}{\THz} $ e quindi copre dalla continua fino all'infrarosso lontano, 
+diminuendo via via la penetrazione (aumenta l'effetto pelle) all'aumentare della frequenza.
+
+\textbf{Alte frequenze}. Stavolta la condizione è opposta, cioè
+\begin{align}
+  \omega \tau \gg 1
+\end{align}
+che ci porta una conducibilità puramente immaginaria:
+\begin{align}
+  \sigma(\omega) = i \frac{\sigma_0}{\omega \tau} \implies n^2 = 1  - \frac{\sigma_0}{\eps_0 \tau \omega^2} = 1 - \frac{\omega_p^2}{\omega^2}.
+\end{align}
+Da questo risultato possiamo distinguere altri due regimi: quando la frequenza è minore della frequenza di plasma, $ \omega < \omega_p $, $ \eps_r $ è 
+negativo che ci porta a un vettore d'onda $ \v{k} $ puramente immaginario, di conseguenza il campo all'interno del mezzo decade soltanto senza fare 
+oscillazioni come
+\begin{gather}
+  k_2 = \frac{1}{c} \sqrt{\omega_p^2 - \omega^2} \coloneq \frac{1}{\delta}
+  \\
+  \v{E} = \v{E}_0 e^{-i\omega t} \cdot e^{-x/\delta}.
+\end{gather}
+In questo caso l'onda è detta \textit{evanescente} e siamo in un regime di riflessione totale (il coefficiente di riflettanza che definiamo nella sezione 
+\ref{sec: onde incidenti} è uguale a $ 1 $), le frequenze di cui stiamo parlando (sempre nel rame) sono comprese fra 
+$ \SI{4e12}{\Hz} \ll f \ll \SI{2.6e15}{\Hz} $ coprendo quindi l'infrarosso medio, il visibile e l'ultravioletto vicino. Proprio per questo motivo la 
+lucentezza è tipica dei metalli (nel visibile).
+
+Invece nel caso in cui $ \omega > \omega_p $ abbiamo che l'indice di rifrazione si avvicina sempre più ad $ 1 $, e il vettore d'onda è reale. Dunque 
+l'onda si propaga senza attenuazione dove si dice che il metallo diventa trasparente. Se non si trascura completamente lo smorzamento, in realtà 
+anche in questo regime compare una componente dissipativa al secondo ordine in $ \gamma $: sviluppiamo in Taylor la funzione dielettrica per 
+$ \gamma \ll \omega $ e otteniamo
+\begin{align}
+  \eps_r(\omega) = 1 - \frac{\omega_p^2}{\omega^2} + i \, \gamma \,\frac{ \omega_p^2 }{\omega^3} + O(\gamma^2)
+\end{align}
+che ci porta a un vettore d'onda che vale
+\begin{align}
+  k_1 &\simeq \frac\omega{c} \sqrt{\eps_1} = \frac{1}{c} \sqrt{\omega^2 - \omega_p^2}
+  \\
+  k_2 &\simeq \frac\omega{c} \sqrt{\frac{\eps_2}{4\eps_1}} = \frac{\omega_p^2 \gamma }{2c\omega \sqrt{\omega^2 - \omega_p^2}}
+\end{align}
+Questo regime di frequenze corrisponde a $ f \gg \SI{2.6e15}{\Hz} = \SI{2.6}{\peta \hertz} $ cioè $ \lambda \ll \SI{114}{\nm} $, che corrispondono 
+all'ultravioletto estremo. Il limite del modello di Drude per i metalli è quando la frequenza si avvicina all'energia necessaria per la promozione 
+degli elettroni di valenza, che per Einstein risulta essere 
+\begin{align}
+  E = \hbar \omega = h f.
+\end{align}
+
+Un esempio di applicazione del modello fuori dall'ambito dei conduttori è quello della ionosfera: modellizziamo la ionosfera come un gas trasparente 
+di elettroni liberi con la differenza rispetto ai metalli riguardo la densità di portatori di carica $ N $ che arriva a 
+$ \SIrange{e11}{e12}{\per\cubic\metre} $ contro i $ \SIrange{e28}{e29}{\per\cubic\metre} $ dei metalli. Questo fa sì che la frequenza di plasma 
+della ionosfera arrivi nelle onde radio:
+\begin{align}
+  {f_p}_{\text{iono}} = \SIrange{3}{9}{\MHz}
+\end{align}
+e quindi le onde con una frequenza inferiore a quella di plasma vengono completamente riflesse.
 
 \section{Relazioni di Kramers-Kronig}
 In questa sezione introdurremo dei risultati di Analisi Complessa al fine di ricavare delle relazioni che legano la parte reale del $ \chi $ in 
@@ -3901,14 +4076,67 @@ dove abbiamo anche definito il simbolo di "integrale parte principale" con $ \fi
 parte immaginaria:
 \begin{align}
   \begin{cases}
-    \DS \chi_1(\omega_0) =\frac1\pi \int_{-\infty}^{+\infty} \frac{\chi_2(\omega)}{\omega - \omega_0} \,d\omega 
+    \DS \chi_1(\omega_0) =\frac1\pi \fint_{-\infty}^{+\infty} \frac{\chi_2(\omega)}{\omega - \omega_0} \,d\omega 
     \\
-    \DS \chi_2(\omega_0) = - \frac1\pi \int_{-\infty}^{+\infty} \frac{\chi_1(\omega)}{\omega - \omega_0} \,d\omega 
+    \DS \chi_2(\omega_0) = - \frac1\pi \fint_{-\infty}^{+\infty} \frac{\chi_1(\omega)}{\omega - \omega_0} \,d\omega 
   \end{cases} \tag*{[Kramers-Kronig]}
 \end{align}
-che sono dette \textit{relazioni di Kramers-Kronig}.
+che sono dette \textit{relazioni di Kramers-Kronig}. A questo punto usiamo il fatto che la funzione del tempo $ \chi(\tau) $ era reale, e che passando in 
+trasformata ci diventa
+\begin{align}
+  \chi^*(\omega) = \int\chi^*(\tau) e^{-i\omega \tau} \,d\tau = \int \chi(\tau) e^{-i\omega \tau} \,d\tau = \chi(-\omega)
+\end{align}
+ma allora possiamo usare questa per rielaborare le relazioni di Kramers-Kronig nel seguente modo:
+\begin{align}
+  \chi_1(\omega_0) &= \frac1\pi \left[ \fint_{0}^{+\infty} \frac{\chi_2(\omega)}{\omega - \omega_0} \,d\omega 
+  + \fint_{-\infty}^0 \frac{\chi_2(\omega)}{\omega - \omega_0} \,d\omega \right]
+  \\
+  &= \fint_{0}^{+\infty} \frac{\chi_2(\omega)}{\omega - \omega_0} \,d\omega 
+  + \fint_{0}^{+\infty} \frac{\chi_2(\omega)}{\omega + \omega_0} \,d\omega
+  \\
+  &= \frac2\pi \fint_{0}^{+\infty} \frac{ \omega\, \chi_2(\omega)}{\omega^2 - \omega_0^2} \,d\omega
+\end{align}
+e in modo analogo per la componente immaginaria che ci porta alle relazioni
+\begin{align}
+  \begin{cases}
+    \DS \chi_1(\omega_0) =\frac2\pi \fint_{0}^{+\infty} \frac{\omega \,\chi_2(\omega)}{\omega^2 - \omega_0^2} \,d\omega 
+    \\
+    \DS \chi_2(\omega_0) = - \frac{2\omega_0}\pi \fint_{0}^{+\infty} \frac{\chi_1(\omega)}{\omega^2 - \omega_0^2} \,d\omega.
+  \end{cases}
+\end{align}
+Ricondurci a questa forma ci ha permesso di esprimere le relazioni soltanto rispetto alle frequenze "fisiche", cioè quelle positive.
 
-\section{Onde incidenti}
+Nel limite di alte frequenze, come abbiamo visto nei conduttori, ci aspettiamo che ogni elettrone risponda come se fosse libero, dunque per 
+$ \omega $ molto più grande di tutte le scale energetiche la funzione di dielettrica di risposta $ \eps \to 1 - \frac{\omega_p^2}{\omega^2} $. Facendo 
+il limite nelle relazioni di Kramers-Kronig si ottiene che $ \omega'^2 - \omega^2 \to - \omega^2 $ e quindi
+\begin{gather}
+  - \frac{\omega_p^2}{\omega^2} = \eps_1(\omega) - 1 = - \frac{2}{\pi \omega^2} \int_{0}^{+\infty} \omega' \eps_2(\omega) \,d\omega' 
+  \\ 
+  \implies \int_{0}^{+\infty} \omega' \eps_2(\omega) \,d\omega' = \frac\pi{2} {\omega_p^2} = \frac{ \pi N e^2 }{2 \eps_0 m_e}
+\end{gather}
+dove si evince che l'assorbimento totale pesato per le frequenze è dettato dalla densità dei portatori di carica. 
+Per quanto riguarda la parte immaginaria $ \eps_2 $ c'è da aggiungere un termine nel caso dei metalli, questo perché in generale la $ \eps $ codificava 
+la corrente di spostamento in termini del campo elettrico, ma nei metalli abbiamo anche una corrente di conduzione sempre dovuta al campo elettrico, cosa 
+che si vede nell'equazione di Maxwell per il rotore di $ \v{H} $:
+\begin{align}
+  \nabla \times \v{H} = \v{J} + \partial_t \v{D} = \sigma(\omega) \v{E} - i\omega \eps(\omega) \v{E}.
+\end{align}
+Può essere utile raccogliere queste due risposte in una unica, ridefinendo la $ \eps_{\text{leg}}(\omega) $ come la risposta dielettrica dovuta alla 
+polarizzazione si ottiene
+\begin{align}
+  \eps_r(\omega) = \eps_{r, \text{leg}}(\omega) + \frac{i \sigma(\omega)}{\eps_0 \omega}.
+\end{align}
+In modo analogo, si ricava che nel limite di alta frequenza, utilizzando il limite della conducibilità dal modello di Drude, si ricava 
+una regola si somma anche per la reale:
+\begin{align}
+  \int_{0}^{+\infty} (\eps_1(\omega') - 1) \,d\omega' = - \frac{\pi \sigma_0}{2 \eps_0 }.
+\end{align}
+Queste due identità che determinano la somma delle proprietà ottiche di un mezzo materiale costituiscono un controllo sulla validità di dati acquisiti, 
+poiché dipendono da dalle caratteristiche costitutive del materiale.
+
+
+
+\section{Onde incidenti} \label{sec: onde incidenti}
 Vogliamo studiare come si comportano i mezzi quando facciamo incidere un onda all'interfaccia, il più semplice setup sperimentale è quello realizzato in 
 figura \ref{figure:_onda_incidente}. \input{figure/onda_incidente.tex} 
 Consideriamo il "mezzo a" come un mezzo semplice, cioè non assorbente, mentre il mezzo di trasmissione "mezzo b" lo consideriamo non magnetico quindi con 
@@ -4054,9 +4282,10 @@ $ k_t = \frac{\omega}{c} \sqrt{\tilde{\eps}_b} = \frac{\omega}{c} \tilde{n}_b $.
 \end{align}
 L'intensità di onda piana in un mezzo abbiamo visto essere
 \begin{align}
-  I = \langle |\v{S}| \rangle = \frac{n_R}{2 \mu_0} E^2
+  I = \langle |\v{S}| \rangle = \frac{n_1}{2 c \mu_0} E^2 = \frac{n_1}{2 Z_0} E_0^2
 \end{align}
-e da questa quantità definiamo due coefficienti detti \textit{coefficiente di riflessione} $ R $ (\textit{riflettanza}) e 
+dove abbiamo definito l'impedenza di vuoto $ Z_0 \coloneq \sqrt{\frac{\mu_0}{\eps_0}} \simeq \SI{377}{\ohm} $, 
+e da questa intensità definiamo due coefficienti detti \textit{coefficiente di riflessione} $ R $ (\textit{riflettanza}) e 
 \textit{coefficiente di trasmissione} $ T $ (\textit{trasmittanza}):
 \begin{align}
   R \coloneq \frac{I_r}{I_i} \quad T \coloneq \frac{I_t}{I_i}.
@@ -4371,7 +4600,7 @@ mentre per quanto riguarda la metrica la sua versione con gli indici alti è l'i
 \begin{align}
   g^{\mu \nu} g_{\nu \rho} = \delta^\mu{}_\rho
 \end{align}
-dove $ {\delta^\mu}_\rho $ è la delta di Kronecker. In relatività la $ \delta $ è definità come quella a cui siamo abituati solo quando ha un indice alto 
+dove $ {\delta^\mu}_\rho $ è la delta di Kronecker. In relatività la $ \delta $ è definita come quella a cui siamo abituati solo quando ha un indice alto 
 e uno basso, cioè
 \begin{align}
   \delta^\mu{}_\nu = 

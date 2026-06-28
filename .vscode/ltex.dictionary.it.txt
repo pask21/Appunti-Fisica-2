@@ -91,3 +91,8 @@ Pascarella
 Minkowski
 simplettico
 olomorfa
+superluminale
+drift
+velocity
+discretizzando
+modellizziamo
